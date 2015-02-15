@@ -63,6 +63,17 @@ return array(
 			'prefix'    => 'laravel_',
 
 		),
+		// 'mysql' => array(
+		// 	'driver'    => 'mysql',
+		// 	'host'      => '192.241.190.185',
+		// 	'database'  => 'laravel_tiaopc_demo',
+		// 	'username'  => 'root',
+		// 	'password'  => 'wy123123',
+		// 	'charset'   => 'utf8',
+		// 	'collation' => 'utf8_unicode_ci',
+		// 	'prefix'    => 'laravel_',
+
+		// ),
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
