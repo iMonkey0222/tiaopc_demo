@@ -69,8 +69,10 @@ Route::group(array('prefix' => 'account'), function()
 	Route::get('/', array('as' => 'account', 'uses' => 'HomeController@showWelcome'));
 	
 	// Profile 
-	Route::get('/', array('as' => 'profile', 'uses' => 'HomeController@showWelcome'));
-	Route::post('profile', 'HomeController@showWelcome');
+	Route::get('profile',array('as'=>'profile', 'uses'=>'Controllers\Account\ProfileController@getIndex'));
+	// Route::post('profile', 'HomeController@showWelcome');
+	Route::post('profile', 'Controllers\Account\ProfileController@postIndex');
+
 
 	// Change username
 	// Change password
@@ -80,6 +82,10 @@ Route::group(array('prefix' => 'account'), function()
 	// Change email
 	Route::get('change-email', array('as' => 'change-email', 'uses' => 'Controllers\Account\ChangeEmailController@getIndex'));
 	Route::post('change-email', 'Controllers\Account\ChangeEmailController@postIndex');
+
+	// View published products
+	Route::get('published-items', array('as'=> 'published-items', 'uses' => 'Controllers\Account\ReviewPublishmentController@getIndex')); 
+	Route::post('published-items', 'Controllers\Account\ReviewPublishmentController@postIndex');
 
 });
 
