@@ -8,8 +8,11 @@ Home page
 
 {{-- Page Content --}}
 @section('content')
-
-<h1>Now you've arrived to home page</h1>
+<section id="content">
+<div class="content-wrap">
+	<div class="container clearfix">
+		<div class="col_full">
+			<h1>Now you've arrived to home page</h1>
 
 
 <p>
@@ -92,6 +95,12 @@ $destinationPath ='./public/assets/img/';
 ?>
 </p>
 
+
+
+		</div>
+	</div>
+</div> 
+</section>
 
 
 
