@@ -33,7 +33,9 @@ Published Items
 		</thead>
 
 		<tbody>
-			This is body
+			@foreach ($items)
+
+			@endforeach
 			<tr>
 				<td>1</td>
 				<td>
@@ -47,7 +49,7 @@ Published Items
 			<tr>
 				<td>2</td>
 				<td>Product Image 2</td>
-				<td>$20</td>
+				<td>{{ }}</td>
 				<td>Unsold</td>
 			</tr>
 		</tbody>
