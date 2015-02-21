@@ -8,14 +8,9 @@ Home page
 
 {{-- Page Content --}}
 @section('content')
-<section id="content">
-<div class="content-wrap">
-	<div class="container clearfix">
-		<div class="col_full">
-			<h1>Now you've arrived to home page</h1>
 
 
-<p>
+
 <?php
 $data = Session::all();
 var_dump($data);
@@ -94,14 +89,6 @@ $destinationPath ='./public/assets/img/';
 
 ?>
 </p>
-
-
-
-		</div>
-	</div>
-</div> 
-</section>
-
 
 
 

@@ -142,10 +142,14 @@
 		<!-- Notifications -->
 		@include('frontend/notifications')
 
-  
-		<!-- Content -->
-		@yield('content')
-
+  		<section id="content">
+			<div class="content-wrap">
+				<div class="container clearfix">
+					<!-- Content -->
+					@yield('content')
+			</div>
+				</div>
+		</section
 
         <!-- Footer
         ============================================= -->
