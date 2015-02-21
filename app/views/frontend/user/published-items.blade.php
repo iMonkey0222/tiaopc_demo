@@ -12,14 +12,14 @@ Published Items
 </div>
 
 <form method="post" action="" class="form-horizontal" autocomplete="off">
-	<table>
+	<table class="table table-striped">
 		<thead>
 			<tr>
+				<th>#</th>
 				<th>Products</th>
 				<th>Prices</th>
 				<th>trade Status</th>
 			</tr>
-			<tr><td colspan="9">this is step row</td></tr>
 			<tr>
 				<td colspan="7">
 					<div class="controls">
@@ -33,9 +33,22 @@ Published Items
 
 		<tbody>
 			This is body
-			<tr><td colspan="7"></td></tr>
+			<tr>
+				<td>1</td>
+				<td>Product Image 1</td>
+				<td>$14</td>
+				<td>Sold</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>Product Image 2</td>
+				<td>$20</td>
+				<td>Unsold</td>
+			</tr>
 		</tbody>
 	</table>
+	<div class="line"></div>
+
 
 
 </form>
