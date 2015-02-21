@@ -2,7 +2,7 @@
 
 
 class Item extends Eloquent {
-	protected $fillable = [];
+	protected $fillable = ['seller_id'];
 
 
 	/**
@@ -26,4 +26,8 @@ class Item extends Eloquent {
 		return $this->hasMany('Transaction');
 	}
 
+	public function users()
+	{
+		return $this->belongsTo('User');
+	}
 }
