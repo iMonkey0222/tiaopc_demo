@@ -89,6 +89,11 @@
 								<li><a href="{{ route('home') }}">Home</a></li>
 								<li><a href="{{ URL::to('about-us') }}">About us</a></li>
 								<li ><a href="{{ URL::to('contact-us') }}">Contact us</a></li>
+								<li ><a href="{{ route('item') }}">Item</a></li>
+								@if (Sentry::check())
+								<li ><a href="{{ route('publish/item') }}">Publish</a></li>
+								@endif
+
 							</ul>
 
 							<ul class="nav pull-right">

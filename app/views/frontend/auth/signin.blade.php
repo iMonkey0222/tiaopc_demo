@@ -12,30 +12,33 @@ Account Sign in ::
 	<h3>Sign in into your account</h3>
 </div>
 <div class="row">
+	<div class="col-md-3">
+		This for left side bar
+	</div>
+	<div class="col-md-6">
 	<form method="post" action="{{ route('signin') }}" class="form-horizontal">
 		<!-- CSRF Token -->
 		<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
 		<!-- Email -->
-		<div class="control-group{{ $errors->first('email', ' error') }}">
-			<label class="control-label" for="email">Email</label>
-			<div class="controls">
-				<input type="text" name="email" id="email" value="{{ Input::old('email') }}" />
+		<div class="form-group{{ $errors->first('email', ' error') }}">
+			<label for="email">Email</label>
+	
+			<input type="text" class="form-control" name="email" id="email" value="{{ Input::old('email') }}" />
 				{{ $errors->first('email', '<span class="help-block">:message</span>') }}
-			</div>
 		</div>
 
 		<!-- Password -->
-		<div class="control-group{{ $errors->first('password', ' error') }}">
-			<label class="control-label" for="password">Password</label>
+		<div class="form-group{{ $errors->first('password', ' error') }}">
+			<label for="password">Password</label>
 			<div class="controls">
-				<input type="password" name="password" id="password" value="" />
+				<input type="password" class="form-control" name="password" id="password" value="" />
 				{{ $errors->first('password', '<span class="help-block">:message</span>') }}
 			</div>
 		</div>
 
 		<!-- Remember me -->
-		<div class="control-group">
+		<div class="form-group">
 			<div class="controls">
 			<label class="checkbox">
 				<input type="checkbox" name="remember-me" id="remember-me" value="1" /> Remember me
@@ -56,5 +59,6 @@ Account Sign in ::
 			</div>
 		</div>
 	</form>
+	</div>
 </div>
 @stop
