@@ -47,9 +47,9 @@ class AuthController extends BaseController {
 			Sentry::authenticate(Input::only('email','password'), Input::get('remember_me',0));
 
 			// Get the page we were before sign in
-			$redirect = Session::get('loginRedirect','account');
+			// $redirect = Session::get('loginRedirect','account');
 
-			echo "$redirect";
+
 
 			// Unset the page we were before from the session
 			Session::forget('loginRedirect');

@@ -145,8 +145,11 @@
 
        
 		<!-- Notifications -->
+		<div class="container clearfix">
 		@include('frontend/notifications')
+		</div>
 
+		<!-- Content -->
   		<section id="content">
 			<div class="content-wrap">
 				<div class="container clearfix">
