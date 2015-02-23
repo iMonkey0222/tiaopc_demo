@@ -19,8 +19,8 @@ echo "error is ";
 var_dump($errors->first());
 echo "<br>";
 
-$item = User::find(3)->getItems;
-var_dump($item);
+// $item = User::find(3)->getItems;
+// var_dump($item);
 // $categories = [
 //   ['id' => 1, 'name' => '手机', 'children' => [
 // 	  ['id' => 2, 'name' => '苹果'],

@@ -64,7 +64,7 @@
 
     <!-- Document Wrapper
     ============================================= -->
-    <div id="wrapper" class="clearfix">
+    <div id="wrapper" class="clearfix" >
 
         <!-- Header
         ============================================= -->
@@ -144,6 +144,18 @@
         </header><!-- #header end -->
 
        
+
+        <section id="page-title">
+
+        <div class="container clearfix">
+            @yield('page-title')
+        </div>
+
+        </section><!-- #page-title end -->    
+
+
+
+
 		<!-- Notifications -->
 		<div class="container clearfix">
 		@include('frontend/notifications')
