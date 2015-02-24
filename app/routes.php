@@ -124,4 +124,15 @@ Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showWelcome'));
 Route::get('request',array('as'=>'tempRuquest', 'uses' => 'HomeController@getRequest'));
 
 
+/**
+ * Test Page 
+ */
+Route::get('test', array('as' => 'test', function(){
+	return View::make('frontend.test');
+}));
+
+
+
+
+
 
