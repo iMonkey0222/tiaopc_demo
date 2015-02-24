@@ -1,3 +1,4 @@
+<div class="container clearfix">
 @if ($errors->any())
 <div class="alert alert-error alert-block">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -37,3 +38,4 @@
 	{{ $message }}
 </div>
 @endif
+</div>

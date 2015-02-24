@@ -8,15 +8,27 @@ Single item page
 
 
 @section('page-title')
-<h1>Now you've arrived to single item page</h1>
+
+<section id="page-title">
+
+    <div class="container clearfix">
+        <h1>Single Item Page</h1>
+    </div>
+
+</section>
+
 @stop
+
+
 
 
 {{-- Page Content --}}
 @section('content')
 
 
-
+<section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix">    
 
                     <div class="single-product">
 
@@ -303,9 +315,14 @@ Single item page
                         </div>
 
                     </div>
+</div>
+</div>
+</section>
 
-                    <div class="clear"></div>
-                    <div class="line"></div>
+
+                <div class="clear"></div>
+            <div class="line"></div>
+
 
 
 

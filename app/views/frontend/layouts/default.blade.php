@@ -10,7 +10,7 @@
 			@show
 		</title>
 		<meta name="keywords" content="your, awesome, keywords, here" />
-		<meta name="author" content="Jon Doe" />
+		<meta name="author" content="Patrick" />
 		<meta name="description" content="Lorem ipsum dolor sit amet, nihil fabulas et sea, nam posse menandri scripserit no, mei." />
 
 		<!-- Mobile Specific Metas ================================================== -->
@@ -31,13 +31,15 @@
 	    <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}" type="text/css" />
 
 
-		<style>
-		@section('styles')
-		body {
-			padding: 10px 0;
-		}
-		@show
-		</style>
+{{--
+
+        <style>
+        @section('styles')
+        body {
+            padding: 10px 0;
+        }
+        @show
+        </style>--}}		
 
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
@@ -49,13 +51,7 @@
 	    <script type="text/javascript" src="{{ asset('assets/js/jquery.js')}}"></script>
 	    <script type="text/javascript" src="{{ asset('assets/js/plugins.js')}}"></script>
 
-		<!-- Favicons
-		================================================== -->
-		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}">
-		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}">
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}">
-		<link rel="apple-touch-icon-precomposed" href="{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}">
-		<link rel="shortcut icon" href="{{ asset('assets/ico/favicon.png') }}">
+
 	</head>
 
 
@@ -68,7 +64,7 @@
 
         <!-- Header
         ============================================= -->
-        <header id="header" class="transparent-header full-header" data-sticky-class="not-dark">
+        <header id="header" class="full-header transparent-header" data-sticky-class="not-dark">
 
             <div id="header-wrap">
 
@@ -84,7 +80,7 @@
 
                     <!-- Primary Navigation
                     ============================================= -->
-                    <nav id="primary-menu">
+                    <nav id="primary-menu" class="dark">
 							<ul>
 								<li><a href="{{ route('home') }}">Home</a></li>
 								<li><a href="{{ URL::to('about-us') }}">About us</a></li>
@@ -145,31 +141,18 @@
 
        
 
-        <section id="page-title">
-
-        <div class="container clearfix">
-            @yield('page-title')
-        </div>
-
-        </section><!-- #page-title end -->    
+        <!-- Page Title Optional -->
+        @yield('page-title')
 
 
 
-
-		<!-- Notifications -->
-		<div class="container clearfix">
+		<!-- Notifications Optional -->
 		@include('frontend/notifications')
-		</div>
+
 
 		<!-- Content -->
-  		<section id="content">
-			<div class="content-wrap">
-				<div class="container clearfix">
-					<!-- Content -->
-					@yield('content')
-			</div>
-				</div>
-		</section
+		@yield('content')
+
 
         <!-- Footer
         ============================================= -->
