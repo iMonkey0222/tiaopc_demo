@@ -64,7 +64,7 @@
 
         <!-- Header
         ============================================= -->
-        <header id="header" class="full-header transparent-header" data-sticky-class="not-dark">
+        <header id="header" class="full-header " data-sticky-class="not-dark">
 
             <div id="header-wrap">
 
