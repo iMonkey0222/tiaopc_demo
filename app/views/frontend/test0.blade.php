@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-Home page
+Test By Yue Wang
 @parent
 @stop
 

@@ -127,10 +127,13 @@ Route::get('request',array('as'=>'tempRuquest', 'uses' => 'HomeController@getReq
 /**
  * Test Page 
  */
-Route::get('test', array('as' => 'test', function(){
-	return View::make('frontend.test');
+Route::get('test0', array('as' => 'test', function(){
+	return View::make('frontend.test0');
 }));
 
+Route::get('test1', array('as' => 'test', function(){
+	return View::make('frontend.test1');
+}));
 
 
 
