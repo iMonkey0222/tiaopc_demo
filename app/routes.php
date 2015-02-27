@@ -102,8 +102,9 @@ Route::group(array('prefix' => 'item'), function()
 {
 	// Show all items
 	Route::get('/', array('as' => 'item', 'uses' => 'ItemController@getAllItems')); 
-	// Show single item
-	Route::get('{itemID}', array('as' => 'singleItem', 'uses' => 'ItemController@getSingleItem')); 
+	// Show single item, parameter matching with regular expression
+	Route::get('{itemID}', array('as' => 'singleItem', 'uses' => 'ItemController@getSingleItem'))->where('id', '[0-9]+');
+; 
 
 
 });

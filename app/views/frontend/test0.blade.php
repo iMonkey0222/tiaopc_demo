@@ -13,13 +13,14 @@ Test By Yue Wang
 
 <?php
 $data = Session::all();
-var_dump($data);
+// var_dump($data);
 echo "<br>";
 echo "error is ";
-var_dump($errors->first());
+// var_dump($errors->first());
 echo "<br>";
 
-// $item = User::find(3)->getItems;
+$item = User::find(3)->getItems;
+var_dump($item);
 // var_dump($item);
 // $categories = [
 //   ['id' => 1, 'name' => '手机', 'children' => [
