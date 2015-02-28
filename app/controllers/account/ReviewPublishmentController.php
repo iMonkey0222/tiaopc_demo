@@ -27,6 +27,14 @@ class ReviewPublishmentController extends AuthorizedController {
 		// // Get all items  
 		$items = User::find(3)->getItems;
 
+		if(is_null($items))
+		{
+			// If we ended up in here, it means that a page or a blog post
+			// don't exist. So, this means that it is time for 404 error page.
+			// return App::abort(404);
+			echo "You haven't published item. \n Publish item now !!";
+		}
+
 		foreach ($items as $item) {
 			$itemID = $item->id;
 			// One item has many priceArrays
@@ -36,10 +44,18 @@ class ReviewPublishmentController extends AuthorizedController {
 			$newest = $priceArrays->first();
 			// get the price key value
 			$newestPrice = $newest['price'];
-			echo "<br>";
-			echo $itemID.' is '.$newestPrice;
+			// echo "<br>";
+			// echo $itemID.' is '.$newestPrice;
 
 			array_add($item, 'price',"$newestPrice");
+
+			$pictures = Item::find($itemID)->pictures;
+			array_add($item, 'pictures', "$pictures");
+			// foreach ($pictures as $key => $value) {
+			// 	array_add($item, 'pictures', "$picture");
+			// }
+			echo "$item";
+
 		}
 
 
