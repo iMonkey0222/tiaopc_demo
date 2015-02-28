@@ -285,52 +285,7 @@
 
                     <div class="col_one_third col_last">
 
-                        <div class="widget quick-contact-widget clearfix">
 
-                            <h4>Send Message</h4>
-
-                            <div id="quick-contact-form-result" data-notify-type="success" data-notify-msg="<i class=icon-ok-sign></i> Message Sent Successfully!"></div>
-
-                            <form id="quick-contact-form" name="quick-contact-form" action="include/quickcontact.php" method="post" class="quick-contact-form nobottommargin">
-
-                                <div class="form-process"></div>
-
-                                <div class="input-group divcenter">
-                                    <span class="input-group-addon"><i class="icon-user"></i></span>
-                                    <input type="text" class="required form-control input-block-level" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name" />
-                                </div>
-                                <div class="input-group divcenter">
-                                    <span class="input-group-addon"><i class="icon-email2"></i></span>
-                                    <input type="text" class="required form-control email input-block-level" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address" />
-                                </div>
-                                <textarea class="required form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>
-                                <input type="text" class="hidden" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="" />
-                                <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="btn btn-danger nomargin" value="submit">Send Email</button>
-
-                            </form>
-
-                            <script type="text/javascript">
-
-                                $("#quick-contact-form").validate({
-                                    submitHandler: function(form) {
-                                        $(form).animate({ opacity: 0.4 });
-                                        $(form).find('.form-process').fadeIn();
-                                        $(form).ajaxSubmit({
-                                            target: '#quick-contact-form-result',
-                                            success: function() {
-                                                $(form).animate({ opacity: 1 });
-                                                $(form).find('.form-process').fadeOut();
-                                                $(form).find('.form-control').val('');
-                                                $('#quick-contact-form-result').attr('data-notify-msg', $('#quick-contact-form-result').html()).html('');
-                                                SEMICOLON.widget.notifications($('#quick-contact-form-result'));
-                                            }
-                                        });
-                                    }
-                                });
-
-                            </script>
-
-                        </div>
 
                     </div>
 
@@ -345,8 +300,7 @@
                 <div class="container clearfix">
 
                     <div class="col_half">
-                        Copyrights &copy; 2014 All Rights Reserved by Tiaopc.com
-                        Power by Laravel 4.2
+                        Copyrights &copy; 2015 All Rights Reserved by Tiaopc.com
                     </div>
 
                     <div class="col_half col_last tright">

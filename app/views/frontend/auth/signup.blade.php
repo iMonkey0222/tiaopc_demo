@@ -6,11 +6,32 @@ Account Sign up ::
 @parent
 @stop
 
+{{-- Page title in Page --}}
+@section('page-title')
+<section id="page-title">
+
+    <div class="container clearfix">
+        <h3>Sign up</h3>
+        <span></span>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li class="active">Sign up</li>
+        </ol>
+    </div>
+
+</section>
+@stop
+
+
+
+
+
 {{-- Page content --}}
 @section('content')
-<div class="page-header">
-	<h3>Sign up</h3>
-</div>
+<section id="content">
+	<div class="content-wrap">
+		<div class="container clearfix">
+
 <div class="row">
 	<form method="post" action="{{ route('signup') }}" class="form-horizontal" autocomplete="off">
 		<!-- CSRF Token -->
@@ -82,4 +103,7 @@ Account Sign up ::
 		</div>
 	</form>
 </div>
+</div>
+</div>
+</section>
 @stop
