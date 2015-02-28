@@ -87,6 +87,11 @@ Route::group(array('prefix' => 'account'), function()
 	Route::get('published-items', array('as'=> 'published-items', 'uses' => 'Controllers\Account\ReviewPublishmentController@getIndex')); 
 	Route::post('published-items', 'Controllers\Account\ReviewPublishmentController@postIndex');
 
+
+	// Edit published item
+	Route::get('{itemID}', array('as' => 'editSingleItem', 'uses' => 'ItemController@getSingleItemEditForm'));
+	Route::post('{itemID}', 'ItemController@PostSingleItemEditForm');
+
 });
 
 

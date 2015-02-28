@@ -11,5 +11,6 @@ class Price extends Eloquent {
 	public function items()
 	{
 		return $this->belongsTo('Item');
+
 	}
 }

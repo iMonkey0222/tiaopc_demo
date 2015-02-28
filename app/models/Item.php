@@ -18,7 +18,8 @@ class Item extends Eloquent {
 
 	public function prices()
 	{
-		return $this->hasMany('Price');
+		return $this->hasMany('Price')
+					->orderBy('created_at','DESC'); 
 	}
 
 	public function transactions()
