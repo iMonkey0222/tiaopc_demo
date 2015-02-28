@@ -13,15 +13,20 @@ Test By Yue Wang
 
 <?php
 $data = Session::all();
-var_dump($data);
+// var_dump($data);
 echo "<br>";
 echo "error is ";
-var_dump($errors->first());
+// var_dump($errors->first());
 echo "<br>";
 
+<<<<<<< HEAD
 		$user = Sentry::getUser();
 		var_dump($user);
 // $item = User::find(3)->getItems;
+=======
+$item = User::find(3)->getItems;
+var_dump($item);
+>>>>>>> 35f5a005c80b0870d392b2568d01cae98c5977f7
 // var_dump($item);
 // $categories = [
 //   ['id' => 1, 'name' => '手机', 'children' => [
