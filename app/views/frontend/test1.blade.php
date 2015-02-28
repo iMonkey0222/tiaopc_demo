@@ -45,7 +45,6 @@ $items = User::find(3)->getItems;
 	// 	echo $item;
 
 
-
 	// 	// foreach ($priceArrays as $priceArray) {
 	// 	// 	$createTimeArray = $priceArray->created_at;
 	// 	// 	$price = $priceArray->price;

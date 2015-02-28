@@ -89,8 +89,8 @@ Route::group(array('prefix' => 'account'), function()
 
 
 	// Edit published item
-	Route::get('{itemID}', array('as' => 'editSingleItem', 'uses' => 'ItemController@getSingleItemEditForm'));
-	Route::post('{itemID}', 'ItemController@PostSingleItemEditForm');
+	Route::get('{itemID}', array('as' => 'editSingleItem', 'uses' => 'ItemController@getSingleItemEditForm'))->where('id', '[0-9]+');
+	Route::post('{itemID}', 'ItemController@PostSingleItemEditForm')->where('id', '[0-9]+');
 
 });
 
