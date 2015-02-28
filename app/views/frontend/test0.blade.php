@@ -20,6 +20,7 @@ var_dump($errors->first());
 echo "<br>";
 
 // $item = User::find(3)->getItems;
+
 // var_dump($item);
 // $categories = [
 //   ['id' => 1, 'name' => '手机', 'children' => [
@@ -66,7 +67,7 @@ echo "<br>";
 
 
 
-$node = Category::get();
+// $node = Category::get();
 
 
 // var_dump($node->siblings());
