@@ -177,7 +177,7 @@ class ItemController extends BaseController {
 	 * @param  int $itemId 
 	 * @return view single item edit view
 	 */
-	public function getSingleItemEditForm($itemId = null)
+	public function getSingleItemEditForm($itemId)
 	{
 		// Check if the item exists
 		if (is_null($item = Item::find($postId)))
@@ -195,7 +195,7 @@ class ItemController extends BaseController {
 	 * @param int $itemId item id
 	 * @return view published single item page
 	 */
-	public function PostSingleItemEditForm($itemId = null)
+	public function PostSingleItemEditForm($itemId)
 	{
 
 	}

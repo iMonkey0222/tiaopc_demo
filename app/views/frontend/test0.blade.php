@@ -19,6 +19,8 @@ echo "error is ";
 var_dump($errors->first());
 echo "<br>";
 
+		$user = Sentry::getUser();
+		var_dump($user);
 // $item = User::find(3)->getItems;
 // var_dump($item);
 // $categories = [
