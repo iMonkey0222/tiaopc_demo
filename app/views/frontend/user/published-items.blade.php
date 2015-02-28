@@ -37,7 +37,7 @@ Published Items
 				</td>
 				<td>
 					<a target = "_blank" hidefocus="true" title = "查看宝贝详情" href="http://www.baidu.com">
-						<img width = "50" height="50" src = {{asset("assets/img/$item->picture")}} alt="查看宝贝详情" >
+						<img width = "100" height="100" src = {{asset("assets/img/$item->picture")}} alt="查看宝贝详情" >
 					</a>
 					<p>{{ $item-> title }}</p>	
 				</td>
