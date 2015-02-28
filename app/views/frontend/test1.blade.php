@@ -19,43 +19,43 @@ Test By Xiaoyang Wang
 
 $items = User::find(3)->getItems;
 
-	foreach ($items as $item) {
-		$itemID = $item->id;
-		// PriceArray variable is an array: id item_id price create_at updated_at
-		$priceArrays = Item::find($itemID)->prices; 
+	// foreach ($items as $item) {
+	// 	$itemID = $item->id;
+	// 	// PriceArray variable is an array: id item_id price create_at updated_at
+	// 	$priceArrays = Item::find($itemID)->prices; 
 		
-		// get the first element of 
-		$newest = $priceArrays->first();
-		$newestPrice = $newest['price'];
-		echo "<br>";
-		// echo $itemID.' is '.$newestPrice;
+	// 	// get the first element of 
+	// 	$newest = $priceArrays->first();
+	// 	$newestPrice = $newest['price'];
+	// 	echo "<br>";
+	// 	// echo $itemID.' is '.$newestPrice;
 
 
-		array_add($item, 'price',"$newestPrice");
+	// 	array_add($item, 'price',"$newestPrice");
 
-			$pictures = Item::find($itemID)->pictures;
-			array_add($item, 'pictures', "$pictures");
-			// foreach ($pictures as $key => $value) {
-			// 	array_add($item, 'pictures', "$picture");
-			// }
+	// 		$pictures = Item::find($itemID)->pictures;
+	// 		array_add($item, 'pictures', "$pictures");
+	// 		// foreach ($pictures as $key => $value) {
+	// 		// 	array_add($item, 'pictures', "$picture");
+	// 		// }
 
-		echo "<br>"
-		// echo "$newestPrice";
-		echo "<br>"
-		echo $item;
+	// 	echo "<br>";
+	// 	// echo "$newestPrice";
+	// 	echo "<br>";
+	// 	echo $item;
 
 
 
-		// foreach ($priceArrays as $priceArray) {
-		// 	$createTimeArray = $priceArray->created_at;
-		// 	$price = $priceArray->price;
+	// 	// foreach ($priceArrays as $priceArray) {
+	// 	// 	$createTimeArray = $priceArray->created_at;
+	// 	// 	$price = $priceArray->price;
 
-		// 	//var_dump($itemID.'=='.$price.'created_at'.$createTimeArray);
-		// }
-		// // echo "<pre>";
-		// // echo ($priceArrays);
-		// // echo "<pre>";
-	}
+	// 	// 	//var_dump($itemID.'=='.$price.'created_at'.$createTimeArray);
+	// 	// }
+	// 	// // echo "<pre>";
+	// 	// // echo ($priceArrays);
+	// 	// // echo "<pre>";
+	// }
 
 
 

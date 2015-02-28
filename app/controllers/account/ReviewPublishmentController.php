@@ -51,10 +51,8 @@ class ReviewPublishmentController extends AuthorizedController {
 
 			$pictures = Item::find($itemID)->pictures;
 			array_add($item, 'pictures', "$pictures");
-			// foreach ($pictures as $key => $value) {
-			// 	array_add($item, 'pictures', "$picture");
-			// }
-			echo "$item";
+
+			// echo "$item";
 
 		}
 
