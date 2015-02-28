@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'laravel_tiaopc_demo',
-			'username'  => 'root',
-			'password'  => 'root',
+			'host'      => '178.62.4.188',
+			'database'  => 'tiaopc',
+			'username'  => 'forge',
+			'password'  => '6LchyXte9mrg2Z3hTQrf',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => 'laravel_',
