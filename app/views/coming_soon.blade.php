@@ -65,8 +65,8 @@
                     <!-- Logo
                     ============================================= -->
                     <div id="logo">
-                        <a href="#" class="standard-logo" data-dark-logo="For-all/tiaopc-logo5.png"><img src="{{ asset('assets/coming_soon/tiaopc-logo5.png') }}" alt="Tiaopc Logo"></a>
-                        <a href="#" class="retina-logo" data-dark-logo="For-all/tiaopc-logo5.png"><img src="{{ asset('assets/coming_soon/tiaopc-logo5.png') }}" alt="Tiaopc Logo"></a>
+                        <a href="#" class="standard-logo" data-dark-logo="{{ asset('assets/coming_soon/tiaopc-logo5.png') }}"><img src="{{ asset('assets/coming_soon/tiaopc-logo5.png') }}" alt="Tiaopc Logo"></a>
+                        <a href="#" class="retina-logo" data-dark-logo="{{ asset('assets/coming_soon/tiaopc-logo5.png') }}"><img src="{{ asset('assets/coming_soon/tiaopc-logo5.png') }}" alt="Tiaopc Logo"></a>
                     </div><!-- #logo end -->
 
                     <div class="fright dark hidden-sm hidden-xs clearfix" style="margin-top: 30px;">
