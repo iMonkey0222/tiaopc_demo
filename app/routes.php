@@ -125,7 +125,10 @@ Route::post('publish', 'ItemController@PostSingleItemForm');
 /**
  * Home Page Temp
  */
-Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showWelcome'));
+// Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showWelcome'));
+Route::get('/', array('as' => 'comming_soon', function(){
+	return View::make('comming_soon');
+}));
 
 Route::get('request',array('as'=>'tempRuquest', 'uses' => 'HomeController@getRequest'));
 

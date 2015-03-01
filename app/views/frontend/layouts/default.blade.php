@@ -30,17 +30,6 @@
 
 	    <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}" type="text/css" />
 
-
-{{--
-
-        <style>
-        @section('styles')
-        body {
-            padding: 10px 0;
-        }
-        @show
-        </style>--}}		
-
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -325,7 +314,7 @@
 
     <!-- Footer Scripts
     ============================================= -->
-    <script type="text/javascript" src="{{ asset('assets/js/functions.js') }}""></script>
+    <script type="text/javascript" src="{{ asset('assets/js/functions.js') }}"></script>
     </body
 
 </html>
