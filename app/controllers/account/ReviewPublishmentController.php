@@ -37,6 +37,7 @@ class ReviewPublishmentController extends AuthorizedController {
 
 		foreach ($items as $item) {
 			$itemID = $item->id;
+
 			// One item has many priceArrays
 			// One PriceArray variable is an array: id item_id price create_at updated_at
 			$priceArrays = Item::find($itemID)->prices; 
@@ -44,15 +45,13 @@ class ReviewPublishmentController extends AuthorizedController {
 			$newest = $priceArrays->first();
 			// get the price key value
 			$newestPrice = $newest['price'];
-			// echo "<br>";
-			// echo $itemID.' is '.$newestPrice;
-
 			array_add($item, 'price',"$newestPrice");
 
+			// add picture to item array
 			$pictures = Item::find($itemID)->pictures;
-			array_add($item, 'pictures', "$pictures");
-
-			// echo "$item";
+			$picture = Item::find($itemID)->pictures->first();
+			$picName = $picture['picture_name'];
+			array_add($item, 'picture', "$picName");
 
 		}
 
