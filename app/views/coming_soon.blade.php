@@ -10,9 +10,7 @@
         ================================================== -->
         <meta charset="utf-8" />
         <title>
-            @section('title')
-            Tiaopc
-            @show
+            Coming Soon | TIAOPC
         </title>
         <meta name="keywords" content="your, awesome, keywords, here" />
         <meta name="author" content="Patrick" />
@@ -22,8 +20,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- CSS ================================================== -->
-        {{-- Original --}}
-        {{-- <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">  --}}
         {{-- New --}}
         <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}" type="text/css" />
@@ -44,6 +40,12 @@
         ============================================= -->
         <script type="text/javascript" src="{{ asset('assets/js/jquery.js')}}"></script>
         <script type="text/javascript" src="{{ asset('assets/js/plugins.js')}}"></script>
+
+        <style>
+        video::-webkit-media-controls {
+        display:none !important;
+        }
+        </style>
 
 
     </head>
