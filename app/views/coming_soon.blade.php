@@ -41,7 +41,11 @@
         <script type="text/javascript" src="{{ asset('assets/js/jquery.js')}}"></script>
         <script type="text/javascript" src="{{ asset('assets/js/plugins.js')}}"></script>
 
-
+        <style>
+        video::-webkit-media-controls {
+        display:none !important;
+        }
+        </style>
 
 
     </head>
