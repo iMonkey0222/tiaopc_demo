@@ -19,7 +19,18 @@ echo "error is ";
 var_dump($errors->first());
 echo "<br>";
 
+
+$env = App::environment();
+
+echo $env;
+
+echo "<br>";
+
+echo $_SERVER['SERVER_NAME'];
 // $item = User::find(3)->getItems;
+// 
+// 
+echo gethostname();
 
 // var_dump($item);
 // $categories = [
