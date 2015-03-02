@@ -10,27 +10,49 @@ Test By Yue Wang
 @section('content')
 
 
-
 <?php
-$data = Session::all();
-var_dump($data);
-echo "<br>";
-echo "error is ";
-var_dump($errors->first());
-echo "<br>";
+// $data = Session::all();
+// var_dump($data);
+// echo "<br>";
+// echo "error is ";
+// var_dump($errors->first());
+// echo "<br>";
 
 
-$env = App::environment();
 
-echo $env;
 
-echo "<br>";
 
-echo $_SERVER['SERVER_NAME'];
+
+
+
+$path = asset('assets/img/20150215081022pvL.jpg');
+
+echo $path;
+
+$img = Image::make($path);
+
+
+$img->resize(200,200);
+$img->save('assets/img/new.jpg');
+
+
+// var_dump($img);
+
+
+
+
+
+// $env = App::environment();
+
+// echo $env;
+
+// echo "<br>";
+
+// echo $_SERVER['SERVER_NAME'];
 // $item = User::find(3)->getItems;
 // 
 // 
-echo gethostname();
+// echo gethostname();
 
 // var_dump($item);
 // $categories = [
@@ -101,8 +123,13 @@ $destinationPath ='./public/assets/img/';
 // echo date("Ymdhis") . str_random(3); 
 
 ?>
-</p>
 
+
+
+
+{{ HTML::image('assets/img/new.jpg')}}
+
+{{ HTML::image('assets/img/20150215081022pvL.jpg')}}
 
 
 
