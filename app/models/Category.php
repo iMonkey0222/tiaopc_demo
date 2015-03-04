@@ -13,6 +13,20 @@ class Category extends Node {
    */
   protected $table = 'categories';
 
+
+  public function getChildItem()
+  {
+    return $this->hasMany('Item','category_id');
+  }
+
+
+
+
+
+
+
+
+
   //////////////////////////////////////////////////////////////////////////////
 
   //

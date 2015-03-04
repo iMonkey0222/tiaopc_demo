@@ -8,6 +8,140 @@ Test By Yue Wang
 
 {{-- Page Content --}}
 @section('content')
+<?php
+$parentCategory = Category::where('parent_id','=','1')->get(); // get child category name
+
+$datas = Category::where('parent_id','=','1')->lists('id'); // get all child category id
+
+$items = Item::whereIn('category_id',$datas)->paginate(10); // get all item that contains child category id
+
+// var_dump($items);
+
+foreach ($items as $item)
+	echo $item->id;
+
+
+?>
+
+
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <div class="container clearfix">
+
+                    <div id="portfolio-ajax-wrap">
+                        <div id="portfolio-ajax-container"></div>
+                    </div>
+
+                    <div id="portfolio-ajax-loader"><img src="images/preloader-dark.gif" alt="Preloader"></div>
+
+                    <!-- Portfolio Filter
+                    ============================================= -->
+                    <ul id="portfolio-filter" class="clearfix">
+
+                        <li class="activeFilter"><a href="#" data-filter="*">Show All</a></li>
+                        @foreach ($parentCategory as $category)
+                        <li><a href="#" data-filter={{".".$category->id }}>{{ $category->name }}</a></li>
+                        @endforeach
+
+                    </ul><!-- #portfolio-filter end -->
+
+                    <div id="portfolio-shuffle">
+                        <i class="icon-random"></i>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <!-- Portfolio Items
+                    ============================================= -->
+                    <div id="portfolio" class="portfolio-nomargin portfolio-ajax clearfix">
+
+						@foreach($items as $item)
+                        <article id="portfolio-item-1" data-loader="include/ajax/portfolio-ajax-image.php" class="<?php echo "$item->category_id portfolio-item"; ?>" >
+                            <div class="portfolio-image">
+                                <a href="portfolio-single.html">
+                                    <img src="images/portfolio/4/1.jpg" alt="Open Imagination">
+                                </a>
+                                <div class="portfolio-overlay">
+                                    <a href="#" class="center-icon"><i class="icon-line-expand"></i></a>
+                                </div>
+                            </div>
+                            <div class="portfolio-desc">
+                                <h3><a href="portfolio-single.html">{{$item->title}}</a></h3>
+                                <span>Condition: {{ $item->product_condition }}</a></span>
+                            </div>
+                        </article>
+						@endforeach
+                        
+
+                    
+
+                    </div><!-- #portfolio end -->
+
+                    <!-- Portfolio Script
+                    ============================================= -->
+                    <script type="text/javascript">
+
+                        jQuery(window).load(function(){
+
+                            var $container = $('#portfolio');
+
+                            $container.isotope({ transitionDuration: '0.65s' });
+
+                            $('#portfolio-filter a').click(function(){
+                                $('#portfolio-filter li').removeClass('activeFilter');
+                                $(this).parent('li').addClass('activeFilter');
+                                var selector = $(this).attr('data-filter');
+                                $container.isotope({ filter: selector });
+                                return false;
+                            });
+
+                            $('#portfolio-shuffle').click(function(){
+                                $container.isotope('updateSortData').isotope({
+                                    sortBy: 'random'
+                                });
+                                // $container.isotope('updateSortData').isotope({
+                                //     sortBy: 'random'
+                                // });
+                            });
+
+                            $(window).resize(function() {
+                                $container.isotope('layout');
+                            });
+
+                        });
+
+                    </script><!-- Portfolio Script End -->
+
+                </div>
+
+            </div>
+
+        </section><!-- #content end -->
+
+
+
+{{ $items->links() }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <?php
@@ -22,18 +156,43 @@ Test By Yue Wang
 
 
 
+// $item = Item::where('category_id', '=', '15')->count();
+
+// $categoryName = Category::where('parent_id','=','1')->get()->toArray();
+// $datas = Category::where('parent_id','=','1')->lists('id'); // Given a specifyied attr
+
+// // var_dump($item);
+
+// echo "<pre>", var_dump($datas), "</pre>";
 
 
 
-$path = asset('assets/img/20150215081022pvL.jpg');
-
-echo $path;
-
-$img = Image::make($path);
+// foreach ($datas as $data){
+// 	echo $data;
+// }
 
 
-$img->resize(200,200);
-$img->save('assets/img/new.jpg');
+
+// $child = Category::find(6)->getChildItem->lists('title');
+// 
+
+// $array = array(2,3,4,5,);
+
+
+// $datas = Category::where('parent_id','=','1')->lists('id'); // get all child category id
+
+// $child = Item::whereIn('category_id',$datas)->lists('title'); // get all item that contains child category id
+
+// var_dump($child);
+// $path = asset('assets/img/IMG_0635.jpg');
+
+// echo $path;
+
+// $img = Image::make($path);
+
+
+// $img->fit(640,640);
+// $img->save('assets/img/new.jpg');
 
 
 // var_dump($img);
@@ -114,7 +273,7 @@ $img->save('assets/img/new.jpg');
 // var_dump($node[1]->name);
 
 
-$destinationPath ='./public/assets/img/';
+// $destinationPath ='./public/assets/img/';
 // echo public_path().'/assets/img';
 
 // echo $info;
@@ -126,10 +285,10 @@ $destinationPath ='./public/assets/img/';
 
 
 
-
+{{-- 
 {{ HTML::image('assets/img/new.jpg')}}
 
-{{ HTML::image('assets/img/20150215081022pvL.jpg')}}
+{{ HTML::image('assets/img/IMG_0635.jpg')}} --}}
 
 
 
