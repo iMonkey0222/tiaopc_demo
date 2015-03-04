@@ -9,16 +9,38 @@ Test By Yue Wang
 {{-- Page Content --}}
 @section('content')
 <?php
-$parentCategory = Category::where('parent_id','=','1')->get(); // get child category name
+// get child category name
+$parentCategory = Category::where('parent_id','=','1')->get(); 
+// get all child category id
+$categorySet = Category::where('parent_id','=','1')->lists('id'); 
 
-$datas = Category::where('parent_id','=','1')->lists('id'); // get all child category id
+// get all item that contains child category id
+$items = Item::whereIn('category_id',$categorySet)->paginate(10); 
 
-$items = Item::whereIn('category_id',$datas)->paginate(10); // get all item that contains child category id
+// get the main picture of the item
+$itemPicture = Item::find(4)->pictures()->where('status','=','1')->first();
 
-// var_dump($items);
+$pictureName = $itemPicture['picture_name'];
+
 
 foreach ($items as $item)
-	echo $item->id;
+{
+	$itemPicture = Item::find($item->id)->pictures()->where('status','=','1')->first();
+
+	$pictureName = $itemPicture['picture_name'];
+
+	$itemArray = array_add($item, "picture_name", $pictureName);
+
+		// Get the newest price
+	$priceArray = Item::find($item->id)->prices->first(); 
+	// get the first/newest priceArray
+	$newestPrice = $priceArray['price'];
+	
+	$itemArray = array_add($item, 'price',"$newestPrice");
+
+}
+
+echo $itemArray;
 
 
 ?>
@@ -47,9 +69,13 @@ foreach ($items as $item)
 
                     </ul><!-- #portfolio-filter end -->
 
-                    <div id="portfolio-shuffle">
-                        <i class="icon-random"></i>
-                    </div>
+
+                    <ul id="portfolio-filter-right" class="clearfix">
+                        <li class="activeFilter"><a href="#" data-filter="*">asd</a></li>  
+                        <li><a href="#" data-filter=".2">价格</a></li>
+                        <li><a href="#" data-filter=".2">价格</a></li>                
+                    </ul>  
+
 
                     <div class="clear"></div>
 
@@ -58,6 +84,7 @@ foreach ($items as $item)
                     <div id="portfolio" class="portfolio-nomargin portfolio-ajax clearfix">
 
 						@foreach($items as $item)
+
                         <article id="portfolio-item-1" data-loader="include/ajax/portfolio-ajax-image.php" class="<?php echo "$item->category_id portfolio-item"; ?>" >
                             <div class="portfolio-image">
                                 <a href="portfolio-single.html">
@@ -69,9 +96,11 @@ foreach ($items as $item)
                             </div>
                             <div class="portfolio-desc">
                                 <h3><a href="portfolio-single.html">{{$item->title}}</a></h3>
-                                <span>Condition: {{ $item->product_condition }}</a></span>
+                                <span>Price: <a class="price"> {{ $item->price }} </a></span>
+
                             </div>
                         </article>
+
 						@endforeach
                         
 
@@ -101,9 +130,6 @@ foreach ($items as $item)
                                 $container.isotope('updateSortData').isotope({
                                     sortBy: 'random'
                                 });
-                                // $container.isotope('updateSortData').isotope({
-                                //     sortBy: 'random'
-                                // });
                             });
 
                             $(window).resize(function() {

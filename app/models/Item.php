@@ -11,7 +11,8 @@ class Item extends Eloquent {
 	 */
 	public function pictures()
 	{
-		return $this->hasMany('Picture');
+		return $this->hasMany('Picture')
+					->orderBy('created_at','DESC'); 
 
 	}
 
@@ -21,6 +22,8 @@ class Item extends Eloquent {
 		return $this->hasMany('Price')
 					->orderBy('created_at','DESC'); 
 	}
+
+
 
 	public function transactions()
 	{

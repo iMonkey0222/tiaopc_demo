@@ -15,6 +15,51 @@ class ItemController extends BaseController {
 	}
 
 	/**
+	 * Get all item with the specific parent category
+	 * @param  int $id parent category id 
+	 * @return view item list page 
+	 */
+	public function getAllItemsWithCategory($id)
+	{
+		$parentCategory = Category::where('parent_id','=',$id)->get(); 
+
+		$categorySet = Category::where('parent_id','=',$id)->lists('id'); 
+
+		// get all item that contains child category id
+		$items = Item::whereIn('category_id',$categorySet)->paginate(12); 
+
+
+		$itemArray = array();
+
+		foreach ($items as $item)
+		{
+
+			// Get the main picture
+			$itemPicture = Item::find($item->id)->pictures()->where('status','=','1')->first();
+
+			$pictureName = $itemPicture['picture_name'];
+
+			array_add($item, "picture_name", $pictureName);
+
+			// Get the newest price
+			$priceArray = Item::find($item->id)->prices->first(); 
+			// get the first/newest priceArray
+			$newestPrice = $priceArray['price'];
+
+			array_add($item, 'price',$newestPrice);
+
+		}
+
+
+		return View::make('frontend/item/view-item-list', compact('parentCategory','items'));	
+
+
+
+	}
+
+
+
+	/**
 	 * Get a single item with given id
 	 * @param  int $id the item id
 	 * @return view single item view

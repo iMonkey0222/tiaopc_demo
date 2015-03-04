@@ -3018,7 +3018,7 @@ body.stretched .container-fullwidth .breadcrumb { right: 60px !important; }
 -----------------------------------------------------------------*/
 
 
-/* Portfolio - Filter
+/* Portfolio - Filter Left
 -----------------------------------------------------------------*/
 
 #portfolio-filter {
@@ -3067,6 +3067,65 @@ body.stretched .container-fullwidth .breadcrumb { right: 60px !important; }
 .bothsidebar #portfolio-filter li a { padding: 12px 14px; }
 
 .bothsidebar #portfolio-filter li.activeFilter a { padding: 13px 18px; }
+
+
+
+/* Portfolio - Portfolio Right
+-----------------------------------------------------------------*/
+
+#portfolio-filter-right {
+    position: relative;
+    margin: 0 0 40px 0;
+    list-style: none;
+    border: 1px solid rgba(0,0,0,0.07);
+    float: right;
+    border-radius: 4px;
+}
+
+
+#portfolio-filter-right li {
+    float: left;
+    position: relative;
+}
+
+#portfolio-filter-right li a {
+    display: block;
+    position: relative;
+    padding: 12px 18px;
+    font-size: 13px;
+    line-height: 15px;
+    color: #666;
+    border-left: 1px solid rgba(0,0,0,0.07);
+}
+
+#portfolio-filter-right li:first-child a {
+    border-left: none;
+    border-radius: 4px 0 0 4px;
+}
+
+#portfolio-filter-right li:last-child a { border-radius: 0 4px 4px 0; }
+
+#portfolio-filter-right li a:hover { color: #1ABC9C; }
+
+#portfolio-filter-right li.activeFilter a {
+    color: #FFF !important;
+    background-color: #1ABC9C;
+    margin: -1px 0;
+    padding: 13px 18px;
+}
+
+#portfolio-filter-right li.activeFilter a { font-weight: bold; }
+
+
+.bothsidebar #portfolio-filter-right li a { padding: 12px 14px; }
+
+.bothsidebar #portfolio-filter-right li.activeFilter a { padding: 13px 18px; }
+
+
+
+
+
+
 
 
 /* Portfolio - Shuffle Icon
