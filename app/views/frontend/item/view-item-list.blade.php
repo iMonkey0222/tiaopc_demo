@@ -1,8 +1,8 @@
 {{-- #variable: $parentCategory $items --}}
-
-
-
-
+{{-- 
+// Get the parent category id by given item
+$category = Item::find(14)->category()->first()['parent_id']; --}}
+{{-- echo "$item->category_id portfolio-item"; --}}
 @extends('frontend/layouts/default')
 
 {{-- Page title --}}
@@ -73,9 +73,10 @@ Item List Page
                     ============================================= -->
                     <div id="portfolio" class="portfolio-nomargin portfolio-ajax clearfix">
 
-                        @foreach($items as $item)
+                        @foreach($items as $item)                 
 
-                        <article id="portfolio-item-1" data-loader="include/ajax/portfolio-ajax-image.php" class="<?php echo "$item->category_id portfolio-item"; ?>" >
+                        <article id="portfolio-item-1" data-loader="include/ajax/portfolio-ajax-image.php" class="<?php echo ($trigger?$item->parent_category_id:$item->category_id)." portfolio-item"; 
+ ?>" >
                             <div class="portfolio-image">
                                 <a href="portfolio-single.html">
                                     <img src="images/portfolio/4/1.jpg" alt="Open Imagination">
@@ -133,6 +134,8 @@ Item List Page
                 </div>
 
             </div>
+
+    {{ $items->links() }}
 
         </section><!-- #content end -->
 

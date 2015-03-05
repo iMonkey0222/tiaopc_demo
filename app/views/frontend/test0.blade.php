@@ -14,18 +14,29 @@ Test By Yue Wang
 {{-- 4/3/2015 --}}
 <?php
 
-$item = Item::find(57);
+// $item = Item::find(57);
 
-$price = new Price(['price' => '88']);
+// $price = new Price(['price' => '88']);
 
-if($item->prices()->save($price))
+// if($item->prices()->save($price))
+// {
+// 	echo "ok";
+// }
+
+
+$parentCategory = Category::where('parent_id','=', NULL)->get(); 
+
+echo $parentCategory;
+
+foreach ($parentCategory as $category)
 {
-	echo "ok";
+	echo $category['name'];
 }
 
+// Get the parent category id by given item
+$category = Item::find(14)->category()->first();
 
-
-
+echo $category->parent_id;
 
 
 

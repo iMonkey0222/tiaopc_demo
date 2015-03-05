@@ -8,10 +8,34 @@ class ItemController extends BaseController {
 	 */
 	public function getAllItems()
 	{
-		// Get all items with paginate 
-		$items = Item::paginate(10);
 
-		return View::make('frontend/item/view-item-list', compact('items'));	
+		// Get the all the parent category
+		$parentCategory = Category::where('parent_id','=', NULL)->get(); 
+	
+		// Get all items with paginate 
+		$items = Item::paginate(12);
+
+		$trigger = TRUE;
+
+		foreach($items as $item)
+		{
+			$parentCategoryId = Item::find($item->id)->category()->first()->parent_id; 
+
+			array_add($item, 'parent_category_id', $parentCategoryId);
+		}
+
+
+
+		foreach ($items as $item)
+		{
+
+			echo $item->parent_category_id;
+			// echo ($trigger?$item->parent_category_id:$item->category_id)." portfolio-item"; 
+		}
+
+
+
+		return View::make('frontend/item/view-item-list', compact('items', 'parentCategory', 'trigger'));	
 	}
 
 	/**
@@ -21,6 +45,8 @@ class ItemController extends BaseController {
 	 */
 	public function getAllItemsWithCategory($id)
 	{
+		$trigger = FALSE;
+
 		$parentCategory = Category::where('parent_id','=',$id)->get(); 
 
 		$categorySet = Category::where('parent_id','=',$id)->lists('id'); 
@@ -51,7 +77,7 @@ class ItemController extends BaseController {
 		}
 
 
-		return View::make('frontend/item/view-item-list', compact('parentCategory','items'));	
+		return View::make('frontend/item/view-item-list', compact('parentCategory','items', 'trigger'));	
 
 
 

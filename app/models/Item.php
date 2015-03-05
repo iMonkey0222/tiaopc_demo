@@ -35,8 +35,8 @@ class Item extends Eloquent {
 		return $this->belongsTo('User');
 	}
 
-	public function parentCategory()
+	public function category()
 	{
-		return $this->belongsTo('Category');
+		return $this->belongsTo('Category', 'category_id', 'id');
 	}
 }
