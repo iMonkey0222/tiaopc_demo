@@ -197,9 +197,9 @@ class ItemController extends BaseController {
 				return Redirect::to("/item/$item->id")->with('success', Lang::get('admin/blogs/message.create.success'));
 			}
 
-			$priceArray = new Price(array('price' => Input::get('price')));
+			$price = new Price(['price' => Input::get('price')]);
 
-			if($itemId->prices()->save($priceArray))
+			if($itemId->prices()->save($price))
 			{
 				// Save success, return to newly published item
 				return Redirect::to("/item/$item->id")->with('success', Lang::get('admin/blogs/message.create.success'));

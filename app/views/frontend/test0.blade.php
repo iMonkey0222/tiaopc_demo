@@ -8,8 +8,36 @@ Test By Yue Wang
 
 {{-- Page Content --}}
 @section('content')
+
+
+
+{{-- 4/3/2015 --}}
 <?php
-// get child category name
+
+$item = Item::find(52);
+
+$price = new Price(['price' => '32']);
+
+if($priceSave = $item->prices()->save($price))
+{
+	echo "ok";
+}
+
+
+
+
+
+
+
+?>
+
+
+
+
+
+
+<?php
+/*// get child category name
 $parentCategory = Category::where('parent_id','=','1')->get(); 
 // get all child category id
 $categorySet = Category::where('parent_id','=','1')->lists('id'); 
@@ -40,116 +68,18 @@ foreach ($items as $item)
 
 }
 
-echo $itemArray;
+echo $itemArray;*/
 
 
 ?>
 
 
-        <section id="content">
-
-            <div class="content-wrap">
-
-                <div class="container clearfix">
-
-                    <div id="portfolio-ajax-wrap">
-                        <div id="portfolio-ajax-container"></div>
-                    </div>
-
-                    <div id="portfolio-ajax-loader"><img src="images/preloader-dark.gif" alt="Preloader"></div>
-
-                    <!-- Portfolio Filter
-                    ============================================= -->
-                    <ul id="portfolio-filter" class="clearfix">
-
-                        <li class="activeFilter"><a href="#" data-filter="*">Show All</a></li>
-                        @foreach ($parentCategory as $category)
-                        <li><a href="#" data-filter={{".".$category->id }}>{{ $category->name }}</a></li>
-                        @endforeach
-
-                    </ul><!-- #portfolio-filter end -->
-
-
-                    <ul id="portfolio-filter-right" class="clearfix">
-                        <li class="activeFilter"><a href="#" data-filter="*">asd</a></li>  
-                        <li><a href="#" data-filter=".2">价格</a></li>
-                        <li><a href="#" data-filter=".2">价格</a></li>                
-                    </ul>  
-
-
-                    <div class="clear"></div>
-
-                    <!-- Portfolio Items
-                    ============================================= -->
-                    <div id="portfolio" class="portfolio-nomargin portfolio-ajax clearfix">
-
-						@foreach($items as $item)
-
-                        <article id="portfolio-item-1" data-loader="include/ajax/portfolio-ajax-image.php" class="<?php echo "$item->category_id portfolio-item"; ?>" >
-                            <div class="portfolio-image">
-                                <a href="portfolio-single.html">
-                                    <img src="images/portfolio/4/1.jpg" alt="Open Imagination">
-                                </a>
-                                <div class="portfolio-overlay">
-                                    <a href="#" class="center-icon"><i class="icon-line-expand"></i></a>
-                                </div>
-                            </div>
-                            <div class="portfolio-desc">
-                                <h3><a href="portfolio-single.html">{{$item->title}}</a></h3>
-                                <span>Price: <a class="price"> {{ $item->price }} </a></span>
-
-                            </div>
-                        </article>
-
-						@endforeach
-                        
-
-                    
-
-                    </div><!-- #portfolio end -->
-
-                    <!-- Portfolio Script
-                    ============================================= -->
-                    <script type="text/javascript">
-
-                        jQuery(window).load(function(){
-
-                            var $container = $('#portfolio');
-
-                            $container.isotope({ transitionDuration: '0.65s' });
-
-                            $('#portfolio-filter a').click(function(){
-                                $('#portfolio-filter li').removeClass('activeFilter');
-                                $(this).parent('li').addClass('activeFilter');
-                                var selector = $(this).attr('data-filter');
-                                $container.isotope({ filter: selector });
-                                return false;
-                            });
-
-                            $('#portfolio-shuffle').click(function(){
-                                $container.isotope('updateSortData').isotope({
-                                    sortBy: 'random'
-                                });
-                            });
-
-                            $(window).resize(function() {
-                                $container.isotope('layout');
-                            });
-
-                        });
-
-                    </script><!-- Portfolio Script End -->
-
-                </div>
-
-            </div>
-
-        </section><!-- #content end -->
 
 
 
+{{-- 
 {{ $items->links() }}
-
+ --}}
 
 
 
