@@ -191,21 +191,15 @@ class ItemController extends BaseController {
 
 			$itemId = Item::find($item->id);
 
-			if($itemId->pictures()->saveMany($uploadPicture))
+			if(($itemId->pictures()->saveMany($uploadPicture)) && ($itemId->prices()->save($price)))
 			{
+				
+				$price = new Price(['price' => e(Input::get('price'))]);
 				// Save success, return to newly published item
 				return Redirect::to("/item/$item->id")->with('success', Lang::get('admin/blogs/message.create.success'));
+				
+
 			}
-
-			$price = new Price(['price' => Input::get('price')]);
-
-			if($itemId->prices()->save($price))
-			{
-				// Save success, return to newly published item
-				return Redirect::to("/item/$item->id")->with('success', Lang::get('admin/blogs/message.create.success'));
-			}
-
-
 
 
 		}

@@ -14,11 +14,11 @@ Test By Yue Wang
 {{-- 4/3/2015 --}}
 <?php
 
-$item = Item::find(52);
+$item = Item::find(57);
 
-$price = new Price(['price' => '32']);
+$price = new Price(['price' => '88']);
 
-if($priceSave = $item->prices()->save($price))
+if($item->prices()->save($price))
 {
 	echo "ok";
 }
