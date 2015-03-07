@@ -8,11 +8,82 @@ class ItemController extends BaseController {
 	 */
 	public function getAllItems()
 	{
-		// Get all items with paginate 
-		$items = Item::paginate(10);
 
-		return View::make('frontend/item/view-item-list', compact('items'));	
+		// Get the all the parent category
+		$parentCategory = Category::where('parent_id','=', NULL)->get(); 
+	
+		// Get all items with paginate 
+		$items = Item::paginate(12);
+
+		$trigger = TRUE;
+
+		foreach($items as $item)
+		{
+			$parentCategoryId = Item::find($item->id)->category()->first()->parent_id; 
+
+			array_add($item, 'parent_category_id', $parentCategoryId);
+		}
+
+
+
+		foreach ($items as $item)
+		{
+
+			echo $item->parent_category_id;
+			// echo ($trigger?$item->parent_category_id:$item->category_id)." portfolio-item"; 
+		}
+
+
+
+		return View::make('frontend/item/view-item-list', compact('items', 'parentCategory', 'trigger'));	
 	}
+
+	/**
+	 * Get all item with the specific parent category
+	 * @param  int $id parent category id 
+	 * @return view item list page 
+	 */
+	public function getAllItemsWithCategory($id)
+	{
+		$trigger = FALSE;
+
+		$parentCategory = Category::where('parent_id','=',$id)->get(); 
+
+		$categorySet = Category::where('parent_id','=',$id)->lists('id'); 
+
+		// get all item that contains child category id
+		$items = Item::whereIn('category_id',$categorySet)->paginate(12); 
+
+
+		$itemArray = array();
+
+		foreach ($items as $item)
+		{
+
+			// Get the main picture
+			$itemPicture = Item::find($item->id)->pictures()->where('status','=','1')->first();
+
+			$pictureName = $itemPicture['picture_name'];
+
+			array_add($item, "picture_name", $pictureName);
+
+			// Get the newest price
+			$priceArray = Item::find($item->id)->prices->first(); 
+			// get the first/newest priceArray
+			$newestPrice = $priceArray['price'];
+
+			array_add($item, 'price',$newestPrice);
+
+		}
+
+
+		return View::make('frontend/item/view-item-list', compact('parentCategory','items', 'trigger'));	
+
+
+
+	}
+
+
 
 	/**
 	 * Get a single item with given id
@@ -97,7 +168,19 @@ class ItemController extends BaseController {
 
 
 		// Validate each picture if there any pictures not formatted, then fails
-		$pictures = Input::file('pictures');
+		$mainPicture = Input::file('mainPicture'); // main picture
+		$pictures = Input::file('pictures'); // picture array
+
+		$rules = array('mainPicture' => 'image');
+		$picValidator = Validator::make(array('mainPicture' => $mainPicture), $rules);
+
+		// Validate main picture
+		if($picValidator -> fails())
+		{
+			return Redirect::back()->withInput()->withErrors($picValidator);
+		}
+
+
 		foreach ($pictures as $picture)
 		{
 			$rules = array('picture' => 'image');
@@ -127,40 +210,57 @@ class ItemController extends BaseController {
 
 		if($item->save())
 		{	
-			// Check picture upload
-			$uploadPicture = array();
-
-			foreach( $pictures as $picture )
-			{
-
-				$destinationPath = public_path().'/assets/img';
-				$extension = $picture->getClientOriginalExtension(); // getting image extension
-
-				$fileName = date("Ymdhis") . str_random(3) . "." . $extension; 
-				$uploadSuccess = $picture->move($destinationPath, $fileName);
-
-
-				array_push($uploadPicture, new Picture(array('picture_name' => $fileName)));
-
-			}
-
+			// Get current item
 			$itemId = Item::find($item->id);
 
-			if($itemId->pictures()->saveMany($uploadPicture))
+
+			// Checkout main picture upload
+			$destinationPath = public_path().'/assets/img';
+			$extension = $mainPicture->getClientOriginalExtension(); // getting image extension
+
+			$fileName = date("Ymdhis") . str_random(3) . "." . $extension; 
+			$uploadSuccess = $mainPicture->move($destinationPath, $fileName);
+
+
+			// Fail in this way. Just don't know why
+			// $mainPicture = new Picture(array('picture_name' => $fileName, 'status' => 2));
+			$mainPicture = new Picture;
+			$mainPicture->picture_name = $fileName;
+			$mainPicture->status = 1;
+
+
+			if($itemId->pictures()->save($mainPicture))
 			{
-				// Save success, return to newly published item
-				return Redirect::to("/item/$item->id")->with('success', Lang::get('admin/blogs/message.create.success'));
+				// Check picture upload
+				$uploadPicture = array();
+
+				foreach( $pictures as $picture )
+				{
+
+					$destinationPath = public_path().'/assets/img';
+					$extension = $picture->getClientOriginalExtension(); // getting image extension
+
+					$fileName = date("Ymdhis") . str_random(3) . "." . $extension; 
+					$uploadSuccess = $picture->move($destinationPath, $fileName);
+
+
+					array_push($uploadPicture, new Picture(array('picture_name' => $fileName)));
+
+				}
+
+
+				$price = new Price(['price' => e(Input::get('price'))]);
+
+
+				if(($itemId->pictures()->saveMany($uploadPicture)) && ($itemId->prices()->save($price)))
+				{
+					// Process the picture 
+					// the route has already been set up
+					return Redirect::action('ItemController@itemPictureProcess', array('id' => $itemId->id));
+
+
+				}
 			}
-
-			$priceArray = new Price(array('price' => Input::get('price')));
-
-			if($itemId->prices()->save($priceArray))
-			{
-				// Save success, return to newly published item
-				return Redirect::to("/item/$item->id")->with('success', Lang::get('admin/blogs/message.create.success'));
-			}
-
-
 
 
 		}
@@ -200,6 +300,50 @@ class ItemController extends BaseController {
 
 	}
 
+
+
+	public function itemPictureProcess($id)
+	{
+
+		echo "Wait for a second. Processing the images uplpad... ";
+
+		$itemPictures = Item::find($id)->pictures;
+
+		foreach ($itemPictures as $picture) 
+		{
+
+			// Original path of picture
+			$originalPath = public_path().'/assets/img';
+			$pictureOriginalPath = $originalPath."/".$picture->picture_name;
+			// New path of the picture
+			$newPath = public_path().'/assets/new_img';
+			$pictureNewPath = $newPath."/".$picture->picture_name;
+			// Get the picture
+			$img = Image::make($pictureOriginalPath);
+			// Picture ratio
+			$ratio = 4/3;
+
+			// Check the current size of img is appropriate or not,
+			// if ratio of current img is greater than 1.33, then crop
+			if(intval($img->width()/$ratio > $img->height()))
+			{
+				// Fit the img to ratio of 4:3, based on the height
+				$img->fit(intval($img->height() * $ratio),$img->height());
+			} 
+			else
+			{
+				// Fit the img to ratio of 4:3, based on the width
+				$img->fit($img->width(), intval($img->width()/$ratio));
+			}
+
+			// Save, still need throw exception
+			$img->save($pictureNewPath);
+			
+		}
+
+		// Process and save the pictures successfully
+		return Redirect::to("/item/$id")->with('success', Lang::get('admin/blogs/message.create.success'));
+	}
 
 
 
