@@ -106,10 +106,13 @@ Route::group(array('prefix' => 'account'), function()
 Route::group(array('prefix' => 'item'), function()
 {
 	// Show all items
-	Route::get('/', array('as' => 'item', 'uses' => 'ItemController@getAllItems')); 
+	Route::get('all', array('as' => 'item', 'uses' => 'ItemController@getAllItems')); 
+	// Show all items with specific parent category
+	Route::get('all/{parentCategoryId}', array('as' => 'item/category', 'uses' => 'ItemController@getAllItemsWithCategory'))->where('parentCategoryId', '[0-9]+');
+
 	// Show single item, parameter matching with regular expression
-	Route::get('{itemID}', array('as' => 'singleItem', 'uses' => 'ItemController@getSingleItem'))->where('id', '[0-9]+');
-; 
+	Route::get('{itemID}', array('as' => 'singleItem', 'uses' => 'ItemController@getSingleItem'))->where('itemID', '[0-9]+');
+
 
 
 });

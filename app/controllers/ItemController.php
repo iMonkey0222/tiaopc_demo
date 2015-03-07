@@ -213,6 +213,7 @@ class ItemController extends BaseController {
 			// Get current item
 			$itemId = Item::find($item->id);
 
+<<<<<<< HEAD
 
 			// Checkout main picture upload
 			$destinationPath = public_path().'/assets/img';
@@ -229,6 +230,24 @@ class ItemController extends BaseController {
 			$mainPicture->status = 1;
 
 
+=======
+
+			// Checkout main picture upload
+			$destinationPath = public_path().'/assets/img';
+			$extension = $mainPicture->getClientOriginalExtension(); // getting image extension
+
+			$fileName = date("Ymdhis") . str_random(3) . "." . $extension; 
+			$uploadSuccess = $mainPicture->move($destinationPath, $fileName);
+
+
+			// Fail in this way. Just don't know why
+			// $mainPicture = new Picture(array('picture_name' => $fileName, 'status' => 2));
+			$mainPicture = new Picture;
+			$mainPicture->picture_name = $fileName;
+			$mainPicture->status = 1;
+
+
+>>>>>>> 6bd52327ab165c41b678ecf2e9740b58c06209df
 			if($itemId->pictures()->save($mainPicture))
 			{
 				// Check picture upload
@@ -254,10 +273,19 @@ class ItemController extends BaseController {
 
 				if(($itemId->pictures()->saveMany($uploadPicture)) && ($itemId->prices()->save($price)))
 				{
+<<<<<<< HEAD
 					// Process the picture 
 					// the route has already been set up
 					return Redirect::action('ItemController@itemPictureProcess', array('id' => $itemId->id));
+=======
+					
+					// Save success, return to newly published item
+					return Redirect::to("/item/$item->id")->with('success', Lang::get('admin/blogs/message.create.success'));
+					
+>>>>>>> 6bd52327ab165c41b678ecf2e9740b58c06209df
 
+				}
+			}
 
 				}
 			}
