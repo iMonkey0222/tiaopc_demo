@@ -10,6 +10,47 @@ Test By Yue Wang
 @section('content')
 
 
+{{-- 7/3/2015 --}}
+<?php 
+// $img = Image::make('assets/img/2.png');
+// // var_dump($img);
+// $ratio = 4/3;
+// echo intval($img->width()/$ratio);
+
+// Check the current size of img is appropriate or not,
+// if ratio of current img is greater than 1.33, then crop
+// if(intval($img->width()/$ratio > $img->height()))
+// {
+// 	// Fit the img to ratio of 4:3, based on the height
+// 	$img->fit(intval($img->height() * $ratio),$img->height());
+// } 
+// else
+// {
+// 	// Fit the img to ratio of 4:3, based on the width
+// 	$img->fit($img->width(), intval($img->width()/$ratio));
+// }
+
+
+
+// $img->save('assets/img/new2.jpg');
+
+
+
+// return Redirect::action('ItemController@itemPictureProcess', array('id' => 1));
+			// $path = public_path().'/assets/img';
+			// $picture = "ok.jpg";
+			// $picturePath =$path."/".$picture;
+
+			// echo $picturePath;
+			// 
+			
+Redirect::action('ItemController@itemPictureProcess', array('id' => 56));
+
+
+?>
+
+{{-- {{HTML::image('assets/img/new2.jpg')}}  --}}
+
 
 {{-- 4/3/2015 --}}
 <?php
@@ -24,19 +65,19 @@ Test By Yue Wang
 // }
 
 
-$parentCategory = Category::where('parent_id','=', NULL)->get(); 
+// $parentCategory = Category::where('parent_id','=', NULL)->get(); 
 
-echo $parentCategory;
+// echo $parentCategory;
 
-foreach ($parentCategory as $category)
-{
-	echo $category['name'];
-}
+// foreach ($parentCategory as $category)
+// {
+// 	echo $category['name'];
+// }
 
-// Get the parent category id by given item
-$category = Item::find(14)->category()->first();
+// // Get the parent category id by given item
+// $category = Item::find(14)->category()->first();
 
-echo $category->parent_id;
+// echo $category->parent_id;
 
 
 
@@ -252,10 +293,10 @@ echo $itemArray;*/
 
 
 
-{{-- 
-{{ HTML::image('assets/img/new.jpg')}}
 
-{{ HTML::image('assets/img/IMG_0635.jpg')}} --}}
+{{-- {{ HTML::image('assets/img/new.jpg')}} --}}
+
+{{-- {{ HTML::image('assets/img/IMG_0635.jpg')}} --}}
 
 
 

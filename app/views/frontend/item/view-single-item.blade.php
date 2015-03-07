@@ -45,7 +45,7 @@ Single item page
                                         @foreach ($pictures as $picture)
                                         <div class="slide" data-thumb="images/shop/thumbs/dress/3.jpg">
                                             <a href="images/shop/dress/3.jpg" title="Pink Printed Dress - Front View" data-lightbox="gallery-item">
-                                                <img src={{asset("assets/img/$picture->picture_name")}} alt="Pink Printed Dress">
+                                                <img src={{asset("assets/new_img/$picture->picture_name")}} alt="Pink Printed Dress">
                                             </a>
                                         </div>
                                         @endforeach

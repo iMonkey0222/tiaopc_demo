@@ -254,10 +254,10 @@ class ItemController extends BaseController {
 
 				if(($itemId->pictures()->saveMany($uploadPicture)) && ($itemId->prices()->save($price)))
 				{
-					
-					// Save success, return to newly published item
-					return Redirect::to("/item/$item->id")->with('success', Lang::get('admin/blogs/message.create.success'));
-					
+					// Process the picture 
+					// the route has already been set up
+					return Redirect::action('ItemController@itemPictureProcess', array('id' => $itemId->id));
+
 
 				}
 			}
@@ -300,6 +300,50 @@ class ItemController extends BaseController {
 
 	}
 
+
+
+	public function itemPictureProcess($id)
+	{
+
+		echo "Wait for a second. Processing the images uplpad... ";
+
+		$itemPictures = Item::find($id)->pictures;
+
+		foreach ($itemPictures as $picture) 
+		{
+
+			// Original path of picture
+			$originalPath = public_path().'/assets/img';
+			$pictureOriginalPath = $originalPath."/".$picture->picture_name;
+			// New path of the picture
+			$newPath = public_path().'/assets/new_img';
+			$pictureNewPath = $newPath."/".$picture->picture_name;
+			// Get the picture
+			$img = Image::make($pictureOriginalPath);
+			// Picture ratio
+			$ratio = 4/3;
+
+			// Check the current size of img is appropriate or not,
+			// if ratio of current img is greater than 1.33, then crop
+			if(intval($img->width()/$ratio > $img->height()))
+			{
+				// Fit the img to ratio of 4:3, based on the height
+				$img->fit(intval($img->height() * $ratio),$img->height());
+			} 
+			else
+			{
+				// Fit the img to ratio of 4:3, based on the width
+				$img->fit($img->width(), intval($img->width()/$ratio));
+			}
+
+			// Save, still need throw exception
+			$img->save($pictureNewPath);
+			
+		}
+
+		// Process and save the pictures successfully
+		return Redirect::to("/item/$id")->with('success', Lang::get('admin/blogs/message.create.success'));
+	}
 
 
 

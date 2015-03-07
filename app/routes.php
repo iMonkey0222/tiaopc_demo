@@ -114,7 +114,6 @@ Route::group(array('prefix' => 'item'), function()
 	Route::get('{itemID}', array('as' => 'singleItem', 'uses' => 'ItemController@getSingleItem'))->where('itemID', '[0-9]+');
 
 
-
 });
 
 
@@ -123,7 +122,7 @@ Route::group(array('prefix' => 'item'), function()
 Route::get('publish', array('as' => 'publish/item', 'uses' => 'ItemController@getSingleItemForm')); 
 Route::post('publish', 'ItemController@PostSingleItemForm'); 
 
-
+Route::get('publish/process/{id}', array('as' => 'publish/process', 'uses' => 'ItemController@itemPictureProcess'));
 
 /**
  * Home Page Temp
@@ -146,6 +145,8 @@ Route::get('test0', array('as' => 'test', function(){
 Route::get('test1', array('as' => 'test', function(){
 	return View::make('frontend.test1');
 }));
+
+
 
 
 
