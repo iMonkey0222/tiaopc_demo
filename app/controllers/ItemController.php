@@ -31,9 +31,19 @@ class ItemController extends BaseController {
 
 
 			// Add the parent_category_id to the item array;
-			$parentCategoryId = Item::find($item->id)->category()->first()->parent_id; 
-			array_add($item, 'parent_category_id', $parentCategoryId);
+			$parentCategory = Item::find($item->id)->category; 
+
+			while($parentCategory->parent_id != NULL)
+			{
+				// Get the current category collection
+				$parentCategory = Category::find($parentCategory->parent_id);				
+			}
+
+			array_add($item, 'parent_category_id', $parentCategory);
 		}
+
+
+
 
 
 		return View::make('frontend/item/view-item-list', compact('items', 'parentCategory', 'trigger'));	
@@ -96,10 +106,6 @@ class ItemController extends BaseController {
 			// don't exist. So, this means that it is time for 404 error page.
 			return App::abort(404);
 		}
-		
-		$pictures = Item::find($id)->pictures;
-
-
 
 		return View::make('frontend/item/view-single-item', compact('item','pictures'));
 
@@ -269,35 +275,6 @@ class ItemController extends BaseController {
 
 
 	}
-
-	/**
-	 * Get published single item page
-	 * @param  int $itemId 
-	 * @return view single item edit view
-	 */
-	public function getSingleItemEditForm($itemId)
-	{
-		// Check if the item exists
-		if (is_null($item = Item::find($postId)))
-		{
-			// Redirect to the blogs management page
-			return Redirect::to('admin/blogs')->with('error', Lang::get('admin/blogs/message.does_not_exist'));
-		}
-
-		// Show the page
-		return View::make('frontend/item/edit-item', compact('item'));
-	}
-
-	/**
-	 * Post single item edit form
-	 * @param int $itemId item id
-	 * @return view published single item page
-	 */
-	public function PostSingleItemEditForm($itemId)
-	{
-
-	}
-
 
 
 	public function itemPictureProcess($id)

@@ -19,15 +19,12 @@ class ReviewPublishmentController extends AuthorizedController {
 
 	public function getPublishedItems()
 	{
-// pass the user id as paramater!!!!
-
 		// Get the user information
 		$user = Sentry::getUser();
 		$userID = $user->id;
-		$userEmail = $user->email;
 
 		// // Get all items  
-		$items = User::find(5)->getItems;
+		$items = User::find($userID)->getItems;
 
 		if(is_null($items))
 		{
@@ -65,10 +62,6 @@ class ReviewPublishmentController extends AuthorizedController {
 	}
 
 
-	public function postIndex(){
-
-
-	}
 
 
 	// /**
@@ -114,6 +107,23 @@ class ReviewPublishmentController extends AuthorizedController {
 		return View::make('frontend/item/edit-item', compact('item', 'categories','pictures'));
 	}
 
+/**
+ * [deleteItem description]
+ * @param  [type] $itemID [description]
+ * @return [type]         [description]
+ */
+	public function deleteItem($itemID){
+		// Check if user or visitor
+		if(! Sentry::check())
+		{
+			// Return to sign in page
+			return View::make('frontend/auth/signin');
+		}
+		$item = Item::find($itemID);
+		echo "Item need to be deleted is "."$itemID";
+		return View::make('frontend/item/edit-item');
+
+	}
 
 
 	/**
@@ -121,7 +131,7 @@ class ReviewPublishmentController extends AuthorizedController {
 	 * @param int $itemId item id
 	 * @return view published single item page
 	 */
-	public function PostSingleItemEditForm($itemID)
+	public function PostSingleItemEditForm()
 	{
 		// Check if user or visitor
 		if(! Sentry::check())
@@ -131,7 +141,9 @@ class ReviewPublishmentController extends AuthorizedController {
 		}
 		// Get all the input including images
 		$input = Input::all();
-		
+
+		$itemID = Input::get('itemID'); // Get item id from hidden input
+
 		$item = Item::find($itemID);
 
 		$originPics = Item::find($itemID)->pictures; // get the orgin pics array
@@ -186,19 +198,21 @@ class ReviewPublishmentController extends AuthorizedController {
 
 		if($item->save())
 		{	
-			// Check picture upload
-			$uploadPicture = array();
+				// Main pic
+				// 
+			if($item->pictures()->save($mainPicture))
+			{
+				// Check picture upload
+				$uploadPicture = array();
 
 			// $pictures is not null
-			if (!is_null($pictures)) {
-
 				foreach( $pictures as $picture )
 				{
 					$destinationPath = public_path().'/assets/img';
 
 					// if user upload extra pictures
-					if (!is_null($picture)) 
-					{
+					// if (!is_null($picture)) 
+					// {
 						$extension = $picture->getClientOriginalExtension(); // getting image extension
 
 						$fileName = date("Ymdhis") . str_random(3) . "." . $extension; 
@@ -207,47 +221,30 @@ class ReviewPublishmentController extends AuthorizedController {
 
 						array_push($uploadPicture, new Picture(array('picture_name' => $fileName)));
 						# code...
-					}
+					// }
 
 					// Else if user did not upload extra pictures
 					// Do thing
 				}
 
-			//$itemId = Item::find($item->id);
-				// foreach ($pictures as $picture) 
-				// {
-				// 	$picName = $picture['picture_name'];
-				// 	array_add($item, 'picture', "$picName");
-				// }
-				
-				// array_add($item->pictures, '');
-			
-				
+				$priceArray = new Price(['price' => e(Input::get('price'))]);
+
+					if(($item->pictures()->saveMany($uploadPicture)) && ($item->prices()->save($priceArray)))
+				{
+					// Save success, return to newly published item
+					// return Redirect::to("/item/$itemID")->with('success', Lang::get('admin/blogs/message.create.success'));
+					return Redirect::action('ItemController@itemPictureProcess', array('id' => $itemID));
+				}				
+
+				// If error exists, return to publish page
+				Return Redirect::to('/revise-item/$itemID')->with('error', Lang::get('admin/blogs/message.create.error'));
+
 			}
 
-			$priceArray = new Price(array('price' => Input::get('price')));
-
-			if($itemID->pictures()->saveMany($uploadPicture) && $itemID->prices()->save($priceArray))
-			{
-				// Save success, return to newly published item
-				return Redirect::to("/item/$itemID")->with('success', Lang::get('admin/blogs/message.create.success'));
-			}				
-
-			// If error exists, return to publish page
-		Return Redirect::to('/revise-item/$itemID')->with('error', Lang::get('admin/blogs/message.create.error'));
-
-		}
-
 	}
 
-/**
- * [deleteItem description]
- * @param  [type] $itemID [description]
- * @return [type]         [description]
- */
-	public function deleteItem($itemID){
+}
 
-	}
 
 /**
  * Customized ItemArray
@@ -270,5 +267,7 @@ class ReviewPublishmentController extends AuthorizedController {
 
 		return $item;
 	}
+
+
 
 }

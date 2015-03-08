@@ -21,8 +21,9 @@ Published Items
 				<th>Tick</th>
 				<th>Products</th>
 				<th>Price</th>
-				<th>Trade Status</th>
+				
 				<th>Status</th>
+				<th>Trade Status</th>
 				<th>Action</th>
 			</tr>
 		</thead>
@@ -30,6 +31,7 @@ Published Items
 		<tbody>
 			@foreach ($items as $item)
 			<tr>
+				<!-- Check box  -->
 				<td>
 					<div class="controls">
 						<label class="control-label" for="select all">
@@ -37,6 +39,8 @@ Published Items
 						</label>
 					</div>
 				</td>
+
+				<!-- Product image and title --> 
 				<td>
 					<img width = "100" height="100" src = {{asset("assets/img/$item->picture")}} alt="查看宝贝详情" >
 					<p>
@@ -45,15 +49,38 @@ Published Items
 						</a>
 					</p>	
 				</td>
+
+				<!-- Product price --> 
 				<td>
 					@if (!empty($item-> price))
 					£{{ $item-> price }}
 					@endif
 				</td>
-				<td>{{ $item-> product_condition }} </td>
-				<td>{{ $item-> order_status }}</td>
-				<td>a
+
+				<!-- Product Status --> 
+				<td>
+					@if ($item-> status == 0)
+						<p>Frozen</p>
+					@elseif ($item-> status == 1)
+						<p>Active</p>
+
+					@endif
+				</td>
+
+				<!-- Product Order_status/Transaction Status --> 
+				<td>
+					@if ($item-> order_status == 0)
+						<p>0 Request</p>
+					@elseif ($item-> status == 1)
+						<p>Requested</p>
+					@elseif ($item-> status == 2)
+						<p>Sold</p>
+					@endif
+					<!-- {{ $item-> order_status }} -->
+				</td>
+				<td>
 					<a class="btn" href="{{ URL::route('reviseSingleItem',array($item->id)) }}">Edit Item</a>
+					<a class="btn" href="{{ URL::route('deleteItem',array($item->id)) }}">Delete Item</a>
 				</td>
 			</tr>
 			@endforeach

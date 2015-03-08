@@ -63,6 +63,12 @@ return array(
 			'prefix'    => 'laravel_',
 
 		),
+
+		// 'host'      => 'localhots',
+		// 'database'  => 'laravel_tiaopc_demo',
+		// 'username'  => 'root',
+		// 'password'  => 'root',
+
 		// 'mysql' => array(
 		// 	'driver'    => 'mysql',
 		// 	'host'      => '192.241.190.185',
