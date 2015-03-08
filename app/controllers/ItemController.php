@@ -30,9 +30,16 @@ class ItemController extends BaseController {
 			array_add($item, "picture_name", $pictureName);
 
 
+
 			// Add the parent_category_id to the item array;
-			$parentCategoryId = Item::find($item->id)->category()->first()->parent_id; 
-			array_add($item, 'parent_category_id', $parentCategoryId);
+			$category = Item::find($item->id)->category()->first(); 
+			while($category->parent_id != NULL)
+			{
+				// Get the current category collection
+				$category = Category::find($category->parent_id);				
+			}
+
+			array_add($item, 'parent_category_id', $category->id);
 		}
 
 
@@ -63,7 +70,7 @@ class ItemController extends BaseController {
 			$pictureName = $itemPicture['picture_name'];
 			array_add($item, "picture_name", $pictureName);
 
-			// Add the newest picure to the item array
+			// Add the newest price to the item array
 			$priceArray = Item::find($item->id)->prices->first(); 
 			$newestPrice = $priceArray['price'];
 			array_add($item, 'price',$newestPrice);
@@ -96,8 +103,15 @@ class ItemController extends BaseController {
 			// don't exist. So, this means that it is time for 404 error page.
 			return App::abort(404);
 		}
-		
+
+		//Add picture to array
 		$pictures = Item::find($id)->pictures;
+
+		// Add the newest price to the item array
+		$priceArray = Item::find($item->id)->prices->first(); 
+		$newestPrice = $priceArray['price'];
+		array_add($item, 'price',$newestPrice);
+		
 
 
 
