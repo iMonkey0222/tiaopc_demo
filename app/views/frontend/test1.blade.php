@@ -16,8 +16,18 @@ Test By Xiaoyang Wang
 <?php
 
 
+// $items = User::find(5)->getItems;
+$item = Item::find(24);
 
-$items = User::find(3)->getItems;
+	$item->title = 'This is Item 24';
+		$item->category_id = '3';
+		$item->product_condition = '7';
+		$item->description = "Hello !!!!! Weclome to call me !!";
+$item->save();
+
+$price = new Price(['price' => '20']);
+
+echo "$item";
 
 	// foreach ($items as $item) {
 	// 	$itemID = $item->id;

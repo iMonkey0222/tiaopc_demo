@@ -6,19 +6,28 @@ Profile page
 @parent
 @stop
 
+
+@section('account-page-title')
+    <h3>My Profile</h3>
+    <span><h4>Update your Profile</h4></span>
+@stop
+
+
 {{-- Account Content --}}
 @section('account-content')
-
-<h1>Now you've arrived to profile page</h1>
-<div class="page-header">
-	<h4>Update your Profile</h4>
-</div>
-
 
 <form method="post" action="" class="form-vertical" autocomplete="off">
 	<!-- CSRF Token to avoid across website attack-->
 	<input type="hidden" name="_token" value="{{ csrf_token()}}"/>
 
+	<!-- User Name -->
+	<div class="control-group{{ $errors->first('nickname', ' error') }}">
+		<label class="control-label" for="nickname">User Name</label>
+		<div class="controls">
+			<input class="span4" type="text" name="nickname" id="nickname" value="{{ Input::old('nickname', $user->nickname) }}" />
+			{{ $errors->first('nickname', '<span class="help-block">:message</span>') }}
+		</div>
+	</div>
 
 	<!-- First Name -->
 	<div class="control-group{{ $errors->first('first_name', ' error') }}">
@@ -59,10 +68,5 @@ Profile page
 	</div>
 
 </form>
-<p>
-<h1>Now </h1>
-</p>
-
-
 
 @stop

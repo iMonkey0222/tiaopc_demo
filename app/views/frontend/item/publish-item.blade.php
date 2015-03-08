@@ -8,20 +8,21 @@ Publish Item ::
 
 @section('page-title')
 <section id="page-title">
-
     <div class="container clearfix">
         <h3>Publish Item</h3>
         <span>Publish New Single Item</span>
-        <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li class="active">Publish Item</li>
+ 		<ol class="breadcrumb">
+            <li class="active"><h5><a class="icon-home" href="http://tiaopc.com/">Home</a></h5></li>
+            <li></li>
+            <li class="active"><h5><a class="icon-tag" href="http://localhost:8888/tiaopc_demo/public/publish">Sell an Item</a></h5></li>
         </ol>
     </div>
-
 </section>
 @stop
 
-
+@section('account-page-title')
+    <h3>Sell an Item</h3>
+@stop
 
 
 {{-- Page content --}}

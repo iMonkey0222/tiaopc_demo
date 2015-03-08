@@ -6,14 +6,14 @@ change your password
 @parent
 @stop
 
+@section('account-page-title')
+    <h3>My Profile</h3>
+    <span><h4>Change My Password</h4></span>
+@stop
+
+
 {{-- Account Content --}}
 @section('account-content')
-
-<h1>Change Password page</h1>
-<div class="page-header">
-	<h4>Change your Password</h4>
-</div>
-
 <form method="post" action="" class="form-horizontal" autocomplete="off">
 	<!-- CSRF Token -->
 	<input type="hidden" name="_token" value="{{ csrf_token() }}" />
