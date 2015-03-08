@@ -135,7 +135,7 @@ Item List Page
 
             </div>
 
-    {{ $items->links() }}
+  <div class="text-center">  {{ $items->links() }}   </div>
 
         </section><!-- #content end -->
 

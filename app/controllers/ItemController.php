@@ -96,6 +96,10 @@ class ItemController extends BaseController {
 			// don't exist. So, this means that it is time for 404 error page.
 			return App::abort(404);
 		}
+		
+		$pictures = Item::find($id)->pictures;
+
+
 
 		return View::make('frontend/item/view-single-item', compact('item','pictures'));
 
