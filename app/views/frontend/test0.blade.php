@@ -10,6 +10,37 @@ Test By Yue Wang
 @section('content')
 
 
+{{-- 8/3/2015 --}}
+<?php
+// $category = Category::where('id', '=', '11')->first();
+// // 
+
+// $categorySet = $category->getLeaves();
+
+// foreach ($categorySet as $a)
+// {
+// 	echo $a->name;
+// }
+	
+
+			$parentCategory = Item::find(63)->category; 
+			
+			while($parentCategory->parent_id != NULL)
+			{
+				// Get the current category collection
+				$parentCategory = Category::find($parentCategory->parent_id);				
+			}
+
+			echo $parentCategory->id;
+
+
+
+?>
+
+
+
+
+
 {{-- 7/3/2015 --}}
 <?php 
 // $img = Image::make('assets/img/2.png');

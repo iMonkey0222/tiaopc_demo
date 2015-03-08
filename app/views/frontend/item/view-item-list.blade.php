@@ -3,6 +3,11 @@
 // Get the parent category id by given item
 $category = Item::find(14)->category()->first()['parent_id']; --}}
 {{-- echo "$item->category_id portfolio-item"; --}}
+
+
+
+
+
 @extends('frontend/layouts/default')
 
 {{-- Page title --}}

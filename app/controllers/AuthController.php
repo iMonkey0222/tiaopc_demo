@@ -139,18 +139,18 @@ class AuthController extends BaseController {
 				'password'   => Input::get('password'),
 			));
 
-			// // Data to be used on the email view
-			// $data = array(
-			// 	'user'          => $user,
-			// 	'activationUrl' => URL::route('activate', $user->getActivationCode()),
-			// );
+			// Data to be used on the email view
+			$data = array(
+				'user'          => $user,
+				'activationUrl' => URL::route('activate', $user->getActivationCode()),
+			);
 
-			// // Send the activation code through email
-			// Mail::send('emails.register-activate', $data, function($m) use ($user)
-			// {
-			// 	$m->to($user->email, $user->first_name . ' ' . $user->last_name);
-			// 	$m->subject('Welcome ' . $user->first_name);
-			// });
+			// Send the activation code through email
+			Mail::send('emails.register-activate', $data, function($m) use ($user)
+			{
+				$m->to($user->email, $user->first_name . ' ' . $user->last_name);
+				$m->subject('Welcome ' . $user->first_name);
+			});
 
 			// Redirect to the register page
 			return Redirect::back()->with('success', Lang::get('auth/message.signup.success'));

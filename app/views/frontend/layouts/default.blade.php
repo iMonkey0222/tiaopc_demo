@@ -11,7 +11,8 @@
 		</title>
 		<meta name="keywords" content="your, awesome, keywords, here" />
 		<meta name="author" content="Patrick" />
-		<meta name="description" content="Lorem ipsum dolor sit amet, nihil fabulas et sea, nam posse menandri scripserit no, mei." />
+		<meta name="description" content="This is a fresh new trade info sharing website, for the students of University of Liverpool" />
+        <meta name="email" content="patrick.wang1029@gmail.com">
 
 		<!-- Mobile Specific Metas ================================================== -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,7 +65,8 @@
                     <!-- Logo
                     ============================================= -->
                     <div id="logo">
-
+                         <a href="#" class="standard-logo" data-dark-logo="{{ asset('assets/coming_soon/tiaopc-logo5.png') }}"><img src="{{ asset('assets/coming_soon/tiaopc-logo5.png') }}" alt="Tiaopc Logo"></a>
+                            <a href="#" class="retina-logo" data-dark-logo="{{ asset('assets/coming_soon/tiaopc-logo5.png') }}"><img src="{{ asset('assets/coming_soon/tiaopc-logo5.png') }}" alt="Tiaopc Logo"></a>
                     </div><!-- #logo end -->
 
                     <!-- Primary Navigation
@@ -72,9 +74,22 @@
                     <nav id="primary-menu" class="dark">
 							<ul>
 								<li><a href="{{ route('home') }}">Home</a></li>
+                                <li>
+                                    <a href="{{ route('item') }}"><div>Item</div></a>
+                                    <ul>
+                                        <li><a href="{{ route('item/category', 1)}}"><div>手机</div></a></li>
+                                        <li><a href="{{ route('item/category', 6)}}"><div>平板</div></a></li>
+                                        <li><a href="{{ route('item/category', 11)}}"><div>电脑</div></a>
+                                        <ul>
+                                            <li><a href="{{ route('item/category', 12)}}"><div>台式机</div></a></li>
+                                            <li><a href="{{ route('item/category', 19)}}"><div>笔记本</div></a></li>
+                                        </ul>                                           
+                                        </li>
+                                        <li><a href="{{ route('item/category', 24)}}"><div>外设</div></a></li>
+                                    </ul>
+                                </li>
 								<li><a href="{{ URL::to('about-us') }}">About us</a></li>
 								<li ><a href="{{ URL::to('contact-us') }}">Contact us</a></li>
-								<li ><a href="{{ route('item') }}">Item</a></li>
 								@if (Sentry::check())
 								<li ><a href="{{ route('publish/item') }}">Publish</a></li>
 								@endif

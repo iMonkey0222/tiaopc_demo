@@ -1,3 +1,4 @@
+
 @extends('frontend/layouts/default')
 
 {{-- Page title --}}
@@ -9,7 +10,6 @@ Account Sign in ::
 
 @section('page-title')
 <section id="page-title">
-
     <div class="container clearfix">
         <h3>Sign in</h3>
         <span></span>
@@ -30,7 +30,7 @@ Account Sign in ::
 
 	<div class="row">
 		<div class="col-md-3">
-			This for left side bar
+			
 		</div>
 		<div class="col-md-6">
 		<form method="post" action="{{ route('signin') }}" class="form-horizontal">
