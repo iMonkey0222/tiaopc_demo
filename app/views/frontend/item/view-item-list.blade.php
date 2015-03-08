@@ -79,7 +79,7 @@ Item List Page
  ?>" >
                             <div class="portfolio-image">
                                 <a href="portfolio-single.html">
-                                    <img src="images/portfolio/4/1.jpg" alt="Open Imagination">
+                                    <img src={{ asset("assets/new_img/$item->picture_name")}} alt="Open Imagination">
                                 </a>
                                 <div class="portfolio-overlay">
                                     <a href="#" class="center-icon"><i class="icon-line-expand"></i></a>

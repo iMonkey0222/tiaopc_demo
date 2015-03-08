@@ -13,26 +13,27 @@ class ItemController extends BaseController {
 		$parentCategory = Category::where('parent_id','=', NULL)->get(); 
 	
 		// Get all items with paginate 
-		$items = Item::paginate(12);
+		$items = Item::orderBy('created_at', 'DESC')->paginate(12);
 
 		$trigger = TRUE;
 
 		foreach($items as $item)
 		{
-			$parentCategoryId = Item::find($item->id)->category()->first()->parent_id; 
+			// Add the newest price to the item array
+			$priceArray = Item::find($item->id)->prices->first(); 
+			$newestPrice = $priceArray['price'];
+			array_add($item, 'price',$newestPrice);
 
+			// Add the main picture to the item array;
+			$itemPicture = Item::find($item->id)->pictures()->where('status','=','1')->first();
+			$pictureName = $itemPicture['picture_name'];
+			array_add($item, "picture_name", $pictureName);
+
+
+			// Add the parent_category_id to the item array;
+			$parentCategoryId = Item::find($item->id)->category()->first()->parent_id; 
 			array_add($item, 'parent_category_id', $parentCategoryId);
 		}
-
-
-
-		foreach ($items as $item)
-		{
-
-			echo $item->parent_category_id;
-			// echo ($trigger?$item->parent_category_id:$item->category_id)." portfolio-item"; 
-		}
-
 
 
 		return View::make('frontend/item/view-item-list', compact('items', 'parentCategory', 'trigger'));	
@@ -52,26 +53,19 @@ class ItemController extends BaseController {
 		$categorySet = Category::where('parent_id','=',$id)->lists('id'); 
 
 		// get all item that contains child category id
-		$items = Item::whereIn('category_id',$categorySet)->paginate(12); 
-
-
-		$itemArray = array();
+		$items = Item::whereIn('category_id',$categorySet)->orderBy('created_at', 'DESC')->paginate(12); 
 
 		foreach ($items as $item)
 		{
 
-			// Get the main picture
+			// Add the main picture to the item array
 			$itemPicture = Item::find($item->id)->pictures()->where('status','=','1')->first();
-
 			$pictureName = $itemPicture['picture_name'];
-
 			array_add($item, "picture_name", $pictureName);
 
-			// Get the newest price
+			// Add the newest picure to the item array
 			$priceArray = Item::find($item->id)->prices->first(); 
-			// get the first/newest priceArray
 			$newestPrice = $priceArray['price'];
-
 			array_add($item, 'price',$newestPrice);
 
 		}
