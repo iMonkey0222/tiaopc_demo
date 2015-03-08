@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'sunshine.wy1029@gmail.com', 'name' => 'sunshine'),
+	'from' => array('address' => 'tiaopcofficial@gmail.com', 'name' => 'TiaopcTeam'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => 'sunshine.wy1029@gmail.com',
+	'username' => 'tiaopcofficial@gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => 'Wy1010107702',
+	'password' => 'tiaopctiaopc',
 
 	/*
 	|--------------------------------------------------------------------------
