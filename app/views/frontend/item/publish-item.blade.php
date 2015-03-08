@@ -96,7 +96,9 @@ Publish Item ::
 					<label class="control-label" for="picture">Picture Upload</label>
 					<div class="controls">
 						<!-- <input type="file" name="picture" id="picture"  /> -->
-						{{ Form::file('pictures[]', array('multiple'=>true)) }}
+						<div class="col_half"> {{ Form::file('mainPicture') }} </div>
+						<div class="col_half col_last" > {{ Form::file('pictures[]', array('multiple'=>true)) }} </div>
+
 						{{ $errors->first('picture', '<span class="help-block">:message</span>') }}
 
 					</div>

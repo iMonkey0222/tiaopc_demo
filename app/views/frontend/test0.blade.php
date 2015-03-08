@@ -10,6 +10,148 @@ Test By Yue Wang
 @section('content')
 
 
+{{-- 7/3/2015 --}}
+<?php 
+// $img = Image::make('assets/img/2.png');
+// // var_dump($img);
+// $ratio = 4/3;
+// echo intval($img->width()/$ratio);
+
+// Check the current size of img is appropriate or not,
+// if ratio of current img is greater than 1.33, then crop
+// if(intval($img->width()/$ratio > $img->height()))
+// {
+// 	// Fit the img to ratio of 4:3, based on the height
+// 	$img->fit(intval($img->height() * $ratio),$img->height());
+// } 
+// else
+// {
+// 	// Fit the img to ratio of 4:3, based on the width
+// 	$img->fit($img->width(), intval($img->width()/$ratio));
+// }
+
+
+
+// $img->save('assets/img/new2.jpg');
+
+
+
+// return Redirect::action('ItemController@itemPictureProcess', array('id' => 1));
+			// $path = public_path().'/assets/img';
+			// $picture = "ok.jpg";
+			// $picturePath =$path."/".$picture;
+
+			// echo $picturePath;
+			// 
+			
+Redirect::action('ItemController@itemPictureProcess', array('id' => 56));
+
+
+?>
+
+{{-- {{HTML::image('assets/img/new2.jpg')}}  --}}
+
+
+{{-- 4/3/2015 --}}
+<?php
+
+// $item = Item::find(57);
+
+// $price = new Price(['price' => '88']);
+
+// if($item->prices()->save($price))
+// {
+// 	echo "ok";
+// }
+
+
+// $parentCategory = Category::where('parent_id','=', NULL)->get(); 
+
+// echo $parentCategory;
+
+// foreach ($parentCategory as $category)
+// {
+// 	echo $category['name'];
+// }
+
+// // Get the parent category id by given item
+// $category = Item::find(14)->category()->first();
+
+// echo $category->parent_id;
+
+
+
+?>
+
+
+
+
+
+
+<?php
+/*// get child category name
+$parentCategory = Category::where('parent_id','=','1')->get(); 
+// get all child category id
+$categorySet = Category::where('parent_id','=','1')->lists('id'); 
+
+// get all item that contains child category id
+$items = Item::whereIn('category_id',$categorySet)->paginate(10); 
+
+// get the main picture of the item
+$itemPicture = Item::find(4)->pictures()->where('status','=','1')->first();
+
+$pictureName = $itemPicture['picture_name'];
+
+
+foreach ($items as $item)
+{
+	$itemPicture = Item::find($item->id)->pictures()->where('status','=','1')->first();
+
+	$pictureName = $itemPicture['picture_name'];
+
+	$itemArray = array_add($item, "picture_name", $pictureName);
+
+		// Get the newest price
+	$priceArray = Item::find($item->id)->prices->first(); 
+	// get the first/newest priceArray
+	$newestPrice = $priceArray['price'];
+	
+	$itemArray = array_add($item, 'price',"$newestPrice");
+
+}
+
+echo $itemArray;*/
+
+
+?>
+
+
+
+
+
+{{-- 
+{{ $items->links() }}
+ --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php
 // $data = Session::all();
 // var_dump($data);
@@ -22,18 +164,43 @@ Test By Yue Wang
 
 
 
+// $item = Item::where('category_id', '=', '15')->count();
+
+// $categoryName = Category::where('parent_id','=','1')->get()->toArray();
+// $datas = Category::where('parent_id','=','1')->lists('id'); // Given a specifyied attr
+
+// // var_dump($item);
+
+// echo "<pre>", var_dump($datas), "</pre>";
 
 
 
-$path = asset('assets/img/20150215081022pvL.jpg');
-
-echo $path;
-
-$img = Image::make($path);
+// foreach ($datas as $data){
+// 	echo $data;
+// }
 
 
-$img->resize(200,200);
-$img->save('assets/img/new.jpg');
+
+// $child = Category::find(6)->getChildItem->lists('title');
+// 
+
+// $array = array(2,3,4,5,);
+
+
+// $datas = Category::where('parent_id','=','1')->lists('id'); // get all child category id
+
+// $child = Item::whereIn('category_id',$datas)->lists('title'); // get all item that contains child category id
+
+// var_dump($child);
+// $path = asset('assets/img/IMG_0635.jpg');
+
+// echo $path;
+
+// $img = Image::make($path);
+
+
+// $img->fit(640,640);
+// $img->save('assets/img/new.jpg');
 
 
 // var_dump($img);
@@ -114,7 +281,7 @@ $img->save('assets/img/new.jpg');
 // var_dump($node[1]->name);
 
 
-$destinationPath ='./public/assets/img/';
+// $destinationPath ='./public/assets/img/';
 // echo public_path().'/assets/img';
 
 // echo $info;
@@ -127,9 +294,9 @@ $destinationPath ='./public/assets/img/';
 
 
 
-{{ HTML::image('assets/img/new.jpg')}}
+{{-- {{ HTML::image('assets/img/new.jpg')}} --}}
 
-{{ HTML::image('assets/img/20150215081022pvL.jpg')}}
+{{-- {{ HTML::image('assets/img/IMG_0635.jpg')}} --}}
 
 
 
