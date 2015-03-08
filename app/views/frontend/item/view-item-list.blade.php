@@ -80,15 +80,14 @@ Item List Page
 
                         @foreach($items as $item)                 
 
-                        <article id="portfolio-item-1" data-loader="include/ajax/portfolio-ajax-image.php" class="<?php echo ($trigger?$item->parent_category_id:$item->category_id)." portfolio-item"; 
- ?>" >
+                        <article id="portfolio-item-1" data-loader="include/ajax/portfolio-ajax-image.php" class="<?php echo ($trigger?$item->parent_category_id:$item->category_id)." portfolio-item"; ?>" >
                             <div class="portfolio-image">
                                 <a href={{ asset("assets/new_img/$item->picture_name")}}>
                                     <img src={{ asset("assets/new_img/$item->picture_name")}} alt="Open Imagination">
                                 </a>
 
                                 <div class="portfolio-overlay">
-                                    <a href={{ asset("assets/new_img/$item->picture_name")}} class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                                    <a href={{ asset("assets/new_img/$item->picture_name")}} class="left-icon" data-lightbox="image"><i class="icon-camera"></i></a>
                                     <a href="include/ajax/portfolio-single-image.html" data-lightbox="ajax" class="right-icon"><i class="icon-line-expand"></i></a>
                                 </div>
                             </div>
