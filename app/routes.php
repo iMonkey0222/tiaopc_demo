@@ -17,7 +17,12 @@
 /**
  * Admin management routes
  */
+Route::group(array('prefix' => 'admin'), function()
+{
+	# Dashboard
+	Route::get('/', array('as' => 'admin', 'uses' => 'Controllers\Admin\DashboardController@getIndex'));
 
+});
 
 
 /**
