@@ -13,8 +13,6 @@ Publish Item ::
         <span>Publish New Single Item</span>
  		<ol class="breadcrumb">
             <li class="active"><h5><a class="icon-home" href="http://tiaopc.com/">Home</a></h5></li>
-            <li></li>
-            <li class="active"><h5><a class="icon-tag" href="http://localhost:8888/tiaopc_demo/public/publish">Sell an Item</a></h5></li>
         </ol>
     </div>
 </section>
