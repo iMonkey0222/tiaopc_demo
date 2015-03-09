@@ -15,7 +15,6 @@ Account Sign up ::
         <span></span>
         <ol class="breadcrumb">
             <li><a class="icon-home" href="#">Home</a></li>
-            <li class="active"><a href="{{ route('signup') }}">Sign@ up</a></li>
         </ol>
     </div>
 

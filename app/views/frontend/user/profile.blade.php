@@ -49,7 +49,7 @@ Profile page
 	
 	<!-- Email for Future Login -->
 	<div class="control-group{{ $errors->first('login_email', 'error') }}">
-		<label class="control-label" for="login_email">Email for Future Login</label>
+		<label class="control-label" for="login_email">Email for Future Login </label>
 		<div class="controls">
 			<input class="span4" type="text" name="login_email" id = "login_email" value="{{ Input::old('login_email', $user->email2) }}" />
 			{{ $errors->first('login_email', '<span class="help-block">:message</span>') }}
@@ -59,9 +59,8 @@ Profile page
 
 	<!-- Phone Number -->
 	<div class="control-group{{ $errors->first('phone_no', ' error') }}">
-		<label class="control-label" for="phone_no">Last Name</label>
+		<label class="control-label" for="phone_no">Phone Number</label>
 		<div class="controls">
-			{{ $user->phone_no }}
 			<input class="span4" type="text" name="phone_no" id="phone_no" value="{{ Input::old('phone_no', $user->phone_no) }}" />
 			{{ $errors->first('last_name', '<span class="help-block">:message</span>') }}
 		</div>

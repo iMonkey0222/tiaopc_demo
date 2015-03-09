@@ -12,12 +12,18 @@ class AuthController extends BaseController {
 	 */
 	public function getSignin() 
 	{
+
+// Modified by XYW!!!
+// Because user's friend want to sign in user thier own account, 
+// so we do not need to check whether user is signed in
+		// 
 		// Check user sign in
-		if(Sentry::check())
-		{
-			// return Redirect::route('account');
-			return View::make('/');
-		}
+		// if(Sentry::check())
+		// {
+		// 	$user = Sentry::getUser();
+		// 	// return Redirect::route('account');
+		// 	return View::make('frontend/user/profile',compact('$user'));
+		// }
 
 		// If not, show sign in page
 		return View::make('frontend.auth.signin');
@@ -56,8 +62,13 @@ class AuthController extends BaseController {
 			Session::forget('loginRedirect');
 
 
+// Modified By XY W ----3.9
+// 
+// After user signed in, then redirect to account/profile page
+			$user = Sentry::getUser();
 			// Redirect to the user page
-			return Redirect::to('/')->with('success', Lang::get('auth/message.signin.success'));
+			// Redirect::to('/')
+			return Redirect::to('account/profile')->with('$user','success', Lang::get('auth/message.signin.success'));
 
 		}
 
@@ -92,10 +103,13 @@ class AuthController extends BaseController {
 	public function getSignup()
 	{
 		// Is the user logged in?
-		if (Sentry::check())
-		{
-			return Redirect::to('/');
-		}
+		
+		// XYW!! Modified 3.9 ！！！！！！
+		
+		// if (Sentry::check())
+		// {
+		// 	return Redirect::to('/');
+		// }
 
 		// Show the page
 		return View::make('frontend.auth.signup');
@@ -112,8 +126,8 @@ class AuthController extends BaseController {
 		// Declare the rules for the form validation
 		$rules = array(
 			'nickname'		   		=> 'required|min:2|unique:users',
-			'first_name'       		=> 'required|min:3',
-			'last_name'        		=> 'required|min:3',
+			'first_name'       		=> 'required|min:2',
+			'last_name'        		=> 'required|min:2',
 			'email'            		=> 'required|email|unique:users',
 			'email_confirm'    		=> 'required|email|same:email',
 			'password'         		=> 'required|between:3,32',

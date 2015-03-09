@@ -16,18 +16,20 @@ Test By Xiaoyang Wang
 <?php
 
 
+$user = Sentry::getUser();
+echo "This is nick name "."$user->nickname";
 // $items = User::find(5)->getItems;
-$item = Item::find(24);
+// $item = Item::find(24);
 
-	$item->title = 'This is Item 24';
-		$item->category_id = '3';
-		$item->product_condition = '7';
-		$item->description = "Hello !!!!! Weclome to call me !!";
-$item->save();
+// 	$item->title = 'This is Item 24';
+// 		$item->category_id = '3';
+// 		$item->product_condition = '7';
+// 		$item->description = "Hello !!!!! Weclome to call me !!";
+// $item->save();
 
-$price = new Price(['price' => '20']);
+// $price = new Price(['price' => '20']);
 
-echo "$item";
+// echo "$item";
 
 	// foreach ($items as $item) {
 	// 	$itemID = $item->id;
