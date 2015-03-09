@@ -14,8 +14,8 @@ Account Sign in ::
         <h3>Sign in</h3>
         <span></span>
         <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li class="active">Sign in</li>
+            <li><a class="icon-home" href="#">Home</a></li>
+            <li class="active icon-user">Sign in</li>
         </ol>
     </div>
 

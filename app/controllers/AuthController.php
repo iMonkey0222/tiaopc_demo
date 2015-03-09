@@ -2,7 +2,8 @@
 
 class AuthController extends BaseController {
 
-	
+
+
 	/**
 	 * Account sign in 
 	 * @return page if check ok, then show home page 
@@ -110,12 +111,15 @@ class AuthController extends BaseController {
 	{
 		// Declare the rules for the form validation
 		$rules = array(
-			'first_name'       => 'required|min:3',
-			'last_name'        => 'required|min:3',
-			'email'            => 'required|email|unique:users',
-			'email_confirm'    => 'required|email|same:email',
-			'password'         => 'required|between:3,32',
-			'password_confirm' => 'required|same:password',
+			'nickname'		   		=> 'required|min:2|unique:users',
+			'first_name'       		=> 'required|min:3',
+			'last_name'        		=> 'required|min:3',
+			'email'            		=> 'required|email|unique:users',
+			'email_confirm'    		=> 'required|email|same:email',
+			'password'         		=> 'required|between:3,32',
+			'password_confirm' 		=> 'required|same:password',
+			'phone_no'	   			=> 'required|numeric|digits:11',
+
 		);
 
 		// Create a new validator instance from our validation rules
@@ -133,10 +137,13 @@ class AuthController extends BaseController {
 		{
 			// Register the user
 			$user = Sentry::register(array(
-				'first_name' => Input::get('first_name'),
-				'last_name'  => Input::get('last_name'),
-				'email'      => Input::get('email'),
-				'password'   => Input::get('password'),
+				'nickname'		=> Input::get('nickname'),
+				'first_name' 	=> Input::get('first_name'),
+				'last_name'  	=> Input::get('last_name'),
+				'email'      	=> Input::get('email'),
+				'password'   	=> Input::get('password'),
+				'phone_no'		=> Input::get('phone_no'),
+
 			));
 
 			// Data to be used on the email view

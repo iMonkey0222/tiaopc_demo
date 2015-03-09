@@ -126,6 +126,7 @@ return array(
 		'Baum\BaumServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
 
+
 	),
 
 	/*

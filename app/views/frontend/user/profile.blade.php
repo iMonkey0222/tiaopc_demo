@@ -57,6 +57,16 @@ Profile page
 		</div>
 	</div>
 
+	<!-- Phone Number -->
+	<div class="control-group{{ $errors->first('phone_no', ' error') }}">
+		<label class="control-label" for="phone_no">Last Name</label>
+		<div class="controls">
+			{{ $user->phone_no }}
+			<input class="span4" type="text" name="phone_no" id="phone_no" value="{{ Input::old('phone_no', $user->phone_no) }}" />
+			{{ $errors->first('last_name', '<span class="help-block">:message</span>') }}
+		</div>
+	</div>
+
 
 	<hr>
 

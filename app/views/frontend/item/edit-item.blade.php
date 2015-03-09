@@ -19,7 +19,7 @@ Revise an Item ::
 			
 				{{-- Publish Form Start		 --}}
 
-			{{ Form::open(array('route'=>'publish/item', 'files' => true, 'class'=>'form-horizontal')) }}
+			{{ Form::open(array('route'=>'reviseSingleItem', 'files' => true, 'class'=>'form-horizontal')) }}
 				{{-- , 'action'=> array('ReviewPublishmentController@PostSingleItemEditForm',$item->id)--}}
 				{{ Form::hidden('itemID', $item->id) }}
 				{{--<input name="itemID" type="hidden" value="$item->id">--}}
