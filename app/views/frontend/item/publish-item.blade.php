@@ -28,12 +28,12 @@ Publish Item ::
 <section id="content">
 	<div class="content-wrap">
 		<div class="container clearfix">
-			<div class="col_one_third nobottommargin">
+			<div class="col-md-3 nobottommargin">
 				{{-- This is left side bar --}}
 
 			</div>
-			
-			<div class="col_one_third nobottommargin">
+
+			<div class="col-md-6 nobottommargin">
 				{{-- Publish Form Start		 --}}
 				{{Form::open(array('route'=>'publish/item', 'files' => true, 'class'=>'form-horizontal'))}}
 
@@ -130,7 +130,7 @@ Publish Item ::
 				</div>
 				{{Form::close() }}
 			</div>
-			<div class="col_one_third col_last">
+			<div class="col-md-3 col_last">
 				{{-- This is right side bar --}}
 			</div>
 
