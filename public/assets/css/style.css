@@ -1,3 +1,15 @@
+
+/*Modified Css*/
+
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  background-color: transparent !important;
+}
+
+
+
+
 /*-----------------------------------------------------------------------------------
 
     Theme Name: Canvas
@@ -495,7 +507,8 @@ html[xmlns] .slider-wrap {display: block;}
 .no-js .slider-wrap > .slide:first-child {display: block;}
 
 .flex-viewport {
-    max-height: 2000px;
+    /*max-height: 2000px;*/
+    max-height: 500px;
     -webkit-transition: all 1s ease;
     -o-transition: all 1s ease;
     transition: all 1s ease;

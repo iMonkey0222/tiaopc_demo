@@ -270,7 +270,6 @@ class ItemController extends BaseController {
 					// the route has already been set up
 					return Redirect::action('ItemController@itemPictureProcess', array('id' => $itemId->id));
 
-
 				}
 			}
 

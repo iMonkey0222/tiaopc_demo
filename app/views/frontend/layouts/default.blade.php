@@ -95,21 +95,21 @@
 								@endif
 
 							</ul>
-
+                            
 							<ul class="nav pull-right">
 								@if (Sentry::check())
 
-								<li class="dropdown active">
-									<a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" >
-										Welcome, {{ Sentry::getUser()->first_name }}
-										<b class="caret"></b>
+								<li>
+									<a>
+										<div>Welcome, {{ Sentry::getUser()->first_name }}</div>
+					
 									</a>
-									<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+									<ul>
 										@if(Sentry::getUser()->hasAccess('admin'))
 										<li><a href="{{ route('admin') }}"><i class="icon-cog"></i> Administration</a></li>
 										@endif
-										<li class="active" ><a href="{{ route('profile') }}"><i class="icon-user"></i> Your profile</a></li>
-										<li class="divider"></li>
+										<li><a href="{{ route('profile') }}"><i class="icon-user"></i> Your profile</a></li>
+										<li></li>
 										<li><a href="{{ route('logout') }}"><i class="icon-off"></i> Logout</a></li>
 									</ul>
 								</li>

@@ -10,6 +10,25 @@ Test By Yue Wang
 @section('content')
 
 
+{{-- 10/3/2015 --}}
+<?php 
+
+echo Config::get('helper.mail_suffix');
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+
 {{-- 8/3/2015 --}}
 <?php
 // $category = Category::where('id', '=', '11')->first();
@@ -23,15 +42,15 @@ Test By Yue Wang
 // }
 	
 
-			$parentCategory = Item::find(63)->category; 
+			// $parentCategory = Item::find(63)->category; 
 			
-			while($parentCategory->parent_id != NULL)
-			{
-				// Get the current category collection
-				$parentCategory = Category::find($parentCategory->parent_id);				
-			}
+			// while($parentCategory->parent_id != NULL)
+			// {
+			// 	// Get the current category collection
+			// 	$parentCategory = Category::find($parentCategory->parent_id);				
+			// }
 
-			echo $parentCategory->id;
+			// echo $parentCategory->id;
 
 
 
