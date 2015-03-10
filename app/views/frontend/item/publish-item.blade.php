@@ -13,8 +13,6 @@ Publish Item ::
         <span>Publish New Single Item</span>
  		<ol class="breadcrumb">
             <li class="active"><h5><a class="icon-home" href="http://tiaopc.com/">Home</a></h5></li>
-            <li></li>
-            <li class="active"><h5><a class="icon-tag" href="http://localhost:8888/tiaopc_demo/public/publish">Sell an Item</a></h5></li>
         </ol>
     </div>
 </section>
@@ -30,10 +28,12 @@ Publish Item ::
 <section id="content">
 	<div class="content-wrap">
 		<div class="container clearfix">
-			<div class="col_one_third nobottommargin">
-				This left side bar
+			<div class="col-md-3 nobottommargin">
+				{{-- This is left side bar --}}
+
 			</div>
-			<div class="col_one_third nobottommargin">
+
+			<div class="col-md-6 nobottommargin">
 				{{-- Publish Form Start		 --}}
 				{{Form::open(array('route'=>'publish/item', 'files' => true, 'class'=>'form-horizontal'))}}
 
@@ -130,8 +130,8 @@ Publish Item ::
 				</div>
 				{{Form::close() }}
 			</div>
-			<div class="col_one_third col_last">
-				This is right side bar
+			<div class="col-md-3 col_last">
+				{{-- This is right side bar --}}
 			</div>
 
 			
