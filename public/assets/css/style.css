@@ -1,3 +1,15 @@
+
+/*Modified Css*/
+
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  background-color: transparent !important;
+}
+
+
+
+
 /*-----------------------------------------------------------------------------------
 
     Theme Name: Canvas
