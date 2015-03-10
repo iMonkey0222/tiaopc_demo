@@ -9,8 +9,8 @@ Publish Item ::
 @section('page-title')
 <section id="page-title">
     <div class="container clearfix">
-        <h3>Publish Item</h3>
-        <span>Publish New Single Item</span>
+        <h3>Start Selling</h3>
+        <span>Sell an Item</span>
  		<ol class="breadcrumb">
             <li class="active"><h5><a class="icon-home" href="http://tiaopc.com/">Home</a></h5></li>
         </ol>
@@ -18,9 +18,6 @@ Publish Item ::
 </section>
 @stop
 
-@section('account-page-title')
-    <h3>Sell an Item</h3>
-@stop
 
 
 {{-- Page content --}}

@@ -68,20 +68,25 @@ Account Sign up ::
 
 			<!-- Email -->
 			<div class="form-group{{ $errors->first('email', ' error') }}">
-				<label for="email">Email</label>
-				<div class="controls">
+				<label for="email">Email </label>
+				 ( * Please enter the prefix of you school email )
+				<div class="input-group">
+					
 					<input type="text" class="form-control" name="email" id="email" value="{{ Input::old('email') }}" />
-					{{ $errors->first('email', '<span class="help-block">:message</span>') }}
+					<span id="email-postfix" class="input-group-addon"> @ liv.ac.uk</span>
+					
 				</div>
+				{{ $errors->first('email', '<span class="help-block">:message</span>') }}
 			</div>
 
 			<!-- Email Confirm -->
 			<div class="form-group{{ $errors->first('email_confirm', ' error') }}">
 				<label for="email_confirm">Confirm Email</label>
-				<div class="controls">
+				<div class="input-group">
 					<input type="text" class="form-control" name="email_confirm" id="email_confirm" value="{{ Input::old('email_confirm') }}" />
-					{{ $errors->first('email_confirm', '<span class="help-block">:message</span>') }}
+					<span id="email-postfix" class="input-group-addon">@ liv.ac.uk</span>
 				</div>
+				{{ $errors->first('email_confirm', '<span class="help-block">:message</span>') }}
 			</div>
 
 			<!-- Password -->

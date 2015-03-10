@@ -45,8 +45,9 @@ Revise an Item ::
 					<div class="input-group">
 						<span id="startPriceCurrSym" class="input-group-addon">£</span>
 							<input type="text" class="form-control" name="price" id="price" value=" {{ Input::old('price', $item->price) }}" />
-							{{ $errors->first('price', '<span class="help-block">:message</span>') }}
 					</div>
+							{{ $errors->first('price', '<span class="help-block">:message</span>') }}
+					
 				</div>
 
 
