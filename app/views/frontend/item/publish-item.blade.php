@@ -94,8 +94,12 @@ Publish Item ::
 					<div class="controls">
 						<!-- <input type="file" name="picture" id="picture"  /> -->
 						<div class="col_half"> {{ Form::file('mainPicture') }} </div>
-						<div class="col_half col_last" > {{ Form::file('pictures[]', array('multiple'=>true)) }} </div>
+						<div class="col_half col_last"> *Please Choose one main picture</div>
 
+
+						<div class="col_half" > {{ Form::file('pictures[]', array('multiple'=>true)) }} </div>
+
+						<div class="col_half col_last"> *Please Choose at least <strong>two</strong> pictures</div>
 						{{ $errors->first('picture', '<span class="help-block">:message</span>') }}
 
 					</div>

@@ -120,6 +120,53 @@ Single item page
 </section>
 
 
+{{-- JQuery to handle ajax request --}}
+<script type="text/javascript">
+    
+
+// Pre process the error msg    
+$.ajaxSetup({
+  error: function(xhr, status, error) {
+    alert("An AJAX error occured: " + status + "\nError: " + error);
+  }
+});
+
+
+
+
+
+// Get the item id
+var itemID = {{ $item->id }};
+
+
+
+$('#request').click(function(){
+
+    var $button = $(this);
+
+    $.get( '{{URL::route('request')}}', { itemID: itemID }, function(result){
+        console.log(result);
+        if(result == 1)
+            alert("Please Sign in or Sign up.");
+        if(result == 2)
+            alert("You've already requested this item");
+            $button.text('Requested');
+            $button.attr( "disabled", "disabled" );
+        if(result == 3)
+        {
+            alert('Success');
+        }
+
+    });
+});
+
+
+
+
+
+
+</script>
+
 
 
 

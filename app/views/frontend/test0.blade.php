@@ -10,41 +10,26 @@ Test By Yue Wang
 @section('content')
 
 
-{{-- 10/3/2015 --}}
+{{-- 11/3/2015 --}}
 <?php 
 
 // echo Config::get('helper.mail_suffix');
 
 
+if(User::find(3)->transactions()->where('item_id', '=', 1)->exists())
+{
+	echo "ok";
+}
+
+// $tran = User::find(3)->transactions;
+
+// var_dump($tran);
 
 
 
 
 ?>
 
-
-
-<button id="request" type="submit" class="button nomargin">Request</button>
-
-<div id="test"> </div>
-
-<script type="text/javascript">
-	
-
-var good = "good";
-
-
-$('#request').click(function(){
-
-	$.get( '{{URL::route('request')}}', { good: good }, function(result){
-
-		$('#test').html(result);
-		console.log(result);
-		
-		// alert('good');
-	});
-
-});
 
 
 

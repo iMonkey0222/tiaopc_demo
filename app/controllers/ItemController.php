@@ -362,7 +362,40 @@ class ItemController extends BaseController {
 
 	public function itemRequestProcess ()
 	{
-		echo "woqu";
+
+		if(Request::ajax()){
+			// Check if user or visitor
+			if(! Sentry::check())
+			{
+				// Return to sign in page
+				return 1;
+			}
+
+			// Get the buyer ID
+			$userID = Sentry::getId();
+			// Get the item ID
+			$itemID = Input::get('itemID');
+
+			// Check if the request already exist 
+			if(User::find($userID)->transactions()->where('item_id', '=', $itemID)->exists())
+			{
+				return 2;
+			}
+
+
+			// Creat new transcation
+			$transaction = new Transaction;
+			$transaction->item_id = $itemID;
+			$transaction->buyer_id = $userID;
+			$transaction->status = 2; // 2 for Requested
+
+			if($transaction->save())
+			{
+				return 3;
+			}
+
+		}
+
 	}
 
 
