@@ -13,7 +13,9 @@ Test By Yue Wang
 {{-- 10/3/2015 --}}
 <?php 
 
-echo Config::get('helper.mail_suffix');
+// echo Config::get('helper.mail_suffix');
+
+
 
 
 
@@ -22,7 +24,40 @@ echo Config::get('helper.mail_suffix');
 
 
 
+<button id="request" type="submit" class="button nomargin">Request</button>
 
+<div id="test"> </div>
+
+<script type="text/javascript">
+	
+
+var good = "good";
+
+
+$('#request').click(function(){
+
+	$.get( '{{URL::route('request')}}', { good: good }, function(result){
+
+		$('#test').html(result);
+		console.log(result);
+		
+		// alert('good');
+	});
+
+});
+
+
+
+
+
+
+</script>
+
+	
+
+
+
+</script>
 
 
 

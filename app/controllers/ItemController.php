@@ -360,6 +360,11 @@ class ItemController extends BaseController {
 
 
 
+	public function itemRequestProcess ()
+	{
+		echo "woqu";
+	}
+
 
 
 

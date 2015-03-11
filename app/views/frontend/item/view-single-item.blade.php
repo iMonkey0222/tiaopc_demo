@@ -66,11 +66,10 @@ Single item page
                         <div class="clear"></div>
                         <div class="line"></div>
 
-                        <!-- Product Single - Quantity & Cart Button
-                        ============================================= -->
-                        <form class="cart nobottommargin clearfix" method="post" enctype='multipart/form-data'>
-                            <button type="submit" class="button nomargin">Request</button>
-                        </form><!-- Product Single - Quantity & Cart Button End -->
+                        <!-- Product Single - Request Button
+                        ============================================= -->   
+                         <button id="request" type="submit" class="button nomargin">Request</button>
+                        <!-- Product Single - Quantity & Cart Button End -->
 
                         <div class="clear"></div>
                         <div class="line"></div>
