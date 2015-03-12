@@ -1,7 +1,7 @@
 @extends('frontend/layouts/default')
 
 
-{{ "Triggle code is ".$triggleCode;}}
+{{-- {{ "Triggle code is ".$triggleCode;}} --}}
 
 {{-- $item $pictures --}}
 <!-- Go to www.addthis.com/dashboard to customize your tools -->

@@ -95,9 +95,9 @@ class ItemController extends BaseController {
 	{
 		$item = Item::find($id);
 
-		// Get the seller id
+		// Get the seller and seller id
 		$seller = $item->getUser;
-		$sellerId = $item->id;
+		$sellerId = $seller->id;
 
 		$pictures = Item::find($id)->pictures;
 
@@ -451,7 +451,7 @@ class ItemController extends BaseController {
 
 			// Check if the seller itself
 			$sellerId = Item::find($itemID)->users->id;
-			
+
 			if($sellerId == $userID)
 			{
 				return 4;
