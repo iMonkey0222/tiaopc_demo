@@ -16,10 +16,10 @@ Test By Yue Wang
 // echo Config::get('helper.mail_suffix');
 
 
-if(User::find(3)->transactions()->where('item_id', '=', 1)->exists())
-{
-	echo "ok";
-}
+// if(User::find(3)->transactions()->where('item_id', '=', 1)->exists())
+// {
+// 	echo "ok";
+// }
 
 // $tran = User::find(3)->transactions;
 
@@ -27,6 +27,7 @@ if(User::find(3)->transactions()->where('item_id', '=', 1)->exists())
 
 
 
+echo phpinfo();
 
 ?>
 
