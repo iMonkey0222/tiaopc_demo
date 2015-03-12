@@ -162,11 +162,15 @@ $('#request').click(function(){
     $.get( '{{URL::route('request')}}', { itemID: itemID }, function(result){
         console.log(result);
         if(result == 1)
+        {
             alert("Please Sign in or Sign up.");
+        }
         if(result == 2)
+        {
             alert("You've already requested this item");
             $button.text('Requested');
             $button.attr( "disabled", "disabled" );
+        }
         if(result == 3)
         {
             alert('Success');
