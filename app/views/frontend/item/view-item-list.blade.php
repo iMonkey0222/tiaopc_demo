@@ -66,9 +66,9 @@ Item List Page
 
 
                     <ul id="portfolio-filter-right" class="clearfix">
-                        <li class="activeFilter"><a href="#" data-filter="*">asd</a></li>  
-                        <li id="price-sort"><a href="#" data-filter=".2">价格最高</a></li>
-                        <li><a href="#" data-filter=".2">价格最低</a></li>                
+                        <li class="activeFilter"><a href="#" data-filter="*">默认时间</a></li>  
+                        <li id="price-sort-asc"><a href="#" data-filter=".2">价格最低</a></li>
+                        <li id="price-sort-dsc"><a href="#" data-filter=".2">价格最高</a></li>                
                     </ul>  
 
 
@@ -88,7 +88,7 @@ Item List Page
 
                                 <div class="portfolio-overlay">
                                     <a href={{ asset("assets/new_img/$item->picture_name")}} class="left-icon" data-lightbox="image"><i class="icon-camera"></i></a>
-                                    <a href="include/ajax/portfolio-single-image.html" data-lightbox="ajax" class="right-icon"><i class="icon-line-expand"></i></a>
+                                    <a href="{{ route('singleItem', $item->id) }}"  class="right-icon"><i class="icon-external-link"></i></a>
                                 </div>
                             </div>
                             <div class="portfolio-desc">
@@ -137,11 +137,20 @@ Item List Page
 
 
 
-                            $('#price-sort').click(function(){
+                            $('#price-sort-asc').click(function(){
                                 $container.isotope('updateSortData').isotope({
-                                    sortBy: 'price'
+                                    sortBy: 'price',
+                                    sortAscending: true
+
                                 });
                             });
+
+                            $('#price-sort-dsc').click(function(){
+                                $container.isotope('updateSortData').isotope({
+                                    sortBy: 'price',
+                                    sortAscending: false
+                                });
+                            });                            
 
                             $(window).resize(function() {
                                 $container.isotope('layout');

@@ -7,7 +7,7 @@
 
 {{-- Page title --}}
 @section('title')
-Single item page
+{{ $item->title }}
 @parent
 @stop
 
@@ -17,7 +17,7 @@ Single item page
 <section id="page-title">
 
     <div class="container clearfix">
-        <h1>Single Item Page</h1>
+        <h1>{{ $item->title }}</h1>
     </div>
 
 </section>
