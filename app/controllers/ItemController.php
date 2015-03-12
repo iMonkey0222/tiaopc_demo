@@ -95,7 +95,16 @@ class ItemController extends BaseController {
 	{
 		$item = Item::find($id);
 
+		// Get the seller id
+		$seller = $item->getUser;
+		$sellerId = $item->id;
+
 		$pictures = Item::find($id)->pictures;
+
+
+		// Default is 0 
+		$triggleCode = 0;
+
 
 		if(is_null($item))
 		{
@@ -103,6 +112,64 @@ class ItemController extends BaseController {
 			// don't exist. So, this means that it is time for 404 error page.
 			return App::abort(404);
 		}
+
+		/**
+		 * Check the visitor status
+		 * 1 for normal visitor withou login
+		 * 2 for seller itself, and buyer that have a successful request
+		 * 3 for buyer that has not requested
+		 * 4 for buyer that is requesting 
+		 */
+		
+		// echo "string";
+		if(!Sentry::check())
+		{
+			// Show request without seller info
+			$triggleCode = 1;
+		}
+		else
+		{
+			$visitor = Sentry::getId();
+
+			if($visitor == $sellerId )
+			{
+				// Seller view its own item
+				// Show without request 
+				$triggleCode = 2;
+			}
+			else
+			{
+				// Buyer visits someone's item
+				if(User::find($visitor)->transactions()->where('item_id', '=', $item->id)->exists())
+				{
+					// Get the status code of request status
+					// the return value is string
+					$requestStatus = User::find($visitor)->transactions()->where('item_id', '=', $item->id)->first()->status;
+
+					if($requestStatus == "2")
+					{
+						// Requested but not approved
+						$triggleCode = 4;
+					}
+
+					if($requestStatus == "3")
+					{
+						// Requested and approved
+						$triggleCode = 2;
+					}
+				}
+				else
+				{
+					// Not request
+					$triggleCode = 3;
+				}
+			}
+		}
+		
+
+
+
+
 
 		//Add picture to array
 		$pictures = Item::find($id)->pictures;
@@ -115,7 +182,7 @@ class ItemController extends BaseController {
 
 
 
-		return View::make('frontend/item/view-single-item', compact('item','pictures'));
+		return View::make('frontend/item/view-single-item', compact('item','pictures', 'seller','triggleCode'));
 
 	}
 
@@ -380,6 +447,14 @@ class ItemController extends BaseController {
 			if(User::find($userID)->transactions()->where('item_id', '=', $itemID)->exists())
 			{
 				return 2;
+			}
+
+			// Check if the seller itself
+			$sellerId = Item::find($itemID)->users->id;
+			
+			if($sellerId == $userID)
+			{
+				return 4;
 			}
 
 

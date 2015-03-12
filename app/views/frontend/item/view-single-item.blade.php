@@ -1,5 +1,8 @@
 @extends('frontend/layouts/default')
 
+
+{{ "Triggle code is ".$triggleCode;}}
+
 {{-- $item $pictures --}}
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54fc730c414be129" async="async"></script>
@@ -67,9 +70,12 @@
                         <div class="line"></div>
 
                         <!-- Product Single - Request Button
-                        ============================================= -->   
+                        ============================================= --> 
+                        @if( $triggleCode != 2 && $triggleCode !=4 )
                          <button id="request" class="button button-3d button-rounded nomargin"><i class="icon-ok"></i>Request</button>
-
+                        @elseif( $triggleCode == 4 )
+                         <button id="requested" class="button button-3d button-rounded nomargin"><i class="icon-ok"></i>Requested</button>
+                        @endif
                         <!-- Product Single - Quantity & Cart Button End -->
 
                         <div class="clear"></div>
@@ -78,24 +84,32 @@
                         <!-- Product Single - Short Description
                         ============================================= -->
                         <div class="accordion accordion-bg clearfix">
-
+                            
+                            {{-- Description --}}
                             <div class="acctitle acctitlec"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Description</div>
                             <div class="acc_content clearfix" style="display: block;">
                                 {{ $item->description }}
                             </div>
-
+                            {{-- Item Info eg. Category --}}
                             <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Item Info</div>
                             <div class="acc_content clearfix" style="display: none;">
-                        <!-- Product Single - Meta
-                        ============================================= -->
-                        <div class="panel panel-default product-meta">
-                            <div class="panel-body">
-                                <span itemprop="productID" class="sku_wrapper">ID: <span class="sku">{{$item->id}}</span></span>
-                                <span class="posted_in">Category: <a href="#" rel="tag">{{$item->category_id}}</a>.</span>
+                                <!-- Product Single - Meta
+                                ============================================= -->
+                                <div class="panel panel-default product-meta">
+                                    <div class="panel-body">
+                                        <span itemprop="productID" class="sku_wrapper">ID: <span class="sku">{{$item->id}}</span></span>
+                                        <span class="posted_in">Category: <a href="#" rel="tag">{{$item->category_id}}</a>.</span>
+                                    </div>
+                                </div><!-- Product Single - Meta End -->
                             </div>
-                        </div><!-- Product Single - Meta End -->
+                            @if( $triggleCode == 2) 
+                            <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Seller Info</div>
+                            <div class="acc_content clearfix" style="display: block;">
+                                <div>Name: <strong>{{ $seller->nickname }}</strong></div>
+                                <div>Email: <strong>{{ $seller->email2 }}</strong></div>
+                                <div>Phone: <strong>{{ $seller->phone_no }}</strong></div>
                             </div>
-
+                            @endif    
                         </div>
 
 
@@ -156,6 +170,11 @@ $('#request').click(function(){
         if(result == 3)
         {
             alert('Success');
+        }
+
+        if(result == 4)
+        {
+            alert('You cannot request your own item.')
         }
 
     });

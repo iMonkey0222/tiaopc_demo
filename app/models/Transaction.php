@@ -4,7 +4,7 @@ class Transaction extends Eloquent {
 
 	protected $table = 'transactions';
 
-	protected $fillable = array('item_id','buyer_id');
+	protected $fillable = array('item_id','buyer_id', 'status');
 
 	public function items()
 	{

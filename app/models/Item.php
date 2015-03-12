@@ -30,9 +30,9 @@ class Item extends Eloquent {
 		return $this->hasMany('Transaction');
 	}
 
-	public function users()
+	public function getUser()
 	{
-		return $this->belongsTo('User');
+		return $this->belongsTo('User', 'seller_id');
 	}
 
 	public function category()

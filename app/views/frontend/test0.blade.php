@@ -25,7 +25,9 @@ Test By Yue Wang
 
 // var_dump($tran);
 
+$user = Item::find(2)->users->id;
 
+var_dump($user);
 
 echo phpinfo();
 
