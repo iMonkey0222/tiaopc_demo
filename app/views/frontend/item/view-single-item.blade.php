@@ -68,7 +68,8 @@ Single item page
 
                         <!-- Product Single - Request Button
                         ============================================= -->   
-                         <button id="request" type="submit" class="button nomargin">Request</button>
+                         <button id="request" class="button button-3d button-rounded nomargin"><i class="icon-ok"></i>Request</button>
+
                         <!-- Product Single - Quantity & Cart Button End -->
 
                         <div class="clear"></div>
