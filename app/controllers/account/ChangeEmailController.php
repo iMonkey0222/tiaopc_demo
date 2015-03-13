@@ -50,7 +50,7 @@ class ChangeEmailController extends AuthorizedController {
 		}
 
 		// Update the user email
-		$user->email2 = Input::get('email');
+		$user->email = Input::get('email'); // modified! 3.12: $user->email2 to $user->email
 
 		if($user->save()){
 			// Redirect to the settings page

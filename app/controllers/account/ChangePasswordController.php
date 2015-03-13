@@ -55,7 +55,7 @@ class ChangePasswordController extends AuthorizedController {
 		$user->save();
 
 		// Redirect to the change-password page
-		return Redirect::route('change-password')->with('success', 'Password successfully updated!');
+		return Redirect::route('signin')->with('success', 'Password successfully updated!');
 	}
 
 }

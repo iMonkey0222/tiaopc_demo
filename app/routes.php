@@ -89,9 +89,12 @@ Route::group(array('prefix' => 'account'), function()
 	Route::post('change-email', 'Controllers\Account\ChangeEmailController@postIndex');
 
 	// View published products
-	Route::get('published-items/', array('as'=> 'published-items', 'uses' => 'Controllers\Account\ReviewPublishmentController@getPublishedItems')); 
+	Route::get('published-items', array('as'=> 'published-items', 'uses' => 'Controllers\Account\ReviewPublishmentController@getPublishedItems')); 
 	Route::post('published-items', 'Controllers\Account\ReviewPublishmentController@postIndex');
 
+	// View requested products
+	Route::get('requested-items', array('as'=> 'requested-items', 'uses' => 'Controllers\Account\ReviewPublishmentController@getRequestedItems')); 
+	Route::post('requested-items', 'Controllers\Account\ReviewPublishmentController@postIndex');
 
 	// Edit published item
 	// Route::get('{itemID}', array('as' => 'editSingleItem', 'uses' => 'ItemController@getSingleItemEditForm'))->where('id', '[0-9]+');
@@ -99,7 +102,7 @@ Route::group(array('prefix' => 'account'), function()
 
 	Route::post('revise-item/{itemID}', array('as' => 'postRevise', 'uses' =>'Controllers\Account\ReviewPublishmentController@PostSingleItemEditForm'))->where('id', '[0-9]+');
 
-	Route::post('revise-delete/{itemID}', array('as' => 'deleteItem','uses' => 'Controllers\Account\ReviewPublishmentController@deleteItem'))->where('id', '[0-9]+');
+	Route::get('revise-delete/{itemID}', array('as' => 'deleteItem','uses' => 'Controllers\Account\ReviewPublishmentController@deleteItem'))->where('id', '[0-9]+');
 
 
 });

@@ -15,7 +15,7 @@ return array(
 
 	'signup' => array(
 		'error'   => 'There was a problem while trying to create your account, please try again.',
-		'success' => 'Account sucessfully created.',
+		'success' => 'Account sucessfully created. We sent an confirmation email to you. Please check your school email to activate your account.',
 	),
 
         'forgot-password' => array(

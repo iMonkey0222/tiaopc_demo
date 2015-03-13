@@ -23,7 +23,7 @@ class ReviewPublishmentController extends AuthorizedController {
 		$user = Sentry::getUser();
 		$userID = $user->id;
 
-		// // Get all items  
+		// Get all items  
 		$items = User::find($userID)->getItems;
 
 		if(is_null($items))
@@ -37,30 +37,46 @@ class ReviewPublishmentController extends AuthorizedController {
 		// For each item array, call function selfDefinedArray() to custom item array
 		foreach ($items as $item) {
 			$item = $this->selfDefinedItemArray($item); 
-
-			$itemID = $item->id;
-
-			// One item has many priceArrays
-			// One PriceArray variable is an array: id item_id price create_at updated_at
-			$priceArrays = Item::find($itemID)->prices; 
-			// get the first/newest priceArray
-			$newest = $priceArrays->first();
-			// get the price key value
-			$newestPrice = $newest['price'];
-			array_add($item, 'price',"$newestPrice");
-
-
-			// add picture to item array
-			
-			$picture = Item::find($itemID)->pictures->first();
-			$picName = $picture['picture_name'];
-			array_add($item, 'picture', "$picName");
 		}
 
 		// Show the page
 		return View::make('frontend/user/published-items',compact('$user', 'items'));
 	}
+/**
+ * [getRequestedItems description]
+ * @return [type] [description]
+ */
+	public function getRequestedItems(){
+		// Get the user information
+		$user = Sentry::getUser();
+		$userID = $user->id;
 
+		$transactions = User::find($userID)->transactions;
+		// $records = array();
+
+		if (is_null($transactions)) {
+			echo "You haven't request any product.";
+		}
+
+		foreach ($transactions as $transaction) {
+			$itemID = $transaction->item_id;
+			$item = Item::find($itemID);
+			$item = $this->selfDefinedItemArray($item); // add price and main picture to item
+
+			$itemTitle = $item->title;
+			$itemPrice = $item->price;
+			$sellerID = $item->seller_id;
+			$mainPicture = $item->picture;
+
+			array_add($transaction,'seller_id',"$sellerID");
+			array_add($transaction,'item_title',"$itemTitle");
+			array_add($transaction,'item_price',"$itemPrice");
+			array_add($transaction,'item_picture',"$mainPicture");
+			
+		}
+		return View::make('frontend/user/requested-items',compact('$user','transactions'));
+
+	}
 
 
 
@@ -79,16 +95,6 @@ class ReviewPublishmentController extends AuthorizedController {
 			return Redirect::to('admin/blogs')->with('error', Lang::get('admin/blogs/message.does_not_exist'));
 		}
 
-		
-
-		// One item has many priceArrays
-		// One PriceArray variable is an array: id item_id price create_at updated_at
-		$priceArrays = Item::find($itemID)->prices; 
-		// get the first/newest priceArray
-		$newest = $priceArrays->first();
-		// get the price key value
-		$newestPrice = $newest['price'];
-		array_add($item, 'price',"$newestPrice");
 
 		// add picture to item array
 		$pictures = Item::find($itemID)->pictures;
@@ -263,11 +269,18 @@ class ReviewPublishmentController extends AuthorizedController {
 			$newestPrice = $newest['price'];
 			array_add($item, 'price',"$newestPrice");
 
-			
 
+			$pictures = Item::find($itemID)->pictures;
+			foreach ($pictures as $picture) {
+				if ($picture['status']=='1') {
+					$picName = $picture['picture_name'];
+					array_add($item, 'picture', "$picName");
+					break;
+				}
+				
+			}
+			
 		return $item;
 	}
-
-
 
 }

@@ -66,29 +66,52 @@ Account Sign up ::
 				</div>
 			</div>
 
-			<!-- Email -->
-			<div class="form-group{{ $errors->first('email', ' error') }}">
-				<label for="email">Email </label>
-				 ( * Please enter the prefix of you school email )
+			<!-- Email For register   email2-->
+			<div class="form-group{{ $errors->first('email2', ' error') }}">
+				<label for="email2">Email for Validation </label>
+				 ( * Please enter the prefix of you school email.
+				  This email will receive the validation link to active account. )
 				<div class="input-group">
 					
-					<input type="text" class="form-control" name="email" id="email" value="{{ Input::old('email') }}" />
+					<input type="text" class="form-control" name="email2" id="email2" value="{{ Input::old('email2') }}" />
 					<span id="email-postfix" class="input-group-addon"> @ liv.ac.uk</span>
 					
 				</div>
-				{{ $errors->first('email', '<span class="help-block">:message</span>') }}
+				{{ $errors->first('email2', '<span class="help-block">:message</span>') }}
 			</div>
 
-			<!-- Email Confirm -->
-			<div class="form-group{{ $errors->first('email_confirm', ' error') }}">
-				<label for="email_confirm">Confirm Email</label>
+			<!-- Email for register Confirm -->
+			<div class="form-group{{ $errors->first('email2_confirm', ' error') }}">
+				<label for="email2_confirm">Confirm Email</label>
 				<div class="input-group">
-					<input type="text" class="form-control" name="email_confirm" id="email_confirm" value="{{ Input::old('email_confirm') }}" />
+					<input type="text" class="form-control" name="email2_confirm" id="email2_confirm" value="{{ Input::old('email2_confirm') }}" />
 					<span id="email-postfix" class="input-group-addon">@ liv.ac.uk</span>
 				</div>
-				{{ $errors->first('email_confirm', '<span class="help-block">:message</span>') }}
+				{{ $errors->first('email2_confirm', '<span class="help-block">:message</span>') }}
 			</div>
 
+
+			<!-- Email for Future Login  email-->
+			<div class="form-group{{ $errors->first('email', 'error') }}">
+				<label for="email">Email for Future Login </label>
+				<div class="controls">
+					<input type="text" class="form-control" name="email" id = "email" value="{{ Input::old('email') }}" />
+					{{ $errors->first('email', '<span class="help-block">:message</span>') }}
+					<!--Add annotaion in the right of future login email address-->
+				</div>
+			</div>
+
+			<!-- Email for Future Login Confirm -->
+			<div class="form-group{{ $errors->first('email_confirm', 'error') }}">
+				<label for="email_confirm">Confirm Email</label>
+				<div class="controls">
+					<input type="text" class="form-control" name="email_confirm" id = "email_confirm" value="{{ Input::old('email_confirm') }}" />
+					{{ $errors->first('email_confirm', '<span class="help-block">:message</span>') }}
+					<!--Add annotaion in the right of future login email address-->
+				</div>
+			</div>
+
+			
 			<!-- Password -->
 			<div class="form-group{{ $errors->first('password', ' error') }}">
 				<label  for="password">Password</label>
@@ -107,7 +130,7 @@ Account Sign up ::
 				</div>
 			</div>
 
-
+			
 {{-- 			<!-- Phone Number -->
 			<div class="form-group{{ $errors->first('phone_no', ' error') }}">
 				<label for="phone_no">Phone Number</label>
@@ -119,12 +142,12 @@ Account Sign up ::
 			
 
 			<!-- Phone Number -->
-			<div class="form-group{{ $errors->first('phone_no', ' error') }}">
-				<label for="phone_no">Phone Number</label>
+			<div class="form-group{{ $errors->first('phone_number', ' error') }}">
+				<label for="phone_number">Phone Number</label>
 				<div class="controls">
-					<input type="phone_no" class="form-control" name="phone_no" id="phone_no" value="{{ Input::old('phone_no') }}" />
+					<input type="phone_number" class="form-control" name="phone_number" id="phone_number" value="{{ Input::old('phone_number') }}" />
 
-					{{ $errors->first('phone_no', '<span class="help-block">:message</span>') }}
+					{{ $errors->first('phone_number', '<span class="help-block">:message</span>') }}
 				</div>
 			</div>
 

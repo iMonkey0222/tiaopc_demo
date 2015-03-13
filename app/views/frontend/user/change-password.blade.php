@@ -115,6 +115,7 @@ change your password
 						<a class="btn" href="{{ route('home') }}">Cancel</a>
 
 						<button type="submit" class="btn btn-info">Update</button>
+						<a href="{{ route('forgot-password') }}" class="btn btn-link">I forgot my password</a>
 					</div>
 				</div>
 			</form>

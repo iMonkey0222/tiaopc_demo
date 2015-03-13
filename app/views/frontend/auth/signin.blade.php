@@ -37,8 +37,10 @@ Account Sign in ::
 			<!-- CSRF Token -->
 			<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
+
+
 			<!-- Email -->
-			<div class="form-group{{ $errors->first('email', ' error') }}">
+			<div class="form-group{{ $errors->first('email2', ' error') }}">
 				<label for="email">Email</label>
 		
 				<input type="text" class="form-control" name="email" id="email" value="{{ Input::old('email') }}" />

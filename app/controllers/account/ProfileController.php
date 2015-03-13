@@ -28,7 +28,7 @@ class ProfileController extends AuthorizedController {
 		$rules = array(
 			'first_name'	=>'required|min:3',
 			'last_name'		=>'required|min:3',
-			'login_email'	=>'email',
+			'phone_number' 	=>'required|numeric|digits:11',
 			);
 		// Create a new validator instance from our validation rules
 		$validator = Validator::make(Input::all(), $rules);
@@ -46,7 +46,8 @@ class ProfileController extends AuthorizedController {
 		// Update the user information
 		$user->first_name = Input::get('first_name');
 		$user->last_name  = Input::get('last_name');
-		$user->email2     = Input::get('login_email');
+		// $user->email2     = Input::get('login_email');
+		$user->phone_no   = Input::get('phone_number');
 
 		if ($user->save()) {
 			// Redirect to the settings page

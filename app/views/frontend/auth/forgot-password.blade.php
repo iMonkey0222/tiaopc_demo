@@ -1,4 +1,4 @@
-@extends('frontend/layouts/default')
+@extends('frontend/layouts/account')
 
 {{-- Page title --}}
 @section('title')
@@ -7,11 +7,8 @@ Forgot Password ::
 @stop
 
 {{-- Page content --}}
-@section('content')
+@section('account-content')
 
-<div class="page-header">
-	<h3>Forgot Password</h3>
-</div>
 
 <form method="post" action="" class="form-horizontal">
 	<!-- CSRF Token -->

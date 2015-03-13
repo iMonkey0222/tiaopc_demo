@@ -30,7 +30,7 @@
 							<li{{ Request::is('account/change-password') ? ' class="active"' : '' }}><a href="{{ URL::route('change-password') }}">Change Password</a></li>
 							<li{{ Request::is('account/change-email') ? ' class="active"' : '' }}><a href="{{ URL::route('change-email') }}">Change Email</a></li>
 							<li{{ Request::is('account/published-items') ? ' class="active"' : '' }}><a href="{{ URL::route('published-items') }}">My Published Products</a></li>		
-							<li{{ Request::is('account/published-items') ? ' class="active"' : '' }}><a href="{{ URL::route('published-items') }}">My Requested Products</a></li>			
+							<li{{ Request::is('account/requested-items') ? ' class="active"' : '' }}><a href="{{ URL::route('requested-items') }}">My Requested Products</a></li>			
 						</ul>
 
 			</div>

@@ -35,6 +35,9 @@ class AuthController extends BaseController {
 		// Declare rules for validation
 		$rules = array(
 			'email' 	=> 'required|email',
+
+			// 'phone_number'	 => 'required|numeric|digits:11',
+
 			'password' 	=> 'required|between:3,32',
 			);
 
@@ -47,11 +50,19 @@ class AuthController extends BaseController {
 			return Redirect::back()->withInput()->withErrors($validator);
 		}
 		
-
+		//var_dump(Input::only('email2','password'));
 		try
 		{
+
+			$credentials = array(
+    			'email'    => Input::get('email'),
+    			'password' => Input::get('password'),
+   		 		
+			);
 			// Try to log the user in
-			Sentry::authenticate(Input::only('email','password'), Input::get('remember_me',0));
+			Sentry::authenticate($credentials, Input::get('remember_me',0));
+
+			// Sentry::authenticate(Input::only('email','password'), Input::get('remember_me',0));
 
 			// Get the page we were before sign in
 			// $redirect = Session::get('loginRedirect','account');
@@ -90,7 +101,7 @@ class AuthController extends BaseController {
 			$this->messageBag->add('email', Lang::get('auth/message.account_banned'));
 		}
 
-		// Return and redirect the fail message
+		//Return and redirect the fail message
 		return Redirect::back()->withInput()->withErrors($this->messageBag);
 	}
 
@@ -128,11 +139,15 @@ class AuthController extends BaseController {
 			'nickname'		   		=> 'required|min:2|unique:users',
 			'first_name'       		=> 'required|min:2',
 			'last_name'        		=> 'required|min:2',
-			'email'            		=> 'required|unique:users',
-			'email_confirm'    		=> 'required|same:email',
+			'email2'            		=> 'required|unique:users',
+			'email2_confirm'    		=> 'required|same:email2',
+
+			'email'			=>'required|email|unique:users',
+			'email_confirm'	=>'required|same:email',
+
 			'password'         		=> 'required|between:3,32',
 			'password_confirm' 		=> 'required|same:password',
-			'phone_no'	   			=> 'required|numeric|digits:11',
+			'phone_number'	   		=> 'required|numeric|digits:11',
 
 		);
 
@@ -154,9 +169,10 @@ class AuthController extends BaseController {
 				'nickname'		=> Input::get('nickname'),
 				'first_name' 	=> Input::get('first_name'),
 				'last_name'  	=> Input::get('last_name'),
-				'email'      	=> Input::get('email').'@liv.ac.uk',
+				'email'      	=> Input::get('email'), 
+				'email2'		=> Input::get('email2').Config::get('helper.mail_postfix'),
 				'password'   	=> Input::get('password'),
-				'phone_no'		=> Input::get('phone_no'),
+				'phone_no'		=> Input::get('phone_number'),
 
 			));
 
@@ -169,12 +185,13 @@ class AuthController extends BaseController {
 			// Send the activation code through email
 			Mail::send('emails.register-activate', $data, function($m) use ($user)
 			{
-				$m->to($user->email, $user->first_name . ' ' . $user->last_name);
+				$m->to($user->email2, $user->first_name . ' ' . $user->last_name);
 				$m->subject('Welcome ' . $user->first_name);
 			});
 
 			// Redirect to the register page
-			return Redirect::back()->with('success', Lang::get('auth/message.signup.success'));
+			// Redirect::back() (back to last page)
+			return Redirect::route('signin')->with('success', Lang::get('auth/message.signup.success'));
 		}
 
 

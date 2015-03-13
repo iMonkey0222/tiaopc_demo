@@ -11,8 +11,6 @@ Profile page
     <h3>My Profile</h3>
     <span><h4>Update your Profile</h4></span>
 @stop
-
-
 {{-- Account Content --}}
 @section('account-content')
 
@@ -47,7 +45,7 @@ Profile page
 		</div>
 	</div>
 	
-	<!-- Email for Future Login -->
+{{-- 	<!-- Email for Future Login -->
 	<div class="control-group{{ $errors->first('login_email', 'error') }}">
 		<label class="control-label" for="login_email">Email for Future Login </label>
 		<div class="controls">
@@ -55,14 +53,14 @@ Profile page
 			{{ $errors->first('login_email', '<span class="help-block">:message</span>') }}
 			<!--Add annotaion in the right of future login email address-->
 		</div>
-	</div>
+	</div> --}}
 
 	<!-- Phone Number -->
-	<div class="control-group{{ $errors->first('phone_no', ' error') }}">
-		<label class="control-label" for="phone_no">Phone Number</label>
+	<div class="control-group{{ $errors->first('phone_number', ' error') }}">
+		<label class="control-label" for="phone_number">Phone Number</label>
 		<div class="controls">
-			<input class="span4" type="text" name="phone_no" id="phone_no" value="{{ Input::old('phone_no', $user->phone_no) }}" />
-			{{ $errors->first('last_name', '<span class="help-block">:message</span>') }}
+			<input class="span4" type="text" name="phone_number" id="phone_number" value="{{ Input::old('phone_number', $user->phone_no) }}" />
+			{{ $errors->first('phone_number', '<span class="help-block">:message</span>') }}
 		</div>
 	</div>
 
