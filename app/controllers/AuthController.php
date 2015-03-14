@@ -50,7 +50,6 @@ class AuthController extends BaseController {
 			return Redirect::back()->withInput()->withErrors($validator);
 		}
 		
-		//var_dump(Input::only('email2','password'));
 		try
 		{
 

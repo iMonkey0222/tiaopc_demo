@@ -9,10 +9,7 @@
 
 
 {{-- Page title --}}
-@section('title')
-{{ $item->title }}
-@parent
-@stop
+
 
 
 @section('page-title')
