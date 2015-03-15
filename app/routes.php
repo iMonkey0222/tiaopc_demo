@@ -183,6 +183,19 @@ Route::get('/', array('as' => 'home', function(){
 Route::get('request',array('as'=>'tempRuquest', 'uses' => 'HomeController@getRequest'));
 
 
+
+/**
+ * How to use
+ */
+Route::get('how-to-use', function(){
+
+	return View::make('frontend.how')
+});
+
+
+
+
+
 /**
  * Test Page 
  */

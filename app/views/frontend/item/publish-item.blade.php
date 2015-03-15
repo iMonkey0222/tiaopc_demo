@@ -66,6 +66,8 @@ Publish Item ::
 						<div class="clear"></div>
 						<div class="col_one_third">
 							<select class="form-control" name="category1" id="category1">
+						      	<option value="" selected="selected" disabled="disabled">Select a Category</option>
+
 								@foreach ($categories as $category)
 									<option value="{{ $category->id }}">{{ $category->name }}</option>
 								@endforeach
@@ -77,6 +79,9 @@ Publish Item ::
 						<div class="col_one_third col_last">
 							<select class="form-control" name="category3" id="category3"></select>
 						</div>
+						<div class="clear"></div>
+						{{-- error block --}}
+						{{ $errors->first('category', '<span class="help-block">:message</span>') }}
 				</div>
 
 
@@ -105,10 +110,18 @@ Publish Item ::
 				<!-- Product Condition -->
 				<div class="form-group{{ $errors->first('condition', ' error') }}">
 					<label class="control-label" for="condition">Condition</label>
-					<div class="controls">
+{{-- 					<div class="controls">
 						<input type="text" class="form-control" name="condition" id="condition" value="{{ Input::old('condition') }}" />
-						{{ $errors->first('condition', '<span class="help-block">:message</span>') }}
-					</div>
+
+					</div> --}}
+					<select class="form-control" name="condition">
+				      <option value="" selected="selected" disabled="disabled">Select a Condition rate</option>
+					@foreach ($condition as $key => $value)
+						<option value={{$key}}>{{    $key."新 ".$value}}</option>
+					@endforeach
+					</select>
+
+					{{ $errors->first('condition', '<span class="help-block">:message</span>') }}
 				</div>
 
 				<!-- Picture Upload -->
@@ -199,6 +212,7 @@ Publish Item ::
 
 
 			$('#category2').empty();
+			$('#category2').append('<option value="" selected="selected" disabled="disabled">Select a Category</option>');
 
 			$.each(data, function(index, subCat){
 
@@ -240,6 +254,9 @@ Publish Item ::
 
 							$('#category3').empty();
 
+						    $('#category3').append('<option value="" selected="selected" disabled="disabled">Select a Category</option>'); 
+
+
 							$.each(data, function(index, subCat){
 
 								$('#category3').append('<option value="'+ subCat.id +'">'+subCat.name+'</option>' );
@@ -249,26 +266,11 @@ Publish Item ::
 
 							$('#category3').attr('name','category');
 
-
-
-
-
-
 					});	
 
 					}
 
-
-
-
-
 			});
-
-
-
-
-
-
 
 		});
 	});
