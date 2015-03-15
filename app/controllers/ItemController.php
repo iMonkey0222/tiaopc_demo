@@ -179,7 +179,14 @@ class ItemController extends BaseController {
 		$newestPrice = $priceArray['price'];
 		array_add($item, 'price',$newestPrice);
 		
+		// Add the category name to the item array
+		$categoryName = Category::find($item->category_id)->name;
+		array_add($item, 'category_name', $categoryName);
 
+		// Add the parent category name to the item array
+		$parentCategory = Category::find($item->category_id)->parent_id;
+		$parentCategoryName = Category::find($parentCategory)->name;
+		array_add($item, 'parent_category_name', $parentCategoryName)l
 
 
 		return View::make('frontend/item/view-single-item', compact('item','pictures', 'seller','triggleCode'));
@@ -201,8 +208,11 @@ class ItemController extends BaseController {
 
 		// Get the parent category
 		$categories = Category::where('parent_id', "=", NULL)->get();
+		// Get the condition array
+		$condition = Config::get('condition');
+
 		// Show the publish item page
-		return View::make('frontend/item/publish-item', compact('categories'));
+		return View::make('frontend/item/publish-item', compact('categories','condition'));
 	}
 
 
@@ -383,7 +393,7 @@ class ItemController extends BaseController {
 	public function itemPictureProcess($id)
 	{
 
-		echo "Wait for a second. Processing the images uplpad... ";
+		echo "Wait for a second. Processing the images upload... ";
 
 		$itemPictures = Item::find($id)->pictures;
 
