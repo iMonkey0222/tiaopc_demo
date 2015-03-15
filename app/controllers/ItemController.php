@@ -186,7 +186,7 @@ class ItemController extends BaseController {
 		// Add the parent category name to the item array
 		$parentCategory = Category::find($item->category_id)->parent_id;
 		$parentCategoryName = Category::find($parentCategory)->name;
-		array_add($item, 'parent_category_name', $parentCategoryName)l
+		array_add($item, 'parent_category_name', $parentCategoryName);
 
 
 		return View::make('frontend/item/view-single-item', compact('item','pictures', 'seller','triggleCode'));
