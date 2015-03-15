@@ -189,7 +189,7 @@ Route::get('request',array('as'=>'tempRuquest', 'uses' => 'HomeController@getReq
  */
 Route::get('how-to-use', function(){
 
-	return View::make('frontend.how')
+	return View::make('frontend.how');
 });
 
 
