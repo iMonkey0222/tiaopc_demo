@@ -138,6 +138,32 @@ Route::group(array('prefix' => 'item'), function()
 Route::get('publish', array('as' => 'publish/item', 'uses' => 'ItemController@getSingleItemForm')); 
 Route::post('publish', 'ItemController@PostSingleItemForm'); 
 
+Route::get('publish-category', array('as' => 'getCategory', function()
+{
+	if(Input::get('category1_id'))
+	{
+
+		$category1_id = Input::get('category1_id');
+
+		$subCategory = Category::where('parent_id', '=', $category1_id)->get();
+
+		return Response::json($subCategory);
+
+	}
+
+	if(Input::get('category2_id'))
+	{
+		$category2_id = Input::get('category2_id');
+
+		$subCategory = Category::where('parent_id', '=', $category2_id)->get();
+
+		return Response::json($subCategory);
+	}
+
+}));
+
+
+
 Route::get('publish/process/{id}', array('as' => 'publish/process', 'uses' => 'ItemController@itemPictureProcess'));
 
 

@@ -199,8 +199,8 @@ class ItemController extends BaseController {
 			return View::make('frontend/auth/signin');
 		}
 
-		// Get the category list
-		$categories = Category::get();
+		// Get the parent category
+		$categories = Category::where('parent_id', "=", NULL)->get();
 		// Show the publish item page
 		return View::make('frontend/item/publish-item', compact('categories'));
 	}
@@ -450,7 +450,7 @@ class ItemController extends BaseController {
 			}
 
 			// Check if the seller itself
-			$sellerId = Item::find($itemID)->users->id;
+			$sellerId = Item::find($itemID)->getUser->id;
 
 			if($sellerId == $userID)
 			{

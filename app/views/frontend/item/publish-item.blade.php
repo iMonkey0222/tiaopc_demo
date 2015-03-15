@@ -49,16 +49,39 @@ Publish Item ::
 				<!-- Price -->
 				<div class="form-group{{ $errors->first('price', ' error') }}">
 				<label class="control-label" for="price">Price</label>
-					<div class="controls">
+					<div class="input-group">
+						<div class="input-group-addon">£</div>
 						<input type="text" class="form-control" name="price" id="price" value="{{ Input::old('price') }}" />
-						{{ $errors->first('price', '<span class="help-block">:message</span>') }}
 					</div>
+						{{ $errors->first('price', '<span class="help-block">:message</span>') }}
+					
+				</div>
+
+			   
+				<!-- Category -->
+				<div class="form-group{{ $errors->first('category', ' error') }}">
+
+					<label class="control-label" for="category">Category</label>
+				
+						<div class="clear"></div>
+						<div class="col_one_third">
+							<select class="form-control" name="category1" id="category1">
+								@foreach ($categories as $category)
+									<option value="{{ $category->id }}">{{ $category->name }}</option>
+								@endforeach
+							</select>  
+						</div>
+						<div class="col_one_third" id="subCategory">
+							<select class="form-control" name="category2" id="category2"></select>
+						</div>
+						<div class="col_one_third col_last">
+							<select class="form-control" name="category3" id="category3"></select>
+						</div>
 				</div>
 
 
 
-
-				<!-- Category -->
+{{-- 				<!-- Category -->
 				<div class="form-group{{ $errors->first('category', ' error') }}">
 					<label class="control-label"  for="category">Category</label>
 					<div class="controls">
@@ -77,7 +100,7 @@ Publish Item ::
 						</select>
 						{{ $errors->first('category', '<span class="help-block">:message</span>') }}
 					</div>
-				</div>
+				</div> --}}
 
 				<!-- Product Condition -->
 				<div class="form-group{{ $errors->first('condition', ' error') }}">
@@ -139,4 +162,121 @@ Publish Item ::
 		</div>
 	</div>
 </section>	
+
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		$('#category2').hide();
+		$('#category3').hide();
+
+	});
+
+
+	$('#category1').on('change', function(e){
+		console.log(e);
+
+		$('#category2').show();
+
+
+		var category1_id = e.target.value;
+
+		if(category1_id != 12 || category1_id !=19){
+			$('#category3').attr('name','category3');
+			$('#category3').hide();
+		}
+
+		//ajax
+		$.get('{{ URL::route('getCategory') }}',{category1_id: category1_id}, function(data){
+			//Success callback
+			console.log(data);
+
+			// jQuery('<select/>', {
+			//    	class: 'form-control',
+			//    	name: 'sub-category',
+			//    	id: 'subCategory',
+			// }).appendTo('#subCategory');
+
+
+			$('#category2').empty();
+
+			$.each(data, function(index, subCat){
+
+				if(subCat.id == 12 || subCat.id == 19 ){
+
+					$('#category2').append('<option id="Subcat'+ subCat.id +'" value="'+ subCat.id +'">'+subCat.name+'</option>' );
+
+				}
+				else{
+					$('#category2').append('<option value="'+ subCat.id +'">'+subCat.name+'</option>' );
+
+			} 
+
+			$('#category2').attr('name','category');
+
+
+
+			});
+
+			$('#category2').on('change', function(e){
+
+
+
+					var category2_id = e.target.value;
+
+					console.log(category2_id);
+
+					if(category2_id == 19 || category2_id == 12	){
+
+						console.log("ok");
+						$('#category2').attr('name','category2');
+
+						$('#category3').show();
+
+
+						$.get('{{ URL::route('getCategory') }}',{category2_id: category2_id}, function(data){
+			
+							// console.log(category2_id);
+
+							$('#category3').empty();
+
+							$.each(data, function(index, subCat){
+
+								$('#category3').append('<option value="'+ subCat.id +'">'+subCat.name+'</option>' );
+
+
+							});
+
+							$('#category3').attr('name','category');
+
+
+
+
+
+
+					});	
+
+					}
+
+
+
+
+
+			});
+
+
+
+
+
+
+
+		});
+	});
+
+</script>
+
+
+
+
+
 @stop

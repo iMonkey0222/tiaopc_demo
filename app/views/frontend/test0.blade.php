@@ -25,11 +25,13 @@ Test By Yue Wang
 
 // var_dump($tran);
 
-$user = Item::find(2)->users->id;
+$user = Item::find(23)->getUser->id;
 
-var_dump($user);
 
-echo phpinfo();
+echo $user;
+// var_dump($user);
+
+// echo phpinfo();
 
 ?>
 
