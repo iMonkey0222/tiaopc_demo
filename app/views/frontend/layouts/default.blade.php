@@ -89,8 +89,9 @@
                                         <li><a href="{{ route('item/category', 24)}}"><div>外设</div></a></li>
                                     </ul>
                                 </li>
+                                <li><a href="{{ URL::to('how-to-use') }}">How to use</a></li>                                
 								<li><a href="{{ URL::to('about-us') }}">About us</a></li>
-								<li ><a href="{{ URL::to('contact-us') }}">Contact us</a></li>
+								<li><a href="{{ URL::to('contact-us') }}">Contact us</a></li>
 								@if (Sentry::check())
 								<li ><a href="{{ route('publish/item') }}">Publish</a></li>
 								@endif
