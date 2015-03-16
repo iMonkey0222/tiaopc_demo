@@ -15,7 +15,7 @@ Revise an Item ::
 {{-- Page content --}}
 @section('account-content')
 
-
+<section id="account-content">
 			
 				{{-- Publish Form Start		 --}}
 
@@ -140,7 +140,16 @@ Revise an Item ::
 				</div>
 				{{ Form::close() }}
 
-				
+</section>
+
+
+			
+
+
 
 
 @stop
+
+
+
+
