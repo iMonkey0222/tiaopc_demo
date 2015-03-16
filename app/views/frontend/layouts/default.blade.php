@@ -21,6 +21,7 @@
 		{{-- Original --}}
 		{{-- <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">  --}}
 		{{-- New --}}
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 	    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 	    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}" type="text/css" />
 	    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css" />

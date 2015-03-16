@@ -93,7 +93,9 @@ Item List Page
                             </div>
                             <div class="portfolio-desc">
                                 <h3><a href="{{ route('singleItem', $item->id) }}">{{$item->title}}</a></h3>
-                                <span>Price: <a class="price"> {{ $item->price }} </a></span>
+                                {{-- <span>Price: <a class="price"> {{ $item->price }} </a></span> --}}
+                                <div class="col_half">Price: <a class="price">{{ $item->price }}</a></div>
+                                <div class="col_half col_last text-right"><a class="time">{{ str_limit($item->created_at, $limit = 10,$end = NULL) }}</a></div>
 
                             </div>
                         </article>
@@ -140,7 +142,7 @@ Item List Page
                             $('#price-sort-asc').click(function(){
                                 $container.isotope('updateSortData').isotope({
                                     sortBy: 'price',
-                                    sortAscending: true
+                                    sortAscending: true // small to large
 
                                 });
                             });
@@ -148,7 +150,7 @@ Item List Page
                             $('#price-sort-dsc').click(function(){
                                 $container.isotope('updateSortData').isotope({
                                     sortBy: 'price',
-                                    sortAscending: false
+                                    sortAscending: false // large to small
                                 });
                             });                            
 
