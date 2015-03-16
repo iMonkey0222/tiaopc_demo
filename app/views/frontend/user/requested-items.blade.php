@@ -15,7 +15,7 @@ Requested Items
 
 {{-- Publishment page content --}}
 @section('account-content')
-
+<section id="account-content">
 <form method="post" action="" class="form-horizontal" autocomplete="off">
 	<table class="table table-striped">
 		<thead>
@@ -25,7 +25,6 @@ Requested Items
 				<th>Title and seller info</th>
 				<th>Price</th>
 				<th>Trade Status</th>
-				<th>Action</th>
 			</tr>
 		</thead>
 
@@ -74,9 +73,6 @@ Requested Items
 						<p>Paid</p>
 					@endif
 				</td>
-				<td>
-					<a class="btn">Delete Item</a>
-				</td>
 			</tr>
 			@endforeach
 		</tbody>
@@ -84,7 +80,7 @@ Requested Items
 	<div class="line"></div>
 
 </form>
-
+</section>
 
 @foreach ($transactions as $transaction)
 {{-- now the result is $transaction->item is a string !! not an array --}}

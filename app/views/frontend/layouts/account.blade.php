@@ -34,7 +34,7 @@
 						</ul>
 
 			</div>
-			<div class="col-md-6 col_last nobottommargin">
+			<div class="col-md-8 col_last nobottommargin">
 				@yield('account-content')
 			</div>
 
