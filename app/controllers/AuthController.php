@@ -230,7 +230,7 @@ class AuthController extends BaseController {
 			if ($user->attemptActivation($activationCode))
 			{
 				// Redirect to the login page
-				return Redirect::route('signin')->with('success', Lang::get('auth/message.activate.success'));
+				return Redirect::to('how-to-use')->with('success', Lang::get('auth/message.activate.success'));
 			}
 
 			// The activation failed.

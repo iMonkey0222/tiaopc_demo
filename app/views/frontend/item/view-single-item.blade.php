@@ -103,7 +103,7 @@
                             <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Seller Info</div>
                             <div class="acc_content clearfix" style="display: block;">
                                 <div>Name: <strong>{{ $seller->nickname }}</strong></div>
-                                <div>Email: <strong>{{ $seller->email2 }}</strong></div>
+                                <div>Email: <strong>{{ $seller->email }}</strong></div>
                                 <div>Phone: <strong>{{ $seller->phone_no }}</strong></div>
                             </div>
                             @endif    
@@ -171,6 +171,8 @@ $('#request').click(function(){
         if(result == 3)
         {
             alert('Success');
+            $button.text('Requested');
+            $button.attr( "disabled", "disabled" );
         }
 
         if(result == 4)

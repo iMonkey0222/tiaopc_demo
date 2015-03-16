@@ -169,6 +169,13 @@ Route::get('publish/process/{id}', array('as' => 'publish/process', 'uses' => 'I
 
 
 
+/**
+ * Search Function
+ */
+Route::get('search', array('as' => 'search', 'uses' => 'HomeController@searchItem'));
+
+
+
 
 
 

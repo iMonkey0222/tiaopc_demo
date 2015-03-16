@@ -91,7 +91,6 @@
                                 </li>
                                 <li><a href="{{ URL::to('how-to-use') }}">How to use</a></li>                                
 								<li><a href="{{ URL::to('about-us') }}">About us</a></li>
-								<li><a href="{{ URL::to('contact-us') }}">Contact us</a></li>
 								@if (Sentry::check())
 								<li ><a href="{{ route('publish/item') }}">Publish</a></li>
 								@endif
@@ -132,8 +131,8 @@
                         ============================================= -->
                         <div id="top-search">
                             <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
-                            <form action="" method="get">
-                                <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
+                            <form action="{{route('search')}}" method="get">
+                                <input type="text" name="query" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
                             </form>
                         </div><!-- #top-search end -->
 
