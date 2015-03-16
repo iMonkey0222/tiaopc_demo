@@ -67,7 +67,7 @@ dl, dt, dd, ol, ul, li {
 body {
     line-height: 1.5;
     color: #555;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 a {
@@ -99,7 +99,7 @@ h6 {
     font-weight: 600;
     line-height: 1.5;
     margin: 0 0 10px 0;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h5,
@@ -141,7 +141,7 @@ table,
 fieldset,
 form { margin-bottom: 30px; }
 
-small { font-family: 'Lato', sans-serif; }
+small { font-family: 'Open Sans', sans-serif; }
 
 .uppercase { text-transform: uppercase; }
 
@@ -894,7 +894,7 @@ body.stretched #header.full-header .container {
 #logo {
     position: relative;
     float: left;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 36px;
     line-height: 100%;
     margin-right: 40px;
@@ -1025,7 +1025,7 @@ body.stretched #header.full-header .container {
     font-size: 13px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     -webkit-transition: height .4s ease, line-height .4s ease, margin .4s ease, padding .4s ease;
     -o-transition: height .4s ease, line-height .4s ease, margin .4s ease, padding .4s ease;
     transition: height .4s ease, line-height .4s ease, margin .4s ease, padding .4s ease;
@@ -1099,7 +1099,7 @@ body.stretched #header.full-header .container {
     padding-bottom: 0 !important;
     border: 0 !important;
     letter-spacing: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     -webkit-transition: all .2s ease-in-out;
     -o-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
@@ -1201,7 +1201,7 @@ body.stretched #header.full-header #primary-menu ul li.mega-menu .mega-menu-cont
 #primary-menu ul li .mega-menu-content.style-2 > ul > li.mega-menu-title > a {
     font-size: 13px;
     font-weight: bold;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     letter-spacing: 1px;
     text-transform: uppercase !important;
     margin-bottom: 15px;
@@ -10450,7 +10450,7 @@ label.error { display: none !important; }
 /* Fancy Title - Bottom Short Border
 -----------------------------------------------------------------*/
 
-.fancy-title.title-dotted-border { background: url('images/icons/dotted.png') repeat-x center; }
+.fancy-title.title-dotted-border { background: url('../others/icons/dotted.png') repeat-x center; }
 
 
 /* Sub Heading
