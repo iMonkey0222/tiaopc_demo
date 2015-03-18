@@ -10,6 +10,18 @@
 
 {{-- Page title --}}
 
+@extends('frontend/layouts/default')
+
+{{-- Page title --}}
+@section('title')
+{{$item->title}}
+@parent
+@stop
+
+
+
+
+
 
 
 @section('page-title')
