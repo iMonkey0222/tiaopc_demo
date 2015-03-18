@@ -56,14 +56,20 @@ class ItemController extends BaseController {
 
 		$parentCategory = Category::where('parent_id','=',$id)->get(); 
 
-		$categorySet = Category::where('parent_id','=',$id)->lists('id'); 
+		$categoryArray = Category::where('parent_id','=',$id)->lists('id'); 
+
+		var_dump($categoryArray);
 
 		// get all item that contains child category id
-		$items = Item::whereIn('category_id',$categorySet)->orderBy('created_at', 'DESC')->where('status', '=', '0')->orWhereNull('status')->paginate(12); 
+		// $items = Item::whereIn('category_id',array(1,2))->orderBy('created_at', 'DESC')->where('status', '=', '0')->orWhereNull('status')->paginate(12); 
+		// $items = Item::whereIn('category_id',$categoryArray)->paginate(12); 
+		$items = Item::orderBy('created_at', 'DESC')->where('status', '=', '0')->orWhereNull('status')->whereIn('category_id', $categoryArray)->paginate(12);
 
 		foreach ($items as $item)
 		{
 
+			echo $item->category_id;
+			echo "<br>";
 			// Add the main picture to the item array
 			$itemPicture = Item::find($item->id)->pictures()->where('status','=','1')->first();
 			$pictureName = $itemPicture['picture_name'];
