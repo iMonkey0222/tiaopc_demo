@@ -17,7 +17,7 @@ Home page
 
     <div class="swiper-container swiper-parent">
         <div class="swiper-wrapper">
-            <div class="swiper-slide dark" style="background-image: url('../others/homepage/s1.jpg');">
+            <div class="swiper-slide dark" style="background-image: url({{ asset('assets/others/homepage/s1.jpg')}});">
                 <div class="container clearfix">
                     <div class="slider-caption slider-caption-center">
                         <h2 data-caption-animate="fadeInUp">Welcome to Tiaopc v1.0</h2>
@@ -34,7 +34,7 @@ Home page
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide" style="background-image: url('../public/assets/others/homepage/s3.jpg');">
+            <div class="swiper-slide" style="background-image: url({{ asset('assets/others/homepage/s3.jpg')}});">
                 <div class="container clearfix">
                     <div class="slider-caption">
                         <h2 data-caption-animate="fadeInUp">此处应有新手教程</h2>
