@@ -187,6 +187,11 @@ Route::get('/', array('as' => 'home', function(){
 	return View::make('coming_soon');
 }));
 
+Route::get('homepage', function(){
+
+	return View::make('frontend.home');
+});
+
 Route::get('request',array('as'=>'tempRuquest', 'uses' => 'HomeController@getRequest'));
 
 

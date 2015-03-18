@@ -3,7 +3,7 @@
 
 class Item extends Eloquent {
 	protected $fillable = ['seller_id'];
-
+	 protected $table = 'items';
 
 	/**
 	 * [pictures description]
