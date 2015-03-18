@@ -199,8 +199,12 @@ Route::get('how-to-use', function(){
 	return View::make('frontend.how-to-use');
 });
 
+/**
+ * About Us & Contact Us
+ */
 
-
+Route::post('contact-us', array('as' => 'contact-us', 'uses' => 'HomeController@getContact'));
+Route::get('about-us', array('as' => 'about-us', 'uses' => 'HomeController@getAboutUs'));
 
 
 /**

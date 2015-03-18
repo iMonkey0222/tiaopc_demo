@@ -34,7 +34,10 @@ class HomeController extends BaseController {
 
 	}
 
-
+	/**
+	 * search function
+	 * @return search outcome page item-view-list
+	 */
 	public function searchItem(){
 
 		$keyword = Input::get('query');
@@ -84,7 +87,10 @@ class HomeController extends BaseController {
 	}
 
 
-
+	public function getAboutUs()
+	{
+		return View::make('frontend.about-us');
+	}
 
 
 
