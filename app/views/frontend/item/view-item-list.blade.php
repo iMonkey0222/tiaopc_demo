@@ -95,7 +95,7 @@ Item List Page
                                 <h3><a href="{{ route('singleItem', $item->id) }}">{{ str_limit($item->title, $limit = 15,$end = "...")}}</a></h3>
                                 {{-- <span>Price: <a class="price"> {{ $item->price }} </a></span> --}}
                                 <div class="col_half">
-                                    </i><a class="price">£{{ $item->price }} </a>
+                                    </i>£<a class="price">{{ $item->price }} </a>
                                 </div>
                                 <div class="col_half col_last text-right"><a class="time">{{ str_limit($item->created_at, $limit = 10,$end = NULL) }}</a></div>
 
