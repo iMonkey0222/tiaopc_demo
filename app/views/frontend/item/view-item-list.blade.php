@@ -143,6 +143,7 @@ Item List Page
                             $('#time-sort').click(function(){
                                 $container.isotope('updateSortData').isotope({
                                     sortBy: 'time',
+                                    sortAscending: false
                                 });
                             });
 
