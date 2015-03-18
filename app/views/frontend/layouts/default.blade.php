@@ -55,7 +55,7 @@
 
         <!-- Header
         ============================================= -->
-        <header id="header" class="full-header " data-sticky-class="not-dark">
+        <header id="header" class=" full-header" data-sticky-class="not-dark">
 
             <div id="header-wrap">
 
@@ -80,7 +80,7 @@
                                     <ul>
                                         <li><a href="{{ route('item/category', 1)}}"><div>手机</div></a></li>
                                         <li><a href="{{ route('item/category', 6)}}"><div>平板</div></a></li>
-                                        <li><a href="{{ route('item/category', 11)}}"><div>电脑</div></a>
+                                        <li><a href="#"><div>电脑</div></a>
                                         <ul>
                                             <li><a href="{{ route('item/category', 12)}}"><div>台式机</div></a></li>
                                             <li><a href="{{ route('item/category', 19)}}"><div>笔记本</div></a></li>
@@ -154,6 +154,10 @@
 		<!-- Notifications Optional -->
 		@include('frontend/notifications')
 
+
+
+        <!-- Slider Section -->
+        @yield('slider')
 
 		<!-- Content -->
 		@yield('content')

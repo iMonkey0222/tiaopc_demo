@@ -212,6 +212,14 @@ Route::post('contact-us', array('as' => 'contact-us', 'uses' => 'HomeController@
 Route::get('about-us', array('as' => 'about-us', 'uses' => 'HomeController@getAboutUs'));
 
 
+
+/**
+ * Term and Policy
+ */
+Route::get('policy', function(){
+	return View::make('frontend.policy');
+});
+
 /**
  * Test Page 
  */
