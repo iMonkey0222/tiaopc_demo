@@ -29,7 +29,7 @@ Home page
             <div class="swiper-slide">
                 <div class="container clearfix">
                     <div class="slider-caption slider-caption-center">
-                        <h2 data-caption-animate="fadeInUp">We are recruiting</h2>
+                        <h2 data-caption-animate="fadeInUp">周公吐脯 文王以宁</h2>
                         <p data-caption-animate="fadeInUp" data-caption-delay="200">Come to join us for the Tiaopc v2.0</p>
                     </div>
                 </div>
