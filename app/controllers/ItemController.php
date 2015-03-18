@@ -13,7 +13,7 @@ class ItemController extends BaseController {
 		$parentCategory = Category::where('parent_id','=', NULL)->get(); 
 	
 		// Get all items with paginate 
-		$items = Item::orderBy('created_at', 'DESC')->where('status', '=', '0')->orWhereNull('status')->paginate(12);
+		$items = Item::orderBy('created_at', 'DESC')->normal()->paginate(12);
 		$trigger = TRUE;
 
 		foreach($items as $item)
@@ -61,17 +61,16 @@ class ItemController extends BaseController {
 		var_dump($categoryArray);
 
 		// get all item that contains child category id
-		$items = Item::whereIn('category_id',$categoryArray)->orderBy('created_at', 'DESC')->where('status', '=', '0')->orWhereNull('status')->paginate(12); 
+		// $items = Item::whereIn('category_id',$categoryArray)->orderBy('created_at', 'DESC')->where('status', '=', '0')->orWhereNull('status')->paginate(12); 
 		// $items = Item::whereIn('category_id',$categoryArray)->paginate(12); 
 		// $items = Item::orderBy('created_at', 'DESC')->where('status', '=', '0')->orWhereNull('status');
 		// $items = $items->whereIn('category_id', $categoryArray)->paginate(12);
 
+		$items = Item::whereIn('category_id', $categoryArray)->normal()->orderBy('created_at', 'DESC')->paginate(12);
 
 		foreach ($items as $item)
 		{
 
-			echo $item->category_id;
-			echo "<br>";
 			// Add the main picture to the item array
 			$itemPicture = Item::find($item->id)->pictures()->where('status','=','1')->first();
 			$pictureName = $itemPicture['picture_name'];
