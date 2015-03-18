@@ -58,7 +58,6 @@ class ItemController extends BaseController {
 
 		$categoryArray = Category::where('parent_id','=',$id)->lists('id'); 
 
-		var_dump($categoryArray);
 
 		// get all item that contains child category id
 		// $items = Item::whereIn('category_id',$categoryArray)->orderBy('created_at', 'DESC')->where('status', '=', '0')->orWhereNull('status')->paginate(12); 
