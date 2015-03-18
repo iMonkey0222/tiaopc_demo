@@ -66,7 +66,7 @@ Item List Page
 
 
                     <ul id="portfolio-filter-right" class="clearfix">
-                        <li class="activeFilter"><a href="#" data-filter="*">默认时间</a></li>  
+                        <li class="activeFilter" id="time-sort"><a href="#" data-filter="*">默认时间</a></li>  
                         <li id="price-sort-asc"><a href="#" data-filter=".2">价格最低</a></li>
                         <li id="price-sort-dsc"><a href="#" data-filter=".2">价格最高</a></li>                
                     </ul>  
@@ -92,7 +92,7 @@ Item List Page
                                 </div>
                             </div>
                             <div class="portfolio-desc">
-                                <h3><a href="{{ route('singleItem', $item->id) }}">{{$item->title}}</a></h3>
+                                <h3><a href="{{ route('singleItem', $item->id) }}">{{ str_limit($item->title, $limit = 15,$end = "...")}}</a></h3>
                                 {{-- <span>Price: <a class="price"> {{ $item->price }} </a></span> --}}
                                 <div class="col_half">Price: <a class="price">{{ $item->price }}</a></div>
                                 <div class="col_half col_last text-right"><a class="time">{{ str_limit($item->created_at, $limit = 10,$end = NULL) }}</a></div>
@@ -134,10 +134,15 @@ Item List Page
                             $container.isotope({
                                 getSortData: {
                                     price: '.price',
+                                    time: '.time'
                                 }
                             });
 
-
+                            $('#time-sort').click(function(){
+                                $container.isotope('updateSortData').isotope({
+                                    sortBy: 'time',
+                                });
+                            });
 
                             $('#price-sort-asc').click(function(){
                                 $container.isotope('updateSortData').isotope({

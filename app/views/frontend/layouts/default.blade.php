@@ -169,140 +169,7 @@
 
                 <!-- Footer Widgets
                 ============================================= -->
-                <div class="footer-widgets-wrap clearfix">
 
-                    <div class="col_two_third">
-
-                        <div class="widget clearfix">
-
-                            <p>We believe in <strong>Simple</strong>, <strong>Creative</strong> &amp; <strong>Flexible</strong> Design Standards with a Retina &amp; Responsive Approach. Browse the amazing Features this template offers.</p>
-
-                            <div class="line" style="margin: 30px 0;"></div>
-
-                            <div class="row">
-
-                                <div class="col-md-3 col-sm-6 bottommargin-sm widget_links">
-                                    <ul>
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">About</a></li>
-                                        <li><a href="#">FAQs</a></li>
-                                        <li><a href="#">Support</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-md-3 col-sm-6 bottommargin-sm widget_links">
-                                    <ul>
-                                        <li><a href="#">Shop</a></li>
-                                        <li><a href="#">Portfolio</a></li>
-                                        <li><a href="#">Blog</a></li>
-                                        <li><a href="#">Events</a></li>
-                                        <li><a href="#">Forums</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-md-3 col-sm-6 bottommargin-sm widget_links">
-                                    <ul>
-                                        <li><a href="#">Corporate</a></li>
-                                        <li><a href="#">Agency</a></li>
-                                        <li><a href="#">eCommerce</a></li>
-                                        <li><a href="#">Personal</a></li>
-                                        <li><a href="#">One Page</a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="col-md-3 col-sm-6 bottommargin-sm widget_links">
-                                    <ul>
-                                        <li><a href="#">Restaurant</a></li>
-                                        <li><a href="#">Wedding</a></li>
-                                        <li><a href="#">App Showcase</a></li>
-                                        <li><a href="#">Magazine</a></li>
-                                        <li><a href="#">Landing Page</a></li>
-                                    </ul>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="col_one_third col_last">
-
-                        <div class="widget clearfix" style="margin-bottom: -20px;">
-
-                            <div class="row">
-
-                                <div class="col-md-6 bottommargin-sm">
-                                    <div class="counter counter-small" style="color: #35BBAA;"><span data-from="50" data-to="15065421" data-refresh-interval="80" data-speed="3000" data-comma="true"></span></div>
-                                    <h5 class="nobottommargin">Total Downloads</h5>
-                                </div>
-
-                                <div class="col-md-6 bottommargin-sm">
-                                    <div class="counter counter-small" style="color: #2CAACA;"><span data-from="100" data-to="18465" data-refresh-interval="50" data-speed="2000" data-comma="true"></span></div>
-                                    <h5 class="nobottommargin">Clients</h5>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="widget subscribe-widget clearfix">
-                            <h5><strong>Subscribe</strong> to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</h5>
-                            <div id="widget-subscribe-form-result" data-notify-type="success" data-notify-msg=""></div>
-                            <form id="widget-subscribe-form" action="include/subscribe.php" role="form" method="post" class="nobottommargin">
-                                <div class="input-group divcenter">
-                                    <span class="input-group-addon"><i class="icon-email2"></i></span>
-                                    <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-success" type="submit">Subscribe</button>
-                                    </span>
-                                </div>
-                            </form>
-                            <script type="text/javascript">
-                                $("#widget-subscribe-form").validate({
-                                    submitHandler: function(form) {
-                                        $(form).find('.input-group-addon').find('.icon-email2').removeClass('icon-email2').addClass('icon-line-loader icon-spin');
-                                        $(form).ajaxSubmit({
-                                            target: '#widget-subscribe-form-result',
-                                            success: function() {
-                                                $(form).find('.input-group-addon').find('.icon-line-loader').removeClass('icon-line-loader icon-spin').addClass('icon-email2');
-                                                $('#widget-subscribe-form').find('.form-control').val('');
-                                                $('#widget-subscribe-form-result').attr('data-notify-msg', $('#widget-subscribe-form-result').html()).html('');
-                                                SEMICOLON.widget.notifications($('#widget-subscribe-form-result'));
-                                            }
-                                        });
-                                    }
-                                });
-                            </script>
-                        </div>
-
-                        <div class="widget clearfix" style="margin-bottom: -20px;">
-
-                            <div class="row">
-
-                                <div class="col-md-6 clearfix bottommargin-sm">
-                                    <a href="#" class="social-icon si-dark si-colored si-facebook nobottommargin" style="margin-right: 10px;">
-                                        <i class="icon-facebook"></i>
-                                        <i class="icon-facebook"></i>
-                                    </a>
-                                    <a href="#"><small style="display: block; margin-top: 3px;"><strong>Like us</strong><br>on Facebook</small></a>
-                                </div>
-                                <div class="col-md-6 clearfix">
-                                    <a href="#" class="social-icon si-dark si-colored si-rss nobottommargin" style="margin-right: 10px;">
-                                        <i class="icon-rss"></i>
-                                        <i class="icon-rss"></i>
-                                    </a>
-                                    <a href="#"><small style="display: block; margin-top: 3px;"><strong>Subscribe</strong><br>to RSS Feeds</small></a>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div><!-- .footer-widgets-wrap end -->
 
             </div>
 
@@ -316,7 +183,7 @@
                         <div class="copyrights-menu copyright-links clearfix">
                             <a href="#">Home</a>/<a href="#">About</a>/<a href="#">Features</a>/<a href="#">Portfolio</a>/<a href="#">FAQs</a>/<a href="#">Contact</a>
                         </div>
-                        Copyrights &copy; 2014 All Rights Reserved by Canvas Inc.
+                        Copyrights &copy; 2015 All Rights Reserved by Tiaopc.
                     </div>
 
                     <div class="col_half col_last tright">

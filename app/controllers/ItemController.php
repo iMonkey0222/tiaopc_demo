@@ -13,8 +13,7 @@ class ItemController extends BaseController {
 		$parentCategory = Category::where('parent_id','=', NULL)->get(); 
 	
 		// Get all items with paginate 
-		$items = Item::orderBy('created_at', 'DESC')->paginate(12);
-
+		$items = Item::orderBy('created_at', 'DESC')->where('status', '=', '0')->orWhereNull('status')->paginate(12);
 		$trigger = TRUE;
 
 		foreach($items as $item)
@@ -60,7 +59,7 @@ class ItemController extends BaseController {
 		$categorySet = Category::where('parent_id','=',$id)->lists('id'); 
 
 		// get all item that contains child category id
-		$items = Item::whereIn('category_id',$categorySet)->orderBy('created_at', 'DESC')->paginate(12); 
+		$items = Item::whereIn('category_id',$categorySet)->orderBy('created_at', 'DESC')->where('status', '=', '0')->orWhereNull('status')->paginate(12); 
 
 		foreach ($items as $item)
 		{
@@ -110,6 +109,11 @@ class ItemController extends BaseController {
 		{
 			// If we ended up in here, it means that a page or a blog post
 			// don't exist. So, this means that it is time for 404 error page.
+			return App::abort(404);
+		}
+
+		if($item->status == 1)
+		{
 			return App::abort(404);
 		}
 
@@ -292,6 +296,7 @@ class ItemController extends BaseController {
 		$item->product_condition = e(Input::get('condition'));
 		$item->description = e(Input::get('description'));
 		$item->seller_id = Sentry::getId();
+		$item->status = 0; // 0 for active
 
 
 
