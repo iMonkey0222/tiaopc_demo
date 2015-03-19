@@ -108,6 +108,7 @@
                                     <div class="panel-body">
                                         <span itemprop="productID" class="sku_wrapper">ID: <span class="sku">{{$item->id}}</span></span>
                                         <span class="posted_in">Category: <a href="#" rel="tag">{{$item->parent_category_name}}.{{$item->category_name}}</a>.</span>
+                                        <span>Condition: {{ $item->condition }}</span>
                                     </div>
                                 </div><!-- Product Single - Meta End -->
                             </div>
