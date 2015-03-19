@@ -142,13 +142,8 @@ $.ajaxSetup({
 });
 
 
-
-
-
 // Get the item id
 var itemID = {{ $item->id }};
-
-
 
 $('#request').click(function(){
 
@@ -173,15 +168,11 @@ $('#request').click(function(){
 
         if(result == 4)
         {
-            alert('You cannot request your own item.')
+            alert('You cannot request your own item.');
         }
 
     });
 });
-
-
-
-
 
 
 </script>

@@ -14,33 +14,33 @@ Profile page
 {{-- Account Content --}}
 @section('account-content')
 
-<form method="post" action="" class="form-vertical" autocomplete="off">
+<form method="post" action="" class="form-horizontal" autocomplete="off">
 	<!-- CSRF Token to avoid across website attack-->
 	<input type="hidden" name="_token" value="{{ csrf_token()}}"/>
 
 	<!-- User Name -->
-	<div class="control-group{{ $errors->first('nickname', ' error') }}">
-		<label class="control-label" for="nickname">User Name</label>
-		<div class="controls">
-			<input class="span4" type="text" name="nickname" id="nickname" value="{{ Input::old('nickname', $user->nickname) }}" />
+	<div class="form-group{{ $errors->first('nickname', ' error') }}">
+		<label class="col-sm-3 control-label" for="nickname">User Name</label>
+		<div class="col-sm-9">
+			<input class="form-control" type="text" name="nickname" id="nickname" value="{{ Input::old('nickname', $user->nickname) }}" />
 			{{ $errors->first('nickname', '<span class="help-block">:message</span>') }}
 		</div>
 	</div>
 
 	<!-- First Name -->
-	<div class="control-group{{ $errors->first('first_name', ' error') }}">
-		<label class="control-label" for="first_name">First Name</label>
-		<div class="controls">
-			<input class="span4" type="text" name="first_name" id="first_name" value="{{ Input::old('first_name',$user->first_name) }}" />
+	<div class="form-group{{ $errors->first('first_name', ' error') }}">
+		<label class="col-sm-3 control-label" for="first_name">First Name</label>
+		<div class="col-sm-9">
+			<input class="form-control" type="text" name="first_name" id="first_name" value="{{ Input::old('first_name',$user->first_name) }}" />
 			{{ $errors->first('first_name', '<span class="help-block">:message</span>') }}
 		</div>
 	</div>
 
 	<!-- Last Name -->
-	<div class="control-group{{ $errors->first('last_name', ' error') }}">
-		<label class="control-label" for="last_name">Last Name</label>
-		<div class="controls">
-			<input class="span4" type="text" name="last_name" id="last_name" value="{{ Input::old('last_name', $user->last_name) }}" />
+	<div class="form-group{{ $errors->first('last_name', ' error') }}">
+		<label class="col-sm-3 control-label" for="last_name">Last Name</label>
+		<div class="col-sm-9">
+			<input class="form-control" type="text" name="last_name" id="last_name" value="{{ Input::old('last_name', $user->last_name) }}" />
 			{{ $errors->first('last_name', '<span class="help-block">:message</span>') }}
 		</div>
 	</div>
@@ -56,21 +56,22 @@ Profile page
 	</div> --}}
 
 	<!-- Phone Number -->
-	<div class="control-group{{ $errors->first('phone_number', ' error') }}">
-		<label class="control-label" for="phone_number">Phone Number</label>
-		<div class="controls">
-			<input class="span4" type="text" name="phone_number" id="phone_number" value="{{ Input::old('phone_number', $user->phone_no) }}" />
+	<div class="form-group{{ $errors->first('phone_number', ' error') }}">
+		<label class="col-sm-3 control-label" for="phone_number">Phone Number</label>
+		<div class="col-sm-9">
+			<input type="text" class="form-control" name="phone_number" id="phone_number" value="{{ Input::old('phone_number', $user->phone_no) }}" />
 			{{ $errors->first('phone_number', '<span class="help-block">:message</span>') }}
 		</div>
 	</div>
 
 
+
+
 	<hr>
 
-	<div class="control-group">
-		<div class="controls">
-			<a class="btn" href="{{ route('home') }}">Cancel</a>
-			<button type="submit" class="btn">save</button>
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-10">
+			<button type="submit" class="btn btn-default">Update</button>
 		</div>
 	</div>
 

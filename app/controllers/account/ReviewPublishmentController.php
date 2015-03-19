@@ -13,6 +13,10 @@ use Price;
 use Picture;
 use Post;
 use Category;
+use Request;
+use Response;
+use Pagination;
+use Config;
 
 
 class ReviewPublishmentController extends AuthorizedController {
@@ -24,7 +28,9 @@ class ReviewPublishmentController extends AuthorizedController {
 		$userID = $user->id;
 
 		// Get all items  
-		$items = User::find($userID)->getItems;
+		$items = Item::where('seller_id','=',$userID)->paginate(10);
+		// $items = Item::paginate(10);
+		
 
 		if(is_null($items))
 		{
@@ -42,6 +48,41 @@ class ReviewPublishmentController extends AuthorizedController {
 		// Show the page
 		return View::make('frontend/user/published-items',compact('$user', 'items'));
 	}
+
+	/**
+ * [deleteItem description]
+ * @param  [type] $itemID [description]
+ * @return [type]         [description]
+ */
+	public function deleteItem(){
+
+
+		if (Request::ajax()) {
+			// Check if user or visitor
+			if(! Sentry::check())
+			{
+				// Return to sign in page
+				return 1;
+			}
+			else{
+				// Get the item ID
+				$itemID = Input::get('itemID');
+
+				$item = Item::find($itemID);
+
+				$item->status = 1; // item status is inactive
+				
+				$item->save();
+
+				return $itemID; // delete the row
+			}
+		}
+	}
+
+
+
+
+
 /**
  * [getRequestedItems description]
  * @return [type] [description]
@@ -95,41 +136,117 @@ class ReviewPublishmentController extends AuthorizedController {
 			return Redirect::to('admin/blogs')->with('error', Lang::get('admin/blogs/message.does_not_exist'));
 		}
 
-
 		// add picture to item array
 		$pictures = Item::find($itemID)->pictures;
-		// foreach ($pictures as $picture) {
+		foreach ($pictures as $picture) {
+			if ($picture->status == 1) {
+				$mainPic = $picture;
+				break;
+			}
 		// 	$picName = $picture['picture_name'];
 		// 	array_add($item, 'picture', "$picName");
-		// }
+		}
 
 		// call function selfDefinedArray() to custom item array
 		$item = $this->selfDefinedItemArray($item);
 
-		$categories = Category::get();
+
+		// Get the parent category
+		$categoryName = Category::find($item->category_id)->name;
+		$parentCategory = Category::find($item->category_id)->parent_id;
+		$parentCategoryName = Category::find($parentCategory)->name;
+
+		array_add($item, 'category_name', $categoryName);
+		array_add($item, 'parent_category_name', $parentCategoryName);
+
+
+		// category1 is the last lategory, category2 is the previous cate, category3 is the ifrst cate
+		$categories = Category::where('parent_id', "=", NULL)->get();
+		// foreach ($categories as $category) {
+		// 	if ($item->category_id == $category->id) {
+		// 		$category1 = $category->parent_id;
+		// 		if ($category1) {
+		// 			$category2 = $category1->parent_id;
+		// 			if ($category2 ) {
+		// 				$category3 = $category2->parent_id;
+		// 			}
+		// 		}
+		// 	}
+		// }
+		// Get the condition array
+		$condition = Config::get('condition');
 
 
 		// Show the page
-		return View::make('frontend/item/edit-item', compact('item', 'categories','pictures'));
+		return View::make('frontend/item/edit-item', compact('item', 'categories','pictures','mainPic','condition'));
 	}
+
 
 /**
- * [deleteItem description]
- * @param  [type] $itemID [description]
- * @return [type]         [description]
+ * [postUpload description]
+ * @return [type] [description]
  */
-	public function deleteItem($itemID){
-		// Check if user or visitor
-		if(! Sentry::check())
-		{
-			// Return to sign in page
-			return View::make('frontend/auth/signin');
-		}
-		$item = Item::find($itemID);
-		echo "Item need to be deleted is "."$itemID";
-		return View::make('frontend/item/edit-item');
+    public function postUpload() {
+    	// if(Request::ajax()){
+    		$mainPicture = Input::file('mainPicture');
+	        // $input = array('mainPicture' => $file);
+	        $rules = array(
+	            'mainPicture' => 'image',
+	        );
+	        $validator = Validator::make(array('mainPicture'=>$mainPicture), $rules);
 
-	}
+
+	        if ( $validator->fails() )
+	        {
+	            return Response::json(['success' => false, 'errors' => $validator->getMessageBag()->toArray()]);
+	 
+	        }
+	        else {
+	            // $destinationPath = public_path().'/assets/img';
+	            // $filename = $file->getClientOriginalName();
+	            // $fileName = date("Ymdhis") . str_random(3) . "." . $extension; 
+	            // Input::file('image')->move($destinationPath, $filename);
+
+	            $destinationPath = public_path().'/assets/img/';
+				$extension = $mainPicture->getClientOriginalExtension(); // getting image extension
+
+				$fileName = date("Ymdhis") . str_random(3) . "." . $extension; 
+				$uploadSuccess = $mainPicture->move($destinationPath, $fileName);
+
+				$mainPicture = new Picture;
+				$mainPicture->picture_name = $fileName;
+				$mainPicture->status = 1;
+
+				$mainPicture->save();
+
+	            return Response::json(['success' => true, 'file' => $destinationPath.$fileName]);
+	        }
+ 
+    }
+
+   //  public function imageUpload() {
+   //      $mainPicture = Input::file('mainPicture');
+        
+   //      $rules = array(
+   //          'mainPicture' => 'image',
+   //      );
+   //      $validator = Validator::make(array('mainPicture'=>$mainPicture), $rules);
+        
+
+
+   //      if ( $validator->fails() )
+   //      {
+   //          return Response::json(['success' => false, 'errors' => $validator->getMessageBag()->toArray()]);
+ 
+   //      }
+   //      else {
+	  //       $destinationPath = public_path().'/assets/img'; // destination path
+			// $extension = $mainPicture->getClientOriginalExtension(); // getting image extension
+			// $fileName = date("Ymdhis") . str_random(3) . "." . $extension; // set sile name
+			// $uploadSuccess = $mainPicture->move($destinationPath, $fileName);
+			// return Response::json(['success' => true, 'file' => asset($destinationPath.$fileName)]);
+   //      }
+   //  }
 
 
 	/**
@@ -152,10 +269,25 @@ class ReviewPublishmentController extends AuthorizedController {
 
 		$item = Item::find($itemID);
 
-		$originPics = Item::find($itemID)->pictures; // get the orgin pics array
+		// * 1. Get the original main picture
+		// $originMainPic = Picture::where(function($query){
+		// 	$query	->where('item_id','=',$itemID)
+		// 			->where('status','=','1');
 
-		// $originPics = $item->pictures; 
-		$extraPicsCount = 10-count($originPics); // the number of pictures that user can upload
+		// })->first();
+
+
+		// * 2. Get the orgin pics array
+		$originPics = Item::find($itemID)->pictures; 
+		foreach($originPics as $originPic){
+			if($originPic->status == 1){
+				$originMainPic = $originPic;
+				break;
+			}
+		}
+
+		// The number of pictures that user can upload
+		$extraPicsCount = 10-count($originPics); 
 
 		// Declare validator rules
 		$rules = array(
@@ -168,7 +300,8 @@ class ReviewPublishmentController extends AuthorizedController {
 			);
 
 
-		// Create a validator with input
+		// Create a validator with all input
+		// Check all input format now
 		$validator = Validator::make(Input::all(), $rules);
 
 		// If validator fails, we will exit the operation now
@@ -178,59 +311,76 @@ class ReviewPublishmentController extends AuthorizedController {
 		}
 
 
-		// Validate each picture if there any pictures not formatted, then fails
-		$pictures = Input::file('pictures'); // newly pics user uploaded 
+		// * Get the input of pictures
+		$mainPicture = Input::file('mainPicture');	// main pic user upload
+		$pictures = Input::file('pictures'); 		// newly pics user uploaded 
 
+
+		// * 1. Validate the main picture
+		$rules = array('mainPicture' => 'image'); // Declare main picture validator rules
+		$mainPicValidator = Validator::make(array('mainPicture' => $mainPicture),$rules);
+
+		if ($mainPicValidator -> fails()) {
+			return Redirect::back()->withInput()->withErrors($mainPicValidator);
+		}
+
+
+		// * 2. Validate the following pictures
+		// 
+		// Validate each picture if there any pictures not formatted, then fails
 		foreach ($pictures as $picture)
 		{
-			$rules = array('picture' => 'image');
+			$rules = array('picture' => 'image'); // Declare pictures validator rules
 			$picValidator = Validator::make(array('picture' => $picture), $rules);
 
 			if($picValidator -> fails())
-			{
+			{				
 				return Redirect::back()->withInput()->withErrors($picValidator);
 			}
 		}
 
 
-		// Update item with validated input
+		// * Update - item with validated input
 		$item->title = Input::get('title');
 		$item->category_id = Input::get('category');
 		$item->product_condition = Input::get('condition');
 		$item->description = Input::get('description');
 
-		// 		array_add($item, 'price',"$newestPrice");
-
-
+		// * Save item to database
 		if($item->save())
 		{	
-				// Main pic
-				// 
-			if($item->pictures()->save($mainPicture))
-			{
-				// Check picture upload
-				$uploadPicture = array();
+			// * 1. Checkout Main pic
+			$destinationPath = public_path().'/assets/img'; // destination path
+			$extension = $mainPicture->getClientOriginalExtension(); // getting image extension
+			$fileName = date("Ymdhis") . str_random(3) . "." . $extension; // set sile name
+			$uploadSuccess = $mainPicture->move($destinationPath, $fileName);
 
-			// $pictures is not null
+			// * Update the original main picture status to 0
+			$originMainPic->status = 0;
+			$item->pictures()->save($originMainPic);
+
+			// * Create new Main picture
+			$mainPicture = new Picture;
+			$mainPicture->picture_name = $fileName;
+			$mainPicture->status = 1;
+
+
+
+			// * 1. Save main picture to item
+			if($item->pictures()->save($mainPicture))
+			{			
+				$uploadPicture = array(); // create an emapty array for picture upload
+
+				// * 2. Repeat checkout each following pictures 
 				foreach( $pictures as $picture )
 				{
 					$destinationPath = public_path().'/assets/img';
+					$extension = $picture->getClientOriginalExtension(); // getting image extension	
+					$fileName = date("Ymdhis") . str_random(3) . "." . $extension; 
+					$uploadSuccess = $picture->move($destinationPath, $fileName);
 
-					// if user upload extra pictures
-					// if (!is_null($picture)) 
-					// {
-						$extension = $picture->getClientOriginalExtension(); // getting image extension
-
-						$fileName = date("Ymdhis") . str_random(3) . "." . $extension; 
-						$uploadSuccess = $picture->move($destinationPath, $fileName);
-
-
-						array_push($uploadPicture, new Picture(array('picture_name' => $fileName)));
-						# code...
-					// }
-
-					// Else if user did not upload extra pictures
-					// Do thing
+					// push newly created Picture array with names to $uploadPicture array
+					array_push($uploadPicture, new Picture(array('picture_name' => $fileName)));
 				}
 
 				$priceArray = new Price(['price' => e(Input::get('price'))]);

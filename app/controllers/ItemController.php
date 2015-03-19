@@ -238,7 +238,7 @@ class ItemController extends BaseController {
 
 		// Declare validator rules
 		$rules = array(
-			'title' => 'required|min:3',
+			'title' => 'required|min:3|max:20',
 			'price' => 'required|numeric',
 			'category' => 'required',
 			'condition' => 'required|numeric',
@@ -360,33 +360,6 @@ class ItemController extends BaseController {
 
 	}
 
-	// /**
-	//  * Get published single item page
-	//  * @param  int $itemId 
-	//  * @return view single item edit view
-	//  */
-	// public function getSingleItemEditForm($itemId)
-	// {
-	// 	// Check if the item exists
-	// 	if (is_null($item = Item::find($postId)))
-	// 	{
-	// 		// Redirect to the blogs management page
-	// 		return Redirect::to('admin/blogs')->with('error', Lang::get('admin/blogs/message.does_not_exist'));
-	// 	}
-
-	// 	// Show the page
-	// 	return View::make('frontend/item/edit-item', compact('item'));
-	// }
-
-	// /**
-	//  * Post single item edit form
-	//  * @param int $itemId item id
-	//  * @return view published single item page
-	//  */
-	// public function PostSingleItemEditForm($itemId)
-	// {
-
-	// }
 
 
 

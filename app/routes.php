@@ -100,10 +100,11 @@ Route::group(array('prefix' => 'account'), function()
 	// Route::get('{itemID}', array('as' => 'editSingleItem', 'uses' => 'ItemController@getSingleItemEditForm'))->where('id', '[0-9]+');
 	Route::get('revise-item/{itemID}', array('as' => 'reviseSingleItem', 'uses' => 'Controllers\Account\ReviewPublishmentController@getSingleItemEditForm'))->where('id', '[0-9]+');
 
-	Route::post('revise-item/{itemID}', array('as' => 'postRevise', 'uses' =>'Controllers\Account\ReviewPublishmentController@PostSingleItemEditForm'))->where('id', '[0-9]+');
+	Route::post('revise-item', array('as' => 'postRevise', 'uses' =>'Controllers\Account\ReviewPublishmentController@PostSingleItemEditForm'));
 
 	Route::get('revise-delete/{itemID}', array('as' => 'deleteItem','uses' => 'Controllers\Account\ReviewPublishmentController@deleteItem'))->where('id', '[0-9]+');
 
+	Route::post('upload/image', array('as' => 'imageUpload', 'uses' => 'Controllers\Account\ReviewPublishmentController@postUpload'));
 
 });
 

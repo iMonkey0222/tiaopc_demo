@@ -117,7 +117,7 @@ Publish Item ::
 					<select class="form-control" name="condition">
 				      <option value="" selected="selected" disabled="disabled">Select a Condition rate</option>
 					@foreach ($condition as $key => $value)
-						<option value={{$key}}>{{    $key."新 ".$value}}</option>
+						<option value={{$key}}>{{    $key."成新 ".$value}}</option>
 					@endforeach
 					</select>
 

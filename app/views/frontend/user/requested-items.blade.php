@@ -20,7 +20,6 @@ Requested Items
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>Tick</th>
 				<th>Image</th>
 				<th>Title and seller info</th>
 				<th>Price</th>
@@ -31,14 +30,7 @@ Requested Items
 		<tbody>
 			@foreach ($transactions as $transaction)
 			<tr>
-				<!-- Check box  -->
-				<td>
-					<div class="controls">
-						<label class="control-label" for="select all">
-							<input type = "checkbox" name="select all" id="select all" value = "Select All" /> 
-						</label>
-					</div>
-				</td>
+
 
 				<!-- Product image--> 
 				<td>

@@ -16,8 +16,26 @@ Test By Xiaoyang Wang
 <?php
 
 
-$user = Sentry::getUser();
-echo "This is nick name "."$user->nickname";
+// $user = Sentry::getUser();
+		$originMainPic = Picture::where(function($query){
+			$query	->where('item_id','=','53')
+					->where('status','=','1');
+
+		})->first();
+// var_dump($originMainPic.'<br>');
+echo $originMainPic->id;
+
+$originPics = Item::find(53)->pictures;
+foreach($originPics as $originPic){
+	if($originPic->status == 1){
+		$originMainPic = $originPic;
+		break;
+	}
+}
+echo $originMainPic->id;
+// echo "<br><br>";
+// echo "hi";
+// echo $originMainPic['picture_name'];
 // $items = User::find(5)->getItems;
 // $item = Item::find(24);
 
@@ -74,3 +92,7 @@ echo "This is nick name "."$user->nickname";
 ?>
 </p>
 @stop
+
+
+
+
