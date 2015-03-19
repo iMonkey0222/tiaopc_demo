@@ -217,6 +217,7 @@ function showResponse(response, statusText, xhr, $form)  {
 						<div id = "mainPicture" class="col_half">
 				            <div class="span3">
 				                <div id="validation-errors"></div>
+				                <!-- pic upload form -->
 				                <form class="form-horizontal" id="upload" enctype="multipart/form-data" method="post" action="{{ URL::route('imageUpload') }}" autocomplete="off">
                     				<input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     				<input type="file" name="mainPicture" id="mainPicture" /> 
