@@ -73,7 +73,7 @@ Account Sign up ::
 			<!-- Email For register   email2-->
 			<div class="form-group{{ $errors->first('email2', ' error') }}">
 				
-				<label for="email2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="left" title="" data-original-title="This email is only used for receive validation email to activate your account after you finish sigup. It will not receive any future email from this website."><i class = "icon-bulb"></i> Validation Email</label>
+				<label for="email2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="left" title="" data-original-title="This email only used for activate account."><i class = "icon-bulb"></i> Validation Email</label>
 {{-- 				 ( * Please enter the prefix of you school email.
 				  This email will receive the validation link to active account. ) --}}
 				<div class="col-sm-9">
@@ -102,7 +102,7 @@ Account Sign up ::
 
 			<!-- Email for Future Login  email-->
 			<div class="form-group{{ $errors->first('email', 'error') }}">
-				<label for="email" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="left" title="" data-original-title="This email will be used for your login and receive notification. (i.e forgot password, request success notification)"><i class = "icon-bulb"></i> Login Email</label>
+				<label for="email" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="left" title="" data-original-title="This email is used for further login and receive notification."><i class = "icon-bulb"></i> Login Email</label>
 				<div class="col-sm-9">
 					<div class="controls">
 						<input type="text" class="form-control" name="email" id = "email" value="{{ Input::old('email') }}" placeholder="Enter the email address for future login"/>
