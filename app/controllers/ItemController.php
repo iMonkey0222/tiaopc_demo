@@ -13,8 +13,7 @@ class ItemController extends BaseController {
 		$parentCategory = Category::where('parent_id','=', NULL)->get(); 
 	
 		// Get all items with paginate 
-		$items = Item::orderBy('created_at', 'DESC')->paginate(12);
-
+		$items = Item::orderBy('created_at', 'DESC')->normal()->paginate(12);
 		$trigger = TRUE;
 
 		foreach($items as $item)
@@ -57,10 +56,16 @@ class ItemController extends BaseController {
 
 		$parentCategory = Category::where('parent_id','=',$id)->get(); 
 
-		$categorySet = Category::where('parent_id','=',$id)->lists('id'); 
+		$categoryArray = Category::where('parent_id','=',$id)->lists('id'); 
+
 
 		// get all item that contains child category id
-		$items = Item::whereIn('category_id',$categorySet)->orderBy('created_at', 'DESC')->paginate(12); 
+		// $items = Item::whereIn('category_id',$categoryArray)->orderBy('created_at', 'DESC')->where('status', '=', '0')->orWhereNull('status')->paginate(12); 
+		// $items = Item::whereIn('category_id',$categoryArray)->paginate(12); 
+		// $items = Item::orderBy('created_at', 'DESC')->where('status', '=', '0')->orWhereNull('status');
+		// $items = $items->whereIn('category_id', $categoryArray)->paginate(12);
+
+		$items = Item::whereIn('category_id', $categoryArray)->normal()->orderBy('created_at', 'DESC')->paginate(12);
 
 		foreach ($items as $item)
 		{
@@ -112,6 +117,11 @@ class ItemController extends BaseController {
 			// don't exist. So, this means that it is time for 404 error page.
 			return App::abort(404);
 		}
+
+		// if($item->status == 1)
+		// {
+		// 	return App::abort(404);
+		// }
 
 		/**
 		 * Check the visitor status
@@ -166,9 +176,6 @@ class ItemController extends BaseController {
 			}
 		}
 		
-
-
-
 
 
 		//Add picture to array
@@ -243,7 +250,7 @@ class ItemController extends BaseController {
 			'category' => 'required',
 			'condition' => 'required|numeric',
 			'description' => 'required|min:10',
-			'pictures' => 'array|between:1,10', // Limit the file upload to 10
+			'pictures' => 'array|between:2,10', // Limit the file upload to 10
 			);
 
 		// Create a validator with input
@@ -292,6 +299,7 @@ class ItemController extends BaseController {
 		$item->product_condition = e(Input::get('condition'));
 		$item->description = e(Input::get('description'));
 		$item->seller_id = Sentry::getId();
+		$item->status = 0; // 0 for active
 
 
 

@@ -10,6 +10,19 @@ Test By Yue Wang
 @section('content')
 
 
+
+{{--16/3/2015 --}}
+
+<?php
+
+foreach ($result as $term)
+{
+	echo $term->title;
+	echo "<br>";
+}
+
+?>
+
 {{-- 11/3/2015 --}}
 <?php 
 
@@ -25,10 +38,10 @@ Test By Yue Wang
 
 // var_dump($tran);
 
-$user = Item::find(23)->getUser->id;
+// $user = Item::find(23)->getUser->id;
 
 
-echo $user;
+// echo $user;
 // var_dump($user);
 
 // echo phpinfo();

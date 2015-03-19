@@ -95,7 +95,7 @@
                                 <div class="panel panel-default product-meta">
                                     <div class="panel-body">
                                         <span itemprop="productID" class="sku_wrapper">ID: <span class="sku">{{$item->id}}</span></span>
-                                        <span class="posted_in">Category: <a href="#" rel="tag">{{$item->parent_category_name}}.{{$item->category_name}}</a>.</span>
+                                        <span class="posted_in">Category: <a href="#" rel="tag">{{$item->category_id}}</a>.</span>
                                     </div>
                                 </div><!-- Product Single - Meta End -->
                             </div>
@@ -122,6 +122,8 @@
 
                     </div>
 
+
+
                 </div>
 
             </div>
@@ -142,8 +144,13 @@ $.ajaxSetup({
 });
 
 
+
+
+
 // Get the item id
 var itemID = {{ $item->id }};
+
+
 
 $('#request').click(function(){
 
@@ -168,11 +175,15 @@ $('#request').click(function(){
 
         if(result == 4)
         {
-            alert('You cannot request your own item.');
+            alert('You cannot request your own item.')
         }
 
     });
 });
+
+
+
+
 
 
 </script>

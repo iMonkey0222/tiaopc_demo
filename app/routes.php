@@ -170,6 +170,13 @@ Route::get('publish/process/{id}', array('as' => 'publish/process', 'uses' => 'I
 
 
 
+/**
+ * Search Function
+ */
+Route::get('search', array('as' => 'search', 'uses' => 'HomeController@searchItem'));
+
+
+
 
 
 
@@ -180,6 +187,11 @@ Route::get('publish/process/{id}', array('as' => 'publish/process', 'uses' => 'I
 Route::get('/', array('as' => 'home', function(){
 	return View::make('coming_soon');
 }));
+
+Route::get('homepage', function(){
+
+	return View::make('frontend.home');
+});
 
 Route::get('request',array('as'=>'tempRuquest', 'uses' => 'HomeController@getRequest'));
 
@@ -193,9 +205,21 @@ Route::get('how-to-use', function(){
 	return View::make('frontend.how-to-use');
 });
 
+/**
+ * About Us & Contact Us
+ */
+
+Route::post('contact-us', array('as' => 'contact-us', 'uses' => 'HomeController@getContact'));
+Route::get('about-us', array('as' => 'about-us', 'uses' => 'HomeController@getAboutUs'));
 
 
 
+/**
+ * Term and Policy
+ */
+Route::get('policy', function(){
+	return View::make('frontend.policy');
+});
 
 /**
  * Test Page 

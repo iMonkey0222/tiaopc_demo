@@ -32,276 +32,114 @@ How to use
 {{-- Page Content --}}
 @section('content')
 <section id="content">
-	<div class="content-wrap">
-		<div class="container clearfix">
-			
-			<div class="fancy-title title-dotted-border title-center">
+<div class="content-wrap">
+<div class="container clearfix">
+            
+            <div class="fancy-title title-dotted-border title-center">
                         <h2><span>For Buyer</span></h2>
             </div>
-			
+            
 
-			<div id="processTabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+            <div id="processTabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
                         <ul class="process-steps bottommargin clearfix ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
                             <li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="ptab1" aria-labelledby="ui-id-1" aria-selected="true">
                                 <a href="#ptab1" class="i-circled i-bordered i-alt divcenter ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1">1</a>
-                                <h5>Review Cart</h5>
+                                <h5>选择商品</h5>
                             </li>
                             <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="ptab2" aria-labelledby="ui-id-2" aria-selected="false">
                                 <a href="#ptab2" class="i-circled i-bordered i-alt divcenter ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-2">2</a>
-                                <h5>Enter Shipping Info</h5>
+                                <h5>提交请求</h5>
                             </li>
                             <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="ptab3" aria-labelledby="ui-id-3" aria-selected="false">
                                 <a href="#ptab3" class="i-circled i-bordered i-alt divcenter ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-3">3</a>
-                                <h5>Complete Payment</h5>
+                                <h5>联系卖家</h5>
                             </li>
                             <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="ptab4" aria-labelledby="ui-id-4" aria-selected="false">
                                 <a href="#ptab4" class="i-circled i-bordered i-alt divcenter ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-4">4</a>
-                                <h5>Order Complete</h5>
+                                <h5>进行交易</h5>
                             </li>
                         </ul>
                         <div>
                             <div id="ptab1" aria-labelledby="ui-id-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="true" aria-hidden="false" style="display: block;">
 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, ipsa, fuga, modi, corporis maiores illum fugit ratione cumque dolores sint obcaecati quod temporibus. Expedita, sapiente, veritatis, impedit iusto labore sed itaque sunt fugiat non quis nihil hic quos necessitatibus officiis mollitia nesciunt neque! Minus, mollitia at iusto unde voluptate repudiandae.</p>
-
-                                <div class="table-responsive">
-
-                                    <table class="table cart">
-                                        <thead>
-                                            <tr>
-                                                <th class="cart-product-remove">&nbsp;</th>
-                                                <th class="cart-product-thumbnail">&nbsp;</th>
-                                                <th class="cart-product-name">Product</th>
-                                                <th class="cart-product-price">Unit Price</th>
-                                                <th class="cart-product-quantity">Quantity</th>
-                                                <th class="cart-product-subtotal">Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="cart_item">
-                                                <td class="cart-product-remove">
-                                                    <a href="#" class="remove" title="Remove this item"><i class="icon-trash2"></i></a>
-                                                </td>
-
-                                                <td class="cart-product-thumbnail">
-                                                    <a href="#"><img width="64" height="64" src="images/shop/thumbs/small/dress-3.jpg" alt="Pink Printed Dress"></a>
-                                                </td>
-
-                                                <td class="cart-product-name">
-                                                    <a href="#">Pink Printed Dress</a>
-                                                </td>
-
-                                                <td class="cart-product-price">
-                                                    <span class="amount">$19.99</span>
-                                                </td>
-
-                                                <td class="cart-product-quantity">
-                                                    <div class="quantity clearfix">
-                                                        <input type="button" value="-" class="minus">
-                                                        <input type="text" step="1" min="1" name="quantity" value="1" title="Qty" class="qty" size="4">
-                                                        <input type="button" value="+" class="plus">
-                                                    </div>
-                                                </td>
-
-                                                <td class="cart-product-subtotal">
-                                                    <span class="amount">$19.99</span>
-                                                </td>
-                                            </tr>
-                                            <tr class="cart_item">
-                                                <td class="cart-product-remove">
-                                                    <a href="#" class="remove" title="Remove this item"><i class="icon-trash2"></i></a>
-                                                </td>
-
-                                                <td class="cart-product-thumbnail">
-                                                    <a href="#"><img width="64" height="64" src="images/shop/thumbs/small/shoes-2.jpg" alt="Checked Canvas Shoes"></a>
-                                                </td>
-
-                                                <td class="cart-product-name">
-                                                    <a href="#">Checked Canvas Shoes</a>
-                                                </td>
-
-                                                <td class="cart-product-price">
-                                                    <span class="amount">$24.99</span>
-                                                </td>
-
-                                                <td class="cart-product-quantity">
-                                                    <div class="quantity clearfix">
-                                                        <input type="button" value="-" class="minus">
-                                                        <input type="text" step="1" min="1" name="quantity" value="1" title="Qty" class="qty" size="4">
-                                                        <input type="button" value="+" class="plus">
-                                                    </div>
-                                                </td>
-
-                                                <td class="cart-product-subtotal">
-                                                    <span class="amount">$24.99</span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-
-                                    </table>
-
-                                </div>
-
-                                <a href="#" class="button button-3d nomargin fright tab-linker" rel="2">Checkout ⇒</a>
+                                <p>
+                                您可以从首页Hompage进入热门产品类，或者点击导航栏右上方“Item”选择分类或者更具体的子分类进入多个产品界面。商品信息默认按照产品上传时间排序，您可以自行选择价格高低排序；从而选定中意的产品点击预览图放大或者进入单个产品信息。
+                                </p>
 
                             </div>
                             <div id="ptab2" aria-labelledby="ui-id-2" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, deleniti, atque soluta ratione blanditiis maxime at architecto laudantium eius eaque distinctio dolorem voluptatem nam ab molestias velit nemo. Illo, hic.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, modi, odit, aspernatur veritatis ipsum molestiae impedit iusto blanditiis voluptatem ab voluptas ullam expedita repellendus porro assumenda non deserunt repellat eius rem dolorem corporis temporibus voluptatibus ut! Quod, corporis, tempora, dolore, sint earum minus deserunt eveniet natus error magnam aliquam nemo.</p>
-                                <div class="line"></div>
-                                <a href="#" class="button button-3d nomargin tab-linker" rel="1">Previous</a>
-                                <a href="#" class="button button-3d nomargin fright tab-linker" rel="3">Pay Now</a>
+                                <p>
+                                当您选中单个产品后，页面右侧会有1.Request按钮2.商品描述3.商品ID与新旧度。您可以根据商品描述与新旧度决定Request与否。如果点击Request，商品的卖家将会收到Request请求。当您Request此产品后，可以在My Profile查看已经Request的产品列表信息，以便再次登陆时快速访问。
+                                </p>
                             </div>
                             <div id="ptab3" aria-labelledby="ui-id-3" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, sit, culpa, placeat, tempora quibusdam molestiae cupiditate atque tempore nemo tenetur facere voluptates autem aliquid provident distinctio beatae odio maxime pariatur eos ratione quae itaque quod. Distinctio, temporibus, cupiditate, eaque vero illo molestiae vel doloremque dolorum repellat ullam possimus modi dicta eum debitis ratione est in sunt et corrupti adipisci quibusdam praesentium optio laborum tempora ipsam aut cum consectetur veritatis dolorem.</p>
-                                <div class="line"></div>
-                                <a href="#" class="button button-3d nomargin tab-linker" rel="2">Previous</a>
-                                <a href="#" class="button button-3d nomargin fright tab-linker" rel="4">Complete Order</a>
+                                <p>
+                                当您选中单个产品后，页面右侧会有1.Request按钮2.商品描述3.商品ID与新旧度。您可以根据商品描述与新旧度决定Request与否。如果点击Request，商品的卖家将会收到Request请求。当您Request此产品后，可以在My Profile查看已经Request的产品列表信息，以便再次登陆时快速访问。
+                                </p>
                             </div>
                             <div id="ptab4" aria-labelledby="ui-id-4" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
-                                <div class="alert alert-success">
-                                    <strong>Thank You.</strong> Your order will be processed once we verify the Payment.
-                                </div>
+                                <p>
+                                卖家同意出售产品后，您可以与卖家在约定的时间与地点碰面，在您确认商品的详情后，自行选择现金或者转账等多种方式支付此商品，完成交易。
+                                </p>
                             </div>
                         </div>
                     </div>
 
-			<div class="clear"></div>
-			<div class="line"></div>
+            <div class="clear"></div>
+            <div class="line"></div>
 
-			<div class="fancy-title title-dotted-border title-center">
+            <div class="fancy-title title-dotted-border title-center">
                         <h2><span>For Seller</span></h2>
             </div>
 
-			<div id="processTabs2" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
-                        <ul class="process-steps bottommargin clearfix ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
+            <div id="processTabs2" class="ui-tabs ui-widget ui-widget-content ui-corner-all ">
+                        <ul class="process-steps bottommargin clearfix ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all  " role="tablist">
                             <li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="ptab1" aria-labelledby="ui-id-1" aria-selected="true">
                                 <a href="#ptab1" class="i-circled i-bordered i-alt divcenter ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1">1</a>
-                                <h5>Review Cart</h5>
+                                <h5>发布商品</h5>
                             </li>
                             <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="ptab2" aria-labelledby="ui-id-2" aria-selected="false">
                                 <a href="#ptab2" class="i-circled i-bordered i-alt divcenter ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-2">2</a>
-                                <h5>Enter Shipping Info</h5>
+                                <h5>接受请求</h5>
                             </li>
                             <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="ptab3" aria-labelledby="ui-id-3" aria-selected="false">
                                 <a href="#ptab3" class="i-circled i-bordered i-alt divcenter ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-3">3</a>
-                                <h5>Complete Payment</h5>
+                                <h5>联系买家</h5>
                             </li>
                             <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="ptab4" aria-labelledby="ui-id-4" aria-selected="false">
                                 <a href="#ptab4" class="i-circled i-bordered i-alt divcenter ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-4">4</a>
-                                <h5>Order Complete</h5>
+                                <h5>进行交易</h5>
                             </li>
                         </ul>
                         <div>
                             <div id="ptab1" aria-labelledby="ui-id-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="true" aria-hidden="false" style="display: block;">
 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, ipsa, fuga, modi, corporis maiores illum fugit ratione cumque dolores sint obcaecati quod temporibus. Expedita, sapiente, veritatis, impedit iusto labore sed itaque sunt fugiat non quis nihil hic quos necessitatibus officiis mollitia nesciunt neque! Minus, mollitia at iusto unde voluptate repudiandae.</p>
+                                <p>当您打算出售闲置产品时，点击导航栏右上方”Publish ”跳转至商品发布页面。您首先确定产品的Title(比如:联想Y50 高分屏)，出售价格（单位为英镑），并且选择产品对应的多级分类（电脑-笔记本-游戏本），根据产品的使用情况选择相对应的新旧程度；接着在第一个和第二个图片上传链接处上传商品的主图（会显示在首页或者多个商品页面），然后在第三个上传链接处上传最少1张，至多10张图片。当所有内容填写完成后，点击Publish提交商品。</p>
 
-                                <div class="table-responsive">
-
-                                    <table class="table cart">
-                                        <thead>
-                                            <tr>
-                                                <th class="cart-product-remove">&nbsp;</th>
-                                                <th class="cart-product-thumbnail">&nbsp;</th>
-                                                <th class="cart-product-name">Product</th>
-                                                <th class="cart-product-price">Unit Price</th>
-                                                <th class="cart-product-quantity">Quantity</th>
-                                                <th class="cart-product-subtotal">Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="cart_item">
-                                                <td class="cart-product-remove">
-                                                    <a href="#" class="remove" title="Remove this item"><i class="icon-trash2"></i></a>
-                                                </td>
-
-                                                <td class="cart-product-thumbnail">
-                                                    <a href="#"><img width="64" height="64" src="images/shop/thumbs/small/dress-3.jpg" alt="Pink Printed Dress"></a>
-                                                </td>
-
-                                                <td class="cart-product-name">
-                                                    <a href="#">Pink Printed Dress</a>
-                                                </td>
-
-                                                <td class="cart-product-price">
-                                                    <span class="amount">$19.99</span>
-                                                </td>
-
-                                                <td class="cart-product-quantity">
-                                                    <div class="quantity clearfix">
-                                                        <input type="button" value="-" class="minus">
-                                                        <input type="text" step="1" min="1" name="quantity" value="1" title="Qty" class="qty" size="4">
-                                                        <input type="button" value="+" class="plus">
-                                                    </div>
-                                                </td>
-
-                                                <td class="cart-product-subtotal">
-                                                    <span class="amount">$19.99</span>
-                                                </td>
-                                            </tr>
-                                            <tr class="cart_item">
-                                                <td class="cart-product-remove">
-                                                    <a href="#" class="remove" title="Remove this item"><i class="icon-trash2"></i></a>
-                                                </td>
-
-                                                <td class="cart-product-thumbnail">
-                                                    <a href="#"><img width="64" height="64" src="images/shop/thumbs/small/shoes-2.jpg" alt="Checked Canvas Shoes"></a>
-                                                </td>
-
-                                                <td class="cart-product-name">
-                                                    <a href="#">Checked Canvas Shoes</a>
-                                                </td>
-
-                                                <td class="cart-product-price">
-                                                    <span class="amount">$24.99</span>
-                                                </td>
-
-                                                <td class="cart-product-quantity">
-                                                    <div class="quantity clearfix">
-                                                        <input type="button" value="-" class="minus">
-                                                        <input type="text" step="1" min="1" name="quantity" value="1" title="Qty" class="qty" size="4">
-                                                        <input type="button" value="+" class="plus">
-                                                    </div>
-                                                </td>
-
-                                                <td class="cart-product-subtotal">
-                                                    <span class="amount">$24.99</span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-
-                                    </table>
-
-                                </div>
-
-                                <a href="#" class="button button-3d nomargin fright tab-linker" rel="2">Checkout ⇒</a>
 
                             </div>
                             <div id="ptab2" aria-labelledby="ui-id-2" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, deleniti, atque soluta ratione blanditiis maxime at architecto laudantium eius eaque distinctio dolorem voluptatem nam ab molestias velit nemo. Illo, hic.</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, modi, odit, aspernatur veritatis ipsum molestiae impedit iusto blanditiis voluptatem ab voluptas ullam expedita repellendus porro assumenda non deserunt repellat eius rem dolorem corporis temporibus voluptatibus ut! Quod, corporis, tempora, dolore, sint earum minus deserunt eveniet natus error magnam aliquam nemo.</p>
-                                <div class="line"></div>
-                                <a href="#" class="button button-3d nomargin tab-linker" rel="1">Previous</a>
-                                <a href="#" class="button button-3d nomargin fright tab-linker" rel="3">Pay Now</a>
+                                <p>
+                                当卖家发布产品后，可以在my profile中找到已发布的产品用于之后修改图片信息与价格，者删除已发布的商品。在my published product这一选项内，卖家可以收到来自买家的request请求，卖家了自行决定接受或者不接受这些请求。若接受请求，则买家将获取卖家提供的个人联系方式(手机，邮箱)。
+                                </p>
                             </div>
+                        
                             <div id="ptab3" aria-labelledby="ui-id-3" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, sit, culpa, placeat, tempora quibusdam molestiae cupiditate atque tempore nemo tenetur facere voluptates autem aliquid provident distinctio beatae odio maxime pariatur eos ratione quae itaque quod. Distinctio, temporibus, cupiditate, eaque vero illo molestiae vel doloremque dolorum repellat ullam possimus modi dicta eum debitis ratione est in sunt et corrupti adipisci quibusdam praesentium optio laborum tempora ipsam aut cum consectetur veritatis dolorem.</p>
-                                <div class="line"></div>
-                                <a href="#" class="button button-3d nomargin tab-linker" rel="2">Previous</a>
-                                <a href="#" class="button button-3d nomargin fright tab-linker" rel="4">Complete Order</a>
+                                <p>
+                                当您同意买家的Request后，那么买家会看到您留下的联系方式（姓名，邮箱，电话等），买家会自行选择一种或多种方式与您进行私下联系决定交易具体的时间与地点，并可以就商品的详情做进一步地了解，或者与您重新协定商品的价格，达成一致
+                                </p>
                             </div>
                             <div id="ptab4" aria-labelledby="ui-id-4" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
-                                <div class="alert alert-success">
-                                    <strong>Thank You.</strong> Your order will be processed once we verify the Payment.
-                                </div>
+                                <p>
+                                若买家同意购买，您可与买家在约定的时间与地点碰面，在买家确认商品的详情，并和您达成一致后，自行选择现金或者转账等多种方式支付此商品，完成交易。
+                                </p>
                             </div>
                         </div>
             </div>
 
              
-		</div>
-	</div>
+        </div>
+</div>
 </section>
 
 <script>

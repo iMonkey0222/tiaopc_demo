@@ -3,7 +3,7 @@
 
 class Item extends Eloquent {
 	protected $fillable = ['seller_id'];
-
+	 protected $table = 'items';
 
 	/**
 	 * [pictures description]
@@ -39,4 +39,15 @@ class Item extends Eloquent {
 	{
 		return $this->belongsTo('Category', 'category_id', 'id');
 	}
+
+
+	public function scopeNormal($query)
+	{
+		return $query->where('status', '=', 0);
+	}
+
+
+
+
+
 }
