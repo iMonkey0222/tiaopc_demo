@@ -21,7 +21,8 @@ Home page
                 <div class="container clearfix">
                     <div class="slider-caption slider-caption-center">
                         <h2 data-caption-animate="fadeInUp">Welcome to Tiaopc v1.0</h2>
-                        <p data-caption-animate="fadeInUp" data-caption-delay="200">We hope to receive your feedback.</p>
+                        <p data-caption-animate="fadeInUp">这不仅仅只是一个闲置物品信息提供平台,也是你生活的一部分</p>
+                        <p data-caption-animate="fadeInUp" data-caption-delay="200">We also hope to receive your feedback.</p>
                         <p data-caption-animate="fadeInUp">Please mail to tiaopcofficial@gmail.com without hesitation</p>
                     </div>
                 </div>
