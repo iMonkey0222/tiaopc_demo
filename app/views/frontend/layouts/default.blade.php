@@ -113,7 +113,7 @@
 
 								<li>
 									<a href="#">
-										<div>Welcome, {{ Sentry::getUser()->first_name }}</div>
+										Welcome, {{ Sentry::getUser()->first_name }}
 					
 									</a>
 									<ul>

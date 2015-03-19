@@ -118,10 +118,10 @@ class ItemController extends BaseController {
 			return App::abort(404);
 		}
 
-		if($item->status == 1)
-		{
-			return App::abort(404);
-		}
+		// if($item->status == 1)
+		// {
+		// 	return App::abort(404);
+		// }
 
 		/**
 		 * Check the visitor status
@@ -176,9 +176,6 @@ class ItemController extends BaseController {
 			}
 		}
 		
-
-
-
 
 
 		//Add picture to array

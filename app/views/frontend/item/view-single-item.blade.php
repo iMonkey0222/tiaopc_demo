@@ -10,7 +10,6 @@
 
 {{-- Page title --}}
 
-@extends('frontend/layouts/default')
 
 {{-- Page title --}}
 @section('title')
@@ -60,7 +59,7 @@
                                     <div class="slider-wrap" data-lightbox="gallery">
                                         @foreach ($pictures as $picture)
 
-                                        <div class="slide"><a href={{asset("assets/new_img/$picture->picture_name")}} title="#" data-lightbox="gallery-item"><img src={{asset("assets/new_img/$picture->picture_name")}} alt="Pink Printed Dress"></a></div>
+                                        <div class="slide"><a href={{asset("assets/new_img/$picture->picture_name")}} title="#" data-lightbox="gallery-item"><img src={{asset("assets/new_img/$picture->picture_name")}} alt="#"></a></div>
                                             
                                         @endforeach
                                     </div>
@@ -108,10 +107,10 @@
                                     <div class="panel-body">
                                         <span itemprop="productID" class="sku_wrapper">ID: <span class="sku">{{$item->id}}</span></span>
                                         <span class="posted_in">Category: <a href="#" rel="tag">{{$item->parent_category_name}}.{{$item->category_name}}</a>.</span>
-                                        {{-- <span>Condition: {{ $item->product_condition }}</span> --}}
+                                        {{-- <span>Condition: {{ $item->product_condition }}</span>
                                         {{-- <span>Created at: {{ $item->created_at }}</span> --}}
                                     </div>
-                                </div><!-- Product Single - Meta End -->
+                                </div><!-- Product Single - Meta End --> --}}
                             </div>
                             @if( $triggleCode == 2) 
                             <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Seller Info</div>
@@ -194,9 +193,6 @@ $('#request').click(function(){
 
     });
 });
-
-
-
 
 
 
