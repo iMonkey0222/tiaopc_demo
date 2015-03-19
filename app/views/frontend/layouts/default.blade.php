@@ -112,7 +112,7 @@
 								@if (Sentry::check())
 
 								<li>
-									<a>
+									<a href="#">
 										<div>Welcome, {{ Sentry::getUser()->first_name }}</div>
 					
 									</a>
