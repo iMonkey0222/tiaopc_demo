@@ -29,6 +29,68 @@ About Us
     <div class="content-wrap">
 
         <div class="container clearfix">
+
+
+            <div class="col_one_third">
+                <div class="feature-box fbox-large fbox-effect">
+                    <div class="fbox-icon">
+                        <a href="#"><i class="icon-screen i-alt"></i></a>
+                    </div>
+                    <h3>免费</h3>
+                    <p>我们对所有注册用户完全免费。</p>
+                </div>
+            </div>
+            <div class="col_one_third">
+                <div class="feature-box fbox-large fbox-effect">
+                    <div class="fbox-icon">
+                        <a href="#"><i class="icon-eye i-alt"></i></a>
+                    </div>
+                    <h3>用户隐私</h3>
+                    <p>我们竭尽我们所能保护用户的信息安全。</p>
+                </div>
+            </div>
+            <div class="col_one_third col_last">
+                <div class="feature-box fbox-large fbox-effect">
+                    <div class="fbox-icon">
+                        <a href="#"><i class="icon-beaker i-alt"></i></a>
+                    </div>
+                    <h3>Powerful Performance</h3>
+                    <p>Canvas includes tons of optimized code that are completely customizable and deliver unmatched fast performance.</p>
+                </div>
+            </div>
+            <div class="col_one_third">
+                <div class="feature-box fbox-large fbox-outline fbox-dark fbox-effect">
+                    <div class="fbox-icon">
+                        <a href="#"><i class="icon-stack i-alt"></i></a>
+                    </div>
+                    <h3>Premium Sliders</h3>
+                    <p>Canvas included 20+ custom designed Slider Pages with Premium Sliders like Layer, Revolution, Swiper &amp; others.</p>
+                </div>
+            </div>
+            <div class="col_one_third">
+                <div class="feature-box fbox-large fbox-outline fbox-dark fbox-effect">
+                    <div class="fbox-icon">
+                        <a href="#"><i class="icon-thumbs-up i-alt"></i></a>
+                    </div>
+                    <h3>Unlimited Colors</h3>
+                    <p>Change the color scheme of the Theme in a flash just by changing the 6-digit HEX code in the colors.php file.</p>
+                </div>
+            </div>
+            <div class="col_one_third col_last">
+                <div class="feature-box fbox-large fbox-outline fbox-dark fbox-effect">
+                    <div class="fbox-icon">
+                        <a href="#"><i class="icon-text-width i-alt"></i></a>
+                    </div>
+                    <h3>Customizable Fonts</h3>
+                    <p>Use any Font you like from Google Web Fonts, Typekit or other Web Fonts. They will blend in perfectly.</p>
+                </div>
+            </div>
+
+
+
+
+
+
             <h2>Feedback</h2>
             
           <form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/sendemail.php" method="post" novalidate="novalidate">

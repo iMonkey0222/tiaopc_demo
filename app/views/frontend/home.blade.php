@@ -50,6 +50,31 @@ Home page
         <div class="swiper-pagination"></div>
     </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script>
         jQuery(document).ready(function($){
             var swiperSlider = new Swiper('.swiper-parent',{
@@ -145,19 +170,189 @@ Home page
 ============================================= -->
 <section id="content">
 
-    <div class="content-wrap">
+    <div class="content-wrap nobottompadding">
 
-        <div class="container clearfix">
+        <div class="fancy-title title-dotted-border title-center">
+                    <h1>Our Featured Products</h1>
+        </div>
 
-         
+        <div id="portfolio" class="portfolio-nomargin portfolio-full clearfix">
+
+            <article class="portfolio-item">
+                <div class="portfolio-image">
+                    <a href="portfolio-single.php">
+                        <img src="{{ asset('assets/others/homepage/camera5.jpg') }}" alt="Open Imagination">
+                    </a>
+                    <div class="portfolio-overlay">
+                        <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                    </div>
+                </div>
+            </article>
+                    <article class="portfolio-item">
+                <div class="portfolio-image">
+                    <a href="portfolio-single.php">
+                        <img src="{{ asset('assets/others/homepage/xbox3601.jpg') }}" alt="Open Imagination">
+                    </a>
+                    <div class="portfolio-overlay">
+                        <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                    </div>
+                </div>
+            </article>
+           
+                   <article class="portfolio-item">
+                <div class="portfolio-image">
+                    <a href="portfolio-single.php">
+                        <img src="{{ asset('assets/others/homepage/keyboard1.jpg') }}" alt="Open Imagination">
+                    </a>
+                    <div class="portfolio-overlay">
+                        <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                    </div>
+                </div>
+            </article>
+           
+                   <article class="portfolio-item">
+                <div class="portfolio-image">
+                    <a href="portfolio-single.php">
+                        <img src="{{ asset('assets/others/homepage/xbox360.jpg') }}" alt="Open Imagination">
+                    </a>
+                    <div class="portfolio-overlay">
+                        <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                    </div>
+                </div>
+            </article>
+           
+                   <article class="portfolio-item">
+                <div class="portfolio-image">
+                    <a href="portfolio-single.php">
+                        <img src="{{ asset('assets/others/homepage/camera2.jpg') }}" alt="Open Imagination">
+                    </a>
+                    <div class="portfolio-overlay">
+                        <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                    </div>
+                </div>
+            </article>
+           
+                   <article class="portfolio-item">
+                <div class="portfolio-image">
+                    <a href="portfolio-single.php">
+                        <img src="{{ asset('assets/others/homepage/iphone.jpg') }}" alt="Open Imagination">
+                    </a>
+                    <div class="portfolio-overlay">
+                        <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                    </div>
+                </div>
+            </article>
+            <article class="portfolio-item">
+                <div class="portfolio-image">
+                    <a href="portfolio-single.php">
+                        <img src="{{ asset('assets/others/homepage/handset.jpg') }}" alt="Open Imagination">
+                    </a>
+                    <div class="portfolio-overlay">
+                        <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                    </div>
+                </div>
+            </article>            
+             <article class="portfolio-item">
+                <div class="portfolio-image">
+                    <a href="portfolio-single.php">
+                        <img src="{{ asset('assets/others/homepage/camera4.jpg') }}" alt="Open Imagination">
+                    </a>
+                    <div class="portfolio-overlay">
+                        <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                    </div>
+                </div>
+            </article>          
+             <article class="portfolio-item">
+                <div class="portfolio-image">
+                    <a href="portfolio-single.php">
+                        <img src="{{ asset('assets/others/homepage/keyboard2.jpg') }}" alt="Open Imagination">
+                    </a>
+                    <div class="portfolio-overlay">
+                        <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                    </div>
+                </div>
+            </article>          
+            <article class="portfolio-item">
+                <div class="portfolio-image">
+                    <a href="portfolio-single.php">
+                        <img src="{{ asset('assets/others/homepage/pc.jpg') }}" alt="Open Imagination">
+                    </a>
+                    <div class="portfolio-overlay">
+                        <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                    </div>
+                </div>
+            </article>
+            <article class="portfolio-item">
+                <div class="portfolio-image">
+                    <a href="portfolio-single.php">
+                        <img src="{{ asset('assets/others/homepage/monitor.jpg') }}" alt="Open Imagination">
+                    </a>
+                    <div class="portfolio-overlay">
+                        <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                    </div>
+                </div>
+            </article>
+            <article class="portfolio-item">
+                <div class="portfolio-image">
+                    <a href="portfolio-single.php">
+                        <img src="{{ asset('assets/others/homepage/camera5.jpg') }}" alt="Open Imagination">
+                    </a>
+                    <div class="portfolio-overlay">
+                        <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                    </div>
+                </div>
+            </article>
+
 
         </div>
 
+
     </div>
+
 
 </section><!-- #content end -->
 
+<script type="text/javascript">
 
+                    jQuery(window).load(function(){
+
+                        var $container = $('#portfolio');
+
+                        $container.isotope({ transitionDuration: '0.65s' });
+
+                        $('#portfolio-filter a').click(function(){
+                            $('#portfolio-filter li').removeClass('activeFilter');
+                            $(this).parent('li').addClass('activeFilter');
+                            var selector = $(this).attr('data-filter');
+                            $container.isotope({ filter: selector });
+                            return false;
+                        });
+
+                        $('#portfolio-shuffle').click(function(){
+                            $container.isotope('updateSortData').isotope({
+                                sortBy: 'random'
+                            });
+                        });
+
+                        $(window).resize(function() {
+                            $container.isotope('layout');
+                        });
+
+                    });
+
+</script>
 
 
 @stop
