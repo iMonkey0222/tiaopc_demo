@@ -21,7 +21,7 @@ Test By Yue Wang
 Mail::queue('email.notify-request', $array, function($message)
 {
   $message->to('mail_address', 'Name')->subject('Request Approved Notification | Tiaopc');
-}));
+});
 // $itemId = 23;
 
 // // $tran = Item::find($itemId)->transactions;

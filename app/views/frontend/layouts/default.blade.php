@@ -58,7 +58,7 @@
 
 
 
-<body class="stretched">
+<body class="stretched ">
 
     <!-- Document Wrapper
     ============================================= -->
@@ -66,7 +66,7 @@
 
         <!-- Header
         ============================================= -->
-        <header id="header" class=" full-header" data-sticky-class="not-dark">
+        <header id="header" class="transparent-header full-header" data-sticky-class="not-dark">
 
             <div id="header-wrap">
 

@@ -19,10 +19,10 @@ Home page
         <div class="swiper-wrapper">
 
             {{-- s1 --}}
-            <div class="swiper-slide " style="background-image: url({{ asset('assets/others/homepage/s2.jpg')}});">
+            <div class="swiper-slide " style="background-image: url({{ asset('assets/others/homepage/s1.jpg')}});">
                 <div class="container clearfix">
                     <div class="slider-caption slider-caption-left">
-                        <h2 data-caption-animate="fadeInUp">Welcome to Tiaopc v1.0</h2>
+                        <h2 data-caption-animate="fadeInUp">欢迎来到Tiaopc v1.0</h2>
                         <p data-caption-animate="fadeInUp">这不仅仅只是一个闲置物品信息提供平台,也是你生活的一部分</p>
                     </div>
                 </div>
@@ -30,22 +30,23 @@ Home page
             {{-- s2 --}}
             <div class="swiper-slide" style="background-image: url({{ asset('assets/others/homepage/joboffer.jpg')}}) ;">
                 <div class="container clearfix" >
-                    <div class="slider-caption slider-caption-right">
-                        <h2 data-caption-animate="fadeInUp">周公吐哺</h2>
-                        <h2 data-caption-animate="fadeInUp">文王以宁</h2>
-                        <p data-caption-animate="fadeInUp" data-caption-delay="200">Come to join us for the Tiaopc v2.0</p>
+                    <div class="slider-caption slider-caption-center">
+                        <h2 data-caption-animate="fadeInUp">周公吐哺 文王以宁</h2>
+                        <p data-caption-animate="fadeInUp" data-caption-delay="200">邮件至 tiaopcofficial@gmail.com</p>
                     </div>
                 </div>
             </div>
             {{-- s3 --}}
-{{--             <div class="swiper-slide" style="background-image: url({{ asset('assets/others/homepage/s3.jpg')}});">
+            <div class="swiper-slide" style="background-image: url({{ asset('assets/others/homepage/feedback.jpg')}});">
                 <div class="container clearfix">
-                    <div class="slider-caption">
-                        <h2 data-caption-animate="fadeInUp">此处应有新手教程</h2>
-                        <p data-caption-animate="fadeInUp" data-caption-delay="200">但是我翘班了，你来咬我啊。</p>
+                    <div class="slider-caption slider-caption-right">
+                        <h2 data-caption-animate="fadeInUp">This is our beta version. </h2>
+                        <p data-caption-animate="fadeInUp" data-caption-delay="200">We hope to receive your feedback.</p>
+                        <p data-caption-animate="fadeInUp" data-caption-delay="200">Please mail to tiaopcofficial@gmail.com without hesitation.</p>
+
                     </div>
                 </div>
-            </div> --}}
+            </div>
         </div>
         <div id="slider-arrow-left"><i class="icon-angle-left"></i></div>
         <div id="slider-arrow-right"><i class="icon-angle-right"></i></div>
@@ -188,7 +189,7 @@ Home page
                     </a>
                     <div class="portfolio-overlay">
                         <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                        <a href="#" class="right-icon"><i class="icon-line-ellipsis"></i></a>
                     </div>
                 </div>
             </article>
@@ -199,7 +200,7 @@ Home page
                     </a>
                     <div class="portfolio-overlay">
                         <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                        <a href="#" class="right-icon"><i class="icon-line-ellipsis"></i></a>
                     </div>
                 </div>
             </article>
@@ -211,7 +212,7 @@ Home page
                     </a>
                     <div class="portfolio-overlay">
                         <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                        <a href="#" class="right-icon"><i class="icon-line-ellipsis"></i></a>
                     </div>
                 </div>
             </article>
@@ -223,7 +224,7 @@ Home page
                     </a>
                     <div class="portfolio-overlay">
                         <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                        <a href="#" class="right-icon"><i class="icon-line-ellipsis"></i></a>
                     </div>
                 </div>
             </article>
@@ -235,7 +236,7 @@ Home page
                     </a>
                     <div class="portfolio-overlay">
                         <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                        <a href="#" class="right-icon"><i class="icon-line-ellipsis"></i></a>
                     </div>
                 </div>
             </article>
@@ -247,7 +248,7 @@ Home page
                     </a>
                     <div class="portfolio-overlay">
                         <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                        <a href="#" class="right-icon"><i class="icon-line-ellipsis"></i></a>
                     </div>
                 </div>
             </article>
@@ -258,7 +259,7 @@ Home page
                     </a>
                     <div class="portfolio-overlay">
                         <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                        <a href="#" class="right-icon"><i class="icon-line-ellipsis"></i></a>
                     </div>
                 </div>
             </article>            
@@ -269,7 +270,7 @@ Home page
                     </a>
                     <div class="portfolio-overlay">
                         <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                        <a href="#" class="right-icon"><i class="icon-line-ellipsis"></i></a>
                     </div>
                 </div>
             </article>          
@@ -280,7 +281,7 @@ Home page
                     </a>
                     <div class="portfolio-overlay">
                         <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                        <a href="#" class="right-icon"><i class="icon-line-ellipsis"></i></a>
                     </div>
                 </div>
             </article>          
@@ -291,7 +292,7 @@ Home page
                     </a>
                     <div class="portfolio-overlay">
                         <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                        <a href="#" class="right-icon"><i class="icon-line-ellipsis"></i></a>
                     </div>
                 </div>
             </article>
@@ -302,7 +303,7 @@ Home page
                     </a>
                     <div class="portfolio-overlay">
                         <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                        <a href="#" class="right-icon"><i class="icon-line-ellipsis"></i></a>
                     </div>
                 </div>
             </article>
@@ -313,7 +314,7 @@ Home page
                     </a>
                     <div class="portfolio-overlay">
                         <a href="http://canvashtml-cdn.semicolonweb.com/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                        <a href="portfolio-single.php" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+                        <a href="#" class="right-icon"><i class="icon-line-ellipsis"></i></a>
                     </div>
                 </div>
             </article>

@@ -3023,7 +3023,7 @@ body.stretched .container-fullwidth .breadcrumb { right: 60px !important; }
     background-color: #FFF;
 }
 
-#content p { line-height: 1; }
+#content p { line-height: 1.5; }
 
 .content-wrap {
     position: relative;
