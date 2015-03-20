@@ -276,7 +276,7 @@ Home page
                         <img src="{{ asset('assets/others/homepage/ssd.jpg') }}" alt="Open Imagination">
                     </a>
                     <div class="portfolio-overlay">
-                        <a href="{{ route('item/category', 11)}}" class="center-icon" data-lightbox=""><i class="icon-line-plus"></i></a>
+                        <a href="{{ route('item/category', 12)}}" class="center-icon" data-lightbox=""><i class="icon-line-plus"></i></a>
                     </div>
                 </div>
             </article>          
