@@ -196,7 +196,7 @@
 
                     <div class="col_half">
                         <div class="copyrights-menu copyright-links clearfix">
-                            <a href="{{ route('home')}}">Home</a>/<a href="{{ route('about-us') }}">About</a>/<a href="{{ route('about-us') }} ">Feature</a>/<a href="{{ route('how-to-use') }}">How to use</a>/<a href="#">Contact</a>
+                            <a href="{{ route('home')}}">Home</a>/<a href="{{ route('about-us') }}">About</a>/<a href="{{ route('about-us') }} ">Feature</a>/<a href="{{ URL::to('how-to-use') }}">How to use</a>/<a href="#">Contact</a>
                         </div>
                         Copyrights &copy; 2015 All Rights Reserved by Tiaopc.
                     </div>
