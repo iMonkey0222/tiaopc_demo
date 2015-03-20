@@ -2,7 +2,7 @@
 
 
 class Item extends Eloquent {
-	protected $fillable = ['seller_id'];
+	protected $fillable = array('seller_id', 'id');
 	 protected $table = 'items';
 
 	/**
@@ -27,7 +27,7 @@ class Item extends Eloquent {
 
 	public function transactions()
 	{
-		return $this->hasMany('Transaction');
+		return $this->hasMany('Transaction', 'item_id');
 	}
 
 	public function getUser()

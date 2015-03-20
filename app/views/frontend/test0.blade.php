@@ -10,6 +10,45 @@ Test By Yue Wang
 @section('content')
 
 
+
+
+{{--  20/3/2015 --}}
+<?php
+$itemId = 23;
+
+// $tran = Item::find($itemId)->transactions;
+
+$tran = Transaction::where('item_id','=',$itemId)->get()->toArray();
+// var_dump($tran);
+
+// foreach ($tran as $x)
+// {
+//   echo "ok";
+//   var_dump($x->creatd_at);
+// }
+
+
+$item = Item::find(23);
+
+array_add($item, 'transactions', $tran);
+
+// foreach( $item as $y){
+  var_dump($item->transactions);
+// }
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
 {{-- 20/3/2015 --}}
 <!-- Button trigger upload -->
 <button class="button button-3d button-mini button-rounded button-red" data-toggle="modal" data-target="#myModal">Requests</button>

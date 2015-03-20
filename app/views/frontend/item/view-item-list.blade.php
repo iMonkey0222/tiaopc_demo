@@ -92,7 +92,7 @@ Item List Page
                                 </div>
                             </div>
                             <div class="portfolio-desc">
-                                <h3><a href="{{ route('singleItem', $item->id) }}">{{ str_limit($item->title, $limit = 15,$end = "...")}}</a></h3>
+                                <h3><a href="{{ route('singleItem', $item->id) }}">{{ str_limit($item->title, $limit = 19,$end = "...")}}</a></h3>
                                 {{-- <span>Price: <a class="price"> {{ $item->price }} </a></span> --}}
                                 <div class="col_half">
                                     </i>£<a class="price">{{ $item->price }} </a>
