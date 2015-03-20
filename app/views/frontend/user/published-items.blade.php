@@ -64,7 +64,7 @@ Published Items
 								@if ($item-> order_status == 0)
 									<p>0 Request</p>
 								@elseif ($item-> status == 1)
-									<p>Requested</p>
+									<button class="button button-3d button-mini button-rounded button-red" data-toggle="modal" data-target="#myModal">Requests</button>
 								@elseif ($item-> status == 2)
 									<p>Sold</p>
 								@endif
@@ -76,6 +76,55 @@ Published Items
 							</td>
 						</tr>
 					@endif
+
+				@if ($item->status == 1)	
+			<!--Modal View-->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+			        <div class="modal-dialog">
+			            <div class="modal-body">
+			                <div class="modal-content">
+			                    <div class="modal-header">
+			                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			                        <h4 class="modal-title" id="myModalLabel">Approve Reuqests</h4>
+			                    </div>
+			                    <div class="modal-body">
+			                       <table class="table table-striped">
+			                       	<thead>
+			                       		<tr>
+			                       			<th>Product ID</th>
+			                       			<th>Product Name</th>
+			                       			<th>Requested By</th>
+			                       			<th>When</th>
+			                       			<th>Action</th>
+			                       		</tr>
+
+			                       		<tbody>
+			                       			<tr>
+			                       				{{-- Product ID --}}
+			                       				<td>ID</td>
+			                       				{{-- Production Name --}}
+			                       				<td>Name</td>
+			                       				{{-- Requested By --}}
+			                       				<td>Someone</td>
+			                       				{{-- When --}}
+			                       				<td>date</td>
+			                       				{{-- Action --}}
+			                       				<td><button class="button button-3d button-mini button-rounded button-green">Approve</button></td>
+			                       			</tr>
+			                       		</tbody>
+
+			                       	</thead>
+			                       </table>
+			                    </div>
+			                    <div class="modal-footer">
+			                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+			<!-- Modal View End -->
+				@endif
 				@endforeach
 			</tbody>
 		</table>
@@ -85,6 +134,64 @@ Published Items
 		<div class="line"></div>	
 {{-- 	</form> --}}
 </section>
+
+
+<!--Modal View-->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-body">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">Approve Reuqests</h4>
+                    </div>
+                    <div class="modal-body">
+                       <table class="table table-striped">
+                       	<thead>
+                       		<tr>
+                       			<th>Product ID</th>
+                       			<th>Product Name</th>
+                       			<th>Requested By</th>
+                       			<th>When</th>
+                       			<th>Action</th>
+                       		</tr>
+
+                       		<tbody>
+                       			<tr>
+                       				{{-- Product ID --}}
+                       				<td>ID</td>
+                       				{{-- Production Name --}}
+                       				<td>Name</td>
+                       				{{-- Requested By --}}
+                       				<td>Someone</td>
+                       				{{-- When --}}
+                       				<td>date</td>
+                       				{{-- Action --}}
+                       				<td><button class="button button-3d button-mini button-rounded button-green">Approve</button></td>
+                       			</tr>
+                       		</tbody>
+
+                       	</thead>
+                       </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Modal View End -->
+
+
+
+
+
+
+
+
+
+
 
 {{-- JQuery to handle ajax request --}}
 <script type="text/javascript">
