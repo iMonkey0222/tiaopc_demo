@@ -30,6 +30,14 @@ About Us
 
         <div class="container clearfix">
 
+
+            <div class="fancy-title title-dotted-border title-center">
+                        <h2><span>What is Tiaopc?</span></h2>
+            </div>
+
+
+
+
             <div class="fancy-title title-dotted-border title-center">
                         <h2><span>Our Promise</span></h2>
             </div>
@@ -269,7 +277,11 @@ About Us
 
             </div>
 
-
+            <div class="promo promo-dark promo-flat bottommargin">
+                <h3>Email us at <span>tiaopcofficial@gmail.com</span></h3>
+                <span>To make it better for the Tiaopc v2.0</span>
+                <a href="#" class="button button-dark button-xlarge button-rounded">Start Now</a>
+            </div>
 
 
 
