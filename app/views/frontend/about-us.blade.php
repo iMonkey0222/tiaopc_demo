@@ -34,7 +34,10 @@ About Us
             <div class="fancy-title title-dotted-border title-center">
                         <h2><span>What is Tiaopc?</span></h2>
             </div>
-
+            <div class="heading-block center nobottomborder">
+                <h2></h2>
+                <span><strong>Tiaopc</strong>是一个闲置数码产品信息的交流平台，我们致力于让交易过程变得更加自由灵活，并且保护卖家隐私。</span>
+            </div>
 
 
 
@@ -109,6 +112,64 @@ About Us
 
             <div class="row clearfix">
 
+
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <img src="{{ asset('assets/others/team/wangyue.jpg')}}" alt="王悦">
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>王悦</h4><span>Full Stack</span></div>
+                                    <div class="team-content">
+                                        <p>这是自己的第二个网站相关的项目，第一个也是一个二手交易的平台，但是包含了复杂的交易过程。所以，做tiaopc.com的时候，从简入手，以最简单的功能实现更加安全和方便的交易过程。没错，忽略交易环节，只保留信息交流环节。
+                                        非常希望来自各方各面的宝贵建议！
+                                        </p>
+                                    </div>
+                                    <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
+                                        <i class="icon-facebook"></i>
+                                        <i class="icon-facebook"></i>
+                                    </a>
+                                    <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
+                                        <i class="icon-twitter"></i>
+                                        <i class="icon-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
+                                        <i class="icon-gplus"></i>
+                                        <i class="icon-gplus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <img src="{{ asset('assets/others/team/xiaoyang.jpg')}}" alt="王潇阳">
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>王潇阳</h4><span>小清新程序媛</span></div>
+                                    <div class="team-content">
+                                        <p>坚信Programing即艺术的程序媛。
+                                        纵观生活中无处不在的绘画，音乐与摄影…… 会发现Programming也不过是艺术创作的另一种表达方式。
+                                        </p>
+                                    </div>
+                                    <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
+                                        <i class="icon-facebook"></i>
+                                        <i class="icon-facebook"></i>
+                                    </a>
+                                    <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
+                                        <i class="icon-twitter"></i>
+                                        <i class="icon-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
+                                        <i class="icon-gplus"></i>
+                                        <i class="icon-gplus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-md-6 bottommargin">
                             <div class="team team-list clearfix">
                                 <div class="team-image">
@@ -161,33 +222,6 @@ About Us
                             </div>
                         </div>
 
-                        <div class="col-md-6 bottommargin">
-                            <div class="team team-list clearfix">
-                                <div class="team-image">
-                                    <img src="{{ asset('assets/others/team/xiaoyang.jpg')}}" alt="王潇阳">
-                                </div>
-                                <div class="team-desc">
-                                    <div class="team-title"><h4>王潇阳</h4><span>小清新程序媛</span></div>
-                                    <div class="team-content">
-                                        <p>坚信Programing即艺术的程序媛。
-                                        纵观生活中无处不在的绘画，音乐与摄影…… 会发现Programming也不过是艺术创作的另一种表达方式。
-                                        </p>
-                                    </div>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
-                                        <i class="icon-facebook"></i>
-                                        <i class="icon-facebook"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
-                                        <i class="icon-twitter"></i>
-                                        <i class="icon-twitter"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
-                                        <i class="icon-gplus"></i>
-                                        <i class="icon-gplus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="col-md-6 bottommargin">
                             <div class="team team-list clearfix">
@@ -221,38 +255,12 @@ About Us
 
 
 
-                        <div class="col-md-6 bottommargin">
-                            <div class="team team-list clearfix">
-                                <div class="team-image">
-                                    <img src="{{ asset('assets/others/team/wangyue.jpg')}}" alt="王悦">
-                                </div>
-                                <div class="team-desc">
-                                    <div class="team-title"><h4>王悦</h4><span>Full Stack</span></div>
-                                    <div class="team-content">
-                                        <p>这是自己的第二个网站相关的项目，第一个也是一个二手交易的平台，但是包含了复杂的交易过程。所以，做tiaopc.com的时候，从简入手，以最简单的功能实现更加安全和方便的交易过程。没错，忽略交易环节，只保留信息交流环节。
-                                        非常希望来自各方各面的宝贵建议！
-                                        </p>
-                                    </div>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
-                                        <i class="icon-facebook"></i>
-                                        <i class="icon-facebook"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
-                                        <i class="icon-twitter"></i>
-                                        <i class="icon-twitter"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
-                                        <i class="icon-gplus"></i>
-                                        <i class="icon-gplus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+
 
                         <div class="col-md-6 bottommargin">
                             <div class="team team-list clearfix">
                                 <div class="team-image">
-                                    <img src="{{ asset('assets/others/team/wenhao.jpg')}}" alt="杨昊鹏">
+                                    <img src="{{ asset('assets/others/team/wenhao.jpg')}}" alt="">
                                 </div>
                                 <div class="team-desc">
                                     <div class="team-title"><h4>未知</h4><span>未知</span></div>

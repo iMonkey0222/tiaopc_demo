@@ -12,13 +12,21 @@ Test By Yue Wang
 
 
 
+
+
 {{--  20/3/2015 --}}
 <?php
-$itemId = 23;
 
-// $tran = Item::find($itemId)->transactions;
 
-$tran = Transaction::where('item_id','=',$itemId)->get()->toArray();
+Mail::queue('email.notify-request', $array, function($message)
+{
+  $message->to('mail_address', 'Name')->subject('Request Approved Notification | Tiaopc');
+}));
+// $itemId = 23;
+
+// // $tran = Item::find($itemId)->transactions;
+
+// $tran = Transaction::where('item_id','=',$itemId)->get()->toArray();
 // var_dump($tran);
 
 // foreach ($tran as $x)
