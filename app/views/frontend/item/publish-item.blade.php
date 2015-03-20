@@ -130,12 +130,15 @@ Publish Item ::
 					<div class="controls">
 						<!-- <input type="file" name="picture" id="picture"  /> -->
 						<div class="col_half"> {{ Form::file('mainPicture') }} </div>
-						<div class="col_half col_last"> *Please Choose one main picture</div>
+						<div class="col_half col_last"> *Please choose one main picture</div>
+
+						<div class="col_half"> {{ Form::file('picture') }} </div>
+						<div class="col_half col_last"> *Please choose one picture</div>
 
 
 						<div class="col_half" > {{ Form::file('pictures[]', array('multiple'=>true)) }} </div>
 
-						<div class="col_half col_last"> *Please Choose at least <strong>two</strong> pictures</div>
+						<div class="col_half col_last"> *Please choose at least <strong>one </strong> picture (>= 1)</div>
 						{{ $errors->first('picture', '<span class="help-block">:message</span>') }}
 
 					</div>
@@ -162,7 +165,7 @@ Publish Item ::
 					<div class="controls">
 						<a class="btn" href="{{ route('home') }}">Cancel</a>
 
-						<button type="submit" class="btn">Publish</button>
+						<button type="submit" class="btn btn-default">Publish</button>
 					</div>
 				</div>
 				{{Form::close() }}
