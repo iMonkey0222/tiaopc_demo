@@ -183,7 +183,7 @@ Account Sign up ::
 
 					<a class="btn" href="{{ route('home') }}">Cancel</a>
 
-					<button type="submit" class="btn btn-default">Sign up</button>
+					<button type="submit" class="button button-3d button-rounded nomargin">Sign up</button>
 				</div>
 			</div>
 			{{ Form::close() }}
