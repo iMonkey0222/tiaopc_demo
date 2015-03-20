@@ -204,7 +204,6 @@ Route::get('how-to-use', function(){
 
 	return View::make('frontend.how-to-use');
 });
-
 /**
  * About Us & Contact Us
  */

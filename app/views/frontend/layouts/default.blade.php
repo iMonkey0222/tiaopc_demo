@@ -198,7 +198,7 @@
                         <div class="copyrights-menu copyright-links clearfix">
                             <a href="{{ route('home')}}">Home</a>/<a href="{{ route('about-us') }}">About</a>/<a href="{{ route('about-us') }} ">Feature</a>/<a href="{{ URL::to('how-to-use') }}">How to use</a>
                         </div>
-                        Copyrights &copy; 2015 All Rights Reserved by Tiaopc.
+                        Copyrights &copy; 2015 All Rights Reserved by Tiaopc. <a href="{{URL::to('policy')}}">Terms and Policy</a>
                     </div>
 
                     <div class="col_half col_last tright">
