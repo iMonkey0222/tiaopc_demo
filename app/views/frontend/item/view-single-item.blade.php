@@ -37,7 +37,7 @@
             <div class="single-product">
 
                 <div class="product">
-    				
+                    
                     <div class="col_three_fifth">
 
                         <!-- Product Single - Gallery
@@ -96,6 +96,8 @@
                                     <div class="panel-body">
                                         <span itemprop="productID" class="sku_wrapper">ID: <span class="sku">{{$item->id}}</span></span>
                                         <span class="posted_in">Category: <a href="#" rel="tag">{{$item->category_id}}</a>.</span>
+                                        <span>Condition: {{ $item->product_condition }}</span>
+                                        <span>Created at: {{ $item->created_at }}</span>
                                     </div>
                                 </div><!-- Product Single - Meta End -->
                             </div>
@@ -103,7 +105,7 @@
                             <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Seller Info</div>
                             <div class="acc_content clearfix" style="display: block;">
                                 <div>Name: <strong>{{ $seller->nickname }}</strong></div>
-                                <div>Email: <strong>{{ $seller->email2 }}</strong></div>
+                                <div>Email: <strong>{{ $seller->email }}</strong></div>
                                 <div>Phone: <strong>{{ $seller->phone_no }}</strong></div>
                             </div>
                             @endif    

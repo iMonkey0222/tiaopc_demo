@@ -260,7 +260,7 @@ function showResponse(response, statusText, xhr, $form)  {
 					<div class="controls">
 						<a class="btn" href="{{ route('home') }}">Cancel</a>
 
-						<button type="submit" class="btn">Revise Listing</button>
+						<button type="submit" class="btn btn-default">Revise Listing</button>
 					</div>
 				</div>
 				{{ Form::close() }}
