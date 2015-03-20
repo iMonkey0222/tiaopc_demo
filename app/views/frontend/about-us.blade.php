@@ -168,32 +168,7 @@ About Us
                                 </div>
                             </div>
                         </div>
-                        {{-- pengge --}}
-                        <div class="col-md-6 bottommargin">
-                            <div class="team team-list clearfix">
-                                <div class="team-image">
-                                    <img src="{{ asset('assets/others/team/pengge.jpg')}}" alt="杨昊鹏">
-                                </div>
-                                <div class="team-desc">
-                                    <div class="team-title"><h4>杨昊鹏</h4><span>幸福的拾荒者</span></div>
-                                    <div class="team-content">
-                                        <p>一个承诺，一份执著。</p>
-                                    </div>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
-                                        <i class="icon-facebook"></i>
-                                        <i class="icon-facebook"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
-                                        <i class="icon-twitter"></i>
-                                        <i class="icon-twitter"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
-                                        <i class="icon-gplus"></i>
-                                        <i class="icon-gplus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+
 
                         {{-- runze --}}
                         <div class="col-md-6 bottommargin">
@@ -248,9 +223,34 @@ About Us
                             </div>
                         </div>
 
+                        {{-- pengge --}}
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <img src="{{ asset('assets/others/team/pengge.jpg')}}" alt="杨昊鹏">
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>杨昊鹏</h4><span>幸福的拾荒者</span></div>
+                                    <div class="team-content">
+                                        <p>一个承诺，一份执著。</p>
+                                    </div>
+                                    <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
+                                        <i class="icon-facebook"></i>
+                                        <i class="icon-facebook"></i>
+                                    </a>
+                                    <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
+                                        <i class="icon-twitter"></i>
+                                        <i class="icon-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
+                                        <i class="icon-gplus"></i>
+                                        <i class="icon-gplus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
-
-
+                        {{-- unknown --}}
                         <div class="col-md-6 bottommargin">
                             <div class="team team-list clearfix">
                                 <div class="team-image">
@@ -279,19 +279,23 @@ About Us
 
             </div>
 
-            <div class="promo promo-dark promo-flat bottommargin">
+
+            <div class="line"></div>
+            <div class="clear"></div>
+
+            <div class="promo promo-light bottommargin">
                 <h3>Email us at <span>tiaopcofficial@gmail.com</span></h3>
                 <span>To make it better for the Tiaopc v2.0</span>
                 <a href="mailto:tiaopcofficial@gmail.com" class="button button-dark button-xlarge button-rounded">Send Now</a>
             </div>
 
 
-
+{{-- 
             <div class="fancy-title title-dotted-border title-center">
                         <h2><span>Feedback</span></h2>
             </div>
-            
-          <form class="nobottommargin" id="template-contactform" name="template-contactform" action="" method="post" >
+             --}}
+ {{--          <form class="nobottommargin" id="template-contactform" name="template-contactform" action="" method="post" >
 
                             <div class="form-process"></div>
 
@@ -320,11 +324,9 @@ About Us
                                 <button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" disabled value="submit">Send Message</button>
                             </div>
 
-            </form>
+            </form> --}}
 
 
-            <div class="line"></div>
-            <div class="clear"></div>
 
 
 
