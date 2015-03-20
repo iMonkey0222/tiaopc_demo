@@ -245,7 +245,7 @@ class ItemController extends BaseController {
 
 		// Declare validator rules
 		$rules = array(
-			'title' => 'required|min:3|max:50',
+			'title' => 'required|min:3|max:20',
 			'price' => 'required|numeric',
 			'category' => 'required',
 			'condition' => 'required|numeric',
@@ -265,18 +265,26 @@ class ItemController extends BaseController {
 
 		// Validate each picture if there any pictures not formatted, then fails
 		$mainPicture = Input::file('mainPicture'); // main picture
+		$apicture = Input::file('picture');
 		$pictures = Input::file('pictures'); // picture array
 
 		$rules = array('mainPicture' => 'image');
 		$picValidator = Validator::make(array('mainPicture' => $mainPicture), $rules);
 
-		// Validate main picture
+
+		// * 1. Validate main picture
 		if($picValidator -> fails())
 		{
 			return Redirect::back()->withInput()->withErrors($picValidator);
 		}
+		// * 2. Validate picture
+		$rules = array('picture' => 'image');
+		$picValidator = Validator::make(array('picture'=> $apicture), $rules);
 
-
+		if ($picValidator -> fails()) {
+			return Redirect::back()->withInput()->withErrors($picValidator);
+		}
+		// * 3. Validate picture
 		foreach ($pictures as $picture)
 		{
 			$rules = array('picture' => 'image');
@@ -311,10 +319,9 @@ class ItemController extends BaseController {
 			$itemId = Item::find($item->id);
 
 
-			// Checkout main picture upload
+			// * 1. Checkout main picture upload
 			$destinationPath = public_path().'/assets/img';
 			$extension = $mainPicture->getClientOriginalExtension(); // getting image extension
-
 			$fileName = date("Ymdhis") . str_random(3) . "." . $extension; 
 			$uploadSuccess = $mainPicture->move($destinationPath, $fileName);
 
@@ -326,7 +333,18 @@ class ItemController extends BaseController {
 			$mainPicture->status = 1;
 
 
-			if($itemId->pictures()->save($mainPicture))
+			// * 2. Checkout picture upload
+			$destinationPath = public_path().'/assets/img';
+			$extension = $apicture->getClientOriginalExtension(); // getting image extension
+			$fileName = date("Ymdhis") . str_random(3) . "." . $extension; 
+			$uploadSuccess = $apicture->move($destinationPath, $fileName);
+
+			$apicture = new Picture;
+			$apicture->picture_name = $fileName;
+			$apicture->status = 0;
+
+			// * 3. Checkout following pictures upload
+			if($itemId->pictures()->save($mainPicture) && $itemId->pictures()->save($apicture))
 			{
 				// Check picture upload
 				$uploadPicture = array();
@@ -336,18 +354,13 @@ class ItemController extends BaseController {
 
 					$destinationPath = public_path().'/assets/img';
 					$extension = $picture->getClientOriginalExtension(); // getting image extension
-
 					$fileName = date("Ymdhis") . str_random(3) . "." . $extension; 
 					$uploadSuccess = $picture->move($destinationPath, $fileName);
-
-
 					array_push($uploadPicture, new Picture(array('picture_name' => $fileName)));
 
 				}
 
-
 				$price = new Price(['price' => e(Input::get('price'))]);
-
 
 				if(($itemId->pictures()->saveMany($uploadPicture)) && ($itemId->prices()->save($price)))
 				{

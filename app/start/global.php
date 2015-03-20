@@ -48,24 +48,26 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 
 App::error(function(Exception $exception, $code)
 {
-	Log::error($exception);
+	$pathInfo = Request::getPathInfo();
+    $message = $exception->getMessage() ?: 'Exception';
+    Log::error("$code - $message @ $pathInfo\r\n$exception");
 
-	if ( ! Config::get('app.debug'))
-	{
-		switch ($code)
-		{
-			case 403:
-				return Response::make(View::make('error/403'), 403);
+    if (Config::get('app.debug')) {
+        return;
+    }
 
-			case 500:
-				return Response::make(View::make('error/500'), 500);
+    switch ($code)
+    {
+        case 403:
+            return Response::view( 'errors/403', 403);
 
-			default:
-				return Response::make(View::make('error/404'), 404);
-		}
-	}
+        case 500:
+            return Response::view('errors/500', 500);
+
+        default:
+            return Response::view('errors/404', $code);
+    }
 });
-
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler
