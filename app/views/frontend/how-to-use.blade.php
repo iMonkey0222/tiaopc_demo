@@ -74,7 +74,7 @@ How to use
                             </div>
                             <div id="ptab3" aria-labelledby="ui-id-3" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
                                 <p>
-                                当您选中单个产品后，页面右侧会有1.Request按钮2.商品描述3.商品ID与新旧度。您可以根据商品描述与新旧度决定Request与否。如果点击Request，商品的卖家将会收到Request请求。当您Request此产品后，可以在My Profile查看已经Request的产品列表信息，以便再次登陆时快速访问。
+                               当卖家同意买家的Request（请求）后，那么此单个产品页面右侧第三栏处将会显示出卖家的联系方式（姓名，邮箱，电话等），您可以自行选择一种或多种方式与卖家私下联系决定交易具体的时间与地点，并可以就商品的详情做进一步地了解，或者与卖家重新协定商品的价格，达成一致。
                                 </p>
                             </div>
                             <div id="ptab4" aria-labelledby="ui-id-4" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">

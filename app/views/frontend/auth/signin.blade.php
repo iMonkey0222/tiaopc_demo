@@ -72,10 +72,9 @@ Account Sign in ::
 						<div class="controls">
 							
 
-							<button type="submit" class="btn btn-default">Sign in</button>
+							<button type="submit" class="button button-3d button-rounded nomargin">Sign in</button>
 
 							<a class="btn" href="{{ route('home') }}">Cancel</a>
-
 							<a href="{{ route('forgot-password') }}" class="btn btn-link">I forgot my password</a>
 						</div>
 					</div>
