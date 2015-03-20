@@ -63,13 +63,22 @@ How to use
                             <div id="ptab1" aria-labelledby="ui-id-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="true" aria-hidden="false" style="display: block;">
 
                                 <p>
-                                您可以从首页Hompage进入热门产品类，或者点击导航栏右上方“Item”选择分类或者更具体的子分类进入多个产品界面。商品信息默认按照产品上传时间排序，您可以自行选择价格高低排序；从而选定中意的产品点击预览图放大或者进入单个产品信息。
+                                您可以从首页Hompage进入热门产品类，或者点击导航栏右上方“Item”选择分类或者更具体的子分类进入多个产品界面。
+                                </p>
+                                <p>
+                                产品会自动按照上传时间排序（由新到旧），您也可以自行选择价格高低排序；从而选定中意的产品点击预览图放大或者进入单个产品信息。
+                                </p>
+                                <p>
+                                在多个产品列表中，您会看见左侧有5个button，分别对应为show all 手机 平板 电脑 外设， 点击不同button 方便您在不同产品列表间切换。 其中show all 是显示手机平板等4个大类的总产品列表。
                                 </p>
 
                             </div>
                             <div id="ptab2" aria-labelledby="ui-id-2" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
                                 <p>
-                                当您选中单个产品后，页面右侧会有1.Request按钮2.商品描述3.商品ID与新旧度。您可以根据商品描述与新旧度决定Request与否。如果点击Request，商品的卖家将会收到Request请求。当您Request此产品后，可以在My Profile查看已经Request的产品列表信息，以便再次登陆时快速访问。
+                                在多个产品列表中，您会看见左侧有5个button，分别对应为show all 手机 平板 电脑 外设， 点击不同button 方便您在不同产品列表间切换。 其中show all 是显示手机平板等4个大类的总产品列表。
+                                </p>
+                                <p>
+                                    
                                 </p>
                             </div>
                             <div id="ptab3" aria-labelledby="ui-id-3" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">

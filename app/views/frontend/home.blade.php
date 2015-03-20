@@ -19,20 +19,18 @@ Home page
         <div class="swiper-wrapper">
 
             {{-- s1 --}}
-            <div class="swiper-slide dark " style="background-image: url({{ asset('assets/others/homepage/s2.jpg')}});">
+            <div class="swiper-slide " style="background-image: url({{ asset('assets/others/homepage/s2.jpg')}});">
                 <div class="container clearfix">
                     <div class="slider-caption slider-caption-left">
                         <h2 data-caption-animate="fadeInUp">Welcome to Tiaopc v1.0</h2>
                         <p data-caption-animate="fadeInUp">这不仅仅只是一个闲置物品信息提供平台,也是你生活的一部分</p>
-{{--                         <p data-caption-animate="fadeInUp" data-caption-delay="200">We also hope to receive your feedback.</p> --}}
-{{--                         <p data-caption-animate="fadeInUp">Please mail to tiaopcofficial@gmail.com without hesitation</p> --}}
                     </div>
                 </div>
             </div>
             {{-- s2 --}}
             <div class="swiper-slide" style="background-image: url({{ asset('assets/others/homepage/joboffer.jpg')}}) ;">
                 <div class="container clearfix" >
-                    <div class="slider-caption slider-caption-top-right">
+                    <div class="slider-caption slider-caption-right">
                         <h2 data-caption-animate="fadeInUp">周公吐哺 文王以宁</h2>
                         <p data-caption-animate="fadeInUp" data-caption-delay="200">Come to join us for the Tiaopc v2.0</p>
                     </div>
