@@ -97,8 +97,6 @@ $.ajaxSetup({
 });
 
 
-	// var itemid = {{ $item->id }};
-
 $('.delete').click(function(){
 	
 // // $(document).on('click', 'delete-{{ $item->id }}', function () {
@@ -125,12 +123,6 @@ $('.delete').click(function(){
 
 
 
-
-
-
-
-
-
  // $(document).on('click', 'delete', function () {
  //     alert("aa");
  //     $(this).closest('tr').remove();
@@ -138,18 +130,5 @@ $('.delete').click(function(){
  // });
 
 </script>	
-
-
-
-{{-- 					<!-- Product Status --> 
-					<td>
-						@if ($item-> status == 0)
-							<p>Frozen</p>
-						@elseif ($item-> status == 1)
-							<p>Active</p>
-
-						@endif
-					</td> --}}
-
 
 @stop

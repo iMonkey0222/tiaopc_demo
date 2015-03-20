@@ -30,8 +30,6 @@ Requested Items
 		<tbody>
 			@foreach ($transactions as $transaction)
 			<tr>
-
-
 				<!-- Product image--> 
 				<td>
 					<p>
@@ -56,7 +54,6 @@ Requested Items
 					£{{ $transaction->item_price }}
 				</td>
 
-
 				<!-- Product Order_status/Transaction Status --> 
 				<td>
 					@if ($transaction->status == 1)
@@ -73,6 +70,5 @@ Requested Items
 
 </form>
 </section>
-
 @stop
 
