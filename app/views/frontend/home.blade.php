@@ -43,7 +43,7 @@ Home page
             {{-- s3 --}}
             <div class="swiper-slide" style="background-image: url({{ asset('assets/others/homepage/feedback.jpg')}});">
                 <div class="container clearfix">
-                    <div class="slider-caption slider-caption-right">
+                    <div class="slider-caption slider-caption-center dark">
                         <h2 data-caption-animate="fadeInUp">This is our beta version. </h2>
                         <p data-caption-animate="fadeInUp" data-caption-delay="200">We hope to receive your feedback.</p>
                         <p data-caption-animate="fadeInUp" data-caption-delay="200">Please mail to tiaopcofficial@gmail.com without hesitation.</p>
