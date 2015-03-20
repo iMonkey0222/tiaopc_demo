@@ -96,7 +96,7 @@
                                     <div class="panel-body">
                                         <span itemprop="productID" class="sku_wrapper">ID: <span class="sku">{{$item->id}}</span></span>
                                          <span class="posted_in">Category: <a href="#" rel="tag">{{$item->parent_category_name}}.{{$item->category_name}}</a>.</span>
-                                        <span>Condition: {{ $item->product_condition }}</span>
+                                        <span>Condition: {{ $item->product_condition }}成新</span>
                                         <span>Created at: {{ $item->created_at }}</span>
                                     </div>
                                 </div><!-- Product Single - Meta End -->
