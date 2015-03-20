@@ -60,7 +60,7 @@ About Us
                         <a href="#"><i class="icon-eye i-alt"></i></a>
                     </div>
                     <h3>用户隐私</h3>
-                    <p>TIAOPC将竭尽所能保护用户的信息安全</p>
+                    <p>TIAOPC将竭尽所能保护用户的信息安全。</p>
                 </div>
             </div>
             <div class="col_one_third col_last">
