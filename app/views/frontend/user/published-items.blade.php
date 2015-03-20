@@ -141,17 +141,6 @@ $('.delete').click(function(){
 
 
 
-
-@foreach ($items as $item)
-{{ $item-> title }}
-{{ $item-> product_condition }} 
-{{ $item-> order_status }}
-{{ $item-> status }}
-{{ $item-> price }}
-{{ $item-> picture}}
-@endforeach
-
-
 {{-- 					<!-- Product Status --> 
 					<td>
 						@if ($item-> status == 0)

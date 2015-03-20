@@ -74,19 +74,5 @@ Requested Items
 </form>
 </section>
 
-@foreach ($transactions as $transaction)
-{{-- now the result is $transaction->item is a string !! not an array --}}
-{{ $transaction->item_id }} 
-{{ $transaction->seller_id }} 
-{{ $transaction->item_title }} 
-{{ $transaction->item_price }} 
-{{ $transaction->item_picture }} 
-{{ $transaction->status }} 
-{{ $transaction->created_at }} 
-<br>
-@endforeach
-
-
-
 @stop
 
