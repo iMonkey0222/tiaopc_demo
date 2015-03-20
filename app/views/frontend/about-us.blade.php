@@ -112,7 +112,7 @@ About Us
 
             <div class="row clearfix">
 
-
+                        {{-- yw --}}
                         <div class="col-md-6 bottommargin">
                             <div class="team team-list clearfix">
                                 <div class="team-image">
@@ -121,7 +121,7 @@ About Us
                                 <div class="team-desc">
                                     <div class="team-title"><h4>王悦</h4><span>Full Stack</span></div>
                                     <div class="team-content">
-                                        <p>这是自己的第二个网站相关的项目，从简入手，以最简单的功能实现更加安全和方便的交易过程。没错，忽略交易环节，只保留信息交流环节。
+                                        <p>这是自己的第二个网站相关的项目，从简入手，以最简单的功能实现更加安全和方便的交易过程。
                                         非常希望来自各方各面的宝贵建议！
                                         </p>
                                     </div>
@@ -140,8 +140,7 @@ About Us
                                 </div>
                             </div>
                         </div>
-
-
+                        {{-- wxy --}}
                         <div class="col-md-6 bottommargin">
                             <div class="team team-list clearfix">
                                 <div class="team-image">
@@ -169,7 +168,34 @@ About Us
                                 </div>
                             </div>
                         </div>
+                        {{-- pengge --}}
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <img src="{{ asset('assets/others/team/pengge.jpg')}}" alt="杨昊鹏">
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>杨昊鹏</h4><span>幸福的拾荒者</span></div>
+                                    <div class="team-content">
+                                        <p>一个承诺，一份执著。</p>
+                                    </div>
+                                    <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
+                                        <i class="icon-facebook"></i>
+                                        <i class="icon-facebook"></i>
+                                    </a>
+                                    <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
+                                        <i class="icon-twitter"></i>
+                                        <i class="icon-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
+                                        <i class="icon-gplus"></i>
+                                        <i class="icon-gplus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
+                        {{-- runze --}}
                         <div class="col-md-6 bottommargin">
                             <div class="team team-list clearfix">
                                 <div class="team-image">
@@ -195,7 +221,7 @@ About Us
                                 </div>
                             </div>
                         </div>
-
+                        {{-- zenge --}}
                         <div class="col-md-6 bottommargin">
                             <div class="team team-list clearfix">
                                 <div class="team-image">
@@ -221,38 +247,6 @@ About Us
                                 </div>
                             </div>
                         </div>
-
-
-                        <div class="col-md-6 bottommargin">
-                            <div class="team team-list clearfix">
-                                <div class="team-image">
-                                    <img src="{{ asset('assets/others/team/pengge.jpg')}}" alt="杨昊鹏">
-                                </div>
-                                <div class="team-desc">
-                                    <div class="team-title"><h4>杨昊鹏</h4><span>职业网球肌肉男</span></div>
-                                    <div class="team-content">
-                                        <p>一个承诺，一份执著。</p>
-                                    </div>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
-                                        <i class="icon-facebook"></i>
-                                        <i class="icon-facebook"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
-                                        <i class="icon-twitter"></i>
-                                        <i class="icon-twitter"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
-                                        <i class="icon-gplus"></i>
-                                        <i class="icon-gplus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-
 
 
 
