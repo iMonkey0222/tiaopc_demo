@@ -146,7 +146,7 @@ blockquote,
 address,
 table,
 fieldset,
-form { margin-bottom: 30px; }
+form { margin-bottom: 15px; }
 
 small { font-family: 'Open Sans', sans-serif; }
 
@@ -3023,7 +3023,7 @@ body.stretched .container-fullwidth .breadcrumb { right: 60px !important; }
     background-color: #FFF;
 }
 
-#content p { line-height: 1.8; }
+#content p { line-height: 1; }
 
 .content-wrap {
     position: relative;

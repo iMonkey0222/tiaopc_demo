@@ -196,27 +196,13 @@
 
                     <div class="col_half">
                         <div class="copyrights-menu copyright-links clearfix">
-                            <a href="{{ route('home')}}">Home</a>/<a href="{{ route('about-us') }}">About</a>/<a href="{{ route('about-us') }} ">Feature</a>/<a href="{{ URL::to('how-to-use') }}">How to use</a>/<a href="#">Contact</a>
+                            <a href="{{ route('home')}}">Home</a>/<a href="{{ route('about-us') }}">About</a>/<a href="{{ route('about-us') }} ">Feature</a>/<a href="{{ URL::to('how-to-use') }}">How to use</a>
                         </div>
                         Copyrights &copy; 2015 All Rights Reserved by Tiaopc.
                     </div>
 
                     <div class="col_half col_last tright">
                         <div class="fright clearfix">
-                            <a href="#" class="social-icon si-small si-borderless nobottommargin si-facebook">
-                                <i class="icon-facebook"></i>
-                                <i class="icon-facebook"></i>
-                            </a>
-
-                            <a href="#" class="social-icon si-small si-borderless nobottommargin si-twitter">
-                                <i class="icon-twitter"></i>
-                                <i class="icon-twitter"></i>
-                            </a>
-
-                            <a href="#" class="social-icon si-small si-borderless nobottommargin si-gplus">
-                                <i class="icon-gplus"></i>
-                                <i class="icon-gplus"></i>
-                            </a>
                         </div>
                     </div>
 

@@ -33,7 +33,7 @@ Home page
                     <div class="slider-caption slider-caption-right">
                         <h2 data-caption-animate="fadeInUp">周公吐哺</h2>
                         <h2 data-caption-animate="fadeInUp">文王以宁</h2>
-{{--                         <p data-caption-animate="fadeInUp" data-caption-delay="200">Come to join us for the Tiaopc v2.0</p> --}}
+                        <p data-caption-animate="fadeInUp" data-caption-delay="200">Come to join us for the Tiaopc v2.0</p>
                     </div>
                 </div>
             </div>
