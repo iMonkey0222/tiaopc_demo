@@ -30,8 +30,6 @@ Requested Items
 		<tbody>
 			@foreach ($transactions as $transaction)
 			<tr>
-
-
 				<!-- Product image--> 
 				<td>
 					<p>
@@ -55,7 +53,6 @@ Requested Items
 				<td>
 					£{{ $transaction->item_price }}
 				</td>
-
 
 				<!-- Product Order_status/Transaction Status --> 
 				<td>

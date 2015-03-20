@@ -97,8 +97,6 @@ $.ajaxSetup({
 });
 
 
-	// var itemid = {{ $item->id }};
-
 $('.delete').click(function(){
 	
 // // $(document).on('click', 'delete-{{ $item->id }}', function () {
@@ -121,12 +119,6 @@ $('.delete').click(function(){
 	});
 	return false;
 });
-
-
-
-
-
-
 
 
 
