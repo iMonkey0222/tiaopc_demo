@@ -288,7 +288,7 @@ About Us
             <div class="promo promo-dark promo-flat bottommargin">
                 <h3>Email us at <span>tiaopcofficial@gmail.com</span></h3>
                 <span>To make it better for the Tiaopc v2.0</span>
-                <a href="#" class="button button-dark button-xlarge button-rounded">Start Now</a>
+                <a href="mailto:tiaopcofficial@gmail.com" class="button button-dark button-xlarge button-rounded">Send Now</a>
             </div>
 
 
