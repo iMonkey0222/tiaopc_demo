@@ -245,12 +245,12 @@ class ItemController extends BaseController {
 
 		// Declare validator rules
 		$rules = array(
-			'title' => 'required|min:3|max:20',
+			'title' => 'required|min:3|max:50',
 			'price' => 'required|numeric',
 			'category' => 'required',
 			'condition' => 'required|numeric',
 			'description' => 'required|min:10',
-			'pictures' => 'array|between:2,10', // Limit the file upload to 10
+			'pictures' => 'array|between:1,10', // Limit the file upload to 10
 			);
 
 		// Create a validator with input
