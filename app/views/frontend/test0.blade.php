@@ -10,16 +10,68 @@ Test By Yue Wang
 @section('content')
 
 
+{{-- 20/3/2015 --}}
+<!-- Button trigger upload -->
+<button class="button button-3d button-mini button-rounded button-red" data-toggle="modal" data-target="#myModal">Requests</button>
+<!--Modal-->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-body">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">Approve Reuqests</h4>
+                    </div>
+                    <div class="modal-body">
+                       <table class="table table-striped">
+                       	<thead>
+                       		<tr>
+                       			<th>Product ID</th>
+                       			<th>Product Name</th>
+                       			<th>Requested By</th>
+                       			<th>When</th>
+                       			<th>Action</th>
+                       		</tr>
+
+                       		<tbody>
+                       			<tr>
+                       				{{-- Product ID --}}
+                       				<td>ID</td>
+                       				{{-- Production Name --}}
+                       				<td>Name</td>
+                       				{{-- Requested By --}}
+                       				<td>Someone</td>
+                       				{{-- When --}}
+                       				<td>date</td>
+                       				{{-- Action --}}
+                       				<td><button class="button button-3d button-mini button-rounded button-green">Approve</button></td>
+                       			</tr>
+                       		</tbody>
+
+                       	</thead>
+                       </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 
 {{--16/3/2015 --}}
 
 <?php
 
-foreach ($result as $term)
-{
-	echo $term->title;
-	echo "<br>";
-}
+// foreach ($result as $term)
+// {
+// 	echo $term->title;
+// 	echo "<br>";
+// }
 
 ?>
 
