@@ -67,9 +67,13 @@ $('.accept').click(function(){
         }
         if(result == 2)
         {
-            alert("You accept the request");
+            // alert("You accept the request");
             $button.text('Approved');
             $button.attr( "disabled", "disabled" );
+        }
+        if(result ==3)
+        {
+			alert("Error occurs. Please contact manager.");
         }
     });
 });

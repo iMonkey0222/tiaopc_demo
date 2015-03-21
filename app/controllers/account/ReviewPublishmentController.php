@@ -483,19 +483,36 @@ class ReviewPublishmentController extends AuthorizedController {
 			else{
 				// Get the item ID and buyer ID
 				$itemID = Input::get('itemID');
-				$buyerID = Input::get('buyerID');		
+				$buyerID = Input::get('buyerID');
+				$buyer = User::find($buyerID);		
 
 // !!!-- Attention of scope query
 				$transaction = Transaction::itemID($itemID)->buyerID($buyerID)->first();
 // Get the id of tran, only find() can change its value
 				$transaction = Transaction::find($transaction->id);
 
-				$transaction->status = 2;
-				$transaction->save();
+				$transaction->status = 2; // change to approved
+
+
+				if ($transaction->save()) {
+					$data = array(
+						'itemID' => $itemID,
+
+						'user' => $buyer,
+					);
+
+					Mail::queue('email.notify-request', $data, function($message) use ($buyer)
+					{
+						$message->to($buyer->email, $buyer->first_name .' '. $buyer->last_name);
+						$message->subject('Request Approved Notification | Tiaopc');
+					});
+					return 2;
+				}
+				
 
 				//return $itemID;
 				// return $transaction['id']; 
-				return 2;
+				return 3;
 			}
 		}
 	}
