@@ -16,12 +16,12 @@ Requested Items
 {{-- Publishment page content --}}
 @section('account-content')
 <section id="account-content">
-<form method="post" action="" class="form-horizontal" autocomplete="off">
+
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>Image</th>
-				<th>Title and seller info</th>
+				<th></th>
+				<th>Title</th>
 				<th>Price</th>
 				<th>Trade Status</th>
 			</tr>
@@ -45,7 +45,6 @@ Requested Items
 						<a target = "_blank" hidefocus="true" title = "查看宝贝详情" href="{{ URL::route('singleItem',array($transaction->item_id)) }} ">
 							{{ $transaction->item_title }}
 						</a>
-						<a>{{ $transaction->seller_id }} </a>
 					</p>	
 				</td>
 
@@ -56,8 +55,10 @@ Requested Items
 
 				<!-- Product Order_status/Transaction Status --> 
 				<td>
-					@if ($transaction->status == 1)
-						<p>Requested</p>
+					@if ($transaction->status == 0)
+						<p></p>
+					@elseif ($transaction->status == 1)
+						<p>Being Requested</p>
 					@elseif ($transaction->status == 2)
 						<p>Paid</p>
 					@endif
@@ -66,9 +67,13 @@ Requested Items
 			@endforeach
 		</tbody>
 	</table>
+
+
 	<div class="line"></div>
 
-</form>
+	{{$transactions->links()}} {{-- the page number --}}
+
+
 </section>
 @stop
 

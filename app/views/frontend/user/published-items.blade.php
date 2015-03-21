@@ -16,90 +16,160 @@ Published Items
 <section id="account-content">
 
 {{-- 	<form method="post" action="" class="form-horizontal" autocomplete="off"> --}}	
-		<table class="table table-striped">
-			<thead>
-				<tr>
-				{{-- 	<th>Tick</th> --}}
-					<th>Products</th>
-					<th>Price</th>
-					
-					<th>Trade Status</th>
-					<th>Action</th>
-				</tr>
-			</thead>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Products</th>
+				<th>Title</th>
+				<th>Price</th>
+				
+				<th>Trade Status</th>
+				<th>Response</th>
+				<th>Action</th>
+			</tr>
+		</thead>
 
-			<tbody>
-				@foreach ($items as $item)
-					@if($item->status == 0)
+		<tbody>
+			@foreach ($items as $item)
+			<!-- Item is active -->
+				@if($item->status == 0)
+					<tr>		
+ 						<!-- Product image --> 
+						<td>
+							<img width = "100" height="100" src = {{asset("assets/img/$item->picture")}} alt="查看宝贝详情" >	
+						</td>
 
-						<tr>		
-{{-- 							<!-- Check box  -->
-							<td>
-								<div class="controls">
-									<label class="control-label" for="select all">
-										<input type = "checkbox" name="select all" id="select all" value = "Select All" /> 
-									</label>
-								</div>
-							</td>
+						<!-- Product title --> 
+						<td>
+							<p>
+								<a target = "_blank" hidefocus="true" title = "查看宝贝详情" href="{{ route('singleItem', $item->id) }}">
+									{{ $item->title }}
+								</a>
+							</p>	
+						</td>
+
+						<!-- Product price --> 
+						<td>
+							@if (!empty($item-> price))
+							£{{ $item-> price }}
+							@endif
+						</td>
+
+						<!-- Product Order_status/Transaction Status --> 
+						<td>
+							@if ($item-> order_status == 0)
+								<p>0 Request</p>
+							@elseif ($item-> order_status == 1)
+								<p>Requested</p>
+							@elseif ($item-> order_status == 2)
+								<p>Sold</p>
+							@endif
+							<!-- {{ $item-> order_status }} -->
+						</td>
+
+						<!-- Check requests-->	
+						<td>
+							<!-- Item has at least one request or user has approved -->	
+							@if($item->order_status == 1)
+								
+								<a href="{{ URL::route('showRequest',array($item->id))  }}" class="btn btn-primary button-mini"value = "{{$item->id}}" >Check Requests</a>
+{{-- 								data-target="#myModal"
  --}}
-							<!-- Product image and title --> 
-							<td>
-								<img width = "100" height="100" src = {{asset("assets/img/$item->picture")}} alt="查看宝贝详情" >
-								<p>
-									<a target = "_blank" hidefocus="true" title = "查看宝贝详情" href="{{ route('singleItem', $item->id) }}">
-										{{ $item->title }}
-									</a>
-								</p>	
-							</td>
+ {{-- <a href="{{ URL::route('showRequest', array($item->id)) }}" class="btn btn-primary button-mini" data-toggle="modal" value = "{{$item->id}}" >Check Requests</a> --}}
+							@endif
+						</td>
+						<td>
+							<a class="btn" href="{{ URL::route('reviseSingleItem',array($item->id)) }}">Edit Item</a>
+							<a id = "{{ $item->id }}" class="delete" ><i class="icon-remove"></i></a>
+						</td>
 
-							<!-- Product price --> 
-							<td>
-								@if (!empty($item-> price))
-								£{{ $item-> price }}
-								@endif
-							</td>
+					</tr>
+				@endif		
+			@endforeach
+		</tbody>
+	</table>
 
-							<!-- Product Order_status/Transaction Status --> 
-							<td>
-								@if ($item-> order_status == 0)
-									<p>0 Request</p>
-								@elseif ($item-> status == 1)
-									<p>Requested</p>
-								@elseif ($item-> status == 2)
-									<p>Sold</p>
-								@endif
-								<!-- {{ $item-> order_status }} -->
-							</td>
-							<td>
-								<a class="btn" href="{{ URL::route('reviseSingleItem',array($item->id)) }}">Edit Item</a>
-								<a id = "{{ $item->id }}" class="delete" ><i class="icon-remove"></i></a>
-							</td>
-						</tr>
-					@endif
-				@endforeach
-			</tbody>
-		</table>
-
-		{{$items->links() }}
+		{{$items->links() }} {{-- the page number --}}
 
 		<div class="line"></div>	
 {{-- 	</form> --}}
+
+{{-- Modal display when click check button--}}
+ <div id="ajax-modal" class="modal hide fade" tabindex="-1"></div>
+	
 </section>
+
+<script id="ajax" type="text/javascript">
+
+// var $modal = $('#ajax-modal');
+// // #: only for id, 
+// // .: for many class
+
+// $('.request}}').click(function(){
+// 	var itemId = $(this).attr('value');
+//   // create the backdrop and wait for next modal to be triggered
+//   $('body').modalmanager('loading');
+
+//   setTimeout(function(){
+//   	alert('itemID is '+itemId);
+//     $modal.load("{{ URL::route('showRequest')}}"+"?itemID="+itemId,  function(){
+//      	//{{ URL::route('showRequest') }}
+//      // alert(result);
+//      // alert(result);
+//       $modal.modal();
+//     });
+//   }, 500);
+// });
+
+
+// </script>
+
+<script type="text/javascript">
+
+// // Pre process the error msg    
+// $.ajaxSetup({
+//   error: function(xhr, status, error) {
+//     alert("An AJAX error occured: " + status + "\nError: " + error);
+//   }
+// });
+
+
+// $('#accept').click(function(){
+
+//     var $button = $(this);
+//     alert('Buyer Id : '+$button.closest("tr").find('#buyerID').attr('value'));
+//     // .text()
+//     // { itemID: itemID, buyerID: buyerID },
+
+//     $.get( '{{URL::route('acceptRequest')}}',  function(result){
+//         console.log(result);
+//         if(result == 1)
+//         {
+//             alert("Please Sign in or Sign up.");
+//         }
+//         if(result == 2)
+//         {
+//             alert("You accept the request");
+//             $button.text('Accepted');
+//             $button.attr( "disabled", "disabled" );
+//         }
+//     });
+// });
+
+</script>
 
 {{-- JQuery to handle ajax request --}}
 <script type="text/javascript">
 
 // Pre process the error msg    
-$.ajaxSetup({
-  error: function(xhr, status, error) {
-    alert("An AJAX error occured: " + status + "\nError: " + error);
-  }
-});
+// $.ajaxSetup({
+//   error: function(xhr, status, error) {
+//     alert("An AJAX error occured: " + status + "\nError: " + error);
+//   }
+// });
 
 
 $('.delete').click(function(){
-	
-// // $(document).on('click', 'delete-{{ $item->id }}', function () {
 	var $button = $(this);
 	var theID = $button.attr('id');
 	alert(theID);
@@ -120,30 +190,6 @@ $('.delete').click(function(){
 	return false;
 });
 
-
-
-
- // $(document).on('click', 'delete', function () {
- //     alert("aa");
- //     $(this).closest('tr').remove();
- //     return false;
- // });
-
 </script>	
-
-
-
-
-
-{{-- 					<!-- Product Status --> 
-					<td>
-						@if ($item-> status == 0)
-							<p>Frozen</p>
-						@elseif ($item-> status == 1)
-							<p>Active</p>
-
-						@endif
-					</td> --}}
-
 
 @stop

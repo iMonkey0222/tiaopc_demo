@@ -15,5 +15,13 @@ class Transaction extends Eloquent {
 	{
 		return $this->belongsTo('User');
 	}
+	public function scopeItemID($query, $item_id){
+		return $query->where('item_id','=',$item_id);
+
+	}
+	public function scopeBuyerID($query, $buyer_id){
+		return $query->where('buyer_id','=',$buyer_id);
+
+	}
 
 }

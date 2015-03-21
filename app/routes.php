@@ -106,6 +106,15 @@ Route::group(array('prefix' => 'account'), function()
 
 	Route::post('upload/image', array('as' => 'imageUpload', 'uses' => 'Controllers\Account\ReviewPublishmentController@postUpload'));
 
+	
+	// Display  all requests of item
+	Route::get('show-request/{itemID}', array('as' => 'showRequest', 'uses' => 'Controllers\Account\ReviewPublishmentController@getRequest'))->where('id', '[0-9]+');
+	// Post accept of request
+	// Route::post('accept-request', array('as' => 'postAccept', 'uses' =>'Controllers\Account\ReviewPublishmentController@PostAcceptOfItem'));
+	Route::get('accept-request', array('as' => 'acceptRequest', 'uses' => 'Controllers\Account\ReviewPublishmentController@processAccept'));
+
+
+
 });
 
 

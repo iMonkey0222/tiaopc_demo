@@ -17,6 +17,7 @@ use Request;
 use Response;
 use Pagination;
 use Config;
+use Transaction;
 
 
 class ReviewPublishmentController extends AuthorizedController {
@@ -27,10 +28,9 @@ class ReviewPublishmentController extends AuthorizedController {
 		$user = Sentry::getUser();
 		$userID = $user->id;
 
+
 		// Get all items  
 		$items = Item::where('seller_id','=',$userID)->paginate(10);
-		// $items = Item::paginate(10);
-		
 
 		if(is_null($items))
 		{
@@ -92,8 +92,9 @@ class ReviewPublishmentController extends AuthorizedController {
 		$user = Sentry::getUser();
 		$userID = $user->id;
 
-		$transactions = User::find($userID)->transactions;
-		// $records = array();
+		$transactions = Transaction::where('buyer_id','=',$userID)->paginate(10);
+
+		// $transactions = User::find($userID)->transactions;
 
 		if (is_null($transactions)) {
 			echo "You haven't request any product.";
@@ -180,6 +181,9 @@ class ReviewPublishmentController extends AuthorizedController {
 		// Show the page
 		return View::make('frontend/item/edit-item', compact('item', 'categories','pictures','mainPic','condition'));
 	}
+
+
+
 
 
 /**
@@ -431,6 +435,69 @@ class ReviewPublishmentController extends AuthorizedController {
 			}
 			
 		return $item;
+	}
+
+/**
+ * Check Item All Requests
+ * @param  [type] $itemID [description]
+ * @return wait accept page
+ */
+	public function getRequest($itemID){
+		
+		$user = Sentry::getUser();
+		// $itemID = Input::get('itemID');
+		$item = Item::find($itemID);
+
+		$transactions = Transaction::where('item_id', '=', $itemID)->get();
+		foreach ($transactions as $transaction) 
+		{
+			$buyer = User::find($transaction->buyer_id);
+			$buyerNickname = $buyer->nickname;
+			$transaction = array_add($transaction, 'buyerNickname', $buyerNickname);
+
+		}
+		// echo "<br><br> transactions<br>";
+		// var_dump($transactions);
+		// echo "<br><br>";
+		$item = array_add($item,'transactions', $transactions);
+
+	// 	$html = View::make('frontend/user/display-request',compact('$user', 'item'));
+	
+	// 	// return $html->renderSections()['account-content'];
+		return View::make('frontend/user/display-request',compact('$user', 'item'));
+	}
+
+
+/**
+ * Ajax of accept request button
+ * @return [type] [description]
+ */
+	public function processAccept(){
+		if (Request::ajax()) {
+			// Check if user or visitor
+			if(! Sentry::check())
+			{
+				// Return to sign in page
+				return 1;
+			}
+			else{
+				// Get the item ID and buyer ID
+				$itemID = Input::get('itemID');
+				$buyerID = Input::get('buyerID');		
+
+// !!!-- Attention of scope query
+				$transaction = Transaction::itemID($itemID)->buyerID($buyerID)->first();
+// Get the id of tran, only find() can change its value
+				$transaction = Transaction::find($transaction->id);
+
+				$transaction->status = 2;
+				$transaction->save();
+
+				//return $itemID;
+				// return $transaction['id']; 
+				return 2;
+			}
+		}
 	}
 
 }
