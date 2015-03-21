@@ -462,13 +462,19 @@ class ItemController extends BaseController {
 			}
 
 
+			// Change order status
+			$item = Item::find($itemID);
+
+			$item->order_status = 1; //1 for request 2 for deal 
+			
+
 			// Creat new transcation
 			$transaction = new Transaction;
 			$transaction->item_id = $itemID;
 			$transaction->buyer_id = $userID;
-			$transaction->status = 2; // 2 for Requested
+			$transaction->status = 1; // 1 for Requested
 
-			if($transaction->save())
+			if($transaction->save() && $item->save())
 			{
 				return 3;
 			}
