@@ -13,7 +13,6 @@ class AuthController extends BaseController {
 	public function getSignin() 
 	{
 
-// Modified by XYW!!!
 // Because user's friend want to sign in user thier own account, 
 // so we do not need to check whether user is signed in
 		// 

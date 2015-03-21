@@ -61,20 +61,41 @@ How to use
                         </ul>
                         <div>
                             <div id="ptab1" aria-labelledby="ui-id-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="true" aria-hidden="false" style="display: block;">
-
-                                <p>
-                                您可以从首页Hompage进入热门产品类，或者点击导航栏右上方“Item”选择分类或者更具体的子分类进入多个产品界面。商品信息默认按照产品上传时间排序，您可以自行选择价格高低排序；从而选定中意的产品点击预览图放大或者进入单个产品信息。
+                                <div>
+                                    
+                                    <p>
+                                您可以从首页Hompage进入热门产品类，或者点击导航栏右上方“Item”选择分类或者更具体的子分类进入多个产品界面。
                                 </p>
+                                <p>
+                                产品会自动按照上传时间排序（由新到旧），您也可以自行选择价格高低排序；从而选定中意的产品点击预览图放大或者进入单个产品信息。
+                                </p>
+                                <p>
+                                在多个产品列表中，您会看见左侧有5个button，分别对应为show all 手机 平板 电脑 外设， 点击不同button 方便您在不同产品列表间切换。 其中show all 是显示手机平板等4个大类的总产品列表。
+                                </p>
+                                </div>
+                                
 
                             </div>
                             <div id="ptab2" aria-labelledby="ui-id-2" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
                                 <p>
-                                当您选中单个产品后，页面右侧会有1.Request按钮2.商品描述3.商品ID与新旧度。您可以根据商品描述与新旧度决定Request与否。如果点击Request，商品的卖家将会收到Request请求。当您Request此产品后，可以在My Profile查看已经Request的产品列表信息，以便再次登陆时快速访问。
+                                当您选中单个产品后，页面右侧会有1.Request按钮2.商品描述3.商品的新旧度。
+                                </p>
+                                <p>
+                               您可以根据商品描述与新旧度决定Request与否。 
+                                </p>
+                                <p>
+                                如果点击Request，商品的卖家将会收到Request请求。
+                                </p>
+                                <p>
+                                    当您Request此产品后，可以在My Profile查看已经Request的产品列表信息，以便再次登陆时快速访问。
                                 </p>
                             </div>
                             <div id="ptab3" aria-labelledby="ui-id-3" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
                                 <p>
-                               当卖家同意买家的Request（请求）后，那么此单个产品页面右侧第三栏处将会显示出卖家的联系方式（姓名，邮箱，电话等），您可以自行选择一种或多种方式与卖家私下联系决定交易具体的时间与地点，并可以就商品的详情做进一步地了解，或者与卖家重新协定商品的价格，达成一致。
+                               当卖家同意买家的Request（请求）后，您的登陆邮箱会收到Approved的推送邮件。
+                                </p>
+                                <p>
+                                    当您再次登陆时，对应的单个产品页面右侧第三栏处将会显示出卖家的联系方式（姓名，邮箱，电话等），您可以自行选择一种或多种方式与卖家私下联系决定交易具体的时间与地点，并可以就商品的详情做进一步地了解，或者与卖家重新协定商品的价格，达成一致。
                                 </p>
                             </div>
                             <div id="ptab4" aria-labelledby="ui-id-4" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
@@ -114,24 +135,46 @@ How to use
                         <div>
                             <div id="ptab1" aria-labelledby="ui-id-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="true" aria-hidden="false" style="display: block;">
 
-                                <p>当您打算出售闲置产品时，点击导航栏右上方”Publish ”跳转至商品发布页面。您首先确定产品的Title(比如:联想Y50 高分屏)，出售价格（单位为英镑），并且选择产品对应的多级分类（电脑-笔记本-游戏本），根据产品的使用情况选择相对应的新旧程度；接着在第一个和第二个图片上传链接处上传商品的主图（会显示在首页或者多个商品页面），然后在第三个上传链接处上传最少1张，至多10张图片。当所有内容填写完成后，点击Publish提交商品。</p>
-
+                                <p>当您打算出售闲置产品时，点击导航栏右上方”Publish ”跳转至商品发布页面。
+                                </p>
+                                <p>
+                                    您首先确定产品的Title (比如: 联想Y50 高分屏) ，出售价格（单位为英镑），并且选择产品对应的多级分类（电脑-笔记本-游戏本），根据产品的使用情况选择相对应的新旧程度。
+                                </p>
+                                <p>
+                                    接着在第一个和第二个图片上传链接处上传商品的主图（会显示在首页或者多个商品页面），然后在第三个上传链接处上传最少1张，至多10张图片，最后在description 一栏中添加自己对于产品的描述。
+                                </p>
+                                <p>
+                                    当所有内容填写完成后，点击Publish提交商品。
+                                </p>
 
                             </div>
                             <div id="ptab2" aria-labelledby="ui-id-2" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
                                 <p>
-                                当卖家发布产品后，可以在my profile中找到已发布的产品用于之后修改图片信息与价格，者删除已发布的商品。在my published product这一选项内，卖家可以收到来自买家的request请求，卖家了自行决定接受或者不接受这些请求。若接受请求，则买家将获取卖家提供的个人联系方式(手机，邮箱)。
+                                当您发布产品后，可以在My Profile中找到已发布的产品。
+                                </p>
+                                <p>
+                                    如果您对于发布的产品信息不满意，可在此处直接修改图片信息与价格，或者删除已发布的商品。
+                                </p>
+                                <p>
+                                    在My Published Product这一选项内，您可以查看来自买家对商品的Request请求，以及买家信息与请求时间。
+
+                                </p>
+                                <p>
+                                    当您决定接受其中一个请求时，点击Approve按钮同意买家的请求，成功接受后，按钮将变为Approved。
                                 </p>
                             </div>
                         
                             <div id="ptab3" aria-labelledby="ui-id-3" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
                                 <p>
-                                当您同意买家的Request后，那么买家会看到您留下的联系方式（姓名，邮箱，电话等），买家会自行选择一种或多种方式与您进行私下联系决定交易具体的时间与地点，并可以就商品的详情做进一步地了解，或者与您重新协定商品的价格，达成一致
+                                当您同意（Approved）买家的Request后，那么买家会看到您留下的联系方式（用户名，邮箱，电话等），买家会自行选择一种或多种方式与您进行私下联系决定交易具体的时间与地点，并可以就商品的详情做进一步地了解，或者与您重新协定商品的价格，达成一致。
                                 </p>
                             </div>
                             <div id="ptab4" aria-labelledby="ui-id-4" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
                                 <p>
-                                若买家同意购买，您可与买家在约定的时间与地点碰面，在买家确认商品的详情，并和您达成一致后，自行选择现金或者转账等多种方式支付此商品，完成交易。
+                                若买家同意购买您发布的商品，您可与买家在约定的时间与地点碰面，在买家确认商品的详情，并和您达成一致后，自行选择现金或者转账等多种方式支付此商品，完成交易。
+                                </p>
+                                <p>
+                                    当交易完成后，您可以在My published中修改该交易产品的状态为已发布。
                                 </p>
                             </div>
                         </div>

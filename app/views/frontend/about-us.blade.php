@@ -30,6 +30,17 @@ About Us
 
         <div class="container clearfix">
 
+
+            <div class="fancy-title title-dotted-border title-center">
+                        <h2><span>What is Tiaopc?</span></h2>
+            </div>
+            <div class="heading-block center nobottomborder">
+                <h2></h2>
+                <span><strong>Tiaopc</strong>是一个闲置数码产品信息的交流平台，我们致力于让交易过程变得更加自由灵活，并且保护卖家隐私。</span>
+            </div>
+
+
+
             <div class="fancy-title title-dotted-border title-center">
                         <h2><span>Our Promise</span></h2>
             </div>
@@ -49,7 +60,7 @@ About Us
                         <a href="#"><i class="icon-eye i-alt"></i></a>
                     </div>
                     <h3>用户隐私</h3>
-                    <p>TIAOPC将竭尽所能保护用户的信息安全</p>
+                    <p>TIAOPC将竭尽所能保护用户的信息安全。</p>
                 </div>
             </div>
             <div class="col_one_third col_last">
@@ -101,15 +112,18 @@ About Us
 
             <div class="row clearfix">
 
+                        {{-- yw --}}
                         <div class="col-md-6 bottommargin">
                             <div class="team team-list clearfix">
                                 <div class="team-image">
-                                    <img src="{{ asset('assets/others/team/runze.jpg')}}" alt="吴润泽">
+                                    <img src="{{ asset('assets/others/team/wangyue.jpg')}}" alt="王悦">
                                 </div>
                                 <div class="team-desc">
-                                    <div class="team-title"><h4>吴润泽</h4><span>腐国第一美男子</span></div>
+                                    <div class="team-title"><h4>王悦</h4><span>Full Stack</span></div>
                                     <div class="team-content">
-                                        <p>是什么让网瘾少年忽然照镜成瘾，是什么让dota奇才深夜不再虐泉，是什么让华西坝扛把子放下鼠标写下《昊山讽齐王纳谏》，让我们一起走进应用数学系神童昊山.曾的内心世界。详情请点击http://tiaopc.com 独家光盘绝赞发售中， 现只接受网上预定,欲购从速，只要998！！！ </p>
+                                        <p>这是自己的第二个网站相关的项目，从简入手，以最简单的功能实现更加安全和方便的交易过程。
+                                        非常希望来自各方各面的宝贵建议！
+                                        </p>
                                     </div>
                                     <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
                                         <i class="icon-facebook"></i>
@@ -126,33 +140,7 @@ About Us
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-md-6 bottommargin">
-                            <div class="team team-list clearfix">
-                                <div class="team-image">
-                                    <img src="{{ asset('assets/others/team/zengge.jpg')}}" alt="曾昊山">
-                                </div>
-                                <div class="team-desc">
-                                    <div class="team-title"><h4>曾昊山</h4><span>泽哥的死对头</span></div>
-                                    <div class="team-content">
-                                        <p>某日，吾窥镜自视，谓吾妻曰：“我孰与城北润泽美？”吾妻曰：“君美甚，润泽何能及君也？”城北润泽，腐国之美丽者也。吾不自信，而复问昊鹏曰：“吾孰与润泽美？”鹏曰：“润泽何能及君也？”旦日，悦从外来，与坐谈，问之悦曰：“吾与润泽孰美？”悦曰：“润泽不若君之美也。”</p>
-                                    </div>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
-                                        <i class="icon-facebook"></i>
-                                        <i class="icon-facebook"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
-                                        <i class="icon-twitter"></i>
-                                        <i class="icon-twitter"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
-                                        <i class="icon-gplus"></i>
-                                        <i class="icon-gplus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
+                        {{-- wxy --}}
                         <div class="col-md-6 bottommargin">
                             <div class="team team-list clearfix">
                                 <div class="team-image">
@@ -181,13 +169,68 @@ About Us
                             </div>
                         </div>
 
+
+                        {{-- runze --}}
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <img src="{{ asset('assets/others/team/runze.jpg')}}" alt="吴润泽">
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>吴润泽</h4><span>腐国第一美男子</span></div>
+                                    <div class="team-content">
+                                        <p>是什么让网瘾少年忽然照镜成瘾，是什么让dota奇才深夜不再虐泉，是什么让华西坝扛把子放下鼠标写下《昊山讽齐王纳谏》，让我们一起走进应用数学系神童昊山.曾的内心世界。详情请点击http://tiaopc.com 独家光盘绝赞发售中， 现只接受网上预定,欲购从速，只要998！！！ </p>
+                                    </div>
+                                    <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
+                                        <i class="icon-facebook"></i>
+                                        <i class="icon-facebook"></i>
+                                    </a>
+                                    <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
+                                        <i class="icon-twitter"></i>
+                                        <i class="icon-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
+                                        <i class="icon-gplus"></i>
+                                        <i class="icon-gplus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- zenge --}}
+                        <div class="col-md-6 bottommargin">
+                            <div class="team team-list clearfix">
+                                <div class="team-image">
+                                    <img src="{{ asset('assets/others/team/zengge.jpg')}}" alt="曾昊山">
+                                </div>
+                                <div class="team-desc">
+                                    <div class="team-title"><h4>曾昊山</h4><span>泽哥的死对头</span></div>
+                                    <div class="team-content">
+                                        <p>某日，吾窥镜自视，谓吾妻曰：“我孰与城北润泽美？”吾妻曰：“君美甚，润泽何能及君也？”城北润泽，腐国之美丽者也。吾不自信，而复问昊鹏曰：“吾孰与润泽美？”鹏曰：“润泽何能及君也？”旦日，悦从外来，与坐谈，问之悦曰：“吾与润泽孰美？”悦曰：“润泽不若君之美也。”</p>
+                                    </div>
+                                    <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
+                                        <i class="icon-facebook"></i>
+                                        <i class="icon-facebook"></i>
+                                    </a>
+                                    <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
+                                        <i class="icon-twitter"></i>
+                                        <i class="icon-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
+                                        <i class="icon-gplus"></i>
+                                        <i class="icon-gplus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- pengge --}}
                         <div class="col-md-6 bottommargin">
                             <div class="team team-list clearfix">
                                 <div class="team-image">
                                     <img src="{{ asset('assets/others/team/pengge.jpg')}}" alt="杨昊鹏">
                                 </div>
                                 <div class="team-desc">
-                                    <div class="team-title"><h4>杨昊鹏</h4><span>职业网球肌肉男</span></div>
+                                    <div class="team-title"><h4>杨昊鹏</h4><span>幸福的拾荒者</span></div>
                                     <div class="team-content">
                                         <p>一个承诺，一份执著。</p>
                                     </div>
@@ -207,44 +250,11 @@ About Us
                             </div>
                         </div>
 
-
-
-
-
-
-
+                        {{-- unknown --}}
                         <div class="col-md-6 bottommargin">
                             <div class="team team-list clearfix">
                                 <div class="team-image">
-                                    <img src="{{ asset('assets/others/team/wangyue.jpg')}}" alt="王悦">
-                                </div>
-                                <div class="team-desc">
-                                    <div class="team-title"><h4>王悦</h4><span>Full Stack</span></div>
-                                    <div class="team-content">
-                                        <p>这是自己的第二个网站相关的项目，第一个也是一个二手交易的平台，但是包含了复杂的交易过程。所以，做tiaopc.com的时候，从简入手，以最简单的功能实现更加安全和方便的交易过程。没错，忽略交易环节，只保留信息交流环节。
-                                        非常希望来自各方各面的宝贵建议！
-                                        </p>
-                                    </div>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
-                                        <i class="icon-facebook"></i>
-                                        <i class="icon-facebook"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
-                                        <i class="icon-twitter"></i>
-                                        <i class="icon-twitter"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
-                                        <i class="icon-gplus"></i>
-                                        <i class="icon-gplus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 bottommargin">
-                            <div class="team team-list clearfix">
-                                <div class="team-image">
-                                    <img src="{{ asset('assets/others/team/wenhao.jpg')}}" alt="杨昊鹏">
+                                    <img src="{{ asset('assets/others/team/wenhao.jpg')}}" alt="">
                                 </div>
                                 <div class="team-desc">
                                     <div class="team-title"><h4>未知</h4><span>未知</span></div>
@@ -270,14 +280,22 @@ About Us
             </div>
 
 
+            <div class="line"></div>
+            <div class="clear"></div>
+
+            <div class="promo promo-light bottommargin">
+                <h3>Email us at <span>tiaopcofficial@gmail.com</span></h3>
+                <span>To make it better for the Tiaopc v2.0</span>
+                <a href="mailto:tiaopcofficial@gmail.com" class="button button-dark button-xlarge button-rounded">Send Now</a>
+            </div>
 
 
-
+{{-- 
             <div class="fancy-title title-dotted-border title-center">
                         <h2><span>Feedback</span></h2>
             </div>
-            
-          <form class="nobottommargin" id="template-contactform" name="template-contactform" action="" method="post" >
+             --}}
+ {{--          <form class="nobottommargin" id="template-contactform" name="template-contactform" action="" method="post" >
 
                             <div class="form-process"></div>
 
@@ -306,11 +324,9 @@ About Us
                                 <button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" disabled value="submit">Send Message</button>
                             </div>
 
-            </form>
+            </form> --}}
 
 
-            <div class="line"></div>
-            <div class="clear"></div>
 
 
 

@@ -146,7 +146,7 @@ blockquote,
 address,
 table,
 fieldset,
-form { margin-bottom: 30px; }
+form { margin-bottom: 15px; }
 
 small { font-family: 'Open Sans', sans-serif; }
 
@@ -2556,7 +2556,7 @@ body:not(.device-touch) #page-menu.dots-menu nav li .dots-menu-caption {
 
 .slider-caption h2 {
     font-size: 64px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     font-weight: 700;
     line-height: 1;
@@ -3023,7 +3023,7 @@ body.stretched .container-fullwidth .breadcrumb { right: 60px !important; }
     background-color: #FFF;
 }
 
-#content p { line-height: 1.8; }
+#content p { line-height: 1.5; }
 
 .content-wrap {
     position: relative;

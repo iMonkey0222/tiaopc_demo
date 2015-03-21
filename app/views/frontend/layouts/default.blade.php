@@ -6,7 +6,7 @@
 		<meta charset="utf-8" />
 		<title>
 			@section('title')
-			Tiaopc
+			| Tiaopc
 			@show
 		</title>
 		<meta name="keywords" content="your, awesome, keywords, here" />
@@ -66,7 +66,7 @@
 
 
 
-<body class="stretched">
+<body class="stretched ">
 
     <!-- Document Wrapper
     ============================================= -->
@@ -74,7 +74,7 @@
 
         <!-- Header
         ============================================= -->
-        <header id="header" class=" full-header" data-sticky-class="not-dark">
+        <header id="header" class="transparent-header full-header" data-sticky-class="not-dark">
 
             <div id="header-wrap">
 
@@ -204,52 +204,14 @@
 
                     <div class="col_half">
                         <div class="copyrights-menu copyright-links clearfix">
-                            <a href="#">Home</a>/<a href="#">About</a>/<a href="#">Features</a>/<a href="#">Portfolio</a>/<a href="#">FAQs</a>/<a href="#">Contact</a>
+                            <a href="{{ route('home')}}">Home</a>/<a href="{{ route('about-us') }}">About</a>/<a href="{{ route('about-us') }} ">Feature</a>/<a href="{{ URL::to('how-to-use') }}">How to use</a>/
+                            <a href="{{URL::to('policy')}}">Terms and Policy</a>
                         </div>
-                        Copyrights &copy; 2015 All Rights Reserved by Tiaopc.
+                        Copyrights &copy; 2015 All Rights Reserved by Tiaopc. 
                     </div>
 
                     <div class="col_half col_last tright">
                         <div class="fright clearfix">
-                            <a href="#" class="social-icon si-small si-borderless nobottommargin si-facebook">
-                                <i class="icon-facebook"></i>
-                                <i class="icon-facebook"></i>
-                            </a>
-
-                            <a href="#" class="social-icon si-small si-borderless nobottommargin si-twitter">
-                                <i class="icon-twitter"></i>
-                                <i class="icon-twitter"></i>
-                            </a>
-
-                            <a href="#" class="social-icon si-small si-borderless nobottommargin si-gplus">
-                                <i class="icon-gplus"></i>
-                                <i class="icon-gplus"></i>
-                            </a>
-
-                            <a href="#" class="social-icon si-small si-borderless nobottommargin si-pinterest">
-                                <i class="icon-pinterest"></i>
-                                <i class="icon-pinterest"></i>
-                            </a>
-
-                            <a href="#" class="social-icon si-small si-borderless nobottommargin si-vimeo">
-                                <i class="icon-vimeo"></i>
-                                <i class="icon-vimeo"></i>
-                            </a>
-
-                            <a href="#" class="social-icon si-small si-borderless nobottommargin si-github">
-                                <i class="icon-github"></i>
-                                <i class="icon-github"></i>
-                            </a>
-
-                            <a href="#" class="social-icon si-small si-borderless nobottommargin si-yahoo">
-                                <i class="icon-yahoo"></i>
-                                <i class="icon-yahoo"></i>
-                            </a>
-
-                            <a href="#" class="social-icon si-small si-borderless nobottommargin si-linkedin">
-                                <i class="icon-linkedin"></i>
-                                <i class="icon-linkedin"></i>
-                            </a>
                         </div>
                     </div>
 

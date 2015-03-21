@@ -1,4 +1,3 @@
-@extends('frontend/layouts/account')
 
 {{-- Page title --}}
 @section('title')
@@ -75,6 +74,7 @@ Published Items
 								<a href="{{ URL::route('showRequest',array($item->id))  }}" class="btn btn-primary button-mini"value = "{{$item->id}}" >Check Requests</a>
 {{-- 								data-target="#myModal"
  --}}
+<<<<<<< HEAD
  {{-- <a href="{{ URL::route('showRequest', array($item->id)) }}" class="btn btn-primary button-mini" data-toggle="modal" value = "{{$item->id}}" >Check Requests</a> --}}
 							@endif
 						</td>
@@ -90,6 +90,96 @@ Published Items
 	</table>
 
 		{{$items->links() }} {{-- the page number --}}
+=======
+							<!-- Product image and title --> 
+							<td>
+								<img width = "100" height="100" src = {{asset("assets/img/$item->picture")}} alt="查看宝贝详情" >
+								<p>
+									<a target = "_blank" hidefocus="true" title = "查看宝贝详情" href="{{ route('singleItem', $item->id) }}">
+										{{ $item->title }}
+									</a>
+								</p>	
+							</td>
+
+							<!-- Product price --> 
+							<td>
+								@if (!empty($item-> price))
+								£{{ $item-> price }}
+								@endif
+							</td>
+
+							<!-- Product Order_status/Transaction Status --> 
+							<td>
+								@if ($item-> order_status == 0)
+									<p>0 Request</p>
+								@elseif ($item-> status == 1)
+									<button class="button button-3d button-mini button-rounded button-red" data-toggle="modal" data-target="#myModal">Requests</button>
+								@elseif ($item-> status == 2)
+									<p>Sold</p>
+								@endif
+								<!-- {{ $item-> order_status }} -->
+							</td>
+							<td>
+								<a class="btn" href="{{ URL::route('reviseSingleItem',array($item->id)) }}">Edit Item</a>
+								<a id = "{{ $item->id }}" class="delete" ><i class="icon-remove"></i></a>
+							</td>
+						</tr>
+					@endif
+
+				@if ($item->status == 1)	
+			<!--Modal View-->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+			        <div class="modal-dialog">
+			            <div class="modal-body">
+			                <div class="modal-content">
+			                    <div class="modal-header">
+			                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			                        <h4 class="modal-title" id="myModalLabel">Approve Reuqests</h4>
+			                    </div>
+			                    <div class="modal-body">
+			                       <table class="table table-striped">
+			                       	<thead>
+			                       		<tr>
+			                       			<th>Product ID</th>
+			                       			<th>Product Name</th>
+			                       			<th>Requested By</th>
+			                       			<th>When</th>
+			                       			<th>Action</th>
+			                       		</tr>
+
+			                       		<tbody>
+			                       			<tr>
+			                       				{{-- Product ID --}}
+			                       				<td>ID</td>
+			                       				{{-- Production Name --}}
+			                       				<td>Name</td>
+			                       				{{-- Requested By --}}
+			                       				<td>Someone</td>
+			                       				{{-- When --}}
+			                       				<td>date</td>
+			                       				{{-- Action --}}
+			                       				<td><button class="button button-3d button-mini button-rounded button-green">Approve</button></td>
+			                       			</tr>
+			                       		</tbody>
+
+			                       	</thead>
+			                       </table>
+			                    </div>
+			                    <div class="modal-footer">
+			                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+			<!-- Modal View End -->
+				@endif
+				@endforeach
+			</tbody>
+		</table>
+
+		{{$items->links() }}
+>>>>>>> 6bb7e9484a70092f88abce72e894625a29616b4e
 
 		<div class="line"></div>	
 {{-- 	</form> --}}
@@ -99,6 +189,7 @@ Published Items
 	
 </section>
 
+<<<<<<< HEAD
 <script id="ajax" type="text/javascript">
 
 // var $modal = $('#ajax-modal');
@@ -157,6 +248,65 @@ Published Items
 // });
 
 </script>
+=======
+
+<!--Modal View-->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-body">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">Approve Reuqests</h4>
+                    </div>
+                    <div class="modal-body">
+                       <table class="table table-striped">
+                       	<thead>
+                       		<tr>
+                       			<th>Product ID</th>
+                       			<th>Product Name</th>
+                       			<th>Requested By</th>
+                       			<th>When</th>
+                       			<th>Action</th>
+                       		</tr>
+
+                       		<tbody>
+                       			<tr>
+                       				{{-- Product ID --}}
+                       				<td>ID</td>
+                       				{{-- Production Name --}}
+                       				<td>Name</td>
+                       				{{-- Requested By --}}
+                       				<td>Someone</td>
+                       				{{-- When --}}
+                       				<td>date</td>
+                       				{{-- Action --}}
+                       				<td><button class="button button-3d button-mini button-rounded button-green">Approve</button></td>
+                       			</tr>
+                       		</tbody>
+
+                       	</thead>
+                       </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Modal View End -->
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 6bb7e9484a70092f88abce72e894625a29616b4e
 
 {{-- JQuery to handle ajax request --}}
 <script type="text/javascript">
@@ -190,6 +340,18 @@ $('.delete').click(function(){
 	return false;
 });
 
+<<<<<<< HEAD
+=======
+
+
+
+ // $(document).on('click', 'delete', function () {
+ //     alert("aa");
+ //     $(this).closest('tr').remove();
+ //     return false;
+ // });
+
+>>>>>>> 6bb7e9484a70092f88abce72e894625a29616b4e
 </script>	
 
 @stop

@@ -71,9 +71,13 @@ Requested Items
 
 	<div class="line"></div>
 
+<<<<<<< HEAD
 	{{$transactions->links()}} {{-- the page number --}}
 
 
+=======
+</form>
+>>>>>>> 6bb7e9484a70092f88abce72e894625a29616b4e
 </section>
 @stop
 

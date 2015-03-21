@@ -300,7 +300,7 @@ class ReviewPublishmentController extends AuthorizedController {
 			'category' => 'required',
 			'condition' => 'required|numeric',
 			'description' => 'required|min:10',
-			'pictures' => 'array|between:1,10', // Limit the file upload to 10
+			'pictures' => 'array|between:0,10', // Limit the file upload to 10
 			);
 
 
