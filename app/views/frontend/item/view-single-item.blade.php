@@ -173,6 +173,8 @@ $('#request').click(function(){
         if(result == 3)
         {
             alert('Success');
+            $button.text('Requested');
+            $button.attr( "disabled", "disabled" );
         }
 
         if(result == 4)
