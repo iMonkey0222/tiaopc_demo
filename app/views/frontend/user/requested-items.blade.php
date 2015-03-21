@@ -18,14 +18,14 @@ Requested Items
 <section id="account-content">
 
 	<table class="table table-striped">
-		<thead>
+{{-- 		<thead>
 			<tr>
 				<th></th>
 				<th>Title</th>
 				<th>Price</th>
 				<th>Trade Status</th>
 			</tr>
-		</thead>
+		</thead> --}}
 
 		<tbody>
 			@foreach ($transactions as $transaction)
@@ -39,7 +39,7 @@ Requested Items
 					</p>	
 				</td>
 
-				<!-- Product title and seller id--> 
+				<!-- Product title--> 
 				<td>
 					<p>
 						<a target = "_blank" hidefocus="true" title = "查看宝贝详情" href="{{ URL::route('singleItem',array($transaction->item_id)) }} ">
@@ -56,9 +56,11 @@ Requested Items
 				<!-- Product Order_status/Transaction Status --> 
 				<td>
 					@if ($transaction->status == 1)
-						<p>Being Requested</p>
+						<a></a>
 					@elseif ($transaction->status == 2)
-						<p>Paid</p>
+						<a class = "button button-small button-rounded">Approved</a>
+					@elseif($Transaction->status == 3)
+						<a class = "button button-small button-rounded">Paid</a>
 					@endif
 				</td>
 			</tr>
