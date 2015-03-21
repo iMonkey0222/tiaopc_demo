@@ -95,7 +95,7 @@ Item List Page
                                 <h3><a href="{{ route('singleItem', $item->id) }}">{{ str_limit($item->title, $limit = 19,$end = "...")}}</a></h3>
                                 {{-- <span>Price: <a class="price"> {{ $item->price }} </a></span> --}}
                                 <div class="col_half">
-                                    <a class=" button button-3d button-mini button-rounded button-red"><i>£</i><i class="price">{{ $item->price }}</i></a>
+                                    <a class=" button button-3d button-mini button-rounded "><i>£</i><i class="price">{{ $item->price }}</i></a>
                                     {{-- </i>£<a class="price">{{ $item->price }} </a> --}}
                                 </div>
                                 <div class="col_half col_last text-right">
