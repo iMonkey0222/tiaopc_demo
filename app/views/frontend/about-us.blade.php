@@ -125,18 +125,23 @@ About Us
                                         非常希望来自各方各面的宝贵建议！
                                         </p>
                                     </div>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
-                                        <i class="icon-facebook"></i>
-                                        <i class="icon-facebook"></i>
+                                    <a href="http://www.weibo.com/u/1714781913/" class="social-icon si-rounded si-small si-light si-gplus">
+                                        <i class="icon-weibo2"></i>
+                                        <i class="icon-weibo2"></i>
                                     </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
+                                    <a href="https://instagram.com/patrickwang1029" class="social-icon si-rounded si-small si-light si-facebook">
+                                        <i class="icon-instagram2"></i>
+                                        <i class="icon-instagram2"></i>
+                                    </a>
+                                    
+{{--                                     <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
                                         <i class="icon-twitter"></i>
                                         <i class="icon-twitter"></i>
                                     </a>
                                     <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
                                         <i class="icon-gplus"></i>
                                         <i class="icon-gplus"></i>
-                                    </a>
+                                    </a> --}}
                                 </div>
                             </div>
                         </div>
@@ -153,18 +158,22 @@ About Us
                                         纵观生活中无处不在的绘画，音乐与摄影…… 会发现Programming也不过是艺术创作的另一种表达方式。
                                         </p>
                                     </div>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
-                                        <i class="icon-facebook"></i>
-                                        <i class="icon-facebook"></i>
+                                    <a href="http://www.weibo.com/iMonkey222" class="social-icon si-rounded si-small si-light si-gplus">
+                                        <i class="icon-weibo2"></i>
+                                        <i class="icon-weibo2"></i>
                                     </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
+                                     <a href="https://instagram.com/xiao_yangerr/" class="social-icon si-rounded si-small si-light si-facebook">
+                                        <i class="icon-instagram2"></i>
+                                        <i class="icon-instagram2"></i>
+                                    </a>
+{{--                                     <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
                                         <i class="icon-twitter"></i>
                                         <i class="icon-twitter"></i>
                                     </a>
                                     <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
                                         <i class="icon-gplus"></i>
                                         <i class="icon-gplus"></i>
-                                    </a>
+                                    </a> --}}
                                 </div>
                             </div>
                         </div>
@@ -181,18 +190,18 @@ About Us
                                     <div class="team-content">
                                         <p>是什么让网瘾少年忽然照镜成瘾，是什么让dota奇才深夜不再虐泉，是什么让华西坝扛把子放下鼠标写下《昊山讽齐王纳谏》，让我们一起走进应用数学系神童昊山.曾的内心世界。详情请点击http://tiaopc.com 独家光盘绝赞发售中， 现只接受网上预定,欲购从速，只要998！！！ </p>
                                     </div>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
-                                        <i class="icon-facebook"></i>
-                                        <i class="icon-facebook"></i>
+                                    <a href="http://www.weibo.com/u/3300710475" class="social-icon si-rounded si-small si-light si-gplus">
+                                        <i class="icon-weibo2"></i>
+                                        <i class="icon-weibo2"></i>
                                     </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
+ {{--                                    <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
                                         <i class="icon-twitter"></i>
                                         <i class="icon-twitter"></i>
                                     </a>
                                     <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
                                         <i class="icon-gplus"></i>
                                         <i class="icon-gplus"></i>
-                                    </a>
+                                    </a> --}}
                                 </div>
                             </div>
                         </div>
@@ -207,18 +216,22 @@ About Us
                                     <div class="team-content">
                                         <p>某日，吾窥镜自视，谓吾妻曰：“我孰与城北润泽美？”吾妻曰：“君美甚，润泽何能及君也？”城北润泽，腐国之美丽者也。吾不自信，而复问昊鹏曰：“吾孰与润泽美？”鹏曰：“润泽何能及君也？”旦日，悦从外来，与坐谈，问之悦曰：“吾与润泽孰美？”悦曰：“润泽不若君之美也。”</p>
                                     </div>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
-                                        <i class="icon-facebook"></i>
-                                        <i class="icon-facebook"></i>
+                                    <a href="http://www.weibo.com/vampire0z" class="social-icon si-rounded si-small si-light si-gplus">
+                                        <i class="icon-weibo2"></i>
+                                        <i class="icon-weibo2"></i>
                                     </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
+                                     <a href="https://instagram.com/call_me_homework" class="social-icon si-rounded si-small si-light si-facebook">
+                                        <i class="icon-instagram2"></i>
+                                        <i class="icon-instagram2"></i>
+                                    </a>                                  
+{{--                                     <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
                                         <i class="icon-twitter"></i>
                                         <i class="icon-twitter"></i>
                                     </a>
                                     <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
                                         <i class="icon-gplus"></i>
                                         <i class="icon-gplus"></i>
-                                    </a>
+                                    </a> --}}
                                 </div>
                             </div>
                         </div>
@@ -234,18 +247,22 @@ About Us
                                     <div class="team-content">
                                         <p>一个承诺，一份执著。</p>
                                     </div>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
-                                        <i class="icon-facebook"></i>
-                                        <i class="icon-facebook"></i>
+                                    <a href="http://www.weibo.com/yhpblog" class="social-icon si-rounded si-small si-light si-gplus">
+                                        <i class="icon-weibo2"></i>
+                                        <i class="icon-weibo2"></i>
                                     </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
+                                     <a href="https://instagram.com/haopengyang" class="social-icon si-rounded si-small si-light si-facebook">
+                                        <i class="icon-instagram2"></i>
+                                        <i class="icon-instagram2"></i>
+                                    </a>                                  
+{{--                                     <a href="#" class="social-icon si-rounded si-small si-light si-twitter">
                                         <i class="icon-twitter"></i>
                                         <i class="icon-twitter"></i>
                                     </a>
                                     <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
                                         <i class="icon-gplus"></i>
                                         <i class="icon-gplus"></i>
-                                    </a>
+                                    </a> --}}
                                 </div>
                             </div>
                         </div>
@@ -261,7 +278,7 @@ About Us
                                     <div class="team-content">
                                         <p>我们期待你的加入！</p>
                                     </div>
-                                    <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
+{{--                                     <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
                                         <i class="icon-facebook"></i>
                                         <i class="icon-facebook"></i>
                                     </a>
@@ -272,7 +289,7 @@ About Us
                                     <a href="#" class="social-icon si-rounded si-small si-light si-gplus">
                                         <i class="icon-gplus"></i>
                                         <i class="icon-gplus"></i>
-                                    </a>
+                                    </a> --}}
                                 </div>
                             </div>
                         </div>        
