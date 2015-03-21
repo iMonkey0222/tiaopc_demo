@@ -51,7 +51,7 @@ Item List Page
                         <div id="portfolio-ajax-container"></div>
                     </div>
 
-                    <div id="portfolio-ajax-loader"><img src="images/preloader-dark.gif" alt="Preloader"></div>
+{{--                     <div id="portfolio-ajax-loader"><img src="images/preloader-dark.gif" alt="Preloader"></div> --}}
 
                     <!-- Portfolio Filter
                     ============================================= -->
