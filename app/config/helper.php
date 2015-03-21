@@ -13,8 +13,9 @@ return array(
 
 	'transaction_status' => array(
 					'0' => 'no request',
-					'1' => 'one request',
-					'2' => 'deal',
+					'1' => 'at least one request',
+					'2' => 'approved',
+					'3' => 'deal',
 		),
 
 	'item_order_status' => array(

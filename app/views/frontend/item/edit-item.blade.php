@@ -111,7 +111,7 @@ function showResponse(response, statusText, xhr, $form)  {
 
 				<!-- Category -->
 				<div class="form-group{{ $errors->first('category', ' error') }}">
-					<label class="control-label"  for="category">Category</label>
+					<label class="control-label"  for="category">Category *</label>
 					<h5>Selected Category: {{$item->parent_category_name}}.{{$item->category_name}}</h5>
 					<div class="controls">
 						<div class="clear"></div>
@@ -216,17 +216,17 @@ function showResponse(response, statusText, xhr, $form)  {
 				                <div id="validation-errors"></div> --}}
 				                <!-- pic upload form -->
 				                {{-- <form class="form-horizontal" id="upload" enctype="multipart/form-data" method="post" action="{{ URL::route('imageUpload') }}" autocomplete="off"> --}}
-{{--                     				<input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                    				<input type="file" name="mainPicture" id="mainPicture" /> 
- --}}                				{{-- </form> --}}
+                    				{{-- <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                    				<input type="file" name="mainPicture" id="mainPicture" />  --}}
+                				{{-- </form> --}}
 				 			{{-- 	<div class="col_half col_last"> *Please Choose one main picture</div>
 				            </div> --}}
 				            
-				          {{--   <div class="span5">
+				            <div class="span5">
 				            	<div>output</div>
 				                <div id="output" name = "output"></div>
 
-				            </div> --}}
+				            </div>
 				        {{-- </div> --}}
 {{-- 							{{ Form::file('mainPicture', 'mainPic', ['id' => 'mainPic'], array('route'=>'imageUpload')) }}  --}}
 

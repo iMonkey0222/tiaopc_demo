@@ -17,23 +17,15 @@ Published Items
 
 {{-- 	<form method="post" action="" class="form-horizontal" autocomplete="off"> --}}	
 	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>Products</th>
-				<th>Title</th>
-				<th>Price</th>
-				
-				<th>Trade Status</th>
-				<th>Response</th>
-				<th>Action</th>
-			</tr>
-		</thead>
 
 		<tbody>
 			@foreach ($items as $item)
 			<!-- Item is active -->
 				@if($item->status == 0)
-					<tr>		
+					<tr>
+						<td>
+							<a id = "{{ $item->id }}" class="delete" ><i class="icon-trashcan"></i></a>
+						</td>		
  						<!-- Product image --> 
 						<td>
 							<img width = "100" height="100" src = {{asset("assets/img/$item->picture")}} alt="查看宝贝详情" >	
@@ -55,29 +47,21 @@ Published Items
 							@endif
 						</td>
 
-						<!-- Product Order_status/Transaction Status --> 
-						<td>
-							@if ($item-> order_status == 0)
-								<p>0 Request</p>
-							@elseif ($item-> order_status == 1)
-								<p>Requested</p>
-							@elseif ($item-> order_status == 2)
-								<p>Sold</p>
-							@endif
-							<!-- {{ $item-> order_status }} -->
-						</td>
-
 						<!-- Check requests-->	
 						<td>
 							<!-- Item has at least one request or user has approved -->	
 							@if($item->order_status == 1)
 								
-								<a href="{{ URL::route('showRequest',array($item->id))  }}" class="btn btn-primary button-mini"value = "{{$item->id}}" >Check Requests</a>
+								<a href="{{ URL::route('showRequest',array($item->id))  }}" class="button button-3d button-small"value = "{{$item->id}}" >Check Requests</a>
+							
+							@elseif($item->order_status == 2)
+								<a href="{{ URL::route('showRequest',array($item->id))  }}" class="button button-3d button-small button-rounded button-amber"value = "{{$item->id}}" >Review Deal</a>
+
 							@endif
+
 						</td>
 						<td>
-							<a class="btn" href="{{ URL::route('reviseSingleItem',array($item->id)) }}">Edit Item</a>
-							<a id = "{{ $item->id }}" class="delete" ><i class="icon-remove"></i></a>
+							<a class="btn" href="{{ URL::route('reviseSingleItem',array($item->id)) }}"><i class = "icon-pencil2"></i>Edit</a>
 						</td>
 
 					</tr>
@@ -140,7 +124,7 @@ $('.delete').click(function(){
 	var respond = confirm("Are you sure you want to delete this item ?");
 
 	if(respond == true){
-			$.get('{{ URL::route('deleteItem', array('theID')) }}', { itemID: theID }, function(result){
+		$.get('{{ URL::route('deleteItem', array('theID')) }}', { itemID: theID }, function(result){
 			console.log(result);
 			if(result == 1){
 				alert("Please login first. ");

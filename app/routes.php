@@ -114,6 +114,9 @@ Route::group(array('prefix' => 'account'), function()
 	Route::get('accept-request', array('as' => 'acceptRequest', 'uses' => 'Controllers\Account\ReviewPublishmentController@processAccept'));
 
 
+	Route::get('make-deal', array('as' => 'makeDeal', 'uses' => 'Controllers\Account\ReviewPublishmentController@makeDeal'));
+
+
 
 });
 

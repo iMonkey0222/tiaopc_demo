@@ -536,37 +536,92 @@ class ReviewPublishmentController extends AuthorizedController {
 				// Get the item ID and buyer ID
 				$itemID = Input::get('itemID');
 				$buyerID = Input::get('buyerID');
-				$buyer = User::find($buyerID);		
+				$buyer = User::find($buyerID);	
 
-// !!!-- Attention of scope query
-				$transaction = Transaction::itemID($itemID)->buyerID($buyerID)->first();
-// Get the id of tran, only find() can change its value
-				$transaction = Transaction::find($transaction->id);
+				$item = Item::find($itemID);
 
-				$transaction->status = 2; // change to approved
-
-
-				if ($transaction->save()) {
-					$data = array(
-						'itemID' => $itemID,
-
-						'user' => $buyer,
-					);
-
-					Mail::send('emails.notify-request', $data, function($message) use ($buyer)
-					{
-						$message->to($buyer->email, $buyer->first_name .' '. $buyer->last_name);
-						$message->subject('Request Approved Notification | Tiaopc');
-					});
-					return 2;
+				if ($item->order_status == 2) {
+					return 4; //item was sold
 				}
-				
+				else if($item->order_status == 1){
+					// item is not sold
+					
+					// !!!-- Attention of scope query
+					$transaction = Transaction::itemID($itemID)->buyerID($buyerID)->first();
+	// Get the id of tran, only find() can change its value
+					$transaction = Transaction::find($transaction->id);	
 
-				//return $itemID;
-				// return $transaction['id']; 
-				return 3;
+					$transaction->status = 2; // change to approved	
+	
+
+					if ($transaction->save()) {
+						$data = array(
+							'itemID' => $itemID,	
+
+							'user' => $buyer,
+						);	
+
+						Mail::send('emails.notify-request', $data, function($message) use ($buyer)
+						{
+							$message->to($buyer->email, $buyer->first_name .' '. $buyer->last_name);
+							$message->subject('Request Approved Notification | Tiaopc');
+						});
+						return 2;
+					}
+						
+
+					//return $itemID;
+					// return $transaction['id']; 
+					return 3;
+
+				}
 			}
 		}
+	}
+/**
+ * Make a Deal
+ * @return [type] [description]
+ */
+	public function makeDeal(){
+		if (Request::ajax()) {
+			// Check if user or visitor
+			if(! Sentry::check())
+			{
+				// Return to sign in page
+				return 1;
+			}
+			else{
+				$itemID = Input::get('itemID');
+				$buyerID = Input::get('buyerID');
+
+				$item = Item::find($itemID);
+
+				// If item has been sold
+				if ($item->order_status == 2) {
+					return 4;	 // return sold info
+				}else{
+					// if item is not sold
+					$transaction = Transaction::itemID($itemID)->buyerID($buyerID)->first();
+					$transaction = Transaction::find($transaction->id);	
+
+					$transaction ->status = 3; // change status to deal	
+	
+					$item->order_status = 2;	// update item status to sold	
+
+
+					// if update transaction and item status
+					if ($transaction->save() && $item->save()) {
+						// return to update related button view
+						return 2;	
+					}else{
+						// deal can not made 
+						return 3;
+					}
+
+				}
+			}
+		}
+
 	}
 
 }
