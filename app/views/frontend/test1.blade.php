@@ -17,22 +17,39 @@ Test By Xiaoyang Wang
 
 
 // $user = Sentry::getUser();
-		$originMainPic = Picture::where(function($query){
-			$query	->where('item_id','=','53')
-					->where('status','=','1');
+		// $originMainPic = Picture::where(function($query){
+		// 	$query	->where('item_id','=','53')
+		// 			->where('status','=','1');
 
-		})->first();
+		// })->first();
+
+		$transaction = Transaction::where(function($query){
+			$query ->where('item_id','=','49')
+			->where('buyer_id','=','3');
+		})->first()->toArray();
+		// $transaction = Transaction::where('item_id', '=', 49)->where('buyer_id','=', 3)->get();
+		echo 'this is transaction<br><br>';
+
+		echo "string";
+		var_dump($transaction['buyer_id']);
+		var_dump($transaction['item_id']);
+
+
 // var_dump($originMainPic.'<br>');
-echo $originMainPic->id;
+// echo 'hi'.$originMainPic->id;
 
-$originPics = Item::find(53)->pictures;
-foreach($originPics as $originPic){
-	if($originPic->status == 1){
-		$originMainPic = $originPic;
-		break;
-	}
-}
-echo $originMainPic->id;
+// $originPics = Item::find(53)->pictures;
+// foreach($originPics as $originPic){
+// 	if($originPic->status == 1){
+// 		$originMainPic = $originPic;
+// 		break;
+// 	}
+// }
+// echo $originMainPic->id;
+
+
+
+
 // echo "<br><br>";
 // echo "hi";
 // echo $originMainPic['picture_name'];
