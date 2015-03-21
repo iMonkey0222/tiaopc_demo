@@ -156,13 +156,13 @@ class ItemController extends BaseController {
 					// the return value is string
 					$requestStatus = User::find($visitor)->transactions()->where('item_id', '=', $item->id)->first()->status;
 
-					if($requestStatus == "2")
+					if($requestStatus == "1")
 					{
 						// Requested but not approved
 						$triggleCode = 4;
 					}
 
-					if($requestStatus == "3")
+					if($requestStatus == "2")
 					{
 						// Requested and approved
 						$triggleCode = 2;
