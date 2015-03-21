@@ -165,17 +165,7 @@ class ReviewPublishmentController extends AuthorizedController {
 
 		// category1 is the last lategory, category2 is the previous cate, category3 is the ifrst cate
 		$categories = Category::where('parent_id', "=", NULL)->get();
-		// foreach ($categories as $category) {
-		// 	if ($item->category_id == $category->id) {
-		// 		$category1 = $category->parent_id;
-		// 		if ($category1) {
-		// 			$category2 = $category1->parent_id;
-		// 			if ($category2 ) {
-		// 				$category3 = $category2->parent_id;
-		// 			}
-		// 		}
-		// 	}
-		// }
+
 		// Get the condition array
 		$condition = Config::get('condition');
 
@@ -254,9 +244,8 @@ class ReviewPublishmentController extends AuthorizedController {
    //      }
    //  }
 
-
 	/**
-	 * Post single item edit form
+	 * Post single item edit form Without Picture upload!!!!!!
 	 * @param int $itemId item id
 	 * @return view published single item page
 	 */
@@ -270,79 +259,26 @@ class ReviewPublishmentController extends AuthorizedController {
 		}
 		// Get all the input including images
 		$input = Input::all();
-
 		$itemID = Input::get('itemID'); // Get item id from hidden input
-
 		$item = Item::find($itemID);
-
-		// * 1. Get the original main picture
-		// $originMainPic = Picture::where(function($query){
-		// 	$query	->where('item_id','=',$itemID)
-		// 			->where('status','=','1');
-
-		// })->first();
-
-
-		// * 2. Get the orgin pics array
-		$originPics = Item::find($itemID)->pictures; 
-		foreach($originPics as $originPic){
-			if($originPic->status == 1){
-				$originMainPic = $originPic;
-				break;
-			}
-		}
-
-		// The number of pictures that user can upload
-		$extraPicsCount = 10-count($originPics); 
 
 		// Declare validator rules
 		$rules = array(
-			'title' => 'required|min:3',
-			'price' => 'required|numeric',
-			'category' => 'required',
-			'condition' => 'required|numeric',
-			'description' => 'required|min:10',
-			'pictures' => 'array|between:0,10', // Limit the file upload to 10
+			'title' => 'min:3',
+			'price' => 'numeric',
+			'category' => 'required', // if not set this, will remind error
+			'condition' => 'numeric',
+			'description' => 'min:10',
+			// 'pictures' => 'array|between:0,10', // Limit the file upload to 10
 			);
 
-
 		// Create a validator with all input
-		// Check all input format now
 		$validator = Validator::make(Input::all(), $rules);
 
 		// If validator fails, we will exit the operation now
 		if ($validator -> fails())
 		{
 			return Redirect::back()->withInput()->withErrors($validator);
-		}
-
-
-		// * Get the input of pictures
-		$mainPicture = Input::file('mainPicture');	// main pic user upload
-		$pictures = Input::file('pictures'); 		// newly pics user uploaded 
-
-
-		// * 1. Validate the main picture
-		$rules = array('mainPicture' => 'image'); // Declare main picture validator rules
-		$mainPicValidator = Validator::make(array('mainPicture' => $mainPicture),$rules);
-
-		if ($mainPicValidator -> fails()) {
-			return Redirect::back()->withInput()->withErrors($mainPicValidator);
-		}
-
-
-		// * 2. Validate the following pictures
-		// 
-		// Validate each picture if there any pictures not formatted, then fails
-		foreach ($pictures as $picture)
-		{
-			$rules = array('picture' => 'image'); // Declare pictures validator rules
-			$picValidator = Validator::make(array('picture' => $picture), $rules);
-
-			if($picValidator -> fails())
-			{				
-				return Redirect::back()->withInput()->withErrors($picValidator);
-			}
 		}
 
 
@@ -355,57 +291,171 @@ class ReviewPublishmentController extends AuthorizedController {
 		// * Save item to database
 		if($item->save())
 		{	
-			// * 1. Checkout Main pic
-			$destinationPath = public_path().'/assets/img'; // destination path
-			$extension = $mainPicture->getClientOriginalExtension(); // getting image extension
-			$fileName = date("Ymdhis") . str_random(3) . "." . $extension; // set sile name
-			$uploadSuccess = $mainPicture->move($destinationPath, $fileName);
+			$priceArray = new Price(['price' => e(Input::get('price'))]);
 
-			// * Update the original main picture status to 0
-			$originMainPic->status = 0;
-			$item->pictures()->save($originMainPic);
+			if($item->prices()->save($priceArray))
+			{
+				// Save success, return to newly published item
+				return Redirect::to("/item/$itemID")->with('success', Lang::get('admin/blogs/message.update.success'));
 
-			// * Create new Main picture
-			$mainPicture = new Picture;
-			$mainPicture->picture_name = $fileName;
-			$mainPicture->status = 1;
-
-
-
-			// * 1. Save main picture to item
-			if($item->pictures()->save($mainPicture))
-			{			
-				$uploadPicture = array(); // create an emapty array for picture upload
-
-				// * 2. Repeat checkout each following pictures 
-				foreach( $pictures as $picture )
-				{
-					$destinationPath = public_path().'/assets/img';
-					$extension = $picture->getClientOriginalExtension(); // getting image extension	
-					$fileName = date("Ymdhis") . str_random(3) . "." . $extension; 
-					$uploadSuccess = $picture->move($destinationPath, $fileName);
-
-					// push newly created Picture array with names to $uploadPicture array
-					array_push($uploadPicture, new Picture(array('picture_name' => $fileName)));
-				}
-
-				$priceArray = new Price(['price' => e(Input::get('price'))]);
-
-					if(($item->pictures()->saveMany($uploadPicture)) && ($item->prices()->save($priceArray)))
-				{
-					// Save success, return to newly published item
-					// return Redirect::to("/item/$itemID")->with('success', Lang::get('admin/blogs/message.create.success'));
-					return Redirect::action('ItemController@itemPictureProcess', array('id' => $itemID));
-				}				
-
-				// If error exists, return to publish page
-				Return Redirect::to('/revise-item/$itemID')->with('error', Lang::get('admin/blogs/message.create.error'));
-
-			}
-
+			}	
+			// If error exists, return to publish page
+			Return Redirect::to('/revise-item/$itemID')->with('error', Lang::get('admin/blogs/message.update.error'));
+		}
 	}
 
-}
+	/**
+	 * Post single item edit form
+	 * @param int $itemId item id
+	 * @return view published single item page
+	 */
+	
+	// public function PostSingleItemEditForm()
+	// {
+	// 	// Check if user or visitor
+	// 	if(! Sentry::check())
+	// 	{
+	// 		// Return to sign in page
+	// 		return View::make('frontend/auth/signin');
+	// 	}
+	// 	// Get all the input including images
+	// 	$input = Input::all();
+
+	// 	$itemID = Input::get('itemID'); // Get item id from hidden input
+
+	// 	$item = Item::find($itemID);
+
+	// 	// * 1. Get the original main picture
+	// 	// $originMainPic = Picture::where(function($query){
+	// 	// 	$query	->where('item_id','=',$itemID)
+	// 	// 			->where('status','=','1');
+
+	// 	// })->first();
+
+
+	// 	// * 2. Get the orgin pics array
+	// 	$originPics = Item::find($itemID)->pictures; 
+	// 	foreach($originPics as $originPic){
+	// 		if($originPic->status == 1){
+	// 			$originMainPic = $originPic;
+	// 			break;
+	// 		}
+	// 	}
+
+	// 	// The number of pictures that user can upload
+	// 	$extraPicsCount = 10-count($originPics); 
+
+	// 	// Declare validator rules
+	// 	$rules = array(
+	// 		'title' => 'required|min:3',
+	// 		'price' => 'required|numeric',
+	// 		'category' => 'required',
+	// 		'condition' => 'required|numeric',
+	// 		'description' => 'required|min:10',
+	// 		'pictures' => 'array|between:0,10', // Limit the file upload to 10
+	// 		);
+
+
+	// 	// Create a validator with all input
+	// 	// Check all input format now
+	// 	$validator = Validator::make(Input::all(), $rules);
+
+	// 	// If validator fails, we will exit the operation now
+	// 	if ($validator -> fails())
+	// 	{
+	// 		return Redirect::back()->withInput()->withErrors($validator);
+	// 	}
+
+
+	// 	// * Get the input of pictures
+	// 	$mainPicture = Input::file('mainPicture');	// main pic user upload
+	// 	$pictures = Input::file('pictures'); 		// newly pics user uploaded 
+
+
+	// 	// * 1. Validate the main picture
+	// 	$rules = array('mainPicture' => 'image'); // Declare main picture validator rules
+	// 	$mainPicValidator = Validator::make(array('mainPicture' => $mainPicture),$rules);
+
+	// 	if ($mainPicValidator -> fails()) {
+	// 		return Redirect::back()->withInput()->withErrors($mainPicValidator);
+	// 	}
+
+
+	// 	// * 2. Validate the following pictures
+	// 	// 
+	// 	// Validate each picture if there any pictures not formatted, then fails
+	// 	foreach ($pictures as $picture)
+	// 	{
+	// 		$rules = array('picture' => 'image'); // Declare pictures validator rules
+	// 		$picValidator = Validator::make(array('picture' => $picture), $rules);
+
+	// 		if($picValidator -> fails())
+	// 		{				
+	// 			return Redirect::back()->withInput()->withErrors($picValidator);
+	// 		}
+	// 	}
+
+
+	// 	// * Update - item with validated input
+	// 	$item->title = Input::get('title');
+	// 	$item->category_id = Input::get('category');
+	// 	$item->product_condition = Input::get('condition');
+	// 	$item->description = Input::get('description');
+
+	// 	// * Save item to database
+	// 	if($item->save())
+	// 	{	
+	// 		// * 1. Checkout Main pic
+	// 		$destinationPath = public_path().'/assets/img'; // destination path
+	// 		$extension = $mainPicture->getClientOriginalExtension(); // getting image extension
+	// 		$fileName = date("Ymdhis") . str_random(3) . "." . $extension; // set sile name
+	// 		$uploadSuccess = $mainPicture->move($destinationPath, $fileName);
+
+	// 		// * Update the original main picture status to 0
+	// 		$originMainPic->status = 0;
+	// 		$item->pictures()->save($originMainPic);
+
+	// 		// * Create new Main picture
+	// 		$mainPicture = new Picture;
+	// 		$mainPicture->picture_name = $fileName;
+	// 		$mainPicture->status = 1;
+
+
+
+	// 		// * 1. Save main picture to item
+	// 		if($item->pictures()->save($mainPicture))
+	// 		{			
+	// 			$uploadPicture = array(); // create an emapty array for picture upload
+
+	// 			// * 2. Repeat checkout each following pictures 
+	// 			foreach( $pictures as $picture )
+	// 			{
+	// 				$destinationPath = public_path().'/assets/img';
+	// 				$extension = $picture->getClientOriginalExtension(); // getting image extension	
+	// 				$fileName = date("Ymdhis") . str_random(3) . "." . $extension; 
+	// 				$uploadSuccess = $picture->move($destinationPath, $fileName);
+
+	// 				// push newly created Picture array with names to $uploadPicture array
+	// 				array_push($uploadPicture, new Picture(array('picture_name' => $fileName)));
+	// 			}
+
+	// 			$priceArray = new Price(['price' => e(Input::get('price'))]);
+
+	// 				if(($item->pictures()->saveMany($uploadPicture)) && ($item->prices()->save($priceArray)))
+	// 			{
+	// 				// Save success, return to newly published item
+	// 				// return Redirect::to("/item/$itemID")->with('success', Lang::get('admin/blogs/message.create.success'));
+	// 				return Redirect::action('ItemController@itemPictureProcess', array('id' => $itemID));
+	// 			}				
+
+	// 			// If error exists, return to publish page
+	// 			Return Redirect::to('/revise-item/$itemID')->with('error', Lang::get('admin/blogs/message.create.error'));
+
+	// 		}
+
+	// 	}
+
+	// }
 
 
 /**

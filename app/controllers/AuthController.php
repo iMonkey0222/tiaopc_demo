@@ -35,8 +35,6 @@ class AuthController extends BaseController {
 		$rules = array(
 			'email' 	=> 'required|email',
 
-			// 'phone_number'	 => 'required|numeric|digits:11',
-
 			'password' 	=> 'required|between:3,32',
 			);
 

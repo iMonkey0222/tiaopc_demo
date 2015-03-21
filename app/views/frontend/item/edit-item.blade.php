@@ -18,29 +18,29 @@ Revise an Item ::
 {{-- Page content --}}
 @section('account-content')
 
-<script type="text/javascript">
+<script id = "picturePreview" type="text/javascript">
 		
-// Pre process the error msg    
-$.ajaxSetup({
-  error: function(xhr, status, error) {
-    alert("An AJAX error occured: " + status + "\nError: " + error);
-  }
-});
+// // Pre process the error msg    
+// $.ajaxSetup({
+//   error: function(xhr, status, error) {
+//     alert("An AJAX error occured: " + status + "\nError: " + error);
+//   }
+// });
 
 
-$(document).ready(function() {
+// $(document).ready(function() {
 
-    var options = { 
-        beforeSubmit:  showRequest,
-        success:       showResponse,
-        dataType: 'json'
-        }; 
-     $('body').delegate('#mainPicture','change', function(){
+//     var options = { 
+//         beforeSubmit:  showRequest,
+//         success:       showResponse,
+//         dataType: 'json'
+//         }; 
+//      $('body').delegate('#mainPicture','change', function(){
      	
-     	alert('hiii, image input changes');
-         $('#upload').ajaxForm(options).submit();          
-     }); 
-});  
+//      	//alert('hiii, image input changes');
+//          $('#upload').ajaxForm(options).submit();          
+//      }); 
+// });  
       	
 
        
@@ -207,36 +207,36 @@ function showResponse(response, statusText, xhr, $form)  {
 
 
 				<!-- Picture Upload -->
-				<div class="form-group{{ $errors->first('picture', ' error') }}">
+{{-- 				<div class="form-group{{ $errors->first('picture', ' error') }}">
 					<label class="control-label" for="picture">Picture Upload  (Limitatiuon: 1-10)</label>
 					<div class="controls">
 						<!-- <input type="file" name="picture" id="picture"  /> -->
-						<div id = "mainPicture" class="col_half">
-				            <div class="span3">
-				                <div id="validation-errors"></div>
+						<div id = "mainPicture" class="col_half"> --}}
+	{{-- 			            <div class="span3">
+				                <div id="validation-errors"></div> --}}
 				                <!-- pic upload form -->
 				                {{-- <form class="form-horizontal" id="upload" enctype="multipart/form-data" method="post" action="{{ URL::route('imageUpload') }}" autocomplete="off"> --}}
-                    				<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+{{--                     				<input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     				<input type="file" name="mainPicture" id="mainPicture" /> 
-                				{{-- </form> --}}
-				 				<div class="col_half col_last"> *Please Choose one main picture</div>
-				            </div>
+ --}}                				{{-- </form> --}}
+				 			{{-- 	<div class="col_half col_last"> *Please Choose one main picture</div>
+				            </div> --}}
 				            
-				            <div class="span5">
+				          {{--   <div class="span5">
 				            	<div>output</div>
 				                <div id="output" name = "output"></div>
 
-				            </div>
-				        </div>
+				            </div> --}}
+				        {{-- </div> --}}
 {{-- 							{{ Form::file('mainPicture', 'mainPic', ['id' => 'mainPic'], array('route'=>'imageUpload')) }}  --}}
 
-						<div id = "pics" class="col_half" > {{ Form::file('pictures[]', array('multiple'=>true)) }} </div>
+						{{-- <div id = "pics" class="col_half" > {{ Form::file('pictures[]', array('multiple'=>true)) }} </div> --}}
 
-						<div class="col_half col_last"> *Please Choose at least <strong>two</strong> pictures</div>
-						{{ $errors->first('picture', '<span class="help-block">:message</span>') }}
+						{{-- <div class="col_half col_last"> *Please Choose at least <strong>two</strong> pictures</div> --}}
+						{{-- {{ $errors->first('picture', '<span class="help-block">:message</span>') }} --}}
 
-					</div>
-				</div>
+					{{-- </div> --}}
+				{{-- </div> --}}
 
 				<!-- Description -->
 				<div class="form-group{{ $errors->first('description', ' error') }}">

@@ -5,13 +5,14 @@ return array(
 	'does_not_exist' => 'Blog post does not exist.',
 
 	'create' => array(
-		'error'   => 'Blog post was not created, please try again.',
-		'success' => 'Blog post created successfully.'
+		'error'   => 'Product published unsuccessfully, please try again.',
+		'success' => 'Product published successfully.'
 	),
+	// 'Product post was not created, please try again.',
 
 	'update' => array(
-		'error'   => 'Blog post was not updated, please try again',
-		'success' => 'Blog post updated successfully.'
+		'error'   => 'Product was not updated, please try again',
+		'success' => 'Product updated successfully.'
 	),
 
 	'delete' => array(
