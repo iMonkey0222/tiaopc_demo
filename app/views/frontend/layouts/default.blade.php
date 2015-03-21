@@ -23,8 +23,8 @@
 		{{-- New --}}
 
         {{-- Bootstrap Modal --}}
-        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-modal-bs3patch.css') }}" type="text/css" />
-        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-modal.css') }}" type="text/css" />
+        {{-- <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-modal-bs3patch.css') }}" type="text/css" /> --}}
+        {{-- <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-modal.css') }}" type="text/css" /> --}}
         {{-- Others  --}}
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 	    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
@@ -47,9 +47,12 @@
 	    <script type="text/javascript" src="{{ asset('assets/js/jquery.js')}}"></script>
 	    <script type="text/javascript" src="{{ asset('assets/js/plugins.js')}}"></script>
         {{-- Modal JS         --}}
-        <script type="text/javascript" src="{{ asset('assets/js/bootstrap-modal.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('assets/js/bootstrap-modalmanager.js')}}"></script>
 
+
+        {{--
+            <script type="text/javascript" src="{{ asset('assets/js/bootstrap-modal.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/bootstrap-modalmanager.js')}}"></script>
+        --}}
         <!-- Google Anaytics -->
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
