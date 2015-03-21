@@ -28,9 +28,11 @@
          				<td id = "time">{{$t->created_at}}</td>
          				{{-- Action --}}
          			
-         				
-         				<td><button class="accept button button-3d button-mini button-rounded button-green" >Accept</button></td>						                   				
-         			{{-- 	<td><button id="accept" class="button button-3d button-mini button-rounded button-green">Accepted</button></td> --}}
+         				@if($t->status == 1)
+         				<td><button class="accept button button-3d button-mini button-rounded button-green" >Accept</button></td>
+                        @elseif($t->status == 2)						                   				
+         				<td><button id="accept" class="button button-3d button-mini button-rounded button-green">Approved</button></td>
+                        @endif
          				
          			</tr>
          			@endforeach
@@ -54,13 +56,13 @@ $('.accept').click(function(){
     
     var buyerID = $(this).closest("tr").find('#buyerID').attr('value');
     var itemID = $(this).closest("tr").find('#item').attr('value');
-    
-    alert('Buyer Id : '+buyerID+ 'Item id :'+itemID);
+
+    // alert('Buyer Id : '+buyerID+ 'Item id :'+itemID);
     // .text()
     // { itemID: itemID, buyerID: buyerID },
 
     $.get( '{{URL::route('acceptRequest')}}', {itemID: itemID, buyerID: buyerID}, function(result){
-    	alert(result);
+    	// alert(result);
         console.log(result);
         if(result == 1)
         {

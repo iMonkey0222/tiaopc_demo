@@ -19,6 +19,7 @@ use Pagination;
 use Config;
 use Transaction;
 use Lang;
+use Mail;
 
 
 class ReviewPublishmentController extends AuthorizedController {
@@ -502,7 +503,7 @@ class ReviewPublishmentController extends AuthorizedController {
 						'user' => $buyer,
 					);
 
-					Mail::queue('email.notify-request', $data, function($message) use ($buyer)
+					Mail::send('emails.notify-request', $data, function($message) use ($buyer)
 					{
 						$message->to($buyer->email, $buyer->first_name .' '. $buyer->last_name);
 						$message->subject('Request Approved Notification | Tiaopc');
