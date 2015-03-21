@@ -136,23 +136,32 @@ Published Items
 $('.delete').click(function(){
 	var $button = $(this);
 	var theID = $button.attr('id');
-	alert(theID);
 
-	$.get('{{ URL::route('deleteItem', array('theID')) }}', { itemID: theID }, function(result){
-		console.log(result);
-		if(result == 1){
-			alert("Please login first. ");
-		}
+	var respond = confirm("Are you sure you want to delete this item ?");
 
-		if(result == theID){
-			alert("You are deleting product {{ $item->title }} "+theID);
-			$button.closest('tr').remove();
+	if(respond == true){
+			$.get('{{ URL::route('deleteItem', array('theID')) }}', { itemID: theID }, function(result){
+			console.log(result);
+			if(result == 1){
+				alert("Please login first. ");
+			}	
+			if(result == theID){				
+				$button.closest('tr').remove();	
+			}	
 
-		}
+		});
 
-	});
+	}else{
+		// if press cancel do nothing
+	}
+
+
+
 	return false;
 });
+
+
+
 
 </script>	
 
