@@ -94,7 +94,7 @@ class ReviewPublishmentController extends AuthorizedController {
 		$user = Sentry::getUser();
 		$userID = $user->id;
 
-		$transactions = Transaction::where('buyer_id','=',$userID)->paginate(10);
+		$transactions = Transaction::where('buyer_id','=',$userID)->where('status', '=', 0)->paginate(10);
 
 		// $transactions = User::find($userID)->transactions;
 
