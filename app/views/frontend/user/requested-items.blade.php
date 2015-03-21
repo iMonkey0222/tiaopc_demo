@@ -55,9 +55,7 @@ Requested Items
 
 				<!-- Product Order_status/Transaction Status --> 
 				<td>
-					@if ($transaction->status == 0)
-						<p></p>
-					@elseif ($transaction->status == 1)
+					@if ($transaction->status == 1)
 						<p>Being Requested</p>
 					@elseif ($transaction->status == 2)
 						<p>Paid</p>

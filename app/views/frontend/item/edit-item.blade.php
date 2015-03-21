@@ -171,7 +171,7 @@ function showResponse(response, statusText, xhr, $form)  {
 				</div>
 
 				<!-- Picture Uploaded -->
-				<div class="form-group{{ $errors->first('condition', ' error') }}">
+{{-- 				<div class="form-group{{ $errors->first('condition', ' error') }}">
 					<label class="control-label" for="condition"><i class="icon-picture"></i></label>
 					<div class="controls">
 						<div class="row portfolio-item" >
@@ -187,12 +187,9 @@ function showResponse(response, statusText, xhr, $form)  {
 								<div class="col-xs-6 col-md-2 portfolio-image">
 								<!-- Edit and delete icon -->
 									<div class="portfolio-overlay">	
-										<a title="Edit Photo" href="" class="left-icon" data-lightbox="image">
-											<i class="icon-line-plus"></i>
+										<a title="Edit Photo" href="" data-lightbox="image">
+											<i class="icon-trashcan"></i>
 										</a>
-	                                    <a title="Remove Photo" href="portfolio-single.php" class="right-icon">
-	                                    	<i class="icon-line-ellipsis"></i>
-	                                    </a>
 	                                </div>
 									 <a href="http://localhost:8888/tiaopc_demo/public/item/{{ $item->id }}" class="thumbnail">
 		                       			<img alt="100%x180" src = {{asset("assets/img/$picture->picture_name")}} style="height: 180px; width: 100%; display: block;">
@@ -205,7 +202,7 @@ function showResponse(response, statusText, xhr, $form)  {
 						</div>
 
 					</div>
-				</div>			
+				</div>	 --}}		
 
 
 
@@ -218,15 +215,13 @@ function showResponse(response, statusText, xhr, $form)  {
 				            <div class="span3">
 				                <div id="validation-errors"></div>
 				                <!-- pic upload form -->
-				                <form class="form-horizontal" id="upload" enctype="multipart/form-data" method="post" action="{{ URL::route('imageUpload') }}" autocomplete="off">
+				                {{-- <form class="form-horizontal" id="upload" enctype="multipart/form-data" method="post" action="{{ URL::route('imageUpload') }}" autocomplete="off"> --}}
                     				<input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     				<input type="file" name="mainPicture" id="mainPicture" /> 
-                				</form>
-				 
+                				{{-- </form> --}}
+				 				<div class="col_half col_last"> *Please Choose one main picture</div>
 				            </div>
-				            <div class="col_half col_last"> 
-							*Please Choose one main picture
-						</div>
+				            
 				            <div class="span5">
 				            	<div>output</div>
 				                <div id="output" name = "output"></div>
@@ -268,7 +263,7 @@ function showResponse(response, statusText, xhr, $form)  {
 </section>
 
 
-<script type="text/javascript">
+<script id = "category" type="text/javascript">
 	$(document).ready(function(){
 		$('#category2').hide();
 		$('#category3').hide();
@@ -364,9 +359,6 @@ function showResponse(response, statusText, xhr, $form)  {
 
 		});
 	});
-
-
-
 
 </script>
 @stop

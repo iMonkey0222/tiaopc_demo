@@ -18,6 +18,7 @@ use Response;
 use Pagination;
 use Config;
 use Transaction;
+use Lang;
 
 
 class ReviewPublishmentController extends AuthorizedController {
