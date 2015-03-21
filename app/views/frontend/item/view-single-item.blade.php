@@ -9,9 +9,14 @@
 
 
 {{-- Page title --}}
+@section('title')
+{{$item->title}} |
+@parent
+@stop
 
 
 
+{{-- Body Title --}}
 @section('page-title')
 
 <section id="page-title">
