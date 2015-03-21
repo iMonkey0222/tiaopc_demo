@@ -59,7 +59,7 @@ Requested Items
 						<a></a>
 					@elseif ($transaction->status == 2)
 						<a class = "button button-small button-rounded">Approved</a>
-					@elseif($Transaction->status == 3)
+					@elseif($transaction->status == 3)
 						<a class = "button button-small button-rounded">Paid</a>
 					@endif
 				</td>
