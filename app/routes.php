@@ -194,7 +194,7 @@ Route::get('search', array('as' => 'search', 'uses' => 'HomeController@searchIte
  */
 // Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showWelcome'));
 Route::get('/', array('as' => 'home', function(){
-	return View::make('coming_soon');
+	return View::make('frontend.home');
 }));
 
 Route::get('homepage', function(){
