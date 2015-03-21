@@ -10,7 +10,7 @@ Publish Item ::
 <section id="page-title">
     <div class="container clearfix">
         <h3>Start Selling</h3>
-        <span>Sell My Second Hand Digital Product</span>
+        <span>My Second Hand Digital Product</span>
  		<ol class="breadcrumb">
             <li class="active"><h5><a class="icon-home" href="http://tiaopc.com/">Home</a></h5></li>
         </ol>
