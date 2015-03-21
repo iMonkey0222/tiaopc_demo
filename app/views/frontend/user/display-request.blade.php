@@ -8,34 +8,34 @@
 
 @section('account-content')
 <a href="{{ route('published-items') }}" class="btn btn-link">Back</a>
-		<table class="table table-striped">
-         	<thead>
-         		<tr>
-         			<th>Product Name</th>
-         			<th>Requested By</th>
-         			<th>Request Time</th>
-         			<th>Action</th>
-         		</tr>				                   				
-         		<tbody>
-       					@foreach($item->transactions as $t)	
-       					{{-- <p>{{var_dump($t)}}</p>	 --}}	                		
-       					<tr>
-         				{{-- Production Name --}}
-         				<td>{{$item->title}}</td>
-         				{{-- Requested By						                   				 --}}
-         				<td id = "buyerID" value = "{{$t['buyer_id']}}" >{{$t->buyerNickname}}</td>
-         				{{-- When --}}
-         				<td id = "time">{{$t->created_at}}</td>
-         				{{-- Action --}}
-         			
-         				
-         				<td><button class="accept button button-3d button-mini button-rounded button-green" >Accept</button></td>						                   				
-         			{{-- 	<td><button id="accept" class="button button-3d button-mini button-rounded button-green">Accepted</button></td> --}}
-         				
-         			</tr>
-         			@endforeach
-         		</tbody>				                   			
-         	</thead>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Requested By</th>
+                    <th>Request Time</th>
+                    <th>Action</th>
+                </tr>                                               
+                <tbody>
+                        @foreach($item->transactions as $t) 
+                        {{-- <p>{{var_dump($t)}}</p>     --}}                           
+                        <tr>
+                        {{-- Production Name --}}
+                        <td>{{$item->title}}</td>
+                        {{-- Requested By                                                        --}}
+                        <td id = "buyerID" value = "{{$t['buyer_id']}}" >{{$t->buyerNickname}}</td>
+                        {{-- When --}}
+                        <td id = "time">{{$t->created_at}}</td>
+                        {{-- Action --}}
+                    
+                        
+                        <td><button class="accept button button-3d button-mini button-rounded button-green" >Accept</button></td>                                                       
+                    {{--    <td><button id="accept" class="button button-3d button-mini button-rounded button-green">Accepted</button></td> --}}
+                        
+                    </tr>
+                    @endforeach
+                </tbody>                                            
+            </thead>
          </table>
 
 <script type="text/javascript">
@@ -59,7 +59,7 @@ $('.accept').click(function(){
     // { itemID: itemID, buyerID: buyerID },
 
     $.get( '{{URL::route('acceptRequest')}}', {itemID: itemID, buyerID: buyerID}, function(result){
-    	// alert(result);
+        // alert(result);
         console.log(result);
         if(result == 1)
         {
