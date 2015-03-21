@@ -57,12 +57,12 @@ $('.accept').click(function(){
     var buyerID = $(this).closest("tr").find('#buyerID').attr('value');
     var itemID = $(this).closest("tr").find('#item').attr('value');
 
-    alert('Buyer Id : '+buyerID+ 'Item id :'+itemID);
+    // alert('Buyer Id : '+buyerID+ 'Item id :'+itemID);
     // .text()
     // { itemID: itemID, buyerID: buyerID },
 
     $.get( '{{URL::route('acceptRequest')}}', {itemID: itemID, buyerID: buyerID}, function(result){
-    	alert(result);
+    	// alert(result);
         console.log(result);
         if(result == 1)
         {
