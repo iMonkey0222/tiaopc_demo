@@ -59,7 +59,7 @@ App::error(function(Exception $exception, $code)
     switch ($code)
     {
         case 403:
-            return Response::view( 'errors/403', 403);
+            return Response::view('errors/403', 403);
 
         case 500:
             return Response::view('errors/500', 500);
