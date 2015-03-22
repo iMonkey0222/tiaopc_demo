@@ -33,6 +33,27 @@ ClassLoader::addDirectories(array(
 
 Log::useFiles(storage_path().'/logs/laravel.log');
 
+
+
+/**
+ *  Handle the any missing in routes
+ */
+
+
+// App::missing(function($exception)
+// {
+//     return "erro";
+
+// });
+
+
+
+
+
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Error Handler
@@ -56,16 +77,17 @@ App::error(function(Exception $exception, $code)
         return;
     }
 
+
     switch ($code)
     {
         case 403:
-            return Response::view('errors/403', 403);
+            return Response::view('errors.403', 403);
 
         case 500:
-            return Response::view('errors/500', 500);
+            return Response::view('errors.500', 500);
 
         default:
-            return Response::view('errors/404', $code);
+            return Response::view('errors.404');
     }
 });
 /*
