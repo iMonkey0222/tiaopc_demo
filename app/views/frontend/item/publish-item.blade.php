@@ -126,7 +126,9 @@ Publish Item ::
 
 				<!-- Picture Upload -->
 				<div class="form-group{{ $errors->first('picture', ' error') }}">
-					<label class="control-label" for="picture">Picture Upload</label>
+					<label class="control-label" for="picture" data-toggle="tooltip" data-placement="left" title="" data-original-title="Each picture file should no more than 1.5 MB.">
+						<i class = "icon-bulb"></i> 
+						Picture Upload</label>
 					<div class="controls">
 						<!-- <input type="file" name="picture" id="picture"  /> -->
 						<div class="col_half"> {{ Form::file('mainPicture') }} </div>
