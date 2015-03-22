@@ -1,4 +1,3 @@
 .env.local.php
-
 /app/config/database.php
-
+.env.php
