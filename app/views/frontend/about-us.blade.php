@@ -214,6 +214,7 @@ About Us
                                 <div class="team-desc">
                                     <div class="team-title"><h4>曾昊山</h4><span>ZHS</span></div>
                                     <div class="team-content">
+                                    <p>
                                         吕子明 踏轻舟 白衣渡川<br>
                                         陆伯言 烧联营 火光上冲天<br>
                                         军赤壁 纵野火 铁锁连环<br>
@@ -221,6 +222,7 @@ About Us
                                         问古今 兴亡事<br>
                                         几人耀青史 芳名留<br>
                                         笑谈间 云烟已旧<br>
+                                    </p>
 
                                     </div>
                                     <a href="http://www.weibo.com/vampire0z" class="social-icon si-rounded si-small si-light si-gplus">
