@@ -152,7 +152,7 @@ About Us
                                     <img src="{{ asset('assets/others/team/xiaoyang.jpg')}}" alt="王潇阳">
                                 </div>
                                 <div class="team-desc">
-                                    <div class="team-title"><h4>王潇阳</h4><span>小清新程序媛</span></div>
+                                    <div class="team-title"><h4>王潇阳</h4><span>程序媛</span></div>
                                     <div class="team-content">
                                         <p>坚信Programing即艺术的程序媛。
                                         纵观生活中无处不在的绘画，音乐与摄影…… 会发现Programming也不过是艺术创作的另一种表达方式。
@@ -212,9 +212,18 @@ About Us
                                     <img src="{{ asset('assets/others/team/zengge.jpg')}}" alt="曾昊山">
                                 </div>
                                 <div class="team-desc">
-                                    <div class="team-title"><h4>曾昊山</h4><span>泽哥的死对头</span></div>
+                                    <div class="team-title"><h4>曾昊山</h4><span>ZHS</span></div>
                                     <div class="team-content">
-                                        <p>某日，吾窥镜自视，谓吾妻曰：“我孰与城北润泽美？”吾妻曰：“君美甚，润泽何能及君也？”城北润泽，腐国之美丽者也。吾不自信，而复问昊鹏曰：“吾孰与润泽美？”鹏曰：“润泽何能及君也？”旦日，悦从外来，与坐谈，问之悦曰：“吾与润泽孰美？”悦曰：“润泽不若君之美也。”</p>
+                                    <p>
+                                        吕子明 踏轻舟 白衣渡川<br>
+                                        陆伯言 烧联营 火光上冲天<br>
+                                        军赤壁 纵野火 铁锁连环<br>
+                                        御北敌 联西蜀 长江上鏖战<br>
+                                        问古今 兴亡事<br>
+                                        几人耀青史 芳名留<br>
+                                        笑谈间 云烟已旧<br>
+                                    </p>
+
                                     </div>
                                     <a href="http://www.weibo.com/vampire0z" class="social-icon si-rounded si-small si-light si-gplus">
                                         <i class="icon-weibo2"></i>
