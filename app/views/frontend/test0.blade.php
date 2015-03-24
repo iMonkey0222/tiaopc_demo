@@ -14,35 +14,38 @@ Test By Yue Wang
 
 
 
+
+
+
 {{--  20/3/2015 --}}
 <?php
 
 
-Mail::queue('email.notify-request', $array, function($message)
-{
-  $message->to('mail_address', 'Name')->subject('Request Approved Notification | Tiaopc');
-});
-// $itemId = 23;
-
-// // $tran = Item::find($itemId)->transactions;
-
-// $tran = Transaction::where('item_id','=',$itemId)->get()->toArray();
-// var_dump($tran);
-
-// foreach ($tran as $x)
+// Mail::queue('email.notify-request', $array, function($message)
 // {
-//   echo "ok";
-//   var_dump($x->creatd_at);
-// }
+//   $message->to('mail_address', 'Name')->subject('Request Approved Notification | Tiaopc');
+// });
+// // $itemId = 23;
+
+// // // $tran = Item::find($itemId)->transactions;
+
+// // $tran = Transaction::where('item_id','=',$itemId)->get()->toArray();
+// // var_dump($tran);
+
+// // foreach ($tran as $x)
+// // {
+// //   echo "ok";
+// //   var_dump($x->creatd_at);
+// // }
 
 
-$item = Item::find(23);
+// $item = Item::find(23);
 
-array_add($item, 'transactions', $tran);
+// array_add($item, 'transactions', $tran);
 
-// foreach( $item as $y){
-  var_dump($item->transactions);
-// }
+// // foreach( $item as $y){
+//   var_dump($item->transactions);
+// // }
 
 ?>
 
