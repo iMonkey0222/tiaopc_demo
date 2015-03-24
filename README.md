@@ -8,3 +8,10 @@ Some development details as follow:
 * Database: MySQL
 * Frontend: HTML5: Theme Canvas, JQuery, Javascript, CSS
 * Server: DigitalOcean 2GB Ram, 40GB Rom, 3TB Transfer, London; Forge; LNMP framework
+
+# For test user entry 
+* For visitor, you can browser the items and other pages about out website and out team.
+* For anyone who want to have a try, you can get a limit access with the account below:
+..* login email: test@test.com
+..* login password: test2015
+
