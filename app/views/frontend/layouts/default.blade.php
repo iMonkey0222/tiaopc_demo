@@ -34,8 +34,10 @@
 	    <link rel="stylesheet" href="{{ asset('assets/css/font-icons.css') }}" type="text/css" />
 	    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}" type="text/css" />
 	    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}" type="text/css" />
-
 	    <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}" type="text/css" />
+
+        {{-- fineUploader css --}}
+        <link rel="stylesheet" href="{{ asset('assets/css/fine-uploader.min.css') }}" type="text/css" />
 
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
@@ -46,6 +48,11 @@
     	============================================= -->
 	    <script type="text/javascript" src="{{ asset('assets/js/jquery.js')}}"></script>
 	    <script type="text/javascript" src="{{ asset('assets/js/plugins.js')}}"></script>
+        <!-- Upload JavaScripts
+        ============================================= -->       
+        <script type="text/javascript" src="{{ asset('assets/js/jquery.fine-uploader.min.js')}}"></script>
+
+
         {{-- Modal JS         --}}
 
 
@@ -53,6 +60,8 @@
             <script type="text/javascript" src="{{ asset('assets/js/bootstrap-modal.js')}}"></script>
         <script type="text/javascript" src="{{ asset('assets/js/bootstrap-modalmanager.js')}}"></script>
         --}}
+
+
         <!-- Google Anaytics -->
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
