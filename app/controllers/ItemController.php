@@ -454,12 +454,15 @@ class ItemController extends BaseController {
 			}
 
 			// Check if the seller itself
-			$sellerId = Item::find($itemID)->getUser->id;
+			$seller = Item::find($itemID)->getUser;
+			$sellerId = $seller->id;
 
 			if($sellerId == $userID)
 			{
 				return 4;
 			}
+
+
 
 
 			// Change order status
@@ -476,7 +479,20 @@ class ItemController extends BaseController {
 
 			if($transaction->save() && $item->save())
 			{
+
+				$data = array(
+					'itemID' => $itemID,	
+
+					'user' => $seller,
+				);	
+
+				Mail::send('emails.notify-request', $data, function($message) use ($seller)
+				{
+					$message->to($seller->email, $seller->first_name .' '. $seller->last_name);
+					$message->subject('Item Request Notification | Tiaopc');
+				});
 				return 3;
+
 			}
 
 		}

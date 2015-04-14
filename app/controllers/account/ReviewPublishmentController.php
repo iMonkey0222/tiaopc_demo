@@ -548,7 +548,7 @@ class ReviewPublishmentController extends AuthorizedController {
 					
 					// !!!-- Attention of scope query
 					$transaction = Transaction::itemID($itemID)->buyerID($buyerID)->first();
-	// Get the id of tran, only find() can change its value
+					// Get the id of tran, only find() can change its value
 					$transaction = Transaction::find($transaction->id);	
 
 					$transaction->status = 2; // change to approved	
@@ -561,7 +561,7 @@ class ReviewPublishmentController extends AuthorizedController {
 							'user' => $buyer,
 						);	
 
-						Mail::send('emails.notify-request', $data, function($message) use ($buyer)
+						Mail::send('emails.notify-approved', $data, function($message) use ($buyer)
 						{
 							$message->to($buyer->email, $buyer->first_name .' '. $buyer->last_name);
 							$message->subject('Request Approved Notification | Tiaopc');
