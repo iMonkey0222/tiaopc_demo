@@ -8,8 +8,8 @@ Profile page
 
 
 @section('account-page-title')
-    <h3>My Profile</h3>
-    <span><h4>Update your Profile</h4></span>
+    <h3>我的个人账户</h3>
+    <span><h4>修改个人资料</h4></span>
 @stop
 {{-- Account Content --}}
 @section('account-content')
@@ -20,7 +20,7 @@ Profile page
 
 	<!-- User Name -->
 	<div class="form-group{{ $errors->first('nickname', ' error') }}">
-		<label class="col-sm-3 control-label" for="nickname">User Name</label>
+		<label class="col-sm-3 control-label" for="nickname">用户名 *</label>
 		<div class="col-sm-9">
 			<input class="form-control" type="text" name="nickname" id="nickname" value="{{ Input::old('nickname', $user->nickname) }}" />
 			{{ $errors->first('nickname', '<span class="help-block">:message</span>') }}
@@ -29,7 +29,7 @@ Profile page
 
 	<!-- First Name -->
 	<div class="form-group{{ $errors->first('first_name', ' error') }}">
-		<label class="col-sm-3 control-label" for="first_name">First Name</label>
+		<label class="col-sm-3 control-label" for="first_name">名 *</label>
 		<div class="col-sm-9">
 			<input class="form-control" type="text" name="first_name" id="first_name" value="{{ Input::old('first_name',$user->first_name) }}" />
 			{{ $errors->first('first_name', '<span class="help-block">:message</span>') }}
@@ -38,7 +38,7 @@ Profile page
 
 	<!-- Last Name -->
 	<div class="form-group{{ $errors->first('last_name', ' error') }}">
-		<label class="col-sm-3 control-label" for="last_name">Last Name</label>
+		<label class="col-sm-3 control-label" for="last_name">姓 *</label>
 		<div class="col-sm-9">
 			<input class="form-control" type="text" name="last_name" id="last_name" value="{{ Input::old('last_name', $user->last_name) }}" />
 			{{ $errors->first('last_name', '<span class="help-block">:message</span>') }}
@@ -57,7 +57,7 @@ Profile page
 
 	<!-- Location -->
 	<div class="form-group{{ $errors->first('location', ' error') }}">
-		<label for="location" class="col-sm-3 control-label">Location</label>
+		<label for="location" class="col-sm-3 control-label">所在城市 *</label>
 		<div class="col-sm-9">
 			<div class="controls">
 				<select class="form-control" name="location" id="location">
@@ -72,13 +72,30 @@ Profile page
 
 	<!-- Phone Number -->
 	<div class="form-group{{ $errors->first('phone_number', ' error') }}">
-		<label class="col-sm-3 control-label" for="phone_number">Phone Number</label>
+		<label class="col-sm-3 control-label" for="phone_number">手机号码 *</label>
 		<div class="col-sm-9">
 			<input type="text" class="form-control" name="phone_number" id="phone_number" value="{{ Input::old('phone_number', $user->phone_no) }}" />
 			{{ $errors->first('phone_number', '<span class="help-block">:message</span>') }}
 		</div>
 	</div>
 
+	<!-- Wei Xin -->
+	<div class="form-group{{ $errors->first('weixin', ' error') }}">
+		<label class="col-sm-3 control-label" for="weixin"><i class = "icon-trash"></i>微信</label>
+		<div class="col-sm-9">
+			<input type="text" class="form-control" name="weixin" id="weixin" value="{{ Input::old('weixin', $user->weixin) }}" />
+			{{ $errors->first('weixin', '<span class="help-block">:message</span>') }}
+		</div>
+	</div>
+
+	<!-- QQ Number -->
+	<div class="form-group{{ $errors->first('qq', ' error') }}">
+		<label class="col-sm-3 control-label" for="qq">QQ</label>
+		<div class="col-sm-9">
+			<input type="text" class="form-control" name="qq" id="qq" value="{{ Input::old('qq', $user->qq) }}" />
+			{{ $errors->first('qq', '<span class="help-block">:message</span>') }}
+		</div>
+	</div>
 
 
 
@@ -86,7 +103,7 @@ Profile page
 
 	<div class="form-group">
 		<div class="col-sm-offset-3 col-sm-10">
-			<button type="submit" class="btn btn-default">Update</button>
+			<button type="submit" class="btn btn-default">确认更新</button>
 		</div>
 	</div>
 

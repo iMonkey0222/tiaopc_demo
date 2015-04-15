@@ -100,8 +100,97 @@ class AuthController extends BaseController {
 		//Return and redirect the fail message
 		return Redirect::back()->withInput()->withErrors($this->messageBag);
 	}
+/**
+ * [getSignupSelection description]
+ * @return [type] [description]
+ */
+	public function getSignupSelection()
+	{
+		// Show the page
+		return View::make('frontend.auth.signup-selection');
+	}
+/**
+ * [getQuickSignup description]
+ * @return [type] [description]
+ */
+	public function getQuickSignup()
+	{
+		// Show the page
+		return View::make('frontend.auth.quick-signup');
+	}
+/**
+ * [postSignup description]
+ * @return [type] [description]
+ */
+	public function postQuickSignup()
+	{
+		// Define a validation rule called not_contains
+		Validator::extend('not_contains', function($attribute, $value, $parameters){
+			if (strpos($value, '@') !== FALSE) {
+				return false; // find the @
+			} 
+			return true; // the validation passed
+		})
+
+		;
+		// Declare the rules for the form validation
+		$rules = array(
+			'email2'            	=> 'required|unique:users|not_contains',
+			'school_address'		=> 'required',
+			'email'					=>'required|email|unique:users',
+			'password'         		=> 'required|between:3,32',
+			'password_confirm' 		=> 'required|same:password',
+		);
+
+		// Create a new validator instance from our validation rules
+		$validator = Validator::make(Input::all(), $rules);
+
+		// If validation fails, we'll exit the operation now.
+		if ($validator->fails())
+		{
+			// Ooops.. something went wrong
+			return Redirect::back()->withInput()->withErrors($validator);
+		}
+
+		try
+		{
+			$school_address = (Input::get('school_address') == 'liv')? Config::get('helper.mail_postfix_liv') : Config::get('helper.mail_postfix_xjtlu');
+
+			// Register the user
+			$user = Sentry::register(array(
+				'email'      	=> Input::get('email'), 
+				'email2'		=> Input::get('email2').$school_address,
+				'password'   	=> Input::get('password'),
+			));
+
+			// Data to be used on the email view
+			$data = array(
+				'user'          => $user,
+				'activationUrl' => URL::route('activate', $user->getActivationCode()),
+			);
+
+			// Send the activation code through email
+			Mail::send('emails.register-activate', $data, function($m) use ($user)
+			{
+				$m->to($user->email2, $user->first_name . ' ' . $user->last_name);
+				$m->subject('Welcome ' . $user->first_name);
+			});
+
+			// Redirect to the register page
+			// Redirect::back() (back to last page)
+			return Redirect::route('signin')->with('success', Lang::get('auth/message.signup.success'));
+		}
 
 
+		// Catch user exist exception 
+		catch (Cartalyst\Sentry\Users\UserExistsException $e)
+		{
+			$this->messageBag->add('email', Lang::get('auth/message.account_already_exists'));
+		}
+
+		// Ooops.. something went wrong
+		return Redirect::back()->withInput()->withErrors($this->messageBag);
+	}
 	/**
 	 * Account sign up
 	 * @return page if user already sign in, then get in account page
@@ -148,12 +237,12 @@ class AuthController extends BaseController {
 			'email2_confirm'    	=> 'required|same:email2|not_contains',
 			'school_address'		=> 'required',
 
-			'email'					=>'required|email|unique:users',
-			'email_confirm'			=>'required|same:email',
+			'email'					=> 'required|email|unique:users',
+			'email_confirm'			=> 'required|same:email',
 
 			'password'         		=> 'required|between:3,32',
 			'password_confirm' 		=> 'required|same:password',
-			'location' 				=>'required',
+			'location' 				=> 'required',
 			'phone_number'	   		=> 'required|numeric|digits:11',
 
 		);
@@ -183,6 +272,8 @@ class AuthController extends BaseController {
 				'password'   	=> Input::get('password'),
 				'location'		=> Input::get('location'),
 				'phone_no'		=> Input::get('phone_number'),
+				'weixin'		=> Input::get('weixin'),
+				'qq'			=> Input::get('qq'),
 
 			));
 

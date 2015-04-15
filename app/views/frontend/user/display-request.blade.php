@@ -82,8 +82,8 @@ $('.accept').click(function(){
             $button.attr( "disabled", "disabled" );
             $button.attr("class", "accept button button-3d button-mini button-rounded button-amber");
 
-            alert('byuer id !!:'+buyerID);
-
+            // alert('byuer id !!:'+buyerID);
+            alert('你接受了对方的请求。');
             // $('#dealTitle').show();
             $('.deal-'+buyerID).show();
         }

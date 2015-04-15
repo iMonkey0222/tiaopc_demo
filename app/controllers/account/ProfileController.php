@@ -26,6 +26,7 @@ class ProfileController extends AuthorizedController {
 
 		// Declare the rules for the form validation
 		$rules = array(
+			'nickname'		=> 'required|min:2|unique:users',
 			'first_name'	=>'required|min:2',
 			'last_name'		=>'required|min:2',
 			'location' 		=>'required',
@@ -45,11 +46,15 @@ class ProfileController extends AuthorizedController {
 		$user = Sentry::getUser();
 
 		// Update the user information
-		$user->first_name = Input::get('first_name');
-		$user->last_name  = Input::get('last_name');
+		$user->nickname		= Input::get('nickname');
+
+		$user->first_name 	= Input::get('first_name');
+		$user->last_name  	= Input::get('last_name');
 		// $user->email2     = Input::get('login_email');
-		$user->location   = Input::get('location');
-		$user->phone_no   = Input::get('phone_number');
+		$user->location   	= Input::get('location');
+		$user->phone_no   	= Input::get('phone_number');
+		$user->weixin		= Input::get('weixin');
+		$user->qq 			= Input::get('qq');
 
 		if ($user->save()) {
 			// Redirect to the settings page
