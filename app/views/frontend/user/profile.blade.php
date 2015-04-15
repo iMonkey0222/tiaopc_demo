@@ -55,6 +55,21 @@ Profile page
 		</div>
 	</div> --}}
 
+	<!-- Location -->
+	<div class="form-group{{ $errors->first('location', ' error') }}">
+		<label for="location" class="col-sm-3 control-label">Location</label>
+		<div class="col-sm-9">
+			<div class="controls">
+				<select class="form-control" name="location" id="location">
+				    <option value="" disabled="disabled">-- Select a location --</option>
+					<option value="1" {{ ($user->location == 1) ? 'selected = true' : ' ' }}>英国 利物浦</option>
+					<option value="2" {{ ($user->location == 2) ? 'selected = true' : ' ' }}>中国 苏州</option>
+				</select> 
+			{{ $errors->first('location', '<span class="help-block">:message</span>') }}
+			</div>
+		</div>
+	</div>
+
 	<!-- Phone Number -->
 	<div class="form-group{{ $errors->first('phone_number', ' error') }}">
 		<label class="col-sm-3 control-label" for="phone_number">Phone Number</label>

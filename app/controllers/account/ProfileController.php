@@ -28,6 +28,7 @@ class ProfileController extends AuthorizedController {
 		$rules = array(
 			'first_name'	=>'required|min:2',
 			'last_name'		=>'required|min:2',
+			'location' 		=>'required',
 			'phone_number' 	=>'required|numeric|digits:11',
 			);
 		// Create a new validator instance from our validation rules
@@ -47,6 +48,7 @@ class ProfileController extends AuthorizedController {
 		$user->first_name = Input::get('first_name');
 		$user->last_name  = Input::get('last_name');
 		// $user->email2     = Input::get('login_email');
+		$user->location   = Input::get('location');
 		$user->phone_no   = Input::get('phone_number');
 
 		if ($user->save()) {

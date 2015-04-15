@@ -170,6 +170,22 @@ function showResponse(response, statusText, xhr, $form)  {
 				    {{ $errors->first('condition', '<span class="help-block">:message</span>') }}
 				</div>
 
+	
+				<!-- Location -->
+				<div class="form-group{{ $errors->first('location', ' error') }}">
+					<label for="location" class="control-label">Location</label>
+					
+					<div class="controls">
+						<select class="form-control" name="location" id="location">
+						    <option value="" disabled="disabled">-- Select a location --</option>
+							<option value="1" {{ ($item->location == 1) ? 'selected = true' : ' ' }}>英国 利物浦</option>
+							<option value="2" {{ ($item->location == 2) ? 'selected = true' : ' ' }}>中国 苏州</option>
+						</select> 
+					{{ $errors->first('location', '<span class="help-block">:message</span>') }}
+					</div>
+				
+				</div>
+
 				<!-- Picture Uploaded -->
 {{-- 				<div class="form-group{{ $errors->first('condition', ' error') }}">
 					<label class="control-label" for="condition"><i class="icon-picture"></i></label>
@@ -222,11 +238,14 @@ function showResponse(response, statusText, xhr, $form)  {
 				 			{{-- 	<div class="col_half col_last"> *Please Choose one main picture</div>
 				            </div> --}}
 				            
-				            <div class="span5">
+			{{--Out Put--}}
+{{-- 				            <div class="span5">
 				            	<div>output</div>
 				                <div id="output" name = "output"></div>
 
-				            </div>
+				            </div> --}}
+
+
 				        {{-- </div> --}}
 {{-- 							{{ Form::file('mainPicture', 'mainPic', ['id' => 'mainPic'], array('route'=>'imageUpload')) }}  --}}
 

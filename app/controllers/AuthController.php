@@ -130,19 +130,30 @@ class AuthController extends BaseController {
 	 */
 	public function postSignup()
 	{
+		// Define a validation rule called not_contains
+		Validator::extend('not_contains', function($attribute, $value, $parameters){
+			if (strpos($value, '@') !== FALSE) {
+				return false; // find the @
+			} 
+			return true; // the validation passed
+		})
+
+		;
 		// Declare the rules for the form validation
 		$rules = array(
 			'nickname'		   		=> 'required|min:2|unique:users',
 			'first_name'       		=> 'required|min:2',
 			'last_name'        		=> 'required|min:2',
-			'email2'            		=> 'required|unique:users',
-			'email2_confirm'    		=> 'required|same:email2',
+			'email2'            	=> 'required|unique:users|not_contains',
+			'email2_confirm'    	=> 'required|same:email2|not_contains',
+			'school_address'		=> 'required',
 
-			'email'			=>'required|email|unique:users',
-			'email_confirm'	=>'required|same:email',
+			'email'					=>'required|email|unique:users',
+			'email_confirm'			=>'required|same:email',
 
 			'password'         		=> 'required|between:3,32',
 			'password_confirm' 		=> 'required|same:password',
+			'location' 				=>'required',
 			'phone_number'	   		=> 'required|numeric|digits:11',
 
 		);
@@ -160,14 +171,17 @@ class AuthController extends BaseController {
 
 		try
 		{
+			$school_address = (Input::get('school_address') == 'liv')? Config::get('helper.mail_postfix_liv') : Config::get('helper.mail_postfix_xjtlu');
+
 			// Register the user
 			$user = Sentry::register(array(
 				'nickname'		=> Input::get('nickname'),
 				'first_name' 	=> Input::get('first_name'),
 				'last_name'  	=> Input::get('last_name'),
 				'email'      	=> Input::get('email'), 
-				'email2'		=> Input::get('email2').Config::get('helper.mail_postfix'),
+				'email2'		=> Input::get('email2').$school_address,
 				'password'   	=> Input::get('password'),
+				'location'		=> Input::get('location'),
 				'phone_no'		=> Input::get('phone_number'),
 
 			));

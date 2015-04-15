@@ -38,12 +38,13 @@ Account Sign up ::
 {{-- 		<form method="post" action="{{ route('signup') }}" class="form-horizontal" autocomplete="on"> --}}	
 			<!-- CSRF Token -->
 			<input type="hidden" name="_token" value="{{ csrf_token() }}" />
-
+			<!-- The school address selection -->
+			<input type="hidden" name="school_address" id="school_address" value="">
 
 			<!-- User Name -->
 			<div class="form-group{{ $errors->first('nickname', ' error') }}">
 				<label for="first_name" class="col-sm-3 control-label">User Name</label>
-				<div class="col-sm-9">
+				<div class="col-sm-8">
 
 					<input type="text" class="form-control" name="nickname" id="nickname" value="{{ Input::old('nickname') }}" placeholder="user name"/>
 					{{ $errors->first('nickname', '<span class="help-block">:message</span>') }}
@@ -54,7 +55,7 @@ Account Sign up ::
 			<!-- First Name -->
 			<div class="form-group{{ $errors->first('first_name', ' error') }}">
 				<label for="first_name" class="col-sm-3 control-label">First Name</label>
-				<div class="col-sm-9">
+				<div class="col-sm-8">
 					<input type="text" class="form-control" name="first_name" id="first_name" value="{{ Input::old('first_name') }}" placeholder="your first name"/>
 					{{ $errors->first('first_name', '<span class="help-block">:message</span>') }}
 				</div>
@@ -64,7 +65,7 @@ Account Sign up ::
 			<!-- Last Name -->
 			<div class="form-group{{ $errors->first('last_name', ' error') }}">
 				<label for="last_name" class="col-sm-3 control-label">Last Name</label>
-				<div class="col-sm-9">
+				<div class="col-sm-8">
 					<input type="text" class="form-control" name="last_name" id="last_name" value="{{ Input::old('last_name') }}" placeholder="your last name"/>
 					{{ $errors->first('last_name', '<span class="help-block">:message</span>') }}
 				</div>
@@ -76,11 +77,18 @@ Account Sign up ::
 				<label for="email2" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="left" title="" data-original-title="This email only used for activate account."><i class = "icon-bulb"></i> Validation Email</label>
 {{-- 				 ( * Please enter the prefix of you school email.
 				  This email will receive the validation link to active account. ) --}}
-				<div class="col-sm-9">
+				<div class="col-sm-8">
 					<div class="input-group">
-						
 						<input type="text" class="form-control" name="email2" id="email2" value="{{ Input::old('email2') }}" placeholder="Enter your school account user name"/>
-						<span id="email-postfix" class="input-group-addon"> @ liv.ac.uk</span>
+						{{-- <span id="email-postfix" class="input-group-addon"> @ liv.ac.uk</span> --}}
+
+						<div class="input-group-btn">
+							<button type="button" class="select-button btn btn-default dropdown-toggle" data-toggle="dropdown"> - Select school address - <span class="caret"></span></button>
+							<ul class="dropdown-menu">
+          						<li id = "liv"><a href="#">@liv.ac.uk</a></li>
+          						<li id = "xjtlu"><a href="#">@student.xjtlu.edu.cn</a></li>
+        					</ul>
+						</div> {{--button div--}}
 						
 					</div>
 					{{ $errors->first('email2', '<span class="help-block">:message</span>') }}
@@ -90,10 +98,11 @@ Account Sign up ::
 			<!-- Email for register Confirm -->
 			<div class="form-group{{ $errors->first('email2_confirm', ' error') }}">
 				<label for="email2_confirm" class="col-sm-3 control-label">Confirm Email</label>
-				<div class="col-sm-9">
+				<div class="col-sm-8">
+
 					<div class="input-group">
 						<input type="text" class="form-control" name="email2_confirm" id="email2_confirm" value="{{ Input::old('email2_confirm') }}" placeholder="Confirm your school account user name"/>
-						<span id="email-postfix" class="input-group-addon">@ liv.ac.uk</span>
+						<span id="email-postfix" class="selected-school-address input-group-addon"> - selected school address - </span>
 					</div>
 					{{ $errors->first('email2_confirm', '<span class="help-block">:message</span>') }}
 				</div>
@@ -103,7 +112,7 @@ Account Sign up ::
 			<!-- Email for Future Login  email-->
 			<div class="form-group{{ $errors->first('email', 'error') }}">
 				<label for="email" class="col-sm-3 control-label" data-toggle="tooltip" data-placement="left" title="" data-original-title="This email is used for further login and receive notification."><i class = "icon-bulb"></i> Login Email</label>
-				<div class="col-sm-9">
+				<div class="col-sm-8">
 					<div class="controls">
 						<input type="text" class="form-control" name="email" id = "email" value="{{ Input::old('email') }}" placeholder="Enter the email address for future login"/>
 						{{ $errors->first('email', '<span class="help-block">:message</span>') }}
@@ -115,7 +124,7 @@ Account Sign up ::
 			<!-- Email for Future Login Confirm -->
 			<div class="form-group{{ $errors->first('email_confirm', 'error') }}">
 				<label for="email_confirm" class="col-sm-3 control-label">Confirm Email</label>
-				<div class="col-sm-9">
+				<div class="col-sm-8">
 					<div class="controls">
 						<input type="text" class="form-control" name="email_confirm" id = "email_confirm" value="{{ Input::old('email_confirm') }}" placeholder="Confirm the login email address"/>
 						{{ $errors->first('email_confirm', '<span class="help-block">:message</span>') }}
@@ -128,7 +137,7 @@ Account Sign up ::
 			<!-- Password -->
 			<div class="form-group{{ $errors->first('password', ' error') }}">
 				<label  for="password" class="col-sm-3 control-label">Password</label>
-				<div class="col-sm-9">
+				<div class="col-sm-8">
 
 					<div class="controls">
 						<input type="password" class="form-control" name="password" id="password" value="" placeholder="At least 5 length"/>
@@ -140,7 +149,7 @@ Account Sign up ::
 			<!-- Password Confirm -->
 			<div class="form-group{{ $errors->first('password_confirm', ' error') }}">
 				<label for="password_confirm" class="col-sm-3 control-label">Confirm Password</label>
-				<div class="col-sm-9">
+				<div class="col-sm-8">
 					<div class="controls">
 						<input type="password" class="form-control" name="password_confirm" id="password_confirm" value="" placeholder="Confirm password"/>
 						{{ $errors->first('password_confirm', '<span class="help-block">:message</span>') }}
@@ -148,21 +157,26 @@ Account Sign up ::
 				</div>
 			</div>
 
-						<!-- Password Confirm -->
-{{-- 			<div class="form-group{{ $errors->first('password_confirm', ' error') }}">
-				<label for="password_confirm">Confirm Password</label>
-				<div class="controls">
-					<input type="password" class="form-control" name="password_confirm" id="password_confirm" value="" />
-					{{ $errors->first('password_confirm', '<span class="help-block">:message</span>') }}
-				</div>
-			</div> --}}
+			<!-- Location -->
+			<div class="form-group{{ $errors->first('location', ' error') }}">
+				<label for="location" class="col-sm-3 control-label">Location</label>
+				<div class="col-sm-8">
+					<div class="controls">
+						<select class="form-control" name="location" id="location">
+						    <option value="" selected="selected" disabled="disabled">-- Select a location --</option>
+							<option value="1">英国 利物浦</option>
+							<option value="2">中国 苏州</option>
+						</select> 
 
-			
+						{{ $errors->first('location', '<span class="help-block">:message</span>') }}
+					</div>
+				</div>
+			</div>	
 
 			<!-- Phone Number -->
 			<div class="form-group{{ $errors->first('phone_number', ' error') }}">
 				<label for="phone_number" class="col-sm-3 control-label">Phone Number</label>
-				<div class="col-sm-9">
+				<div class="col-sm-8">
 					<div class="controls">
 						<input type="phone_number" class="form-control" name="phone_number" id="phone_number" value="{{ Input::old('phone_number') }}" placeholder="Contact Number (i.e 07408923674)"/>	
 
@@ -174,7 +188,6 @@ Account Sign up ::
 			
 			{{-- Form::select('phone_country', Countries::getList(App::getLocale(), 'php', 'cldr')) --}}
 	
-
 			<hr>
 
 			<!-- Form actions -->
@@ -186,6 +199,7 @@ Account Sign up ::
 					<button type="submit" class="button button-3d button-rounded nomargin">Sign up</button>
 				</div>
 			</div>
+
 			{{ Form::close() }}
 		{{-- </form> --}}
 		</div>
@@ -193,4 +207,20 @@ Account Sign up ::
 		</div>
 	</div>
 </section>
+
+
+<script type="text/javascript">
+	$('.dropdown-menu li').click(function(e){
+		e.preventDefault();
+  		// var selected = $(this).text();
+  		var selectedValue = $(this).attr('id');
+  		var selectedAddress = $(this).text();
+  		$('.select-button').text(selectedAddress);
+  		$('.selected-school-address').text(selectedAddress);
+  		var elem= document.getElementById("school_address");
+  		elem.value = selectedValue;  
+  		alert(selected);
+	});
+</script>
+
 @stop
