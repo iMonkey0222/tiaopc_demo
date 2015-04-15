@@ -81,7 +81,7 @@ Profile page
 
 	<!-- Wei Xin -->
 	<div class="form-group{{ $errors->first('weixin', ' error') }}">
-		<label class="col-sm-3 control-label" for="weixin"><i class = "icon-trash"></i>微信</label>
+		<label class="col-sm-3 control-label" for="weixin">微信</label>
 		<div class="col-sm-9">
 			<input type="text" class="form-control" name="weixin" id="weixin" value="{{ Input::old('weixin', $user->weixin) }}" />
 			{{ $errors->first('weixin', '<span class="help-block">:message</span>') }}
