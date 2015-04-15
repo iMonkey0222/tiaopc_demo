@@ -12,7 +12,6 @@ return array(
 	'item_status' => array(
 					'0' => 'active',
 					'1' => 'inactive',
-					'2' => 'sold out',
 		),
 
 	'transaction_status' => array(
@@ -27,8 +26,6 @@ return array(
 					'1' => 'requested',
 					'2' => 'sold',
 		),
-
-
 
 
 
