@@ -18,14 +18,6 @@ Profile page
 	<!-- CSRF Token to avoid across website attack-->
 	<input type="hidden" name="_token" value="{{ csrf_token()}}"/>
 
-	<!-- User Name -->
-	<div class="form-group{{ $errors->first('nickname', ' error') }}">
-		<label class="col-sm-3 control-label" for="nickname">用户名 *</label>
-		<div class="col-sm-9">
-			<input class="form-control" type="text" name="nickname" id="nickname" value="{{ Input::old('nickname', $user->nickname) }}" />
-			{{ $errors->first('nickname', '<span class="help-block">:message</span>') }}
-		</div>
-	</div>
 
 	<!-- First Name -->
 	<div class="form-group{{ $errors->first('first_name', ' error') }}">

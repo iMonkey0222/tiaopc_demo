@@ -40,17 +40,28 @@ Account Sign up ::
 			<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 			<!-- The school address selection -->
 			<input type="hidden" name="school_address" id="school_address" value="">
+			
+
+			{{-- <div class="form-group"> --}}
+					<div class="col-sm-3"></div>
+					{{-- <h6 >亲爱的用户，用户名一旦设置成功将无法更改</h6> --}}
+					<h6><i class="icon-flag"></i> 亲爱的用户，用户名一旦设置成功将无法更改,请您设置时仔细检查。</h6>
+					<hr>
+
+			{{-- </div> --}}
 
 			<!-- User Name -->
 			<div class="form-group{{ $errors->first('nickname', ' error') }}">
+
 				<label for="first_name" class="col-sm-3 control-label">用户名 *</label>
 				<div class="col-sm-8">
 
-					<input type="text" class="form-control" name="nickname" id="nickname" value="{{ Input::old('nickname') }}" placeholder="用户名"/>
+					<input type="text" class="form-control" name="nickname" id="nickname" value="{{ Input::old('nickname') }}" placeholder="一旦设置成功将无法更改"/>
 					{{ $errors->first('nickname', '<span class="help-block">:message</span>') }}
 				</div>
 
 			</div>
+
 
 			<!-- First Name -->
 			<div class="form-group{{ $errors->first('first_name', ' error') }}">
@@ -220,6 +231,14 @@ Account Sign up ::
 			{{ Form::close() }}
 		{{-- </form> --}}
 		</div>
+
+		<div class="col-md-2">
+			<div class="form-group">
+
+					{{-- <label class="control-label"><i class="icon-leaf"></i>亲爱的用户，用户名一旦设置成功将无法更改</label> --}}
+			</div>
+				
+		</div>	
 	</div>
 		</div>
 	</div>
