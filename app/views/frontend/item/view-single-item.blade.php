@@ -195,6 +195,18 @@ $('#request').click(function(){
             alert('You cannot request your own item.')
         }
 
+        if(result == 5){
+            // Display an alert
+            var respond = confirm("TiaoPC 友情提示: "+"\n\n"+ 
+                "为了交易的信息公平性" +"\n\n"+
+                "请您先完善您的个人资料，否则将无法请求该商品。" +"\n\n\n"+ 
+                "点击OK确认继续， 点击Cancel取消");
+            // Route to profile page
+            if(respond == true)
+            {
+                window.location.href = "{{ route('profile') }}";
+            }
+        }
     });
 });
 

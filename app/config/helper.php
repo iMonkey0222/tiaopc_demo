@@ -27,7 +27,11 @@ return array(
 					'2' => 'sold',
 		),
 
-
+	'item-location' => array(
+				'0' => '考虑到之前的用户location 默认为利物浦',
+				'1' => '英国 利物浦'，
+				'2' => '中国 苏州'， 
+		),
 
 	);
 

@@ -23,14 +23,28 @@ class ProfileController extends AuthorizedController {
 	 * @return Redirect
 	 */
 	public function postIndex(){
-
+		// Grab the user
+		$user = Sentry::getUser();
+					
 		// Declare the rules for the form validation
-		$rules = array(
-			'first_name'	=>'required|min:2',
-			'last_name'		=>'required|min:2',
-			'location' 		=>'required',
-			'phone_number' 	=>'required|numeric|digits:11',
-			);
+		if (empty($user->nickname)) {
+			$rules = array(
+				'nickname'		=>'required|min:2|unique:users',
+				'first_name'	=>'required|min:2',
+				'last_name'		=>'required|min:2',
+				'location' 		=>'required',
+				'phone_number' 	=>'required|numeric|digits:11',
+				);
+		}else{
+			$rules = array(
+				'first_name'	=>'required|min:2',
+				'last_name'		=>'required|min:2',
+				'location' 		=>'required',
+				'phone_number' 	=>'required|numeric|digits:11',
+				);
+
+		}
+
 		// Create a new validator instance from our validation rules
 		$validator = Validator::make(Input::all(), $rules);
 
@@ -41,10 +55,14 @@ class ProfileController extends AuthorizedController {
 			return Redirect::back()->withInput()->withErrors($validator);
 		}
 
-		// Grab the user
-		$user = Sentry::getUser();
+
 
 		// Update the user information
+
+		// update the nickname for 快速注册用户
+		if (!empty(Input::get('nickname'))) {
+			$user->nickname = Input::get('nickname');
+		}
 
 		$user->first_name 	= Input::get('first_name');
 		$user->last_name  	= Input::get('last_name');

@@ -9,10 +9,10 @@ Publish Item ::
 @section('page-title')
 <section id="page-title">
     <div class="container clearfix">
-        <h3>Start Selling</h3>
-        <span>My Second Hand Digital Product</span>
+        <h3>发布出售</h3>
+        <span>我的二手电子产品</span>
  		<ol class="breadcrumb">
-            <li class="active"><h5><a class="icon-home" href="http://tiaopc.com/">Home</a></h5></li>
+            <li class="active"><h5><a class="icon-home" href="{{ route('home') }}">主页</a></h5></li>
         </ol>
     </div>
 </section>
@@ -39,7 +39,7 @@ Publish Item ::
 
 				<!-- Title -->
 				<div class="form-group{{ $errors->first('title', ' error') }}">
-				<label class="control-label" for="title">Title</label>
+				<label class="control-label" for="title">标题</label>
 					<div class="controls">
 						<input type="text" class="form-control" name="title" id="title" value="{{ Input::old('title') }}" />
 						{{ $errors->first('title', '<span class="help-block">:message</span>') }}
@@ -49,7 +49,7 @@ Publish Item ::
 
 				<!-- Location -->
 				<div class="form-group{{ $errors->first('location', ' error') }}">
-					<label for="location" class="control-label">Location</label>
+					<label for="location" class="control-label">产品所在地</label>
 					
 					<div class="controls">
 						<select class="form-control" name="location" id="location">
@@ -64,7 +64,7 @@ Publish Item ::
 
 				<!-- Price -->
 				<div class="form-group{{ $errors->first('price', ' error') }}">
-				<label class="control-label" for="price">Price</label>
+				<label class="control-label" for="price">价格</label>
 					<div class="input-group">
 						<div class="input-group-addon">£</div>
 						<input type="text" class="form-control" name="price" id="price" value="{{ Input::old('price') }}" />
@@ -77,12 +77,12 @@ Publish Item ::
 				<!-- Category -->
 				<div class="form-group{{ $errors->first('category', ' error') }}">
 
-					<label class="control-label" for="category">Category</label>
+					<label class="control-label" for="category">分类</label>
 				
 						<div class="clear"></div>
 						<div class="col_one_third">
 							<select class="form-control" name="category1" id="category1">
-						      	<option value="" selected="selected" disabled="disabled">Select a Category</option>
+						      	<option value="" selected="selected" disabled="disabled">选择一个分类</option>
 
 								@foreach ($categories as $category)
 									<option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -125,7 +125,7 @@ Publish Item ::
 
 				<!-- Product Condition -->
 				<div class="form-group{{ $errors->first('condition', ' error') }}">
-					<label class="control-label" for="condition">Condition</label>
+					<label class="control-label" for="condition">新旧程度</label>
 {{-- 					<div class="controls">
 						<input type="text" class="form-control" name="condition" id="condition" value="{{ Input::old('condition') }}" />
 
@@ -145,19 +145,19 @@ Publish Item ::
 				<div class="form-group{{ $errors->first('picture', ' error') }}">
 					<label class="control-label" for="picture" data-toggle="tooltip" data-placement="left" title="" data-original-title="Each picture file should no more than 1.5 MB.">
 						<i class = "icon-bulb"></i> 
-						Picture Upload</label>
+						上传图片</label>
 					<div class="controls">
 						<!-- <input type="file" name="picture" id="picture"  /> -->
 						<div class="col_half"> {{ Form::file('mainPicture') }} </div>
-						<div class="col_half col_last"> *Please choose one main picture</div>
+						<div class="col_half col_last"> *请选择一张封面图片（此图将成为产品主图）</div>
 
 						<div class="col_half"> {{ Form::file('picture') }} </div>
-						<div class="col_half col_last"> *Please choose one picture</div>
+						<div class="col_half col_last"> *请选择一张图片</div>
 
 
 						<div class="col_half" > {{ Form::file('pictures[]', array('multiple'=>true)) }} </div>
 
-						<div class="col_half col_last"> *Please choose at least <strong>one </strong> picture (>= 1)</div>
+						<div class="col_half col_last"> *请选择<strong>至少一张</strong> 图片 (数量>= 1)</div>
 						{{ $errors->first('picture', '<span class="help-block">:message</span>') }}
 
 					</div>
@@ -166,7 +166,7 @@ Publish Item ::
 
 				<!-- Description -->
 				<div class="form-group{{ $errors->first('description', ' error') }}">
-					<label class="control-label" for="description">Description</label>
+					<label class="control-label" for="description">产品描述</label>
 					<div class="controls">
 						<textarea class="form-control" rows="4" name="description" id="description" value="description" >{{ Input::old('description') }}</textarea>
 						{{ $errors->first('description', '<span class="help-block">:message</span>') }}
@@ -180,9 +180,9 @@ Publish Item ::
 				<!-- Form actions -->
 				<div class="form-group">
 					<div class="controls">
-						<a class="btn" href="{{ route('home') }}">Cancel</a>
+						<a class="btn" href="{{ route('home') }}">取消</a>
 
-						<button type="submit" class="btn btn-default">Publish</button>
+						<button type="submit" class="btn btn-default">确认发布</button>
 					</div>
 				</div>
 				{{Form::close() }}

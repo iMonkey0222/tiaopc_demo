@@ -449,6 +449,15 @@ class ItemController extends BaseController {
 			// Get the item ID
 			$itemID = Input::get('itemID');
 
+			// $user = Sentry::getUser();
+			$user = User::find($userID);
+			// $userAccountName = $user->nickname;
+			//Check if User nickname is empty, request user to finish their profile first
+			if (empty($user->nickname)) 
+			{
+				return 5;
+			}
+
 			// Check if the request already exist 
 			if(User::find($userID)->transactions()->where('item_id', '=', $itemID)->exists())
 			{

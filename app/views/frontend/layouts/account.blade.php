@@ -6,9 +6,9 @@
     <div class="container clearfix">
 		@yield('account-page-title')
         <ol class="breadcrumb">
-            <li class="active"><h5><a class="icon-home" href="http://tiaopc.com/">主页</a></h5></li>
+            <li class="active"><h5><a class="icon-home" href="{{ route('home') }}">主页</a></h5></li>
             <li></li>
-            <li class="active"><h5><a class="icon-tag" href="http://tiaopc.com/publish">我要出售电子产品</a></h5></li>
+            <li class="active"><h5><a class="icon-tag" href="{{ route('publish/item') }}">我要出售电子产品</a></h5></li>
         </ol>
     </div>
 

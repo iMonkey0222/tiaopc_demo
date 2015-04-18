@@ -18,6 +18,26 @@ Profile page
 	<!-- CSRF Token to avoid across website attack-->
 	<input type="hidden" name="_token" value="{{ csrf_token()}}"/>
 
+	@if(empty($user->nickname))
+		<div class="col-sm-3"></div>
+			{{-- <h6 >亲爱的用户，用户名一旦设置成功将无法更改</h6> --}}
+		<h6>
+			<i class="icon-flag"></i> 亲爱的用户，用户名一旦设置成功将无法更改,请您设置时仔细检查。
+		</h6>
+		<hr>
+
+		<!-- User Name -->
+		<div class="form-group{{ $errors->first('nickname', ' error') }}">
+			<label for="first_name" class="col-sm-3 control-label">用户名 *</label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control" name="nickname" id="nickname" value="{{ Input::old('nickname') }}" placeholder="一旦设置成功将无法更改"/>
+				{{ $errors->first('nickname', '<span class="help-block">:message</span>') }}
+			</div>
+		</div>
+
+	@endif
+
+
 
 	<!-- First Name -->
 	<div class="form-group{{ $errors->first('first_name', ' error') }}">
