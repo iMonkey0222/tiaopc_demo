@@ -42,6 +42,16 @@ class ItemController extends BaseController {
 		}
 
 
+		// Check the if ajax request
+		if(Request::ajax()) {
+			return Response::json(View::make('ajax/item-ajax', compact('items', 'parentCategory', 'trigger'))->render());
+		}
+
+
+
+
+
+
 		return View::make('frontend/item/view-item-list', compact('items', 'parentCategory', 'trigger'));	
 	}
 

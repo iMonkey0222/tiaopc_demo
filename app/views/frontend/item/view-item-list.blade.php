@@ -107,77 +107,128 @@ Item List Page
                         @endforeach
                         
 
-                    
-
                     </div><!-- #portfolio end -->
 
-                    <!-- Portfolio Script
-                    ============================================= -->
-                    <script type="text/javascript">
 
-                        jQuery(window).load(function(){
 
-                            var $container = $('#portfolio');
-
-                            $container.isotope({ transitionDuration: '0.65s' });
-
-                            $('#portfolio-filter a').click(function(){
-                                $('#portfolio-filter li').removeClass('activeFilter');
-                                $(this).parent('li').addClass('activeFilter');
-                                var selector = $(this).attr('data-filter');
-                                $container.isotope({ filter: selector });
-                                return false;
-                            });
-
-                            $('#portfolio-shuffle').click(function(){
-                                $container.isotope('updateSortData').isotope({
-                                    sortBy: 'random'
-                                });
-                            });
-
-                            $container.isotope({
-                                getSortData: {
-                                    price: '.price parseInt',
-                                    time: '.time'
-                                }
-                            });
-
-                            $('#time-sort').click(function(){
-                                $container.isotope('updateSortData').isotope({
-                                    sortBy: 'time',
-                                    sortAscending: false
-                                });
-                            });
-
-                            $('#price-sort-asc').click(function(){
-                                $container.isotope('updateSortData').isotope({
-                                    sortBy: 'price',
-                                    sortAscending: true // small to large
-
-                                });
-                            });
-
-                            $('#price-sort-dsc').click(function(){
-                                $container.isotope('updateSortData').isotope({
-                                    sortBy: 'price',
-                                    sortAscending: false // large to small
-                                });
-                            });                            
-
-                            $(window).resize(function() {
-                                $container.isotope('layout');
-                            });
-
-                        });
-
-                    </script><!-- Portfolio Script End -->
 
                 </div>
 
+                 <div class="text-center">  {{ $items->links() }}   </div>
+
+
             </div>
 
-  <div class="text-center">  {{ $items->links() }}   </div>
+ 
 
         </section><!-- #content end -->
+
+
+<!-- Portfolio Script
+============================================= -->
+<script type="text/javascript">
+
+    jQuery(window).load(function(){
+       // jQuery(document).ready(function($) {
+
+       
+
+        initIsotope();
+
+        
+
+    });
+
+    function initIsotope(){
+
+            var $container = $('#portfolio');
+
+            $container.isotope({ transitionDuration: '0.65s' });
+
+            $('#portfolio-filter a').click(function(){
+                $('#portfolio-filter li').removeClass('activeFilter');
+                $(this).parent('li').addClass('activeFilter');
+                var selector = $(this).attr('data-filter');
+                $container.isotope({ filter: selector });
+                return false;
+            });
+
+            $('#portfolio-shuffle').click(function(){
+                $container.isotope('updateSortData').isotope({
+                    sortBy: 'random'
+                });
+            });
+
+            $container.isotope({
+                getSortData: {
+                    price: '.price parseInt',
+                    time: '.time'
+                }
+            });
+
+            $('#time-sort').click(function(){
+                $container.isotope('updateSortData').isotope({
+                    sortBy: 'time',
+                    sortAscending: false
+                });
+            });
+
+            $('#price-sort-asc').click(function(){
+                $container.isotope('updateSortData').isotope({
+                    sortBy: 'price',
+                    sortAscending: true // small to large
+
+                });
+            });
+
+            $('#price-sort-dsc').click(function(){
+                $container.isotope('updateSortData').isotope({
+                    sortBy: 'price',
+                    sortAscending: false // large to small
+                });
+            });                            
+
+            $(window).resize(function() {
+                $container.isotope('layout');
+            });
+
+        }
+
+/**
+ * Ajax items
+ */
+// $(document).on('click','.pagination a', function(e){
+
+//     e.preventDefault();
+//     var page = $(this).attr('href').split('page=')[1];
+//     console.log(page);
+//     getItems(page);
+// });
+
+// function getItems(page){
+
+//     $.ajax({
+//         url: '{{ URL::route('item')}}',
+//         type: 'GET',
+//         data: { page: page},
+//         dataType: 'json',
+    
+//     }).done(function(data){
+
+//        // console.log(data); 
+//            $('#portfolio').html(data);
+//            location.hash = page;
+        
+//     }).fail(function(){
+//         alert('Posts could not be loaded.');
+//     });
+// }
+
+
+
+
+
+
+</script><!-- Portfolio Script End -->
 
 @stop
