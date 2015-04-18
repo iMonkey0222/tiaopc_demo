@@ -234,6 +234,21 @@ Route::get('test1', array('as' => 'test', function(){
  * 
  */
 
+// Item page ajax
+// Route::get('item/all', function(){
+
+// 	if(isset(Input::get('page'))) {
+
+// 		$items = Item::paginate(12);
+		
+// 		return View::make('frontend/item/view-item-list')->with('items', $items)->render();
+// 	}
+// });
+
+
+
+
+
 // Category request
 Route::get('publish-category', array('as' => 'getCategory', function()
 {
