@@ -255,12 +255,13 @@ class ItemController extends BaseController {
 
 		// Declare validator rules
 		$rules = array(
-			'title' => 'required|min:3|max:20',
-			'price' => 'required|numeric',
-			'category' => 'required',
-			'condition' => 'required|numeric',
-			'description' => 'required|min:10',
-			'pictures' => 'array|between:1,10', // Limit the file upload to 10
+			'title' 		=> 'required|min:3|max:20',
+			'price' 		=> 'required|numeric',
+			'category' 		=> 'required',
+			'condition' 	=> 'required|numeric',
+			'location' 		=>'required',
+			'description' 	=> 'required|min:10',
+			'pictures' 		=> 'array|between:1,10', // Limit the file upload to 10
 			);
 
 		// Create a validator with input
@@ -312,12 +313,13 @@ class ItemController extends BaseController {
 		$item = new Item;
 
 		// Update item with validated input
-		$item->title = e(Input::get('title'));
-		$item->category_id = e(Input::get('category'));
+		$item->title 		= e(Input::get('title'));
+		$item->category_id 	= e(Input::get('category'));
 		$item->product_condition = e(Input::get('condition'));
-		$item->description = e(Input::get('description'));
-		$item->seller_id = Sentry::getId();
-		$item->status = 0; // 0 for active
+		$item->location   	= e(Input::get('location'));
+		$item->description 	= e(Input::get('description'));
+		$item->seller_id 	= Sentry::getId();
+		$item->status 		= 0; // 0 for active
 
 
 

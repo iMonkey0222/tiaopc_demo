@@ -74,9 +74,9 @@
                         <!-- Product Single - Request Button
                         ============================================= --> 
                         @if( $triggleCode != 2 && $triggleCode !=4 )
-                         <button id="request" class="button button-3d button-rounded nomargin"><i class="icon-ok"></i>Request</button>
+                         <button id="request" class="button button-3d button-rounded nomargin"><i class="icon-ok"></i>发送请求</button>
                         @elseif( $triggleCode == 4 )
-                         <button id="requested" class="button button-3d button-rounded nomargin"><i class="icon-ok"></i>Requested</button>
+                         <button id="requested" class="button button-3d button-rounded nomargin"><i class="icon-ok"></i>已请求</button>
                         @endif
                         <!-- Product Single - Quantity & Cart Button End -->
 
@@ -88,30 +88,38 @@
                         <div class="accordion accordion-bg clearfix">
                             
                             {{-- Description --}}
-                            <div class="acctitle acctitlec"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Description</div>
+                            <div class="acctitle acctitlec"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>卖家描述</div>
                             <div class="acc_content clearfix" style="display: block;">
                                 {{ $item->description }}
                             </div>
                             {{-- Item Info eg. Category --}}
-                            <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Item Info</div>
+                            <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>产品信息</div>
                             <div class="acc_content clearfix" style="display: none;">
                                 <!-- Product Single - Meta
                                 ============================================= -->
                                 <div class="panel panel-default product-meta">
                                     <div class="panel-body">
-                                        <span itemprop="productID" class="sku_wrapper">ID: <span class="sku">{{$item->id}}</span></span>
-                                         <span class="posted_in">Category: <a href="#" rel="tag">{{$item->parent_category_name}}.{{$item->category_name}}</a>.</span>
-                                        <span>Condition: {{ $item->product_condition }}成新</span>
-                                        <span>Created at: {{ $item->created_at }}</span>
+                                        <span itemprop="productID" class="sku_wrapper">编号: <span class="sku">{{$item->id}}</span></span>
+                                         <span class="posted_in">分类: <a href="#" rel="tag">{{$item->parent_category_name}}.{{$item->category_name}}</a>.</span>
+                                        <span>新旧程度: {{ $item->product_condition }}成新</span>
+                                        
+                                        <span>物品所在地: {{ ($item->location == 1 || $item->location == 0) ? '英国 利物浦' : '中国 苏州' }}</span>
+                                        <span>创建于: {{ $item->created_at }}</span>
                                     </div>
                                 </div><!-- Product Single - Meta End -->
                             </div>
                             @if( $triggleCode == 2) 
-                            <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>Seller Info</div>
+                            <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>卖家信息</div>
                             <div class="acc_content clearfix" style="display: block;">
-                                <div>Name: <strong>{{ $seller->nickname }}</strong></div>
+                                <div>姓名: <strong>{{ $seller->nickname }}</strong></div>
                                 <div>Email: <strong>{{ $seller->email }}</strong></div>
-                                <div>Phone: <strong>{{ $seller->phone_no }}</strong></div>
+                                <div>联系电话: <strong>{{ $seller->phone_no }}</strong></div>
+                                @if($seller->weixin)
+                                    <div>微信: <strong>{{ $seller->weixin }}</strong></div>
+                                @endif
+                                @if($seller->qq)
+                                    <div>QQ: <strong>{{ $seller->qq }}</strong></div>
+                                @endif
                             </div>
                             @endif    
                         </div>
@@ -122,7 +130,7 @@
                         <!-- Product Single - Share
                         ============================================= -->
                         <div class="si-share noborder clearfix">
-                            <span>Share:</span>
+                            <span>分享至:</span>
                             <!-- Go to www.addthis.com/dashboard to customize your tools -->
                             <div class="addthis_sharing_toolbox"></div>
                         </div><!-- Product Single - Share End -->
@@ -172,13 +180,13 @@ $('#request').click(function(){
         if(result == 2)
         {
             alert("You've already requested this item");
-            $button.text('Requested');
+            $button.text('已请求');
             $button.attr( "disabled", "disabled" );
         }
         if(result == 3)
         {
             alert('Success');
-            $button.text('Requested');
+            $button.text('已请求');
             $button.attr( "disabled", "disabled" );
         }
 

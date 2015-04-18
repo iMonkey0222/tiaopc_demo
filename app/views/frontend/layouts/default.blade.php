@@ -105,9 +105,9 @@
                     ============================================= -->
                     <nav id="primary-menu" class="dark">
 							<ul>
-								<li><a href="{{ route('home') }}">Home</a></li>
+								<li><a href="{{ route('home') }}">主页</a></li>
                                 <li>
-                                    <a href="{{ route('item') }}"><div>Item</div></a>
+                                    <a href="{{ route('item') }}"><div>电子产品</div></a>
                                     <ul>
                                         <li><a href="{{ route('item/category', 1)}}"><div>手机</div></a></li>
                                         <li><a href="{{ route('item/category', 6)}}"><div>平板</div></a></li>
@@ -120,10 +120,10 @@
                                         <li><a href="{{ route('item/category', 24)}}"><div>外设</div></a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{{ URL::to('how-to-use') }}">How to use</a></li>                                
-								<li><a href="{{ route('about-us') }}">About us</a></li>
+                                <li><a href="{{ URL::to('how-to-use') }}">使用指南</a></li>                                
+								<li><a href="{{ route('about-us') }}">关于我们</a></li>
 								@if (Sentry::check())
-								<li ><a href="{{ route('publish/item') }}">Publish</a></li>
+								<li ><a href="{{ route('publish/item') }}">发布产品</a></li>
 								@endif
 
 							</ul>
@@ -140,9 +140,9 @@
 										@if(Sentry::getUser()->hasAccess('admin'))
 										<li><a href="{{ route('admin') }}"><i class="icon-cog"></i> Administration</a></li>
 										@endif
-										<li><a href="{{ route('profile') }}"><i class="icon-user"></i> Your profile</a></li>
+										<li><a href="{{ route('profile') }}"><i class="icon-user"></i>我的账户</a></li>
 										<li></li>
-										<li><a href="{{ route('logout') }}"><i class="icon-off"></i> Logout</a></li>
+										<li><a href="{{ route('logout') }}"><i class="icon-off"></i>登出</a></li>
 									</ul>
 								</li>
 
@@ -151,8 +151,8 @@
 
 
 								@else
-								<li class="active"><a href="{{ route('signin') }}">Sign in</a></li>
-								<li class="active"><a href="{{ route('signup') }}">Sign up</a></li>
+								<li class="active"><a href="{{ route('signin') }}">登录</a></li>
+								<li class="active"><a href="{{ route('signup-selection') }}">注册</a></li>
 								@endif
 							</ul>		
                   

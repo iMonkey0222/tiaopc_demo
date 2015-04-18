@@ -6,9 +6,9 @@
     <div class="container clearfix">
 		@yield('account-page-title')
         <ol class="breadcrumb">
-            <li class="active"><h5><a class="icon-home" href="http://tiaopc.com/">Home</a></h5></li>
+            <li class="active"><h5><a class="icon-home" href="http://tiaopc.com/">主页</a></h5></li>
             <li></li>
-            <li class="active"><h5><a class="icon-tag" href="http://tiaopc.com/publish">Sell an Item</a></h5></li>
+            <li class="active"><h5><a class="icon-tag" href="http://tiaopc.com/publish">我要出售电子产品</a></h5></li>
         </ol>
     </div>
 
@@ -25,12 +25,12 @@
 			<div class="col-md-3 nobottommargin">
 
 						<ul class="nav nav-list">
-							<li class="nav-header">Main Menu</li>
-							<li{{ Request::is('account/profile') ? ' class="active"' : '' }}><a href="{{ URL::route('profile') }}">Profile</a></li>
-							<li{{ Request::is('account/change-password') ? ' class="active"' : '' }}><a href="{{ URL::route('change-password') }}">Change Password</a></li>
-							<li{{ Request::is('account/change-email') ? ' class="active"' : '' }}><a href="{{ URL::route('change-email') }}">Change Email</a></li>
-							<li{{ Request::is('account/published-items') ? ' class="active"' : '' }}><a href="{{ URL::route('published-items') }}">My Published Products</a></li>		
-							<li{{ Request::is('account/requested-items') ? ' class="active"' : '' }}><a href="{{ URL::route('requested-items') }}">My Requested Products</a></li>			
+							<li class="nav-header">菜单栏</li>
+							<li{{ Request::is('account/profile') ? ' class="active"' : '' }}><a href="{{ URL::route('profile') }}">我的资料</a></li>
+							<li{{ Request::is('account/change-password') ? ' class="active"' : '' }}><a href="{{ URL::route('change-password') }}">修改密码</a></li>
+							<li{{ Request::is('account/change-email') ? ' class="active"' : '' }}><a href="{{ URL::route('change-email') }}">更新邮箱地址</a></li>
+							<li{{ Request::is('account/published-items') ? ' class="active"' : '' }}><a href="{{ URL::route('published-items') }}">我发布的电子产品</a></li>		
+							<li{{ Request::is('account/requested-items') ? ' class="active"' : '' }}><a href="{{ URL::route('requested-items') }}">我请求的电子产品</a></li>			
 						</ul>
 
 			</div>

@@ -35,6 +35,14 @@ Route::group(array('prefix' => 'auth'), function()
 	Route::get('signin', array('as' => 'signin', 'uses' => 'AuthController@getSignin'));
 	Route::post('signin', 'AuthController@postSignin');
 
+	// Signup page
+	Route::get('signup-selection', array('as' => 'signup-selection', 'uses' => 'AuthController@getSignupSelection'));
+
+
+	// Quick-Register
+	Route::get('quick-signup', array('as' => 'quick-signup', 'uses' => 'AuthController@getQuickSignup'));
+	Route::post('quick-signup', 'AuthController@postQuickSignup');
+
 	// Register
 	Route::get('signup', array('as' => 'signup', 'uses' => 'AuthController@getSignup'));
 	Route::post('signup', 'AuthController@postSignup');

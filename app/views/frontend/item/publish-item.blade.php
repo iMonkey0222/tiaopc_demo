@@ -46,6 +46,22 @@ Publish Item ::
 					</div>
 				</div>
 
+
+				<!-- Location -->
+				<div class="form-group{{ $errors->first('location', ' error') }}">
+					<label for="location" class="control-label">Location</label>
+					
+					<div class="controls">
+						<select class="form-control" name="location" id="location">
+						    <option value="" selected="selected" disabled="disabled">-- Select a location --</option>
+							<option value="1">英国 利物浦</option>
+							<option value="2">中国 苏州</option>
+						</select> 	
+						{{ $errors->first('location', '<span class="help-block">:message</span>') }}
+					</div>
+					
+				</div>
+
 				<!-- Price -->
 				<div class="form-group{{ $errors->first('price', ' error') }}">
 				<label class="control-label" for="price">Price</label>
@@ -124,6 +140,7 @@ Publish Item ::
 					{{ $errors->first('condition', '<span class="help-block">:message</span>') }}
 				</div>
 
+
 				<!-- Picture Upload -->
 				<div class="form-group{{ $errors->first('picture', ' error') }}">
 					<label class="control-label" for="picture" data-toggle="tooltip" data-placement="left" title="" data-original-title="Each picture file should no more than 1.5 MB.">
@@ -145,8 +162,6 @@ Publish Item ::
 
 					</div>
 				</div>
-
-
 
 
 				<!-- Description -->

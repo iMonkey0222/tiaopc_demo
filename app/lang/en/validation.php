@@ -63,7 +63,7 @@ return array(
 	),
 	"unique"           => "The :attribute has already been taken.",
 	"url"              => "The :attribute format is invalid.",
-
+	"not_contains"		=> "The input must not contain @", // the custom valodation
 
 	/*
 	|--------------------------------------------------------------------------

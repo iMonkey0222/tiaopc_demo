@@ -24,7 +24,7 @@ return array(
 		'mysql' => array(
 		'driver'    => 'mysql',
 		'host'      => 'localhost',
-		'database'  => 'tiaopc_local',
+		'database'  => 'laravel_tiaopc_demo',
 		'username'  => 'root',
 		'password'  => 'root',
 		'charset'   => 'utf8',

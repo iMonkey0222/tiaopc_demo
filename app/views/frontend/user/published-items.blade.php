@@ -6,8 +6,8 @@ Published Items
 @stop
 
 @section('account-page-title')
-    <h3>My Profile</h3>
-    <span><h4>My Published Products</h4></span>
+    <h3>我的个人账户</h3>
+    <span><h4>我发布的电子产品</h4></span>
 @stop
 
 
@@ -28,7 +28,7 @@ Published Items
 						</td>		
  						<!-- Product image --> 
 						<td>
-							<img width = "100" height="100" src = {{asset("assets/img/$item->picture")}} alt="查看宝贝详情" >	
+							<img width = "160" height="120" src = {{asset("assets/img/$item->picture")}} alt="查看宝贝详情" >	
 						</td>
 
 						<!-- Product title --> 
@@ -52,16 +52,16 @@ Published Items
 							<!-- Item has at least one request or user has approved -->	
 							@if($item->order_status == 1)
 								
-								<a href="{{ URL::route('showRequest',array($item->id))  }}" class="button button-3d button-small"value = "{{$item->id}}" >Check Requests</a>
+								<a href="{{ URL::route('showRequest',array($item->id))  }}" class="button button-3d button-small"value = "{{$item->id}}" >查看请求</a>
 							
 							@elseif($item->order_status == 2)
-								<a href="{{ URL::route('showRequest',array($item->id))  }}" class="button button-3d button-small button-rounded button-amber"value = "{{$item->id}}" >Review Deal</a>
+								<a href="{{ URL::route('showRequest',array($item->id))  }}" class="button button-3d button-small button-rounded button-amber"value = "{{$item->id}}" >查看交易</a>
 
 							@endif
 
 						</td>
 						<td>
-							<a class="btn" href="{{ URL::route('reviseSingleItem',array($item->id)) }}"><i class = "icon-pencil2"></i>Edit</a>
+							<a class="btn" href="{{ URL::route('reviseSingleItem',array($item->id)) }}"><i class = "icon-pencil2"></i>编辑</a>
 						</td>
 
 					</tr>

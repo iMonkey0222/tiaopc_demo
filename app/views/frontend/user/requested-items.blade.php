@@ -7,8 +7,8 @@ Requested Items
 @stop
 
 @section('account-page-title')
-	<h3>My Profile</h3>
-	<span><h4>My Requested Products</h4></span>
+	<h3>我的个人账户</h3>
+	<span><h4>我请求的电子产品</h4></span>
 @stop
 
 {{-- zheshi  --}}
@@ -58,9 +58,9 @@ Requested Items
 					@if ($transaction->status == 1)
 						<a></a>
 					@elseif ($transaction->status == 2)
-						<a class = "button button-small button-rounded">Approved</a>
+						<a class = "button button-small button-rounded">卖家已接受请求</a>
 					@elseif($transaction->status == 3)
-						<a class = "button button-small button-rounded">Paid</a>
+						<a class = "button button-small button-rounded">已付款</a>
 					@endif
 				</td>
 			</tr>

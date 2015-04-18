@@ -3,6 +3,9 @@
 return array(
 	// Some helpful constant value
 	'mail_postfix' => '@liv.ac.uk',
+	
+	'mail_postfix_liv' => '@liv.ac.uk',
+	'mail_postfix_xjtlu' => '@student.xjtlu.edu.cn',
 
 
 

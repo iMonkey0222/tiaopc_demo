@@ -264,10 +264,11 @@ class ReviewPublishmentController extends AuthorizedController {
 
 		// Declare validator rules
 		$rules = array(
-			'title' => 'min:3',
-			'price' => 'numeric',
-			'category' => 'required', // if not set this, will remind error
+			'title' 	=> 'min:3',
+			'price' 	=> 'numeric',
+			'category' 	=> 'required', // if not set this, will remind error
 			'condition' => 'numeric',
+			'location' 	=>'required',
 			'description' => 'min:10',
 			// 'pictures' => 'array|between:0,10', // Limit the file upload to 10
 			);
@@ -283,10 +284,11 @@ class ReviewPublishmentController extends AuthorizedController {
 
 
 		// * Update - item with validated input
-		$item->title = Input::get('title');
-		$item->category_id = Input::get('category');
+		$item->title 			= Input::get('title');
+		$item->category_id 		= Input::get('category');
 		$item->product_condition = Input::get('condition');
-		$item->description = Input::get('description');
+		$item->location   		= Input::get('location');
+		$item->description 		= Input::get('description');
 
 		// * Save item to database
 		if($item->save())
