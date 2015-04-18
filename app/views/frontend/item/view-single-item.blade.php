@@ -66,7 +66,11 @@
 
                         <!-- Product Single - Price
                         ============================================= -->
-                        <div class="product-price"><ins>{{ "£".$item->price }}</ins></div><!-- Product Single - Price End -->
+                        @if($item->location == 1 || $item->location == 0)
+                            <div class="product-price"><ins>{{ "£".$item->price }}</ins></div><!-- Product Single - Price End -->
+                        @elseif($item->location == 2)
+                            <div class="product-price"><ins>{{ "￥".$item->price }}</ins></div><!-- Product Single - Price End -->
+                        @endif
 
                         <div class="clear"></div>
                         <div class="line"></div>

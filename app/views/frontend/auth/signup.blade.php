@@ -245,17 +245,15 @@ Account Sign up ::
 </section>
 
 
-<script type="text/javascript">
+<script id="email-address-selection" type="text/javascript">
 	$('.dropdown-menu li').click(function(e){
 		e.preventDefault();
-  		// var selected = $(this).text();
   		var selectedValue = $(this).attr('id');
   		var selectedAddress = $(this).text();
   		$('.select-button').text(selectedAddress);
   		$('.selected-school-address').text(selectedAddress);
   		var elem= document.getElementById("school_address");
   		elem.value = selectedValue;  
-  		alert(selected);
 	});
 </script>
 

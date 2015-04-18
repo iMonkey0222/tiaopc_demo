@@ -52,7 +52,7 @@ Publish Item ::
 					<label for="location" class="control-label">产品所在地</label>
 					
 					<div class="controls">
-						<select class="form-control" name="location" id="location">
+						<select id="location" class="form-control" name="location" onChange="itemPriceTag(this);">
 						    <option value="" selected="selected" disabled="disabled">-- Select a location --</option>
 							<option value="1">英国 利物浦</option>
 							<option value="2">中国 苏州</option>
@@ -66,7 +66,7 @@ Publish Item ::
 				<div class="form-group{{ $errors->first('price', ' error') }}">
 				<label class="control-label" for="price">价格</label>
 					<div class="input-group">
-						<div class="input-group-addon">£</div>
+						<div id = "price-tag" class="input-group-addon">£</div>
 						<input type="text" class="form-control" name="price" id="price" value="{{ Input::old('price') }}" />
 					</div>
 						{{ $errors->first('price', '<span class="help-block">:message</span>') }}
@@ -131,7 +131,7 @@ Publish Item ::
 
 					</div> --}}
 					<select class="form-control" name="condition">
-				      <option value="" selected="selected" disabled="disabled">Select a Condition rate</option>
+				      <option value="" selected="selected" disabled="disabled">请选择一项程度描述</option>
 					@foreach ($condition as $key => $value)
 						<option value={{$key}}>{{    $key."成新 ".$value}}</option>
 					@endforeach
@@ -197,7 +197,20 @@ Publish Item ::
 </section>	
 
 
-<script type="text/javascript">
+<script id="item-location" type="text/javascript">
+
+	function itemPriceTag(selection){
+		var selected = selection.options[selection.selectedIndex].value;
+		// var text = selection.options[selection.selectedIndex].text;
+		if(selected == 2){
+			// alert(selected);
+  			document.getElementById("price-tag").innerHTML = "￥";
+  		} 
+	}
+</script>
+
+
+<script id="select-category" type="text/javascript">
 
 	$(document).ready(function(){
 		$('#category2').hide();
@@ -298,8 +311,7 @@ Publish Item ::
 </script>
 
 
-<script type="text/javascript">
-
+<script id="fileupload" type="text/javascript">
 	$('#fileupload').bind('fileuploadsend', function (e, data) {
     // This feature is only useful for browsers which rely on the iframe transport:
     if (data.dataType.substr(0, 6) === 'iframe') {
@@ -324,9 +336,6 @@ Publish Item ::
 }).bind('fileuploadalways', function (e, data) {
     clearInterval(data.context.data('interval'));
 });
-
-
-
 
 </script>
 
