@@ -149,30 +149,36 @@ class ItemController extends BaseController {
 		foreach ($items as $item)
 		{
 
+			if($item->item_id)
+			{
+				$item->id = $item->item_id;
+			}
+
+
 			// Add the main picture to the item array
-			$itemPicture = Item::find($item->item_id)->pictures()->where('status','=','1')->first();
+			$itemPicture = Item::find($item->id)->pictures()->where('status','=','1')->first();
 			$pictureName = $itemPicture['picture_name'];
 			array_add($item, "picture_name", $pictureName);
 
 			// Add the newest price to the item array
-			$priceArray = Item::find($item->item_id)->prices->first(); 
+			$priceArray = Item::find($item->id)->prices->first(); 
 			$newestPrice = $priceArray['price'];
 			array_add($item, 'price',$newestPrice);
 
 		}
 
 
-		foreach ($items as $item)
-		{
-			$title = Item::find($item->item_id)->title;
-			$price = Item::find($item->item_id)->price;
-			echo "title".$item->title." ".$item->id." ".$title ;
-			echo "<br>";
+		// foreach ($items as $item)
+		// {
+		// 	$title = Item::find($item->item_id)->title;
+		// 	$price = Item::find($item->item_id)->price;
+		// 	echo "title".$item->title." ".$item->id." ".$title ;
+		// 	echo "<br>";
 
-			echo $item->item_id." price".$price;
-			echo "<br>";
-			var_dump($item->toJson());
-		}
+		// 	echo $item->item_id." price".$price;
+		// 	echo "<br>";
+		// 	var_dump($item->toJson());
+		// }
 
 
 
