@@ -11,11 +11,11 @@ About Us
 @section('page-title')
 <section id="page-title">
     <div class="container clearfix">
-        <h3>About Us</h3>
+        <h3>关于我们</h3>
         <span></span>
         <ol class="breadcrumb">
-            <li><a class="icon-home" href="#">Home</a></li>
-            <li class="active icon-user">About Us</li>
+            <li><a class="icon-home" href="#">主页</a></li>
+            <li class="active icon-user">关于我们</li>
         </ol>
     </div>
 
@@ -28,11 +28,44 @@ About Us
 
     <div class="content-wrap">
 
+
         <div class="container clearfix">
+
+            <div class="fancy-title title-dotted-border title-center">
+                        <h2><span>更新日志</span></h2>
+            </div>
+
+            <div class="accordion accordion-bg clearfix">
+                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>TiaoPC V1.0</div>
+
+                <div class="acc_content clearfix" style="display: none;">
+                    <!-- Product Single - Meta
+                    ============================================= -->
+                    <div class="panel panel-default product-meta">
+                        <div class="panel-body">
+                            <span>2015-3-20      第一版上线</span>
+                        </div>
+                    </div><!-- Product Single - Meta End -->
+                </div>
+
+
+                <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>TiaoPC V2.0 </div>
+
+                <div class="acc_content clearfix" style="display: none;">
+                    <!-- Product Single - Meta
+                    ============================================= -->
+                    <div class="panel panel-default product-meta">
+                        <div class="panel-body">
+                            <span>2015-5-5         第二版完成，添加快速注册，重做物品分类，统一网站语言，增加价格走势图，开放西交利物浦邮箱注册，修改了前一版本bug</span>
+                        </div>
+                    </div><!-- Product Single - Meta End -->
+                </div>
+                
+            </div>            
 
 
             <div class="fancy-title title-dotted-border title-center">
-                        <h2><span>What is Tiaopc?</span></h2>
+                        <h2><span>What is TiaoPC ?</span></h2>
             </div>
             <div class="heading-block center nobottomborder">
                 <h2></h2>
@@ -186,9 +219,11 @@ About Us
                                     <img src="{{ asset('assets/others/team/runze.jpg')}}" alt="吴润泽">
                                 </div>
                                 <div class="team-desc">
-                                    <div class="team-title"><h4>吴润泽</h4><span>腐国第一美男子</span></div>
+                                    <div class="team-title"><h4>吴润泽</h4><span>双鱼男</span></div>
                                     <div class="team-content">
-                                        <p>是什么让网瘾少年忽然照镜成瘾，是什么让dota奇才深夜不再虐泉，是什么让华西坝扛把子放下鼠标写下《昊山讽齐王纳谏》，让我们一起走进应用数学系神童昊山.曾的内心世界。详情请点击http://tiaopc.com 独家光盘绝赞发售中， 现只接受网上预定,欲购从速，只要998！！！ </p>
+                                        <p>
+                                            理科数学狗，文学爱好者，喜欢美食和旅游.
+                                        </p>
                                     </div>
                                     <a href="http://www.weibo.com/u/3300710475" class="social-icon si-rounded si-small si-light si-gplus">
                                         <i class="icon-weibo2"></i>
@@ -215,13 +250,13 @@ About Us
                                     <div class="team-title"><h4>曾昊山</h4><span>ZHS</span></div>
                                     <div class="team-content">
                                     <p>
-                                        吕子明 踏轻舟 白衣渡川<br>
-                                        陆伯言 烧联营 火光上冲天<br>
-                                        军赤壁 纵野火 铁锁连环<br>
-                                        御北敌 联西蜀 长江上鏖战<br>
-                                        问古今 兴亡事<br>
-                                        几人耀青史 芳名留<br>
-                                        笑谈间 云烟已旧<br>
+                                        莫听穿林打叶声<br>
+                                        何妨吟啸且徐行<br>
+                                        竹杖芒鞋轻胜马<br>
+                                        谁怕<br>
+                                        一蓑烟雨任平生<br><br>
+                                        前路漫漫，以此自勉。<br>
+                                        
                                     </p>
 
                                     </div>
