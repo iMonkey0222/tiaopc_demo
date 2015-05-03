@@ -128,7 +128,7 @@ class ItemController extends BaseController {
 			}
 			if($sortId == 2 || $sortId == 3)
 			{
-				$items = Item::where('location', '=', $location_id)->join('price', 'items.id', '=', 'price.item_id')->orderBy($sortKeyArray[$sortId], $sortArray[$sortId])->normal()->paginate(12);				
+				$items = Item::where('location', '=', $location_id)->normal()->leftJoin('price', 'items.id', '=', 'price.item_id')->orderBy($sortKeyArray[$sortId], $sortArray[$sortId])->paginate(12);				
 			}
 		}
 		if($categoryId != 0)
@@ -140,7 +140,7 @@ class ItemController extends BaseController {
 
 			if($sortId == 2 || $sortId == 3)
 			{
-				$items = Category::find($categoryId)->getChildItem()->where('location', '=', $location_id)->join('price', 'items.id', '=', 'price.item_id')->orderBy($sortKeyArray[$sortId], $sortArray[$sortId])->normal()->paginate(12);
+				$items = Category::find($categoryId)->getChildItem()->where('location', '=', $location_id)->normal()->leftJoin('price', 'items.id', '=', 'price.item_id')->orderBy($sortKeyArray[$sortId], $sortArray[$sortId])->paginate(12);
 
 			}
 		}
@@ -150,16 +150,31 @@ class ItemController extends BaseController {
 		{
 
 			// Add the main picture to the item array
-			$itemPicture = Item::find($item->id)->pictures()->where('status','=','1')->first();
+			$itemPicture = Item::find($item->item_id)->pictures()->where('status','=','1')->first();
 			$pictureName = $itemPicture['picture_name'];
 			array_add($item, "picture_name", $pictureName);
 
 			// Add the newest price to the item array
-			$priceArray = Item::find($item->id)->prices->first(); 
+			$priceArray = Item::find($item->item_id)->prices->first(); 
 			$newestPrice = $priceArray['price'];
 			array_add($item, 'price',$newestPrice);
 
 		}
+
+
+		foreach ($items as $item)
+		{
+			$title = Item::find($item->item_id)->title;
+			$price = Item::find($item->item_id)->price;
+			echo "title".$item->title." ".$item->id." ".$title ;
+			echo "<br>";
+
+			echo $item->item_id." price".$price;
+			echo "<br>";
+			var_dump($item->toJson());
+		}
+
+
 
 
 		return View::make('frontend/item/view-item-list', compact('parentCategory','items', 'categoryId', 'sortId','location_name'));	

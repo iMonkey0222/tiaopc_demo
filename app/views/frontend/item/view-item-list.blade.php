@@ -7,7 +7,6 @@ $category = Item::find(14)->category()->first()['parent_id']; --}}
 
 
 
-
 @extends('frontend/layouts/default')
 
 {{-- Page title --}}
@@ -90,11 +89,11 @@ Item List Page
 
                                 <div class="portfolio-overlay  ">
                                     <a href={{ asset("assets/new_img/$item->picture_name")}} class="left-icon" data-lightbox="image"><i class="icon-camera"></i></a>
-                                    <a href="{{ route('singleItem', $item->id) }}"  class="right-icon"><i class="icon-external-link"></i></a>
+                                    <a href="{{ route('singleItem', $item->item_id) }}"  class="right-icon"><i class="icon-external-link"></i></a>
                                 </div>
                             </div>
                             <div class="portfolio-desc">
-                                <h3><a href="{{ route('singleItem', $item->id) }}">{{ str_limit($item->title, $limit = 19,$end = "...")}}</a></h3>
+                                <h3><a href="{{ route('singleItem', $item->item_id) }}">{{ str_limit($item->title, $limit = 19,$end = "...")}}</a></h3>
                                
                                 <div class="col_half">
                                     <a class=" button button-3d button-mini button-rounded "><i>£</i><i class="price">{{ $item->price }}</i></a>

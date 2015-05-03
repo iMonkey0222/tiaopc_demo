@@ -103,7 +103,7 @@
                                 ============================================= -->
                                 <div class="panel panel-default product-meta">
                                     <div class="panel-body">
-                                        <span itemprop="productID" class="sku_wrapper">编号: <span class="sku">{{$item->id}}</span></span>
+                                        <span itemprop="productID" class="sku_wrapper">编号: <span class="sku">{{$item->item_id}}</span></span>
                                      {{--     <span class="posted_in">分类: <a href="#" rel="tag">{{$item->parent_category_name}}.{{$item->category_name}}</a>.</span> --}}
                                         <span class="posted_in">分类: <a href="#" rel="tag">{{$item->category_name}}</a>.</span>
                                         <span>新旧程度: {{ $item->product_condition }}成新</span>
@@ -168,7 +168,7 @@ $.ajaxSetup({
 
 
 // Get the item id
-var itemID = {{ $item->id }};
+var itemID = {{ $item->item_id }};
 
 
 
