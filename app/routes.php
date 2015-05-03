@@ -145,10 +145,16 @@ Route::group(array('prefix' => 'item'), function()
 	Route::get('all/{parentCategoryId}', array('as' => 'item/category', 'uses' => 'ItemController@getAllItemsWithCategory'))->where('parentCategoryId', '[0-9]+');
 
 	// Show single item, parameter matching with regular expression
-	Route::get('{itemID}', array('as' => 'singleItem', 'uses' => 'ItemController@getSingleItem'))->where('itemID', '[0-9]+');
+	Route::get('id{itemID}', array('as' => 'singleItem', 'uses' => 'ItemController@getSingleItem'))->where('itemID', '[0-9]+');
 
 
 	Route::get('request', array('as' => 'request', 'uses' => 'ItemController@itemRequestProcess'));
+
+
+	// Route::get('all/{category_id}', array('as' => 'item/category', 'uses' => 'ItemController@getAllItemsByCategory'))->where('category_id', '[0-9]+');
+	Route::get('{location_name}/{category_id}/{sort_id}', array('as' => 'item/list', 'uses' => 'ItemController@getAllItemsByLocation'))->where(array('location_name' => '(suzhou|liverpool)', 'category_id' => '[0-9]+', 'sort_id' => '[0-9]+'));
+	// Route::get('{location_name}', array('as' => 'item/suzhou', 'uses' => 'ItemController@getAllItemsByLocation'))->where('location_name', '(liverpool|suzhou)');
+
 
 
 });

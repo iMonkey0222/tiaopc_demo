@@ -39,6 +39,7 @@
         {{-- fineUploader css --}}
         <link rel="stylesheet" href="{{ asset('assets/css/fine-uploader.min.css') }}" type="text/css" />
 
+
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -48,9 +49,16 @@
     	============================================= -->
 	    <script type="text/javascript" src="{{ asset('assets/js/jquery.js')}}"></script>
 	    <script type="text/javascript" src="{{ asset('assets/js/plugins.js')}}"></script>
+        
         <!-- Upload JavaScripts
         ============================================= -->       
         <script type="text/javascript" src="{{ asset('assets/js/jquery.fine-uploader.min.js')}}"></script>
+        <!-- MixitUp JavaScripts
+        ============================================= -->  
+
+        {{--
+        <script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>
+        --}}
 
 
         {{-- Modal JS         --}}
@@ -72,7 +80,14 @@
           ga('create', 'UA-60250899-1', 'auto');
           ga('send', 'pageview');
        </script>
+{{-- 
+       <style type="text/css">
+        #portfolio-mix .mix{
+            display: none;
+        }
 
+       </style>
+ --}}
 
 	</head>
 
@@ -107,17 +122,10 @@
 							<ul>
 								<li><a href="{{ route('home') }}">主页</a></li>
                                 <li>
-                                    <a href="{{ route('item') }}"><div>电子产品</div></a>
+                                    <a href="#"><div>电子产品</div></a>
                                     <ul>
-                                        <li><a href="{{ route('item/category', 1)}}"><div>手机</div></a></li>
-                                        <li><a href="{{ route('item/category', 6)}}"><div>平板</div></a></li>
-                                        <li><a href="#"><div>电脑</div></a>
-                                        <ul>
-                                            <li><a href="{{ route('item/category', 12)}}"><div>台式机</div></a></li>
-                                            <li><a href="{{ route('item/category', 19)}}"><div>笔记本</div></a></li>
-                                        </ul>                                           
-                                        </li>
-                                        <li><a href="{{ route('item/category', 24)}}"><div>外设</div></a></li>
+                                        <li><a href="{{ route('item/list', array('location_name' => 'liverpool' ,'category_id'=> 0, 'sort_id' => 0 )) }}"><div>利物浦地区</div></a></li>
+                                        <li><a href="{{ route('item/list', array('location_name' => 'suzhou' ,'category_id'=> 0, 'sort_id' => 0 )) }}"><div>苏州地区</div></a></li>
                                     </ul>
                                 </li>
                                 <li><a href="{{ URL::to('how-to-use') }}">使用指南</a></li>                                

@@ -81,7 +81,8 @@ Publish Item ::
 				
 						<div class="clear"></div>
 						<div class="col_one_third">
-							<select class="form-control" name="category1" id="category1">
+							{{-- category1 into category --}}
+							<select class="form-control" name="category" id="category">
 						      	<option value="" selected="selected" disabled="disabled">选择一个分类</option>
 
 								@foreach ($categories as $category)
@@ -219,94 +220,95 @@ Publish Item ::
 	});
 
 
-	$('#category1').on('change', function(e){
-		console.log(e);
+	// $('#category1').on('change', function(e){
+	// 	console.log(e);
 
-		$('#category2').show();
-
-
-		var category1_id = e.target.value;
-
-		if(category1_id != 12 || category1_id !=19){
-			$('#category3').attr('name','category3');
-			$('#category3').hide();
-		}
-
-		//ajax
-		$.get('{{ URL::route('getCategory') }}',{category1_id: category1_id}, function(data){
-			//Success callback
-			console.log(data);
-
-			// jQuery('<select/>', {
-			//    	class: 'form-control',
-			//    	name: 'sub-category',
-			//    	id: 'subCategory',
-			// }).appendTo('#subCategory');
+	// 	$('#category2').show();
 
 
-			$('#category2').empty();
-			$('#category2').append('<option value="" selected="selected" disabled="disabled">Select a Category</option>');
+	// 	var category1_id = e.target.value;
 
-			$.each(data, function(index, subCat){
+	// 	if(category1_id != 12 || category1_id !=19){
+	// 		$('#category3').attr('name','category3');
+	// 		$('#category3').hide();
+	// 	}
 
-				if(subCat.id == 12 || subCat.id == 19 ){
+	// 	//ajax
+	// 	$.get('{{ URL::route('getCategory') }}',{category1_id: category1_id}, function(data){
+	// 		//Success callback
+	// 		console.log(data);
 
-					$('#category2').append('<option id="Subcat'+ subCat.id +'" value="'+ subCat.id +'">'+subCat.name+'</option>' );
-
-				}
-				else{
-					$('#category2').append('<option value="'+ subCat.id +'">'+subCat.name+'</option>' );
-
-			} 
-
-			$('#category2').attr('name','category');
-
+	// 		// jQuery('<select/>', {
+	// 		//    	class: 'form-control',
+	// 		//    	name: 'sub-category',
+	// 		//    	id: 'subCategory',
+	// 		// }).appendTo('#subCategory');
 
 
-			});
+	// 		$('#category2').empty();
+	// 		$('#category2').append('<option value="" selected="selected" disabled="disabled">Select a Category</option>');
 
-			$('#category2').on('change', function(e){
+	// 		$.each(data, function(index, subCat){
+
+	// 			if(subCat.id == 12 || subCat.id == 19 ){
+
+	// 				$('#category2').append('<option id="Subcat'+ subCat.id +'" value="'+ subCat.id +'">'+subCat.name+'</option>' );
+
+	// 			}
+	// 			else{
+	// 				$('#category2').append('<option value="'+ subCat.id +'">'+subCat.name+'</option>' );
+
+	// 		} 
+
+	// 		$('#category2').attr('name','category');
 
 
 
-					var category2_id = e.target.value;
+	// 		});
 
-					console.log(category2_id);
-
-					if(category2_id == 19 || category2_id == 12	){
-
-						console.log("ok");
-						$('#category2').attr('name','category2');
-
-						$('#category3').show();
+	// 		$('#category2').on('change', function(e){
 
 
-						$.get('{{ URL::route('getCategory') }}',{category2_id: category2_id}, function(data){
+
+	// 				var category2_id = e.target.value;
+
+	// 				console.log(category2_id);
+
+	// 				if(category2_id == 19 || category2_id == 12	){
+
+	// 					console.log("ok");
+	// 					$('#category2').attr('name','category2');
+
+	// 					$('#category3').show();
+
+
+	// 					$.get('{{ URL::route('getCategory') }}',{category2_id: category2_id}, function(data){
 			
-							// console.log(category2_id);
+	// 						// console.log(category2_id);
 
-							$('#category3').empty();
+	// 						$('#category3').empty();
 
-						    $('#category3').append('<option value="" selected="selected" disabled="disabled">Select a Category</option>'); 
-
-
-							$.each(data, function(index, subCat){
-
-								$('#category3').append('<option value="'+ subCat.id +'">'+subCat.name+'</option>' );
+	// 					    $('#category3').append('<option value="" selected="selected" disabled="disabled">Select a Category</option>'); 
 
 
-							});
+	// 						$.each(data, function(index, subCat){
 
-							$('#category3').attr('name','category');
+	// 							$('#category3').append('<option value="'+ subCat.id +'">'+subCat.name+'</option>' );
 
-					});	
 
-					}
+	// 						});
 
-			});
+	// 						$('#category3').attr('name','category');
 
-		});
-	});
+	// 				});	
+
+	// 				}
+
+	// 		});
+
+	// 	});
+	// });
+
 
 </script>
 

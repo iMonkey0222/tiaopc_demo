@@ -10,6 +10,123 @@ Test By Yue Wang
 @section('content')
 
 
+
+{{-- 02/05/2015 --}}
+
+
+
+
+
+ <?php
+
+
+//         $items = Item::where('location', '=', 0);
+
+//         foreach ($items as $item)
+//         {
+
+//           // Add the main picture to the item array
+//           $itemPicture = Item::find($item->id)->pictures()->where('status','=','1')->first();
+//           $pictureName = $itemPicture['picture_name'];
+//           array_add($item, "picture_name", $pictureName);
+
+//           // Add the newest price to the item array
+//           $priceArray = Item::find($item->id)->prices->first(); 
+//           $newestPrice = $priceArray['price'];
+//           array_add($item, 'price',$newestPrice);
+
+//         }
+
+//         // $links = $items->links();
+//          $items = $items->orderBy('price','ASC')->paginate(2);
+ 
+
+
+// foreach ($items as $item)
+// {
+//   echo $item->price;
+// }
+?>
+
+
+{{-- {{ $items->links() }} --}}
+
+
+<?php
+
+
+// $categories = [
+//   ['id' => 1, 'name' => '个人电脑'],
+//   ['id' => 2, 'name' => '外设及配件'],
+//   ['id' => 3, 'name' => '手机和平板'],
+//   ['id' => 4, 'name' => '摄影器材'],
+//   ['id' => 5, 'name' => '其他'],
+
+// ];
+
+// Category::buildTree($categories); // => true
+
+
+// $cat = Category::all();
+
+// foreach ($cat as $cate){
+//   echo $cate->name;
+// }
+
+
+// $items = Item::orderBy('created_at', 'DESC')->normal()->paginate(12);
+
+// var_dump($items);
+
+
+// $itemWithCategory = Category::find(1)->getChildItem()->orderBy('created_at', 'DESC')->paginate(3);
+
+// $itemWithCategory = Category::find(1)->getChildItem()->orderBy('created_at', 'ASC')->paginate(3);
+
+// $itemWithPrice = Category::find(1)->getChildItem()->get();
+
+// foreach ($itemWithPrice as $item) 
+// {
+//     // Add the newest price to the item array
+//       $priceArray = Item::find($item->id)->prices->first(); 
+//       $newestPrice = $priceArray['price'];
+//       array_add($item, 'price',$newestPrice);
+// }
+
+// $itemArray = $itemWithPrice->orderBy('price', 'DESC')->paginate(3);
+
+
+$item = Item::where('location', '=', 0)->join('price', 'items.id', '=', 'price.item_id')->orderBy('price.price', 'asc')->get();
+
+
+
+// $item = $item->sortByAsc('created_at');
+
+
+
+print count($item);
+
+
+
+
+
+
+foreach ($item as $title)
+{
+  var_dump($title->price);
+  var_dump(($title->id));
+}
+
+// var_dump($itemWithPrice);
+
+
+
+
+
+?>
+
+
+
 {{-- 24/03/2015 --}}
 
 

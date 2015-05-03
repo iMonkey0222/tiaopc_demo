@@ -100,6 +100,78 @@ class ItemController extends BaseController {
 	}
 
 
+	public function getAllitemsByLocation($location_name, $categoryId, $sortId)
+	{
+
+		$parentCategory = Category::all();
+
+
+		if($location_name = 'suzhou')
+		{
+			$location_id = 1;
+		}
+		if($location_name = 'liverpool')
+		{
+			$location_id = 0;
+		}
+
+		$sortKeyArray = ['created_at','created_at','price.price','price.price'];
+		$sortArray = ['DESC','ASC','DESC','ASC'];
+
+
+
+		if($categoryId == 0)
+		{
+			if($sortId == 0 || $sortId == 1)
+			{			
+				$items = Item::where('location', '=', $location_id)->orderBy($sortKeyArray[$sortId], $sortArray[$sortId])->normal()->paginate(12);				
+			}
+			if($sortId == 2 || $sortId == 3)
+			{
+				$items = Item::where('location', '=', $location_id)->join('price', 'items.id', '=', 'price.item_id')->orderBy($sortKeyArray[$sortId], $sortArray[$sortId])->normal()->paginate(12);				
+			}
+		}
+		if($categoryId != 0)
+		{
+			if($sortId == 0 || $sortId == 1)
+			{
+				$items = Category::find($categoryId)->getChildItem()->where('location', '=', $location_id)->orderBy($sortKeyArray[$sortId], $sortArray[$sortId])->normal()->paginate(12);				
+			}	
+
+			if($sortId == 2 || $sortId == 3)
+			{
+				$items = Category::find($categoryId)->getChildItem()->where('location', '=', $location_id)->join('price', 'items.id', '=', 'price.item_id')->orderBy($sortKeyArray[$sortId], $sortArray[$sortId])->normal()->paginate(12);
+
+			}
+		}
+
+
+		foreach ($items as $item)
+		{
+
+			// Add the main picture to the item array
+			$itemPicture = Item::find($item->id)->pictures()->where('status','=','1')->first();
+			$pictureName = $itemPicture['picture_name'];
+			array_add($item, "picture_name", $pictureName);
+
+			// Add the newest price to the item array
+			$priceArray = Item::find($item->id)->prices->first(); 
+			$newestPrice = $priceArray['price'];
+			array_add($item, 'price',$newestPrice);
+
+		}
+
+
+		return View::make('frontend/item/view-item-list', compact('parentCategory','items', 'categoryId', 'sortId','location_name'));	
+
+	}
+
+
+
+
+
+
+
 
 	/**
 	 * Get a single item with given id
