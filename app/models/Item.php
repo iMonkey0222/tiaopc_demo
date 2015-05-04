@@ -23,6 +23,12 @@ class Item extends Eloquent {
 					->orderBy('created_at','DESC'); 
 	}
 
+	public function pricesAsc()
+	{
+		return $this->hasMany('Price')
+					->orderBy('created_at','ASC'); 		
+	}
+
 
 
 	public function transactions()

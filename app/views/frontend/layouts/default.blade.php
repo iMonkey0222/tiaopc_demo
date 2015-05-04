@@ -38,7 +38,8 @@
 
         {{-- fineUploader css --}}
         <link rel="stylesheet" href="{{ asset('assets/css/fine-uploader.min.css') }}" type="text/css" />
-
+        {{-- RS css --}}
+        <link rel="stylesheet" href="{{ asset('assets/css/rs/settings.css') }}" type="text/css" />
 
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
@@ -56,9 +57,11 @@
         <!-- MixitUp JavaScripts
         ============================================= -->  
 
-        {{--
-        <script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>
-        --}}
+        <!-- RS JavaScripts
+        ============================================= -->
+        <script type="text/javascript" src="{{ asset('assets/js/rs/jquery.themepunch.revolution.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/rs/jquery.themepunch.tools.min.js')}}"></script>
+
 
 
         {{-- Modal JS         --}}
@@ -118,7 +121,7 @@
 
                     <!-- Primary Navigation
                     ============================================= -->
-                    <nav id="primary-menu" class="dark">
+                    <nav id="primary-menu" class="">
 							<ul>
 								<li><a href="{{ route('home') }}">主页</a></li>
                                 <li>

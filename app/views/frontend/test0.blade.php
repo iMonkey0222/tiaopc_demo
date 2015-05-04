@@ -13,9 +13,91 @@ Test By Yue Wang
 
 {{-- 02/05/2015 --}}
 
+<?php
+
+// $priceArray = Item::find(13)->prices()->orderBy('created_at','asc')->get();
 
 
 
+
+// var_dump($priceArray);
+// $itemPrice = Item::find(13)->prices->to_array();
+
+// var_dump($itemPrice);
+// $priceArray['time'] = $itemPrice->lists('created_at');
+
+// $priceArray['price'] = $itemPrice->lists('price');
+// $timeList = [];
+// foreach ($priceArray['time'] as $time)
+// {
+//   echo $time;
+//   array_push($timeList, $time);
+// }
+
+// print_r($timeList);
+?>
+
+                    <div class="" id="lineChart" style="opacity: 0;">
+                        <h3 class="center">Line Chart</h3>
+                        <canvas id="lineChartCanvas" width="547" height="300"></canvas>
+                    </div>
+
+
+
+<script type="text/javascript">
+  
+ jQuery(window).load( function(){
+
+    var itemId = 13;
+
+
+    $.get('{{ URL::route('getPrice')}}', {item_id: itemId}, function(result){
+
+      console.log(result);
+
+      priceArray = new Array();
+      timeArray = new Array();
+      $.each(result, function(index, price){
+        priceArray.push(price.price);
+        timeArray.push(price.created_at);
+        console.log(timeArray);
+      });
+
+    var lineChartData = {
+                            // labels : ["January","February","March","April","May","June","July"],
+                            labels :timeArray,
+                            datasets : [
+
+                                {
+                                    fillColor : "rgba(151,187,205,0.5)",
+                                    strokeColor : "rgba(151,187,205,1)",
+                                    pointColor : "rgba(151,187,205,1)",
+                                    pointStrokeColor : "#fff",
+                                    // data : [28,48,40,19,96,27,100]
+                                    data: priceArray
+                                },
+
+                            ]};
+
+                        var globalGraphSettings = {animation : Modernizr.canvas};
+
+                        function showLineChart(){
+                            var ctx = document.getElementById("lineChartCanvas").getContext("2d");
+                            new Chart(ctx).Line(lineChartData,globalGraphSettings);
+                        }
+
+          $('#lineChart').appear( function(){ $(this).css({ opacity: 1 }); setTimeout(showLineChart,300); },{accX: 0, accY: -155},'easeInCubic');
+
+    });
+
+
+
+
+
+      });
+
+
+</script>
 
  <?php
 
@@ -111,11 +193,11 @@ print count($item);
 
 
 
-foreach ($item as $title)
-{
-  var_dump($title->price);
-  var_dump(($title->id));
-}
+// foreach ($item as $title)
+// {
+//   var_dump($title->price);
+//   var_dump(($title->id));
+// }
 
 // var_dump($itemWithPrice);
 

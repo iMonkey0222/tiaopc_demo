@@ -168,6 +168,8 @@ Route::post('publish', 'ItemController@PostSingleItemForm');
 
 
 
+
+
 Route::get('publish/process/{id}', array('as' => 'publish/process', 'uses' => 'ItemController@itemPictureProcess'));
 
 
@@ -250,6 +252,21 @@ Route::get('test1', array('as' => 'test', function(){
 // 		return View::make('frontend/item/view-item-list')->with('items', $items)->render();
 // 	}
 // });
+
+// Price array chart
+Route::get('get-price', array('as'=>'getPrice', function(){
+
+	// if(Request::ajax())
+	// {
+		$itemId = Input::get('item_id');
+
+		$priceArray = Item::find($itemId)->pricesAsc()->get();
+
+		return Response::json($priceArray);
+	// }
+}));
+
+
 
 
 

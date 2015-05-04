@@ -113,6 +113,16 @@
                                     </div>
                                 </div><!-- Product Single - Meta End -->
                             </div>
+
+                            {{-- Description --}}
+                            <div class="acctitle acctitlec"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>价格走势</div>
+                            <div id="priceTrend" class="acc_content clearfix" style="display: block;">
+                                <div id="lineChart" style="opacity: 0;">
+                                    <canvas id="lineChartCanvas" width="400" height="200" ></canvas>
+                                </div>
+                            </div>
+
+
                             @if( $triggleCode == 2) 
                             <div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>卖家信息</div>
                             <div class="acc_content clearfix" style="display: block;">
@@ -155,6 +165,77 @@
 {{-- JQuery to handle ajax request --}}
 <script type="text/javascript">
     
+
+jQuery(window).load( function(){
+
+        var itemId = {{$item->id}};
+
+
+        $.get('{{ URL::route('getPrice')}}', {item_id: itemId}, function(result){
+
+            console.log(result.length);
+            priceArray = new Array();
+            timeArray = new Array();
+
+            if(result.length <=1)
+            {
+            $('#lineChart').remove();
+            $('#priceTrend').append('<h5> 价格目前未发生变动</h5>');
+            }else{
+
+  
+                $.each(result, function(index, price){
+                priceArray.push(price.price);
+                timeArray.push(price.created_at);
+                console.log(priceArray);
+
+            });
+
+            }
+
+
+
+        var lineChartData = {
+                                labels :timeArray,
+                                datasets : [
+
+                                    {
+                                        fillColor : "rgba(151,187,205,0.5)",
+                                        strokeColor : "rgba(151,187,205,1)",
+                                        pointColor : "rgba(151,187,205,1)",
+                                        pointStrokeColor : "#fff",
+                                        data: priceArray
+                                    },
+
+                                ]};
+
+                            var globalGraphSettings = {animation : Modernizr.canvas};
+
+                            function showLineChart(){
+                                var ctx = document.getElementById("lineChartCanvas").getContext("2d");
+                                new Chart(ctx).Line(lineChartData,globalGraphSettings);
+                            }
+
+              $('#lineChart').appear( function(){ $(this).css({ opacity: 1 }); setTimeout(showLineChart,300); },{accX: 0, accY: -155},'easeInCubic');
+
+        });
+
+
+
+
+
+      });
+
+
+
+
+
+
+
+
+
+
+
 
 // Pre process the error msg    
 $.ajaxSetup({
