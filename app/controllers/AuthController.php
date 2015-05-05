@@ -161,6 +161,7 @@ class AuthController extends BaseController {
 				'email'      	=> Input::get('email'), 
 				'email2'		=> Input::get('email2').$school_address,
 				'password'   	=> Input::get('password'),
+				'activated'		=> '0';
 			));
 
 			// Data to be used on the email view
