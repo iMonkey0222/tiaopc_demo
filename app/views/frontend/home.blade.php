@@ -28,9 +28,9 @@ Home page
                         <img src="{{ asset('assets/others/homepage/v2/s1.jpg')}}"  alt="video_woman_cover3"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
                         <!-- LAYERS -->
                         <!-- LAYER NR. 2 -->
-                        <div class="tp-caption customin ltl tp-resizeme revo-slider-caps-text"
+                        <div class="tp-caption customin ltl tp-resizeme revo-slider-desc-text tleft"
                         data-x="0"
-                        data-y="120"
+                        data-y="270"
                         data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
                         data-speed="800"
                         data-start="1200"
@@ -145,8 +145,8 @@ Home page
                         thumbAmount:3,
 
                         navigationType:"none",
-                        navigationArrows:"nexttobullets",
-                        navigationStyle:"preview4",
+                        navigationArrows:"preview3",
+                        navigationStyle:"none",
 
                         touchenabled:"on",
                         onHoverStop:"on",
