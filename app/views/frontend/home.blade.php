@@ -145,7 +145,7 @@ Home page
                         thumbAmount:3,
 
                         navigationType:"none",
-                        navigationArrows:"solo",
+                        navigationArrows:"nexttobullets",
                         navigationStyle:"preview4",
 
                         touchenabled:"on",
@@ -207,7 +207,8 @@ Home page
                         hideCaptionAtLimit:0,
                         hideAllCaptionAtLilmit:0,
                         startWithSlide:0,
-                        fullScreenOffsetContainer: ".header"
+                        fullScreenOffsetContainer: ".header",
+                        fullScreenOffset:"0px"
                     });
 
                     apiRevoSlider.bind("revolution.slide.onchange",function (e,data) {
