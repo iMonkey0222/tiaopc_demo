@@ -155,23 +155,23 @@ class ReviewPublishmentController extends AuthorizedController {
 
 
 		// Get the parent category
-		$categoryName = Category::find($item->category_id)->name;
-		$parentCategory = Category::find($item->category_id)->parent_id;
-		$parentCategoryName = Category::find($parentCategory)->name;
+		$categories = Category::all();
+		// $parentCategory = Category::find($item->category_id)->parent_id;
+		// $parentCategoryName = Category::find($parentCategory)->name;
 
-		array_add($item, 'category_name', $categoryName);
-		array_add($item, 'parent_category_name', $parentCategoryName);
+		// array_add($item, 'category_name', $categoryName);
+		// array_add($item, 'parent_category_name', $parentCategoryName);
 
 
 		// category1 is the last lategory, category2 is the previous cate, category3 is the ifrst cate
-		$categories = Category::where('parent_id', "=", NULL)->get();
+		// $categories = Category::where('parent_id', "=", NULL)->get();
 
 		// Get the condition array
 		$condition = Config::get('condition');
 
 
 		// Show the page
-		return View::make('frontend/item/edit-item', compact('item', 'categories','pictures','mainPic','condition'));
+		return View::make('frontend/item/edit-item', compact('item','categories','pictures','mainPic','condition'));
 	}
 
 
@@ -251,6 +251,7 @@ class ReviewPublishmentController extends AuthorizedController {
 	 */
 	public function PostSingleItemEditForm()
 	{
+
 		// Check if user or visitor
 		if(! Sentry::check())
 		{
@@ -266,7 +267,7 @@ class ReviewPublishmentController extends AuthorizedController {
 		$rules = array(
 			'title' 	=> 'min:3',
 			'price' 	=> 'numeric',
-			'category' 	=> 'required', // if not set this, will remind error
+			'category' 	=> 'numeric', // {{5.5}}required to numeric
 			'condition' => 'numeric',
 			'location' 	=>'required',
 			'description' => 'min:10',
@@ -290,6 +291,7 @@ class ReviewPublishmentController extends AuthorizedController {
 		$item->location   		= Input::get('location');
 		$item->description 		= Input::get('description');
 
+
 		// * Save item to database
 		if($item->save())
 		{	
@@ -298,12 +300,18 @@ class ReviewPublishmentController extends AuthorizedController {
 			if($item->prices()->save($priceArray))
 			{
 				// Save success, return to newly published item
-				return Redirect::to("/item/$itemID")->with('success', Lang::get('admin/blogs/message.update.success'));
+				return Redirect::to("/item/id$itemID")->with('success', Lang::get('admin/blogs/message.update.success'));
 
 			}	
 			// If error exists, return to publish page
 			Return Redirect::to('/revise-item/$itemID')->with('error', Lang::get('admin/blogs/message.update.error'));
 		}
+
+		// 		echo $item->title.'<br>';
+// echo $item->category_id  .'<br>';
+// echo $item->product_condition.'<br>';
+// echo $item->location   .'<br>';
+// echo $item->description .'<br>';
 	}
 
 	/**
