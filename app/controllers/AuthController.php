@@ -341,10 +341,12 @@ class AuthController extends BaseController {
 		catch (Cartalyst\Sentry\Users\UserNotFoundException $e)
 		{
 			$error = Lang::get('auth/message.activate.error');
+
+			// Ooops.. something went wrong
+			return Redirect::route('signin')->with('error', $error);
 		}
 
-		// Ooops.. something went wrong
-		return Redirect::route('signin')->with('error', $error);
+		
 	}
 
 
