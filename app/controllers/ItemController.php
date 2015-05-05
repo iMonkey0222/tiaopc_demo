@@ -108,11 +108,11 @@ class ItemController extends BaseController {
 
 		if($location_name == 'suzhou')
 		{
-			$location_id = 1;
+			$location_id = 2;
 		}
 		if($location_name == 'liverpool')
 		{
-			$location_id = 0;
+			$location_id = 1;
 		}
 
 		$sortKeyArray = ['created_at','created_at','price.price','price.price'];

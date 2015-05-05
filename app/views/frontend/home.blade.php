@@ -40,7 +40,7 @@ Home page
                         data-elementdelay="0.01"
                         data-endelementdelay="0.1"
                         data-endspeed="1000"
-                        data-endeasing="Power4.easeIn" style="z-index: 11; ">开放XJTLU邮箱注册</div>
+                        data-endeasing="Power4.easeIn" style="z-index: 11; ">一键注册功能</div>
 
                         <div class="tp-caption customin ltl tp-resizeme revo-slider-emphasis-text nopadding noborder uppercase"
                         data-x="-3"
@@ -54,7 +54,7 @@ Home page
                         data-elementdelay="0.1"
                         data-endelementdelay="0.1"
                         data-endspeed="1000"
-                        data-endeasing="Power4.easeIn" style="z-index: 11; font-size: 56px;">一键注册功能 </div>
+                        data-endeasing="Power4.easeIn" style="z-index: 11; font-size: 56px;">开放XJTLU邮箱注册</div>
 
                         <div class="tp-caption customin ltl tp-resizeme revo-slider-desc-text tleft"
                         data-x="0"
