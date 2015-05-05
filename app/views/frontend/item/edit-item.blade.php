@@ -112,24 +112,24 @@ function showResponse(response, statusText, xhr, $form)  {
 				<!-- Category -->
 				<div class="form-group{{ $errors->first('category', ' error') }}">
 					<label class="control-label"  for="category">Category *</label>
-					<h5>Selected Category: {{$item->parent_category_name}}.{{$item->category_name}}</h5>
+					{{-- <h5>Selected Category: {{$item->parent_category_name}}.{{$item->category_name}}</h5> --}}
 					<div class="controls">
 						<div class="clear"></div>
 						<div class="col_one_third">
-							<select class="form-control" name="category1" id="category1">
+							<select class="form-control" name="category" id="category">
 						      	<option value="" selected="selected" disabled="disabled">Reselect a Category</option>
 
 								@foreach ($categories as $category)
-									<option value="{{ $category->id }}">{{ $category->name }}</option>
+									<option {{($item->category_id == $category->id) ? 'selected = true' : ''}} value="{{ $category->id }}">{{ $category->name }}</option>
 								@endforeach
 							</select>							
 						</div>
-						<div class="col_one_third" id="subCategory">
+{{-- 						<div class="col_one_third" id="subCategory">
 							<select class="form-control" name="category2" id="category2"></select>
 						</div>
 						<div class="col_one_third col_last">
 							<select class="form-control" name="category3" id="category3"></select>
-						</div>
+						</div> --}}
 						<div class="clear"></div>
 						{{-- error block --}}
 						{{ $errors->first('category', '<span class="help-block">:message</span>') }}

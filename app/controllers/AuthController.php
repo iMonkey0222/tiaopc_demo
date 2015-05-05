@@ -137,7 +137,7 @@ class AuthController extends BaseController {
 		$rules = array(
 			'email2'            	=> 'required|unique:users|not_contains',
 			'school_address'		=> 'required',
-			'email'					=>'required|email|unique:users',
+			'email'					=> 'required|email|unique:users',
 			'password'         		=> 'required|between:3,32',
 			'password_confirm' 		=> 'required|same:password',
 		);

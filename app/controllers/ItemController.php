@@ -529,7 +529,7 @@ class ItemController extends BaseController {
 		}
 
 		// Process and save the pictures successfully
-		return Redirect::to("/item/$id")->with('success', Lang::get('admin/blogs/message.create.success'));
+		return Redirect::to("/item/id$id")->with('success', Lang::get('admin/blogs/message.create.success'));
 	}
 
 

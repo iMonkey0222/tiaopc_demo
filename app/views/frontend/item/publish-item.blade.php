@@ -207,6 +207,9 @@ Publish Item ::
 			// alert(selected);
   			document.getElementById("price-tag").innerHTML = "￥";
   		} 
+  		if(selected == 1){
+  			document.getElementById("price-tag").innerHTML = "£";
+  		}
 	}
 </script>
 
