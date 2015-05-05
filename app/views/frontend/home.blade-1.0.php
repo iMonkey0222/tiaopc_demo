@@ -1,5 +1,3 @@
-
-
 @extends('frontend/layouts/default')
 
 {{-- Page title --}}
@@ -14,230 +12,160 @@ Home page
 
 
 @section('slider')
-      <section id="slider" class="slider-parallax revoslider-wrap clearfix">
 
-            <!--
-            #################################
-                - THEMEPUNCH BANNER -
-            #################################
-            -->
-            <div class="tp-banner-container">
-                <div class="tp-banner" >
-                <ul>    <!-- SLIDE  -->
-                    <li class="dark" data-transition="slideup" data-slotamount="1" data-masterspeed="1000" data-thumb=""  data-fstransition="fade" data-fsmasterspeed="1000" data-fsslotamount="7" data-saveperformance="off"  data-title="Unlimited Homepages">
-                        <!-- MAIN IMAGE -->
-                        <img src=""  alt="video_woman_cover3"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
-                        <!-- LAYERS -->
+<section id="slider" class="slider-parallax swiper_wrapper full-screen clearfix">
 
-                        <!-- LAYER NR. 2 -->
-                        <div class="tp-caption customin ltl tp-resizeme revo-slider-caps-text"
-                        data-x="0"
-                        data-y="120"
-                        data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-                        data-speed="800"
-                        data-start="1200"
-                        data-easing="easeOutQuad"
-                        data-splitin="none"
-                        data-splitout="none"
-                        data-elementdelay="0.01"
-                        data-endelementdelay="0.1"
-                        data-endspeed="1000"
-                        data-endeasing="Power4.easeIn" style="z-index: 11; ">开放XJTLU邮箱注册</div>
+    <div class="swiper-container swiper-parent">
+        <div class="swiper-wrapper">
 
-                        <div class="tp-caption customin ltl tp-resizeme revo-slider-emphasis-text nopadding noborder uppercase"
-                        data-x="-3"
-                        data-y="140"
-                        data-customin="x:5;y:0;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:5;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-                        data-speed="800"
-                        data-start="1400"
-                        data-easing="easeOutQuad"
-                        data-splitin="chars"
-                        data-splitout="none"
-                        data-elementdelay="0.1"
-                        data-endelementdelay="0.1"
-                        data-endspeed="1000"
-                        data-endeasing="Power4.easeIn" style="z-index: 11; font-size: 56px;">一键注册功能 </div>
-
-                        <div class="tp-caption customin ltl tp-resizeme revo-slider-desc-text tleft"
-                        data-x="0"
-                        data-y="240"
-                        data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-                        data-speed="800"
-                        data-start="1600"
-                        data-easing="easeOutQuad"
-                        data-splitin="none"
-                        data-splitout="none"
-                        data-elementdelay="0.01"
-                        data-endelementdelay="0.1"
-                        data-endspeed="1000"
-                        data-endeasing="Power4.easeIn" style="z-index: 11; max-width: 550px; white-space: normal;">版本更新日志 &amp; 价格修改走势工具</div>
-
-                        <div class="tp-caption customin ltl tp-resizeme"
-                        data-x="0"
-                        data-y="345"
-                        data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-                        data-speed="800"
-                        data-start="1800"
-                        data-easing="easeOutQuad"
-                        data-splitin="none"
-                        data-splitout="none"
-                        data-elementdelay="0.01"
-                        data-endelementdelay="0.1"
-                        data-endspeed="1300"
-                        data-endeasing="Power4.easeIn" style="z-index: 11;"><a href="#" class="button button-border button-white button-light button-large button-rounded tright nomargin"><span>Check Now</span> <i class="icon-angle-right"></i></a></div>
-
-                    </li>
-                    <li data-transition="slideup" data-slotamount="1" data-masterspeed="1500" data-thumb="images/slider/rev/main/s3-thumb.jpg" data-delay="10000"  data-saveperformance="off"  data-title="Responsive &amp; Retina">
-                    <!-- MAIN IMAGE -->
-                    <img src="ql/v2.0-Welcome-4.jpg"  alt="kenburns6"  data-bgposition="left top" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone" data-bgfit="130" data-bgfitend="100" data-bgpositionend="right bottom">
-                    <!-- LAYERS -->
-
-                    <!-- LAYER NR. 2 -->
-                    <div class="tp-caption customin ltl tp-resizeme revo-slider-caps-text uppercase"
-                    data-x="0"
-                    data-y="150"
-                    data-customin="x:-200;y:0;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
-                    data-speed="800"
-                    data-start="1500"
-                    data-easing="easeOutQuad"
-                    data-splitin="none"
-                    data-splitout="none"
-                    data-elementdelay="0.01"
-                    data-endelementdelay="0.1"
-                    data-endspeed="1000"
-                    data-endeasing="Power4.easeIn" style="z-index: 3; color: #FFFFFF;">    </div>
-
-                    <div class="tp-caption customin ltl tp-resizeme revo-slider-emphasis-text nopadding noborder"
-                    data-x="-3"
-                    data-y="180"
-                    data-customin="x:10;y:0;z:0;rotationY:120;rotationZ:0;scaleX:0.8;scaleY:0.8;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 50%;"
-                    data-speed="600"
-                    data-start="1700"
-                    data-easing="easeOutCubic"
-                    data-splitin="chars"
-                    data-splitout="none"
-                    data-elementdelay="0.1"
-                    data-endelementdelay="0.1"
-                    data-endspeed="1000"
-                    data-endeasing="Power4.easeIn" style="z-index: 3; color: #000000; line-height: 1.2; max-width: 450px; width: 450px; white-space: normal;">花径不曾缘客扫 蓬门今始为君开</div>
-
-                </li>
-                </ul>
-
+            {{-- s1 --}}
+            <div class="swiper-slide " style="background-image: url({{ asset('assets/others/homepage/s1.jpg')}});">
+                <div class="container clearfix">
+                    <div class="slider-caption slider-caption-left">
+                        <h2 data-caption-animate="fadeInUp">欢迎来到</h2>
+                        <h2 data-caption-animate="fadeInUp">Tiaopc v1.0</h2>                        
+                        <p data-caption-animate="fadeInUp">这不仅仅只是一个闲置物品信息提供平台,也是你生活的一部分</p>
+                    </div>
                 </div>
             </div>
+            {{-- s2 --}}
+            <div class="swiper-slide" style="background-image: url({{ asset('assets/others/homepage/joboffer.jpg')}}) ;">
+                <div class="container clearfix" >
+                    <div class="slider-caption slider-caption-center">
+                        <h2 data-caption-animate="fadeInUp">周公吐哺 文王以宁</h2>
+                        <p data-caption-animate="fadeInUp" data-caption-delay="200">
+                            <a href="mailto:tiaopcofficial@gmail.com" style=" color: black"> 邮件至 tiaopcofficial@gmail.com</a></p>
+                                        
 
-            <script type="text/javascript">
+                    </div>
+                </div>
+            </div>
+            {{-- s3 --}}
+            <div class="swiper-slide" style="background-image: url({{ asset('assets/others/homepage/feedback.jpg')}});">
+                <div class="container clearfix">
+                    <div class="slider-caption slider-caption-center dark">
+                        <h2 data-caption-animate="fadeInUp">This is our beta version. </h2>
+                        <p data-caption-animate="fadeInUp" data-caption-delay="200">We hope to receive your feedback.</p>
+                        <p data-caption-animate="fadeInUp" data-caption-delay="200">Please mail to tiaopcofficial@gmail.com without hesitation.</p>
 
-                var tpj=jQuery;
-                tpj.noConflict();
-
-                tpj(document).ready(function() {
-
-                    var apiRevoSlider = tpj('.tp-banner').show().revolution(
-                    {
-                        dottedOverlay:"none",
-                        delay:9000,
-                        startwidth:1140,
-                        startheight:700,
-                        hideThumbs:200,
-
-                        thumbWidth:100,
-                        thumbHeight:50,
-                        thumbAmount:3,
-
-                        navigationType:"none",
-                        navigationArrows:"solo",
-                        navigationStyle:"preview4",
-
-                        touchenabled:"on",
-                        onHoverStop:"on",
-
-                        swipe_velocity: 0.7,
-                        swipe_min_touches: 1,
-                        swipe_max_touches: 1,
-                        drag_block_vertical: false,
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="slider-arrow-left"><i class="icon-angle-left"></i></div>
+        <div id="slider-arrow-right"><i class="icon-angle-right"></i></div>
+        <div id="slide-number"><div id="slide-number-current"></div><span>/</span><div id="slide-number-total"></div></div>
+        <div class="swiper-pagination"></div>
+    </div>
 
 
-                        parallax:"mouse",
-                        parallaxBgFreeze:"on",
-                        parallaxLevels:[8,7,6,5,4,3,2,1],
-                        parallaxDisableOnMobile:"on",
 
 
-                        keyboardNavigation:"on",
-
-                        navigationHAlign:"center",
-                        navigationVAlign:"bottom",
-                        navigationHOffset:0,
-                        navigationVOffset:20,
-
-                        soloArrowLeftHalign:"left",
-                        soloArrowLeftValign:"center",
-                        soloArrowLeftHOffset:20,
-                        soloArrowLeftVOffset:0,
-
-                        soloArrowRightHalign:"right",
-                        soloArrowRightValign:"center",
-                        soloArrowRightHOffset:20,
-                        soloArrowRightVOffset:0,
-
-                        shadow:0,
-                        fullWidth:"off",
-                        fullScreen:"on",
-
-                        spinner:"spinner0",
-
-                        stopLoop:"off",
-                        stopAfterLoops:-1,
-                        stopAtSlide:-1,
-
-                        shuffle:"off",
 
 
-                        forceFullWidth:"off",
-                        fullScreenAlignForce:"off",
-                        minFullScreenHeight:"400",
 
-                        hideThumbsOnMobile:"off",
-                        hideNavDelayOnMobile:1500,
-                        hideBulletsOnMobile:"off",
-                        hideArrowsOnMobile:"off",
-                        hideThumbsUnderResolution:0,
 
-                        hideSliderAtLimit:0,
-                        hideCaptionAtLimit:0,
-                        hideAllCaptionAtLilmit:0,
-                        startWithSlide:0,
-                        fullScreenOffsetContainer: ".header"
-                    });
 
-                    apiRevoSlider.bind("revolution.slide.onchange",function (e,data) {
-                        if( $(window).width() > 992 ) {
-                            if( $('#slider ul > li').eq(data.slideIndex-1).hasClass('dark') ){
-                                $('#header.transparent-header:not(.sticky-header,.semi-transparent)').addClass('dark');
-                                $('#header.transparent-header.sticky-header,#header.transparent-header.semi-transparent.sticky-header').removeClass('dark');
-                                $('#header-wrap').removeClass('not-dark');
-                            } else {
-                                if( $('body').hasClass('dark') ) {
-                                    $('#header.transparent-header:not(.semi-transparent)').removeClass('dark');
-                                    $('#header.transparent-header:not(.sticky-header,.semi-transparent)').find('#header-wrap').addClass('not-dark');
-                                } else {
-                                    $('#header.transparent-header:not(.semi-transparent)').removeClass('dark');
-                                    $('#header-wrap').removeClass('not-dark');
-                                }
-                            }
-                            SEMICOLON.header.darkLogo();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        jQuery(document).ready(function($){
+            var swiperSlider = new Swiper('.swiper-parent',{
+                paginationClickable: false,
+                slidesPerView: 1,
+                grabCursor: true,
+                autoplay: 7000,
+                speed: 650,
+                loop: true,
+                onSwiperCreated: function(swiper){
+                    $('[data-caption-animate]').each(function(){
+                        var $toAnimateElement = $(this);
+                        var toAnimateDelay = $(this).attr('data-caption-delay');
+                        var toAnimateDelayTime = 0;
+                        if( toAnimateDelay ) { toAnimateDelayTime = Number( toAnimateDelay ) + 750; } else { toAnimateDelayTime = 750; }
+                        if( !$toAnimateElement.hasClass('animated') ) {
+                            $toAnimateElement.addClass('not-animated');
+                            var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+                            setTimeout(function() {
+                                $toAnimateElement.removeClass('not-animated').addClass( elementAnimation + ' animated');
+                            }, toAnimateDelayTime);
                         }
                     });
+                    SEMICOLON.slider.swiperSliderMenu();
+                },
+                onSlideChangeStart: function(swiper){
+                    $('#slide-number-current').html(swiper.activeLoopIndex + 1);
+                    $('[data-caption-animate]').each(function(){
+                        var $toAnimateElement = $(this);
+                        var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+                        $toAnimateElement.removeClass('animated').removeClass(elementAnimation).addClass('not-animated');
+                    });
+                    SEMICOLON.slider.swiperSliderMenu();
+                },
+                onSlideChangeEnd: function(swiper){
+                    $('#slider').find('.swiper-slide').each(function(){
+                        if($(this).find('video').length > 0) { $(this).find('video').get(0).pause(); }
+                        if($(this).find('.yt-bg-player').length > 0) { $(this).find('.yt-bg-player').pauseYTP(); }
+                    });
+                    $('#slider').find('.swiper-slide:not(".swiper-slide-active")').each(function(){
+                        if($(this).find('video').length > 0) {
+                            if($(this).find('video').get(0).currentTime != 0 ) $(this).find('video').get(0).currentTime = 0;
+                        }
+                        if($(this).find('.yt-bg-player').length > 0) {
+                            $(this).find('.yt-bg-player').getPlayer().seekTo( $(this).find('.yt-bg-player').attr('data-start') );
+                        }
+                    });
+                    if( $('#slider').find('.swiper-slide.swiper-slide-active').find('video').length > 0 ) { $('#slider').find('.swiper-slide.swiper-slide-active').find('video').get(0).play(); }
+                    if( $('#slider').find('.swiper-slide.swiper-slide-active').find('.yt-bg-player').length > 0 ) { $('#slider').find('.swiper-slide.swiper-slide-active').find('.yt-bg-player').playYTP(); }
 
-                }); //ready
+                    $('#slider .swiper-slide.swiper-slide-active [data-caption-animate]').each(function(){
+                        var $toAnimateElement = $(this);
+                        var toAnimateDelay = $(this).attr('data-caption-delay');
+                        var toAnimateDelayTime = 0;
+                        if( toAnimateDelay ) { toAnimateDelayTime = Number( toAnimateDelay ) + 300; } else { toAnimateDelayTime = 300; }
+                        if( !$toAnimateElement.hasClass('animated') ) {
+                            $toAnimateElement.addClass('not-animated');
+                            var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+                            setTimeout(function() {
+                                $toAnimateElement.removeClass('not-animated').addClass( elementAnimation + ' animated');
+                            }, toAnimateDelayTime);
+                        }
+                    });
+                }
+            });
 
-            </script>
+            $('#slider-arrow-left').on('click', function(e){
+                e.preventDefault();
+                swiperSlider.swipePrev();
+            });
 
-            <!-- END REVOLUTION SLIDER -->
+            $('#slider-arrow-right').on('click', function(e){
+                e.preventDefault();
+                swiperSlider.swipeNext();
+            });
 
-        </section>
+            $('#slide-number-current').html(swiperSlider.activeLoopIndex + 1);
+            $('#slide-number-total').html($('#slider').find('.swiper-slide:not(.swiper-slide-duplicate)').length);
+        });
+    </script>
+
+</section> 
+
 @stop
 
 
@@ -259,3 +187,119 @@ Home page
 
 
 @stop
+
+
+
+<!-- Pic sticker on the pic -->
+
+                       <div class="tp-caption customin ltl tp-resizeme rs-parallaxlevel-8"
+                        data-x="200"
+                        data-y="107"
+                        data-customin="x:0;y:-250;z:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 50%;"
+                        data-speed="700"
+                        data-start="2600"
+                        data-easing="easeOutCubic"
+                        data-splitin="none"
+                        data-splitout="none"
+                        data-elementdelay="0.01"
+                        data-endelementdelay="0.1"
+                        data-endspeed="1000"
+                        data-endeasing="Power4.easeIn" style="z-index: 3;"><img src="{{ asset('assets/others/homepage/v2/p1.png')}}" alt="Image"></div>
+
+                        <div class="tp-caption customin ltl tp-resizeme rs-parallaxlevel-7"
+                        data-x="200"
+                        data-y="107"
+                        data-customin="x:0;y:-250;z:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 50%;"
+                        data-speed="700"
+                        data-start="2800"
+                        data-easing="easeOutCubic"
+                        data-splitin="none"
+                        data-splitout="none"
+                        data-elementdelay="0.01"
+                        data-endelementdelay="0.1"
+                        data-endspeed="1000"
+                        data-endeasing="Power4.easeIn" style="z-index: 4;"><img src="{{ asset('assets/others/homepage/v2/p2.png')}}" alt="Image"></div>
+
+                        <div class="tp-caption customin ltl tp-resizeme rs-parallaxlevel-6"
+                        data-x="200"
+                        data-y="107"
+                        data-customin="x:0;y:-250;z:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 50%;"
+                        data-speed="700"
+                        data-start="3000"
+                        data-easing="easeOutCubic"
+                        data-splitin="none"
+                        data-splitout="none"
+                        data-elementdelay="0.01"
+                        data-endelementdelay="0.1"
+                        data-endspeed="1000"
+                        data-endeasing="Power4.easeIn" style="z-index: 5;"><img src="{{ asset('assets/others/homepage/v2/p3.png')}}" alt="Image"></div>
+
+                        <div class="tp-caption customin ltl tp-resizeme rs-parallaxlevel-5"
+                        data-x="200"
+                        data-y="107"
+                        data-customin="x:0;y:-250;z:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 50%;"
+                        data-speed="700"
+                        data-start="3200"
+                        data-easing="easeOutCubic"
+                        data-splitin="none"
+                        data-splitout="none"
+                        data-elementdelay="0.01"
+                        data-endelementdelay="0.1"
+                        data-endspeed="1000"
+                        data-endeasing="Power4.easeIn" style="z-index: 6;"><img src="{{ asset('assets/others/homepage/v2/p4.png')}}" alt="Image"></div>
+
+                        <div class="tp-caption customin ltl tp-resizeme rs-parallaxlevel-4"
+                        data-x="200"
+                        data-y="107"
+                        data-customin="x:0;y:-250;z:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 50%;"
+                        data-speed="700"
+                        data-start="3400"
+                        data-easing="easeOutCubic"
+                        data-splitin="none"
+                        data-splitout="none"
+                        data-elementdelay="0.01"
+                        data-endelementdelay="0.1"
+                        data-endspeed="1000"
+                        data-endeasing="Power4.easeIn" style="z-index: 7;"><img src="{{ asset('assets/others/homepage/v2/p5.png')}}" alt="Image"></div>
+
+                        <div class="tp-caption customin ltl tp-resizeme rs-parallaxlevel-3"
+                        data-x="200"
+                        data-y="107"
+                        data-customin="x:0;y:-250;z:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 50%;"
+                        data-speed="700"
+                        data-start="3600"
+                        data-easing="easeOutCubic"
+                        data-splitin="none"
+                        data-splitout="none"
+                        data-elementdelay="0.01"
+                        data-endelementdelay="0.1"
+                        data-endspeed="1000"
+                        data-endeasing="Power4.easeIn" style="z-index: 8;"><img src="{{ asset('assets/others/homepage/v2/p6.png')}}" alt="Image"></div>
+
+                        <div class="tp-caption customin ltl tp-resizeme rs-parallaxlevel-2"
+                        data-x="200"
+                        data-y="107"
+                        data-customin="x:0;y:-250;z:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 50%;"
+                        data-speed="700"
+                        data-start="3800"
+                        data-easing="easeOutCubic"
+                        data-splitin="none"
+                        data-splitout="none"
+                        data-elementdelay="0.01"
+                        data-endelementdelay="0.1"
+                        data-endspeed="1000"
+                        data-endeasing="Power4.easeIn" style="z-index: 9;"><img src="{{ asset('assets/others/homepage/v2/p7.png')}}" alt="Image"></div>
+
+                        <div class="tp-caption customin ltl tp-resizeme rs-parallaxlevel-1"
+                        data-x="200"
+                        data-y="107"
+                        data-customin="x:0;y:-250;z:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 50%;"
+                        data-speed="700"
+                        data-start="4000"
+                        data-easing="easeOutCubic"
+                        data-splitin="none"
+                        data-splitout="none"
+                        data-elementdelay="0.01"
+                        data-endelementdelay="0.1"
+                        data-endspeed="1000"
+                        data-endeasing="Power4.easeIn" style="z-index: 10;"><img src="{{ asset('assets/others/homepage/v2/p6.png')}}" alt="Image"></div>

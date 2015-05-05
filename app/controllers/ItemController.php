@@ -129,6 +129,8 @@ class ItemController extends BaseController {
 			if($sortId == 2 || $sortId == 3)
 			{
 				$items = Item::where('location', '=', $location_id)->normal()->leftJoin('price', 'items.id', '=', 'price.item_id')->orderBy($sortKeyArray[$sortId], $sortArray[$sortId])->paginate(12);				
+				// $items = DB::table('items')->where('location', '=', $location_id)->where('status','=',0)->join('price', 'items.id', '=', 'price.item_id')->orderBy($sortKeyArray[$sortId], $sortArray[$sortId])->paginate(12);				
+
 			}
 		}
 		if($categoryId != 0)
@@ -170,12 +172,12 @@ class ItemController extends BaseController {
 
 		// foreach ($items as $item)
 		// {
-		// 	$title = Item::find($item->item_id)->title;
-		// 	$price = Item::find($item->item_id)->price;
-		// 	echo "title".$item->title." ".$item->id." ".$title ;
-		// 	echo "<br>";
+		// 	// $title = Item::find($item->item_id)->title;
+		// 	// $price = Item::find($item->item_id)->price;
+		// 	// echo "title".$item->title." ".$item->id." ".$title ;
+		// 	// echo "<br>";
 
-		// 	echo $item->item_id." price".$price;
+		// 	// echo $item->item_id." price".$price;
 		// 	echo "<br>";
 		// 	var_dump($item->toJson());
 		// }

@@ -14,8 +14,7 @@
 		<meta name="description" content="This is a fresh new trade info sharing website, for the students of University of Liverpool" />
         <meta name="email" content="patrick.wang1029@gmail.com">
 
-		<!-- Mobile Specific Metas ================================================== -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 		<!-- CSS ================================================== -->
 		{{-- Original --}}
@@ -29,17 +28,20 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 	    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 	    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}" type="text/css" />
-	    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css" />
 	    <link rel="stylesheet" href="{{ asset('assets/css/dark.css') }}" type="text/css" />
 	    <link rel="stylesheet" href="{{ asset('assets/css/font-icons.css') }}" type="text/css" />
 	    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}" type="text/css" />
 	    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}" type="text/css" />
 	    <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}" type="text/css" />
 
+        <!-- Mobile Specific Metas ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         {{-- fineUploader css --}}
         <link rel="stylesheet" href="{{ asset('assets/css/fine-uploader.min.css') }}" type="text/css" />
         {{-- RS css --}}
-        <link rel="stylesheet" href="{{ asset('assets/css/rs/settings.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('assets/css/rs/settings.css') }}" media="screen" type="text/css" />
 
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
@@ -83,14 +85,52 @@
           ga('create', 'UA-60250899-1', 'auto');
           ga('send', 'pageview');
        </script>
-{{-- 
+
+
+
+               
+        {{-- Notification Aumatically Fade out --}}
+        <script type="text/javascript">
+            $(document).ready (function(){
+                $(".alert").alert();
+                window.setTimeout(function() {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                    $(this).remove(); 
+                    });
+                }, 5000);
+         });
+
+        </script>
+
+
        <style type="text/css">
-        #portfolio-mix .mix{
-            display: none;
+
+        .revo-slider-emphasis-text {
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            font-family: 'Raleway', sans-serif;
+            padding: 15px 20px;
+            border-top: 2px solid #FFF;
+            border-bottom: 2px solid #FFF;
         }
 
+        .revo-slider-desc-text {
+            font-size: 20px;
+            font-family: 'Lato', sans-serif;
+            width: 650px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .revo-slider-caps-text {
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            font-family: 'Raleway', sans-serif;
+        }
        </style>
- --}}
+
 
 	</head>
 
@@ -104,9 +144,8 @@
 
         <!-- Header
         ============================================= -->
-        <header id="header" class="transparent-header full-header" data-sticky-class="not-dark">
-
-            <div id="header-wrap">
+        <header id="header" class="transparent-header" data-sticky-class="not-dark">
+        <div id="header-wrap">
 
                 <div class="container clearfix">
 
@@ -122,8 +161,8 @@
                     <!-- Primary Navigation
                     ============================================= -->
                     <nav id="primary-menu" class="">
-							<ul>
-								<li><a href="{{ route('home') }}">主页</a></li>
+                            <ul>
+                                <li><a href="{{ route('home') }}">主页</a></li>
                                 <li>
                                     <a href="#"><div>电子产品</div></a>
                                     <ul>
@@ -132,40 +171,40 @@
                                     </ul>
                                 </li>
                                 <li><a href="{{ URL::to('how-to-use') }}">使用指南</a></li>                                
-								<li><a href="{{ route('about-us') }}">关于我们</a></li>
-								@if (Sentry::check())
-								<li ><a href="{{ route('publish/item') }}">发布产品</a></li>
-								@endif
+                                <li><a href="{{ route('about-us') }}">关于我们</a></li>
+                                @if (Sentry::check())
+                                <li ><a href="{{ route('publish/item') }}">发布产品</a></li>
+                                @endif
 
-							</ul>
+                            </ul>
                             
-							<ul class="nav pull-right">
-								@if (Sentry::check())
+                            <ul class="nav pull-right">
+                                @if (Sentry::check())
 
-								<li>
-									<a href="#">
-										Welcome, {{ Sentry::getUser()->first_name }}
-					
-									</a>
-									<ul>
-										@if(Sentry::getUser()->hasAccess('admin'))
-										<li><a href="{{ route('admin') }}"><i class="icon-cog"></i> Administration</a></li>
-										@endif
-										<li><a href="{{ route('profile') }}"><i class="icon-user"></i>我的账户</a></li>
-										<li></li>
-										<li><a href="{{ route('logout') }}"><i class="icon-off"></i>登出</a></li>
-									</ul>
-								</li>
-
-
+                                <li>
+                                    <a href="#">
+                                        Welcome, {{ Sentry::getUser()->first_name }}
+                    
+                                    </a>
+                                    <ul>
+                                        @if(Sentry::getUser()->hasAccess('admin'))
+                                        <li><a href="{{ route('admin') }}"><i class="icon-cog"></i> Administration</a></li>
+                                        @endif
+                                        <li><a href="{{ route('profile') }}"><i class="icon-user"></i>我的账户</a></li>
+                                        <li></li>
+                                        <li><a href="{{ route('logout') }}"><i class="icon-off"></i>登出</a></li>
+                                    </ul>
+                                </li>
 
 
 
-								@else
-								<li class="active"><a href="{{ route('signin') }}">登录</a></li>
-								<li class="active"><a href="{{ route('signup-selection') }}">注册</a></li>
-								@endif
-							</ul>		
+
+
+                                @else
+                                <li class="active"><a href="{{ route('signin') }}">登录</a></li>
+                                <li class="active"><a href="{{ route('signup-selection') }}">注册</a></li>
+                                @endif
+                            </ul>       
                   
                             
 
