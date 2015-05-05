@@ -13,12 +13,12 @@
 
 
 a,
-h1 > span,
-h2 > span,
-h3 > span,
-h4 > span,
-h5 > span,
-h6 > span,
+h1 > span:not(.nocolor),
+h2 > span:not(.nocolor),
+h3 > span:not(.nocolor),
+h4 > span:not(.nocolor),
+h5 > span:not(.nocolor),
+h6 > span:not(.nocolor),
 .header-extras li .he-text span,
 #primary-menu > ul > li:hover a,
 #primary-menu > ul > li.current a,
@@ -63,7 +63,11 @@ h6 > span,
 .faqlist li a:hover,
 .tagcloud a:hover,
 .dark .top-cart-item-desc a:hover,
-.iconlist-color li i { color: #1ABC9C !important; }
+.iconlist-color li i,
+.dark.overlay-menu #header-wrap:not(.not-dark) #primary-menu > ul > li:hover > a,
+.dark.overlay-menu #header-wrap:not(.not-dark) #primary-menu > ul > li.current > a,
+.overlay-menu #primary-menu.dark > ul > li:hover > a,
+.overlay-menu #primary-menu.dark > ul > li.current > a { color: #1ABC9C !important; }
 
 #primary-menu.style-3 > ul > li.current > a,
 #primary-menu.sub-title > ul > li:hover > a,

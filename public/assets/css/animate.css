@@ -7,8 +7,6 @@ Licensed under the MIT license - http://opensource.org/licenses/MIT
 Copyright (c) 2014 Daniel Eden
 */
 
-@media only screen and (min-width: 768px) {
-
 .not-animated { opacity: 0 !important; }
 
 .animated {
@@ -3393,7 +3391,4 @@ Copyright (c) 2014 Daniel Eden
 .zoomOutUp {
   -webkit-animation-name: zoomOutUp;
   animation-name: zoomOutUp;
-}
-
-
 }
