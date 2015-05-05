@@ -154,7 +154,7 @@ class AuthController extends BaseController {
 
 		try
 		{
-			$school_address = (Input::get('school_address') == 'liv')? Config::get('helper.mail_postfix_liv') : Config::get('helper.mail_postfix_xjtlu');
+			$school_address = (Input::get('school_address') == 'xjtlu')? Config::get('helper.mail_postfix_xjtlu') : Config::get('helper.mail_postfix_liv');
 
 			// Register the user
 			$user = Sentry::register(array(
