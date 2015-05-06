@@ -21,7 +21,13 @@ Item List Page
 <section id="page-title">
 
     <div class="container clearfix">
-        <h3>Item List</h3>
+        <h3>
+            @if ($location_name == 'suzhou')
+             苏州地区
+            @elseif ($location_name == 'liverpool')
+            利物浦地区
+            @endif
+        </h3>
         <span>Show all the published items</span>
         <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
