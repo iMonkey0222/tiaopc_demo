@@ -49,11 +49,11 @@ Publish Item ::
 
 				<!-- Location -->
 				<div class="form-group{{ $errors->first('location', ' error') }}">
-					<label for="location" class="control-label">产品所在地</label>
+					<label for="location" class="control-label">物品所在地</label>
 					
 					<div class="controls">
 						<select id="location" class="form-control" name="location" onChange="itemPriceTag(this);">
-						    <option value="" selected="selected" disabled="disabled">-- Select a location --</option>
+						    <option value="" selected="selected" disabled="disabled">-- 请选择物品所在地 --</option>
 							<option value="1">英国 利物浦</option>
 							<option value="2">中国 苏州</option>
 						</select> 	
@@ -62,7 +62,8 @@ Publish Item ::
 					
 				</div>
 
-				<!-- Price -->
+
+				<!-- Dispaly Price based on location -->
 				<div class="form-group{{ $errors->first('price', ' error') }}">
 				<label class="control-label" for="price">价格</label>
 					<div class="input-group">
@@ -167,7 +168,7 @@ Publish Item ::
 
 				<!-- Description -->
 				<div class="form-group{{ $errors->first('description', ' error') }}">
-					<label class="control-label" for="description">产品描述</label>
+					<label class="control-label" for="description">物品描述</label>
 					<div class="controls">
 						<textarea class="form-control" rows="4" name="description" id="description" value="description" >{{ Input::old('description') }}</textarea>
 						{{ $errors->first('description', '<span class="help-block">:message</span>') }}
