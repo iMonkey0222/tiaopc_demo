@@ -43,7 +43,12 @@ Published Items
 						<!-- Product price --> 
 						<td>
 							@if (!empty($item-> price))
-							£{{ $item-> price }}
+								@if($item->location == 1)
+									£{{ $item-> price }}
+								@elseif($item->location == 2)
+									￥{{ $item-> price }}
+								@endif
+							{{-- £{{ $item-> price }} --}}
 							@endif
 						</td>
 
