@@ -21,7 +21,6 @@ Item List Page
 <section id="page-title">
 
     <div class="container clearfix">
-<<<<<<< HEAD
         <h3>
             @if ($location_name == 'suzhou')
              苏州地区
@@ -29,9 +28,7 @@ Item List Page
             利物浦地区
             @endif
         </h3>
-=======
         <h3>物品列表</h3>
->>>>>>> e7655a0e31ab50e3c223bc0cf8ff9b7446e0fcb0
         <span>Show all the published items</span>
         <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
