@@ -28,10 +28,10 @@ Item List Page
             利物浦地区
             @endif
         </h3>
-        <span>Show all the published items</span>
+        {{-- <span>Show all the published items</span> --}}
         <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li class="active">Item List</li>
+            {{-- <li><a href="{{ route('home') }}">主页</a></li> --}}
+            {{-- <li class="active">产品列表</li> --}}
         </ol>
     </div>
 
