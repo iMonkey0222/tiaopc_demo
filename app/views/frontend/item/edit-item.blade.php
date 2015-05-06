@@ -7,7 +7,7 @@ Revise an Item ::
 @stop
 
 @section('account-page-title')
-    <h3>Revising Item</h3>
+    <h3>编辑物品</h3>
     <span>{{ $item->title }}</span>
 @stop
 
@@ -90,28 +90,56 @@ function showResponse(response, statusText, xhr, $form)  {
 
 				<!-- Title -->
 				<div class="form-group{{ $errors->first('title', ' error') }}">
-					<label class="control-label" for="title">Title</label>
+					<label class="control-label" for="title">标题</label>
 					<div class="controls">
 						<input type="text" class="form-control" name="title" id="title" value="{{ Input::old('title', $item->title) }}" />
 						{{ $errors->first('title', '<span class="help-block">:message</span>') }}
 					</div>
 				</div>
 
+
+				<!-- Location -->
+				<div class="form-group{{ $errors->first('location', ' error') }}">
+					<label for="location" class="control-label">产品所在地</label>
+					
+					<div class="controls">
+						<select id="location" class="form-control" name="location" onChange="itemPriceTag(this);">
+						    <option value="" selected="selected" disabled="disabled">-- 请选择物品所在地 --</option>
+							<option value="1" {{ ($item->location == 1) ? 'selected = true' : ' ' }}>英国 利物浦</option>
+							<option value="2" {{ ($item->location == 2) ? 'selected = true' : ' ' }}>中国 苏州</option>
+						</select> 	
+
+
+						{{-- <select class="form-control" name="location" id="location">
+						    <option value="" disabled="disabled">-- Select a location --</option>
+							<option value="1" {{ ($item->location == 1) ? 'selected = true' : ' ' }}>英国 利物浦</option>
+							<option value="2" {{ ($item->location == 2) ? 'selected = true' : ' ' }}>中国 苏州</option>
+						</select>  --}}
+					{{ $errors->first('location', '<span class="help-block">:message</span>') }}
+					</div>				
+				</div>
+
 				<!-- Price -->
 				<div class="form-group{{ $errors->first('price', ' error') }}">
-					<label class="control-label" for="price">Price (GB)</label>
+					<label class="control-label" for="price">价格</label>
+
 					<div class="input-group">
-						<span id="startPriceCurrSym" class="input-group-addon">£</span>
+						{{-- <span id="startPriceCurrSym" class="input-group-addon">£</span> --}}
+						@if($item->location == 1)
+							<div id = "price-tag" class="input-group-addon">£</div>
+						@elseif($item->location == 2)
+							<div id = "price-tag" class="input-group-addon">￥</div>
+						@endif
 							<input type="text" class="form-control" name="price" id="price" value=" {{ Input::old('price', $item->price) }}" />
 					</div>
-							{{ $errors->first('price', '<span class="help-block">:message</span>') }}
+					{{ $errors->first('price', '<span class="help-block">:message</span>') }}
 					
 				</div>
 
 
 				<!-- Category -->
 				<div class="form-group{{ $errors->first('category', ' error') }}">
-					<label class="control-label"  for="category">Category *</label>
+					<label class="control-label"  for="category">产品分类 *</label>
 					{{-- <h5>Selected Category: {{$item->parent_category_name}}.{{$item->category_name}}</h5> --}}
 					<div class="controls">
 						<div class="clear"></div>
@@ -159,7 +187,7 @@ function showResponse(response, statusText, xhr, $form)  {
 
 				<!-- Product Condition -->
 				<div class="form-group{{ $errors->first('condition', ' error') }}">
-					<label class="control-label" for="condition">Condition</label>
+					<label class="control-label" for="condition">新旧程度</label>
 
 					<select class="form-control" name="condition">
 				      <option value="" disabled="disabled">Select a Condition rate</option>
@@ -171,20 +199,7 @@ function showResponse(response, statusText, xhr, $form)  {
 				</div>
 
 	
-				<!-- Location -->
-				<div class="form-group{{ $errors->first('location', ' error') }}">
-					<label for="location" class="control-label">Location</label>
-					
-					<div class="controls">
-						<select class="form-control" name="location" id="location">
-						    <option value="" disabled="disabled">-- Select a location --</option>
-							<option value="1" {{ ($item->location == 1) ? 'selected = true' : ' ' }}>英国 利物浦</option>
-							<option value="2" {{ ($item->location == 2) ? 'selected = true' : ' ' }}>中国 苏州</option>
-						</select> 
-					{{ $errors->first('location', '<span class="help-block">:message</span>') }}
-					</div>
-				
-				</div>
+
 
 				<!-- Picture Uploaded -->
 {{-- 				<div class="form-group{{ $errors->first('condition', ' error') }}">
@@ -259,7 +274,7 @@ function showResponse(response, statusText, xhr, $form)  {
 
 				<!-- Description -->
 				<div class="form-group{{ $errors->first('description', ' error') }}">
-					<label class="control-label" for="description">Description</label>
+					<label class="control-label" for="description">物品描述</label>
 					<div class="controls">
 						<textarea class="form-control" rows="4" name="description" id="description" value="description" >{{ Input::old('description',$item->description) }}</textarea>
 						{{ $errors->first('description', '<span class="help-block">:message</span>') }}
@@ -280,6 +295,23 @@ function showResponse(response, statusText, xhr, $form)  {
 				{{ Form::close() }}
 
 </section>
+
+
+<script id="item-location" type="text/javascript">
+
+	function itemPriceTag(selection){
+		var selected = selection.options[selection.selectedIndex].value;
+		// var text = selection.options[selection.selectedIndex].text;
+		if(selected == 2){
+			// alert(selected);
+  			document.getElementById("price-tag").innerHTML = "￥";
+  		} 
+  		if(selected == 1){
+  			document.getElementById("price-tag").innerHTML = "£";
+  		}
+	}
+</script>
+
 
 
 <script id = "category" type="text/javascript">
