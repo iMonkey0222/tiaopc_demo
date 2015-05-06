@@ -28,7 +28,6 @@ Item List Page
             利物浦地区
             @endif
         </h3>
-        <h3>物品列表</h3>
         <span>Show all the published items</span>
         <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
