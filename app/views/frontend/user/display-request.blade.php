@@ -28,6 +28,16 @@
                             <i class = "icon-user"></i>
                             {{$t->buyerNickname}}
                         </td>
+                        {{--5.7 Add buyer info--}}
+                        <td id = "buyerContact">
+                            Tel:{{$t->buyerPhone_no}}
+                            @if(!empty($t->buyerWeiXin))
+                                <br>微信:{{$t->buyerWeiXin}} 
+                            @endif
+                            @if(!empty($t->buyerQQ))
+                                <br>QQ:{{$t->buyerQQ}}
+                            @endif
+                        </td>
          				{{-- When --}}
          				<td id = "time">{{$t->updated_at}}</td>
          				{{-- Action --}}
