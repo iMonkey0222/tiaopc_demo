@@ -128,7 +128,7 @@ class ItemController extends BaseController {
 			}
 			if($sortId == 2 || $sortId == 3)
 			{
-				$items = Item::where('location', '=', $location_id)->normal()->leftJoin('price', 'items.id', '=', 'price.item_id')->orderBy($sortKeyArray[$sortId], $sortArray[$sortId])->paginate(12);				
+				$items = Item::where('location', '=', $location_id)->normal()->join('price', 'items.id', '=', 'price.item_id')->orderBy($sortKeyArray[$sortId], $sortArray[$sortId])->paginate(12);				
 				// $items = DB::table('items')->where('location', '=', $location_id)->where('status','=',0)->join('price', 'items.id', '=', 'price.item_id')->orderBy($sortKeyArray[$sortId], $sortArray[$sortId])->paginate(12);				
 
 			}
@@ -142,7 +142,7 @@ class ItemController extends BaseController {
 
 			if($sortId == 2 || $sortId == 3)
 			{
-				$items = Category::find($categoryId)->getChildItem()->where('location', '=', $location_id)->normal()->leftJoin('price', 'items.id', '=', 'price.item_id')->orderBy($sortKeyArray[$sortId], $sortArray[$sortId])->paginate(12);
+				$items = Category::find($categoryId)->getChildItem()->where('location', '=', $location_id)->normal()->join('price', 'items.id', '=', 'price.item_id')->orderBy($sortKeyArray[$sortId], $sortArray[$sortId])->paginate(12);
 
 			}
 		}
@@ -350,7 +350,7 @@ class ItemController extends BaseController {
 
 		// Declare validator rules
 		$rules = array(
-			'title' 		=> 'required|min:3|max:20',
+			'title' 		=> 'required|min:3|max:40',
 			'price' 		=> 'required|numeric',
 			'category' 		=> 'required',
 			'condition' 	=> 'required|numeric',
