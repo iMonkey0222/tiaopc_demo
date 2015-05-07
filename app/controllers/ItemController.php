@@ -350,7 +350,7 @@ class ItemController extends BaseController {
 
 		// Declare validator rules
 		$rules = array(
-			'title' 		=> 'required|min:3|max:20',
+			'title' 		=> 'required|min:3|max:40',
 			'price' 		=> 'required|numeric',
 			'category' 		=> 'required',
 			'condition' 	=> 'required|numeric',
