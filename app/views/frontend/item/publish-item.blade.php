@@ -147,19 +147,29 @@ Publish Item ::
 				<div class="form-group{{ $errors->first('picture', ' error') }}">
 					<label class="control-label" for="picture" data-toggle="tooltip" data-placement="left" title="" data-original-title="Each picture file should no more than 1.5 MB.">
 						<i class = "icon-bulb"></i> 
-						上传图片</label>
+						上传图片</label> 
+						<span class="label label-warning">
+							<i class="icon-bell"></i>
+							请 至 少 上 传  3  张 图 片
+						</span> 
+						<br>
 					<div class="controls">
 						<!-- <input type="file" name="picture" id="picture"  /> -->
-						<div class="col_half"> {{ Form::file('mainPicture') }} </div>
-						<div class="col_half col_last"> *请选择一张封面图片（此图将成为产品主图）</div>
+						<div class="col_half">{{ Form::file('mainPicture') }} </div>
+						<div class="col_half col_last"> 
+							
+							{{-- <a class = "btn"> --}}
+								<i class="icon-bell"></i> 请选择一张封面图片（此图将成为产品主图）
+							{{-- </a> --}}
+						</div>
 
-						<div class="col_half"> {{ Form::file('picture') }} </div>
-						<div class="col_half col_last"> *请选择一张图片</div>
+						<div class="col_half">{{ Form::file('picture') }} </div>
+						<div class="col_half col_last"> <i class="icon-bell"></i>请选择一张图片</div>
 
 
-						<div class="col_half" > {{ Form::file('pictures[]', array('multiple'=>true)) }} </div>
+						<div class="col_half" >{{ Form::file('pictures[]', array('multiple'=>true)) }} </div>
 
-						<div class="col_half col_last"> *请选择<strong>至少一张</strong> 图片 (数量>= 1)</div>
+						<div class="col_half col_last"> <i class="icon-bell"></i>此处可传<strong> 多张</strong> 图片 (数量>= 1)</div>
 						{{ $errors->first('picture', '<span class="help-block">:message</span>') }}
 
 					</div>
