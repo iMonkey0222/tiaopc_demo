@@ -515,8 +515,13 @@ class ReviewPublishmentController extends AuthorizedController {
 		{
 			$buyer = User::find($transaction->buyer_id);
 			$buyerNickname = $buyer->nickname;
+			$buyerPhoneNumber = $buyer->phone_no;
+			$buyerWeiXin = $buyer->weixin;
+			$buyerQQ = $buyer->qq;
 			$transaction = array_add($transaction, 'buyerNickname', $buyerNickname);
-
+			$transaction = array_add($transaction, 'buyerPhone_no', $buyerPhoneNumber);
+			$transaction = array_add($transaction, 'buyerWeiXin', $buyerWeiXin);
+			$transaction = array_add($transaction, 'buyerQQ', $buyerQQ);
 		}
 		// echo "<br><br> transactions<br>";
 		// var_dump($transactions);
