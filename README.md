@@ -1,6 +1,6 @@
 # 1. What is Tiaopc?
 Tiaopc.com is a second-hand items trade platform, specialised in the item infomation exchange and security of seller info. 
-
+The official website is [Tiaopc][3]
 ***
 
 # 2. About Tiaopc Website
@@ -22,3 +22,4 @@ Some development details as follow:
 
 [1]:http://themeforest.net/item/canvas-the-multipurpose-html5-template/9228123
 [2]:https://forge.laravel.com
+[3]:http://tiaopc.com
