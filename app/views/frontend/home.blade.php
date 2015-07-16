@@ -23,9 +23,9 @@ Home page
             <div class="tp-banner-container">
                 <div class="tp-banner" >
                     <ul>    <!-- SLIDE  -->
-                    <li class="dark" data-transition="slideup" data-slotamount="1" data-masterspeed="1000" data-thumb="{{ asset('assets/others/homepage/v2/s1-thumb.jpg')}}"  data-fstransition="fade" data-fsmasterspeed="1000" data-fsslotamount="7" data-saveperformance="off"  data-title="Tiaopc v2.0">
+                    <li class="dark" data-transition="slideup" data-slotamount="1" data-masterspeed="1000" data-thumb="{{ cdn('assets/others/homepage/v2/s1-thumb.jpg')}}"  data-fstransition="fade" data-fsmasterspeed="1000" data-fsslotamount="7" data-saveperformance="off"  data-title="Tiaopc v2.0">
                         <!-- MAIN IMAGE -->
-                        <img src="{{ asset('assets/others/homepage/v2/s1.jpg')}}"  alt="video_woman_cover3"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+                        <img src="{{ cdn('assets/others/homepage/v2/s1.jpg')}}"  alt="video_woman_cover3"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
                         <!-- LAYERS -->
                         <!-- LAYER NR. 2 -->
                         <div class="tp-caption customin ltl tp-resizeme revo-slider-desc-text tleft"
@@ -85,9 +85,9 @@ Home page
                         data-endeasing="Power4.easeIn" style="z-index: 11;"><a href="{{ route('about-us') }}" class="button button-border button-white button-light button-large button-rounded tright nomargin"><span>Check Now</span> <i class="icon-angle-right"></i></a></div>
 
                     </li>
-                    <li data-transition="slideup" data-slotamount="1" data-masterspeed="1500" data-thumb="{{ asset('assets/others/homepage/v2/s2-thumb.jpg')}}" data-delay="10000"  data-saveperformance="off"  data-title="Welcome">
+                    <li data-transition="slideup" data-slotamount="1" data-masterspeed="1500" data-thumb="{{ cdn('assets/others/homepage/v2/s2-thumb.jpg')}}" data-delay="10000"  data-saveperformance="off"  data-title="Welcome">
                     <!-- MAIN IMAGE -->
-                    <img src="{{ asset('assets/others/homepage/v2/s2.jpg')}}"  alt="kenburns6"  data-bgposition="left top" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone" data-bgfit="130" data-bgfitend="100" data-bgpositionend="right bottom">
+                    <img src="{{ cdn('assets/others/homepage/v2/s2.jpg')}}"  alt="kenburns6"  data-bgposition="left top" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone" data-bgfit="130" data-bgfitend="100" data-bgpositionend="right bottom">
                     <!-- LAYERS -->
 
                     <!-- LAYER NR. 2 -->

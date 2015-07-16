@@ -17,62 +17,71 @@
 
 
 		<!-- CSS ================================================== -->
-		{{-- Original --}}
-		{{-- <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">  --}}
 		{{-- New --}}
 
         {{-- Bootstrap Modal --}}
-        {{-- <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-modal-bs3patch.css') }}" type="text/css" /> --}}
-        {{-- <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-modal.css') }}" type="text/css" /> --}}
+         <link rel="stylesheet" href="{{ cdn('assets/css/bootstrap-modal-bs3patch.css') }}" type="text/css" />
+         <link rel="stylesheet" href="{{ cdn('assets/css/bootstrap-modal.css') }}" type="text/css" />
         {{-- Others  --}}
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
-	    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
-	    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}" type="text/css" />
-        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css" />
-	    <link rel="stylesheet" href="{{ asset('assets/css/dark.css') }}" type="text/css" />
-	    <link rel="stylesheet" href="{{ asset('assets/css/font-icons.css') }}" type="text/css" />
-	    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}" type="text/css" />
-	    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}" type="text/css" />
-	    <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}" type="text/css" />
+        {{--<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>--}}
+	    {{--<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />--}}
+	    <link rel="stylesheet" href="{{ cdn('assets/css/bootstrap.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ cdn('assets/css/style.css') }}" type="text/css" />
+	    <link rel="stylesheet" href="{{ cdn('assets/css/dark.css') }}" type="text/css" />
+	    <link rel="stylesheet" href="{{ cdn('assets/css/font-icons.css') }}" type="text/css" />
+	    <link rel="stylesheet" href="{{ cdn('assets/css/animate.css') }}" type="text/css" />
+	    <link rel="stylesheet" href="{{ cdn('assets/css/magnific-popup.css') }}" type="text/css" />
+	    <link rel="stylesheet" href="{{ cdn('assets/css/responsive.css') }}" type="text/css" />
 
         <!-- Mobile Specific Metas ================================================== -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         {{-- fineUploader css --}}
-        <link rel="stylesheet" href="{{ asset('assets/css/fine-uploader.min.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ cdn('assets/css/fine-uploader.min.css') }}" type="text/css" />
         {{-- RS css --}}
-        <link rel="stylesheet" href="{{ asset('assets/css/rs/settings.css') }}" media="screen" type="text/css" />
+        <link rel="stylesheet" href="{{ cdn('assets/css/rs/settings.css') }}" media="screen" type="text/css" />
 
-		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-		<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
 
-	    <!-- External JavaScripts
-    	============================================= -->
-	    <script type="text/javascript" src="{{ asset('assets/js/jquery.js')}}"></script>
-	    <script type="text/javascript" src="{{ asset('assets/js/plugins.js')}}"></script>
-        
+
+
+        <!-- External JavaScripts
+        ============================================= -->
+        <script type="text/javascript" src="{{ cdn('assets/js/jquery.js')}}"></script>
+        <script type="text/javascript" src="{{ cdn('assets/js/plugins.js')}}"></script>
+
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+        <![endif]-->
+
         <!-- Upload JavaScripts
-        ============================================= -->       
-        <script type="text/javascript" src="{{ asset('assets/js/jquery.fine-uploader.min.js')}}"></script>
+        ============================================= -->
+        <script type="text/javascript" src="{{ cdn('assets/js/jquery.fine-uploader.min.js')}}"></script>
         <!-- MixitUp JavaScripts
-        ============================================= -->  
+        ============================================= -->
 
         <!-- RS JavaScripts
         ============================================= -->
-        <script type="text/javascript" src="{{ asset('assets/js/rs/jquery.themepunch.revolution.min.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('assets/js/rs/jquery.themepunch.tools.min.js')}}"></script>
+        <script type="text/javascript" src="{{ cdn('assets/js/rs/jquery.themepunch.revolution.min.js')}}"></script>
+        <script type="text/javascript" src="{{ cdn('assets/js/rs/jquery.themepunch.tools.min.js')}}"></script>
 
 
+        {{--<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>--}}
 
-        {{-- Modal JS         --}}
 
+        {{-- Notification Aumatically Fade out --}}
+        <script type="text/javascript">
+            $(document).ready (function(){
+                $(".alert").alert();
+                window.setTimeout(function() {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                        $(this).remove();
+                    });
+                }, 5000);
+            });
 
-        {{--
-            <script type="text/javascript" src="{{ asset('assets/js/bootstrap-modal.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('assets/js/bootstrap-modalmanager.js')}}"></script>
-        --}}
+        </script>
+
 
 
         <!-- Google Anaytics -->
@@ -88,19 +97,7 @@
 
 
 
-               
-        {{-- Notification Aumatically Fade out --}}
-        <script type="text/javascript">
-            $(document).ready (function(){
-                $(".alert").alert();
-                window.setTimeout(function() {
-                    $(".alert").fadeTo(500, 0).slideUp(500, function(){
-                    $(this).remove(); 
-                    });
-                }, 5000);
-         });
 
-        </script>
 
 
        <style type="text/css">
@@ -154,8 +151,8 @@
                     <!-- Logo
                     ============================================= -->
                     <div id="logo">
-                         <a href="{{ route('home') }}" class="standard-logo" data-dark-logo="{{ asset('assets/others/icons/logo-dark.png') }}"><img src="{{ asset('assets/others/icons/logo-dark.png') }}" alt="Tiaopc Logo"></a>
-                            <a href="{{ route('home') }}" class="retina-logo" data-dark-logo="{{ asset('assets/others/icons/logo-dark.png') }}"><img src="{{ asset('assets/others/icons/logo-dark.png') }}" alt="Tiaopc Logo"></a>
+                         <a href="{{ route('home') }}" class="standard-logo" data-dark-logo="{{ cdn('assets/others/icons/logo-dark.png') }}"><img src="{{ cdn('assets/others/icons/logo-dark.png') }}" alt="Tiaopc Logo"></a>
+                            <a href="{{ route('home') }}" class="retina-logo" data-dark-logo="{{ cdn('assets/others/icons/logo-dark.png') }}"><img src="{{ cdn('assets/others/icons/logo-dark.png') }}" alt="Tiaopc Logo"></a>
                     </div><!-- #logo end -->
 
                     <!-- Primary Navigation
@@ -248,7 +245,7 @@
         ============================================= -->
         <!-- Footer
         ============================================= -->
-        <footer id="footer" class="dark" style="background: url({{ asset('assets/others/footer-bg.jpg')}}) repeat; background-size: 100% 100%;">
+        <footer id="footer" class="dark" style="background: url({{ cdn('assets/others/footer-bg.jpg')}}) repeat; background-size: 100% 100%;">
 
             <div class="container">
 
@@ -291,7 +288,18 @@
 
     <!-- Footer Scripts
     ============================================= -->
-    <script type="text/javascript" src="{{ asset('assets/js/functions.js') }}"></script>
-    </body
+
+    <script type="text/javascript" src="{{ cdn('assets/js/functions.js') }}"></script>
+
+
+    {{-- Modal JS         --}}
+
+
+    {{--
+        <script type="text/javascript" src="{{ cdn('assets/js/bootstrap-modal.js')}}"></script>
+    <script type="text/javascript" src="{{ cdn('assets/js/bootstrap-modalmanager.js')}}"></script>
+    --}}
+
+</body>
 
 </html>

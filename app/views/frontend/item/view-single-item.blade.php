@@ -53,7 +53,7 @@
                                     <div class="slider-wrap" data-lightbox="gallery">
                                         @foreach ($pictures as $picture)
 
-                                        <div class="slide"><a href={{asset("assets/new_img/$picture->picture_name")}} title="#" data-lightbox="gallery-item"><img src={{asset("assets/new_img/$picture->picture_name")}} alt="Pink Printed Dress"></a></div>
+                                        <div class="slide"><a href={{asset("assets/new_img/$picture->picture_name")}} title="#" data-lightbox="gallery-item"><img src={{cdn("assets/new_img/$picture->picture_name")}} alt="Pink Printed Dress"></a></div>
                                             
                                         @endforeach
                                     </div>
