@@ -149,7 +149,7 @@ About Us
                         <div class="col-md-6 bottommargin">
                             <div class="team team-list clearfix">
                                 <div class="team-image">
-                                    <img src="{{ asset('assets/others/team/wangyue.jpg')}}" alt="王悦">
+                                    <img src="{{ cdn('assets/others/team/wangyue.jpg')}}" alt="王悦">
                                 </div>
                                 <div class="team-desc">
                                     <div class="team-title"><h4>王悦</h4><span>Full Stack</span></div>
@@ -182,7 +182,7 @@ About Us
                         <div class="col-md-6 bottommargin">
                             <div class="team team-list clearfix">
                                 <div class="team-image">
-                                    <img src="{{ asset('assets/others/team/xiaoyang.jpg')}}" alt="王潇阳">
+                                    <img src="{{ cdn('assets/others/team/xiaoyang.jpg')}}" alt="王潇阳">
                                 </div>
                                 <div class="team-desc">
                                     <div class="team-title"><h4>王潇阳</h4><span>程序媛</span></div>
@@ -216,7 +216,7 @@ About Us
                         <div class="col-md-6 bottommargin">
                             <div class="team team-list clearfix">
                                 <div class="team-image">
-                                    <img src="{{ asset('assets/others/team/runze.jpg')}}" alt="吴润泽">
+                                    <img src="{{ cdn('assets/others/team/runze.jpg')}}" alt="吴润泽">
                                 </div>
                                 <div class="team-desc">
                                     <div class="team-title"><h4>吴润泽</h4><span>双鱼男</span></div>
@@ -244,7 +244,7 @@ About Us
                         <div class="col-md-6 bottommargin">
                             <div class="team team-list clearfix">
                                 <div class="team-image">
-                                    <img src="{{ asset('assets/others/team/zengge.jpg')}}" alt="曾昊山">
+                                    <img src="{{ cdn('assets/others/team/zengge.jpg')}}" alt="曾昊山">
                                 </div>
                                 <div class="team-desc">
                                     <div class="team-title"><h4>曾昊山</h4><span>ZHS</span></div>
@@ -284,7 +284,7 @@ About Us
                         <div class="col-md-6 bottommargin">
                             <div class="team team-list clearfix">
                                 <div class="team-image">
-                                    <img src="{{ asset('assets/others/team/pengge.jpg')}}" alt="杨昊鹏">
+                                    <img src="{{ cdn('assets/others/team/pengge.jpg')}}" alt="杨昊鹏">
                                 </div>
                                 <div class="team-desc">
                                     <div class="team-title"><h4>杨昊鹏</h4><span>幸福的拾荒者</span></div>
@@ -315,7 +315,7 @@ About Us
                         <div class="col-md-6 bottommargin">
                             <div class="team team-list clearfix">
                                 <div class="team-image">
-                                    <img src="{{ asset('assets/others/team/wenhao.jpg')}}" alt="">
+                                    <img src="{{ cdn('assets/others/team/wenhao.jpg')}}" alt="">
                                 </div>
                                 <div class="team-desc">
                                     <div class="team-title"><h4>未知</h4><span>未知</span></div>
