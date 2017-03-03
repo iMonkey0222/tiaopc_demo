@@ -1,7 +1,19 @@
 # 1. What is Tiaopc?
 Tiaopc.com is a second-hand items trade platform, specialised in the item infomation exchange and security of seller info. 
-The official website is [Tiaopc][3]
-***
+演示地址在 http://tiaopc.imink.net
+
+演示账户 test@test.com
+密码 test123
+
+#### Screenshots
+![1](http://om73fjcgf.bkt.clouddn.com/Screen%20Shot%202017-03-03%20at%2012.13.43%20AM.png)
+
+![2](http://om73fjcgf.bkt.clouddn.com/Screen%20Shot%202017-03-03%20at%2012.16.32%20AM.png)
+
+![3](http://om73fjcgf.bkt.clouddn.com/Screen%20Shot%202017-03-03%20at%2012.16.21%20AM.png)
+
+![4](http://om73fjcgf.bkt.clouddn.com/Screen%20Shot%202017-03-03%20at%2012.14.39%20AM.png)
+
 
 # 2. About Tiaopc Website
 The development of the website starts from Dec. 2014. And the version 1.o will be released on 20th Mar. 2015. It achieve basic requirements: register, sinup/in, publish item. request item and user account management.
@@ -22,4 +34,4 @@ Some development details as follow:
 
 [1]:http://themeforest.net/item/canvas-the-multipurpose-html5-template/9228123
 [2]:https://forge.laravel.com
-[3]:http://tiaopc.com
+[3]:http://tiaopc.imink.net
