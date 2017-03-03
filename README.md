@@ -3,6 +3,7 @@ Tiaopc.com is a second-hand items trade platform, specialised in the item infoma
 演示地址在 http://tiaopc.imink.net
 
 演示账户 test@test.com
+
 密码 test123
 
 #### Screenshots
@@ -26,11 +27,6 @@ Some development details as follow:
 
 ***
 
-# 3. For test user entry 
-* For visitor, you can browser the items and other pages about out website and out team.
-* For anyone who want to have a visit, you can get a limit access with the account info below:
-    * login email: test@test.com
-    * login password: test2015
 
 [1]:http://themeforest.net/item/canvas-the-multipurpose-html5-template/9228123
 [2]:https://forge.laravel.com
